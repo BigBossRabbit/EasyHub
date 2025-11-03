@@ -2,9 +2,12 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import Index from "./pages/Index";
+import EasySatsHub from "./pages/EasySatsHub";
+import FreedomTech from "./pages/FreedomTech";
+import TimeForce from "./pages/TimeForce";
+import Jobs from "./pages/Jobs";
 import Install from "./pages/Install";
 import NotFound from "./pages/NotFound";
 
@@ -18,7 +21,10 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<EasySatsHub />} />
+            <Route path="/freedomtech" element={<FreedomTech />} />
+            <Route path="/timeforce" element={<TimeForce />} />
+            <Route path="/jobs" element={<Jobs />} />
             <Route path="/install" element={<Install />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
