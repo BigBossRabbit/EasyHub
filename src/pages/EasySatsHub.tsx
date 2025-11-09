@@ -23,11 +23,11 @@ const EasySatsHub = () => {
             </p>
           </div>
           <nav className="flex justify-center gap-8 mt-6 text-sm font-serif border-t border-b border-border py-3">
-            <a href="#" className="hover:text-primary transition-colors uppercase tracking-wide">About</a>
-            <Link to="/jobs" className="hover:text-primary transition-colors uppercase tracking-wide">Jobs</Link>
+            <Link to="/about" className="hover:text-primary transition-colors uppercase tracking-wide">About</Link>
+            <Link to="/easyjobs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
             <Link to="/timeforce" className="hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
-            <a href="#" className="hover:text-primary transition-colors uppercase tracking-wide">TPOK</a>
-            <Link to="/freedomtech" className="hover:text-primary transition-colors uppercase tracking-wide">FreedomTech</Link>
+            <Link to="/tpok" className="hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
+            <Link to="/easydevs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
             <Link to="/install" className="hover:text-primary transition-colors uppercase tracking-wide">Install PWA</Link>
           </nav>
         </div>
@@ -64,10 +64,10 @@ const EasySatsHub = () => {
                 <Link to="/timeforce">Join TimeForce</Link>
               </Button>
               <Button size="lg" variant="outline" className="font-serif" asChild>
-                <Link to="/jobs">Earn Bitcoin</Link>
+                <Link to="/easyjobs">Earn Bitcoin</Link>
               </Button>
               <Button size="lg" variant="outline" className="font-serif" asChild>
-                <Link to="/freedomtech">Build the Future</Link>
+                <Link to="/easydevs">Build the Future</Link>
               </Button>
             </div>
           </div>

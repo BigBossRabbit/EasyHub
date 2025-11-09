@@ -5,10 +5,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import EasySatsHub from "./pages/EasySatsHub";
-import FreedomTech from "./pages/FreedomTech";
+import EasyDevs from "./pages/EasyDevs";
 import TimeForce from "./pages/TimeForce";
-import Jobs from "./pages/Jobs";
+import EasyJobs from "./pages/EasyJobs";
 import Install from "./pages/Install";
+import About from "./pages/About";
+import TPOK from "./pages/TPOK";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,10 +24,12 @@ const App = () => (
         <BrowserRouter basename="/EasyHub">
           <Routes>
             <Route path="/" element={<EasySatsHub />} />
-            <Route path="/freedomtech" element={<FreedomTech />} />
+            <Route path="/easydevs" element={<EasyDevs />} />
             <Route path="/timeforce" element={<TimeForce />} />
-            <Route path="/jobs" element={<Jobs />} />
+            <Route path="/easyjobs" element={<EasyJobs />} />
             <Route path="/install" element={<Install />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/tpok" element={<TPOK />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

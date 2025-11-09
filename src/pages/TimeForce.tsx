@@ -35,9 +35,9 @@ const TimeForce = () => {
             </Link>
             <nav className="hidden md:flex items-center gap-6 text-sm">
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
-              <Link to="/freedomtech" className="text-muted-foreground hover:text-primary transition-colors">~/freedomtech</Link>
+              <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
               <Link to="/timeforce" className="text-primary">~/timeforce</Link>
-              <Link to="/jobs" className="text-muted-foreground hover:text-primary transition-colors">~/jobs</Link>
+              <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
               <Link to="/install" className="text-muted-foreground hover:text-primary transition-colors">~/install</Link>
             </nav>
           </div>
@@ -71,9 +71,9 @@ const TimeForce = () => {
               Join TimeForce
             </Button>
             <Button size="lg" variant="outline" className="gap-2" asChild>
-              <Link to="/jobs">
+              <Link to="/easyjobs">
                 <Briefcase className="h-4 w-4" />
-                Find Bitcoin Jobs
+                Find EasyJobs
               </Link>
             </Button>
           </div>

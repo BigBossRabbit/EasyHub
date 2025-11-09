@@ -3,10 +3,10 @@ import { Terminal, Code2, GitBranch, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 
-const FreedomTech = () => {
+const EasyDevs = () => {
   return (
     <div className="min-h-screen bg-background text-foreground font-mono">
-      <Seo title="FreedomTech — Open Source Opportunities" description="Explore open source projects & opportunities in the Bitcoin & freedom technology space." canonical="/freedomtech" />
+      <Seo title="EasyDevs — Open Source Opportunities" description="Explore open source projects & opportunities in the Bitcoin & freedom technology space." canonical="/easydevs" />
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
@@ -23,9 +23,9 @@ const FreedomTech = () => {
             </Link>
             <nav className="hidden md:flex items-center gap-6 text-sm">
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
-              <Link to="/freedomtech" className="text-primary">~/freedomtech</Link>
+              <Link to="/easydevs" className="text-primary">~/easydevs</Link>
               <Link to="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</Link>
-              <Link to="/jobs" className="text-muted-foreground hover:text-primary transition-colors">~/jobs</Link>
+              <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
               <Link to="/install" className="text-muted-foreground hover:text-primary transition-colors">~/install</Link>
             </nav>
           </div>
@@ -40,7 +40,7 @@ const FreedomTech = () => {
               <span className="animate-pulse">loading_open_source_opportunities...</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              <span className="text-primary">&gt;</span> FreedomTech
+              <span className="text-primary">&gt;</span> EasyDevs
               <br />
               <span className="text-primary">&gt;</span> Open Source
               <br />
@@ -51,7 +51,7 @@ const FreedomTech = () => {
           <div className="bg-card border border-border rounded-lg p-6 space-y-4">
             <div className="flex items-center gap-2 text-primary">
               <Code2 className="h-5 w-5" />
-              <span className="font-semibold">// About FreedomTech</span>
+              <span className="font-semibold">// About EasyDevs</span>
             </div>
             <p className="text-muted-foreground leading-relaxed">
               Explore open source projects & opportunities in the Bitcoin & freedom technology space. 
@@ -203,4 +203,4 @@ const FreedomTech = () => {
   );
 };
 
-export default FreedomTech;
+export default EasyDevs;

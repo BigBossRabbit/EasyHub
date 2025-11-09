@@ -13,10 +13,10 @@ import {
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 
-const Jobs = () => {
+const EasyJobs = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Seo title="Bitcoin Jobs — Earn Sats" description="Turn your existing skills into Bitcoin earnings. Find remote opportunities that pay in the world's hardest money." canonical="/jobs" />
+      <Seo title="EasyJobs — Earn Sats" description="Turn your existing skills into Bitcoin earnings. Find remote opportunities that pay in the world's hardest money." canonical="/easyjobs" />
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
@@ -33,9 +33,9 @@ const Jobs = () => {
             </Link>
             <nav className="hidden md:flex items-center gap-6 text-sm">
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
-              <Link to="/freedomtech" className="text-muted-foreground hover:text-primary transition-colors">~/freedomtech</Link>
+              <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
               <Link to="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</Link>
-              <Link to="/jobs" className="text-primary">~/jobs</Link>
+              <Link to="/easyjobs" className="text-primary">~/easyjobs</Link>
               <Link to="/install" className="text-muted-foreground hover:text-primary transition-colors">~/install</Link>
             </nav>
           </div>
@@ -47,11 +47,11 @@ const Jobs = () => {
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm mb-4">
             <span className="text-primary">$</span>
-            <span className="animate-pulse">loading_bitcoin_jobs...</span>
+            <span className="animate-pulse">loading_easyjobs...</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            <span className="text-primary">&gt;</span> Bitcoin Jobs
+            <span className="text-primary">&gt;</span> EasyJobs
             <br />
             <span className="text-primary">&gt;</span> Earn Sats
             <br />
@@ -66,14 +66,13 @@ const Jobs = () => {
           <div className="flex gap-4 justify-center">
             <Button size="lg" className="gap-2">
               <Briefcase className="h-4 w-4" />
-              Browse Jobs
+              Browse EasyJobs
             </Button>
-            <Button size="lg" variant="outline" className="gap-2">
-              <ExternalLink className="h-4 w-4" />
+            <Button size="lg" variant="outline" className="gap-2" asChild>
               <a href="https://bitcoinerjobs.com/" target="_blank" rel="noopener noreferrer">
-              Open External Link
+                <ExternalLink className="h-4 w-4" />
+                Visit Bitcoiner Jobs
               </a>
-              Visit Bitcoiner Jobs
             </Button>
           </div>
         </div>
@@ -178,7 +177,7 @@ const Jobs = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">
-              <span className="text-primary">&gt;</span> Remote Bitcoin Jobs
+              <span className="text-primary">&gt;</span> Remote EasyJobs
             </h2>
             <p className="text-xl text-muted-foreground">
               Browse opportunities from Bitcoiner Jobs - the premier global Bitcoin job board
@@ -235,11 +234,11 @@ const Jobs = () => {
                 <p className="text-sm text-muted-foreground">
                   Having trouble viewing jobs?
                 </p>
-                <Button variant="outline" className="gap-2">
-                  <ExternalLink className="h-4 w-4" />
+                <Button variant="outline" className="gap-2" asChild>
                   <a href="https://bitcoinerjobs.com/" target="_blank" rel="noopener noreferrer">
-                  Open Bitcoiner Jobs Website
-              </a>
+                    <ExternalLink className="h-4 w-4" />
+                    Open Bitcoiner Jobs Website
+                  </a>
                 </Button>
               </div>
             </div>
@@ -320,20 +319,23 @@ const Jobs = () => {
                   New to Bitcoin? Start your journey with these resources:
                 </p>
                 <div className="space-y-2">
-                  <Button variant="outline" size="sm" className="w-full justify-start gap-2">
-                    <ExternalLink className="h-3 w-3" /> 
+                  <Button variant="outline" size="sm" className="w-full justify-start gap-2" asChild>
                     <a href="https://planb.network/en/courses?topics=bitcoin" target="_blank" rel="noopener noreferrer">
-                    PlanB - Fee Bitcoin Education Courses
+                      <ExternalLink className="h-3 w-3" /> 
+                      PlanB - Free Bitcoin Education Courses
                     </a>
-
                   </Button>
-                  <Button variant="outline" size="sm" className="w-full justify-start gap-2">
-                    <ExternalLink className="h-3 w-3" />
-                    Lightning Network Guide
+                  <Button variant="outline" size="sm" className="w-full justify-start gap-2" asChild>
+                    <a href="https://www.lynalden.com/lightning-network/" target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-3 w-3" />
+                      Lightning Network Guide
+                    </a>
                   </Button>
-                  <Button variant="outline" size="sm" className="w-full justify-start gap-2">
-                    <ExternalLink className="h-3 w-3" />
-                    Bitcoin Developer Resources
+                  <Button variant="outline" size="sm" className="w-full justify-start gap-2" asChild>
+                    <a href="https://bitcoin.org/en/developer-documentation" target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="h-3 w-3" />
+                      Bitcoin Developer Resources
+                    </a>
                   </Button>
                 </div>
               {/* Bitcoiner Jobs Embed */}
@@ -375,11 +377,11 @@ const Jobs = () => {
               Your skills are valuable. Make sure you're paid in the hardest money ever created.
             </p>
             <div className="flex gap-4 justify-center">
-              <Button size="lg" className="gap-2">
-                <Briefcase className="h-4 w-4" />
+              <Button size="lg" className="gap-2" asChild>
                 <a href="https://bitcoinerjobs.com/" target="_blank" rel="noopener noreferrer">
-                Browse Jobs Now
-              </a>
+                  <Briefcase className="h-4 w-4" />
+                  Browse EasyJobs Now
+                </a>
               </Button>
               <Button size="lg" variant="outline" className="gap-2">
                 <Link to="/timeforce" className="flex items-center gap-2">
@@ -398,4 +400,4 @@ const Jobs = () => {
   );
 };
 
-export default Jobs;
+export default EasyJobs;
