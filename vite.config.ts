@@ -6,6 +6,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "/EasyHub/",
   server: {
     host: "::",
     port: 8080,
@@ -16,8 +17,8 @@ export default defineConfig(({ mode }) => ({
       registerType: "autoUpdate",
       injectRegister: "auto",
       manifest: {
-        name: "Rabbit PWA Craft",
-        short_name: "Rabbit PWA Craft",
+        name: "EasyHub",
+        short_name: "EasyHub",
         description: "A Progressive Web App built with Vite, React, TypeScript, and shadcn-ui.",
         start_url: "/",
         display: "standalone",
