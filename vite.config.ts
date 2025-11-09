@@ -19,9 +19,9 @@ export default defineConfig(({ mode }) => ({
       manifest: {
         name: "EasyHub",
         short_name: "EasyHub",
-        description: "A Progressive Web App built with Vite, React, TypeScript, and shadcn-ui.",
-        start_url: "/EasyHub/",
-        scope: "/EasyHub/",
+        description: "Making it Easy to find everything in one place",
+        start_url: "/",
+        scope: "/",
         display: "standalone",
         background_color: "#000000",
         theme_color: "#000000",
