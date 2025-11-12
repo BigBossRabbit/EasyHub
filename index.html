@@ -3,22 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Immediately apply dark mode to prevent FOUC
+      document.documentElement.classList.add('dark');
+    </script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for(let registration of registrations) {
+            registration.unregister();
+          }
+        });
+      }
+    </script>
     <title>EasyHub</title>
-    <link rel="icon" href="/EasyHub/favicon.ico">
-    <meta name="description" content="A Progressive Web App built with Vite, React, TypeScript, and shadcn-ui." />
+    <link rel="icon" href="./favicon.ico">
+    <meta name="description" content="Making it Easy to find everything in one place" />
     <meta name="author" content="" />
 
     <meta property="og:title" content="EasyHub" />
-    <meta property="og:description" content="A Progressive Web App built with Vite, React, TypeScript, and shadcn-ui." />
+    <meta property="og:description" content="Making it Easy to find everything in one place" />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="" />
     <meta name="twitter:image" content="" />
-    <script type="module" crossorigin src="/EasyHub/assets/index-Blj9y44p.js"></script>
-    <link rel="stylesheet" crossorigin href="/EasyHub/assets/index-BljqHhWu.css">
-  <link rel="manifest" href="/EasyHub/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/EasyHub/registerSW.js"></script></head>
+    <script type="module" crossorigin src="./assets/index-BZjIXLAB.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BljqHhWu.css">
+  <link rel="manifest" href="./manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="./registerSW.js"></script></head>
 
   <body>
     <div id="root"></div>
