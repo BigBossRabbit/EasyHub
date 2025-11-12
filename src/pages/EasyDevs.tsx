@@ -21,7 +21,7 @@ const EasyDevs = () => {
                 </span>
               </div>
             </Link>
-            <nav className="flex flex-wrap justify-center md:justify-end items-center gap-6 text-sm mt-4 md:mt-0">
+            <nav className="flex flex-wrap justify-center md:justify-end items-center gap-x-2 gap-y-1 md:gap-6 text-xs md:text-sm mt-4 md:mt-0">
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
               <Link to="/easydevs" className="text-primary">~/easydevs</Link>
               <Link to="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</Link>
