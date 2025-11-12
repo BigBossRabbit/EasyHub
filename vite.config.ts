@@ -6,7 +6,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/EasyHub/",
+  base: "./",
   server: {
     host: "::",
     port: 8080,
@@ -20,8 +20,8 @@ export default defineConfig(({ mode }) => ({
         name: "EasyHub",
         short_name: "EasyHub",
         description: "Making it Easy to find everything in one place",
-        start_url: "/EasyHub/",
-        scope: "/EasyHub/",
+        start_url: ".",
+        scope: ".",
         display: "standalone",
         background_color: "#000000",
         theme_color: "#000000",
@@ -31,7 +31,8 @@ export default defineConfig(({ mode }) => ({
         ],
       },
       workbox: {
-        globPatterns: ["**/*.{js,css,html,svg,png,ico}"]
+        globPatterns: ["**/*.{js,css,html,svg,png,ico}"],
+        cleanupOutdatedCaches: true,
       },
       devOptions: {
         enabled: mode === "development",

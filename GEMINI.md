@@ -2,6 +2,21 @@
 
 This file tracks the tasks performed by the Gemini assistant on the `EasyHub` project.
 
+## November 12, 2025
+
+### Task: Fix GitHub Pages Deployment
+
+*   **Problem:** User reported that the GitHub Pages site shows a blank white page after changes related to an "InfinityFree" deployment.
+*   **Investigation:**
+    *   Checked `src/App.tsx`: `BrowserRouter` `basename` was correct for the old strategy.
+    *   Checked `vite.config.ts` and found conflicting changes.
+*   **Conflict Resolution and Fix:**
+    *   A merge conflict occurred when pulling from remote. The remote had `base: "./"` while local history expected `base: "/EasyHub/"`.
+    *   Adopted the `base: "./"` strategy for better portability.
+    *   Resolved conflict in `vite.config.ts` by setting `base: "./"` and PWA `start_url` and `scope` to `.`.
+    *   Resolved conflict in `GEMINI.md` by overwriting with the latest session log.
+    *   Preparing to modify `src/App.tsx` to remove the `basename` prop, making it compatible with the relative pathing strategy.
+
 ## November 9, 2025
 
 ### Task: PWA and Deployment Configuration
