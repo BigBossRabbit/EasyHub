@@ -31,7 +31,7 @@ const EasyJobs = () => {
                 </span>
               </div>
             </Link>
-            <nav className="hidden md:flex items-center gap-6 text-sm">
+            <nav className="flex flex-wrap justify-center md:justify-end items-center gap-6 text-sm mt-4 md:mt-0">
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
               <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
               <Link to="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</Link>
@@ -63,7 +63,7 @@ const EasyJobs = () => {
             that pay in the world's hardest money.
           </p>
           
-          <div className="flex gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center">
             <Button size="lg" className="gap-2">
               <Briefcase className="h-4 w-4" />
               Browse EasyJobs
@@ -210,7 +210,7 @@ const EasyJobs = () => {
               
               {/* Bitcoiner Jobs Embed */}
               <div className="w-full flex justify-center">
-                <div className="relative">
+                <div className="relative w-full">
                   {/* External website indicator */}
                   <div className="absolute -top-2 -right-2 z-10">
                     <div className="bg-orange-500 text-white text-xs px-2 py-1 rounded-full font-medium">
@@ -220,11 +220,10 @@ const EasyJobs = () => {
                   
                   <iframe 
                     src="https://bitcoinerjobs.com/embed/jobs?remote=true" 
-                    width="500" 
                     height="600" 
                     style={{border: 0, borderRadius: '8px', background: '#f0f0f0'}}
                     title="Bitcoiner Jobs Remote Bitcoin Jobs"
-                    className="rounded-lg"
+                    className="rounded-lg w-full"
                   />
                 </div>
               </div>
@@ -338,25 +337,6 @@ const EasyJobs = () => {
                     </a>
                   </Button>
                 </div>
-              {/* Bitcoiner Jobs Embed */}
-              <div className="w-full flex justify-center">
-                <div className="relative">
-                  {/* External website indicator */}
-                  <div className="absolute -top-2 -right-2 z-10">
-                    <div className="bg-orange-500 text-white text-xs px-2 py-1 rounded-full font-medium">
-                      External
-                    </div>
-                  </div>
-              </div>
-              
-              <iframe width="560" height="315" 
-              src="https://www.youtube.com/embed/w3hnFCfCo84?si=3wgDmVIognR9nIsq" 
-              title="YouTube video player" frameborder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerpolicy="strict-origin-when-cross-origin" 
-              allowfullscreen>
-              </iframe>
-            </div>
             </div>
             </div>
           </div>
@@ -376,7 +356,7 @@ const EasyJobs = () => {
             <p className="text-xl text-muted-foreground mb-6">
               Your skills are valuable. Make sure you're paid in the hardest money ever created.
             </p>
-            <div className="flex gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center">
               <Button size="lg" className="gap-2" asChild>
                 <a href="https://bitcoinerjobs.com/" target="_blank" rel="noopener noreferrer">
                   <Briefcase className="h-4 w-4" />

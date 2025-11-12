@@ -33,7 +33,7 @@ const TimeForce = () => {
                 </span>
               </div>
             </Link>
-            <nav className="hidden md:flex items-center gap-6 text-sm">
+            <nav className="flex flex-wrap justify-center md:justify-end items-center gap-6 text-sm mt-4 md:mt-0">
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
               <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
               <Link to="/timeforce" className="text-primary">~/timeforce</Link>
@@ -65,7 +65,7 @@ const TimeForce = () => {
             Keep it simple, stay confident & help others understand the power of true financial freedom.
           </p>
           
-          <div className="flex gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center">
             <Button size="lg" className="gap-2">
               <Users className="h-4 w-4" />
               Join TimeForce
@@ -284,17 +284,17 @@ const TimeForce = () => {
                 For those interested in joining the TimeForce & what that means for your ability to earn.
                 Sign-up a Sub-vendor & earn your percentage of their Subscription.
               </p>
-                <div className="flex justify-between items-center">
+                <div className="flex flex-wrap justify-between items-center gap-2">
                   <span className="text-sm">0-10 Sub-vendors</span>
-                  <span className="font-semibold text-primary">70% EasySats / 30% You</span>
+                  <span className="font-semibold text-primary text-right">70% EasySats / 30% You</span>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex flex-wrap justify-between items-center gap-2">
                   <span className="text-sm">11-20 Sub-vendors</span>
-                  <span className="font-semibold text-primary">60% EasySats / 40% You</span>
+                  <span className="font-semibold text-primary text-right">60% EasySats / 40% You</span>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex flex-wrap justify-between items-center gap-2">
                   <span className="text-sm">20+ Sub-vendors</span>
-                  <span className="font-semibold text-primary">50% EasySats / 50% You</span>
+                  <span className="font-semibold text-primary text-right">50% EasySats / 50% You</span>
                 </div>
               </div>
             </div>
@@ -321,7 +321,7 @@ const TimeForce = () => {
                 <h3 className="text-xl font-semibold">Open-Source Books</h3>
               </div>
               <ul className="space-y-3">
-                <li className="flex items-center justify-between">
+                <li className="flex flex-wrap items-center justify-between gap-2">
                   <span>The Bitcoin Whitepaper - In various Languages</span>
                   <Button variant="outline" size="sm" className="gap-2" asChild>
                     <a href="https://exonumia.africa/" target="_blank" rel="noopener noreferrer">
@@ -330,7 +330,7 @@ const TimeForce = () => {
                     </a>
                   </Button>
                 </li>
-                <li className="flex items-center justify-between">
+                <li className="flex flex-wrap items-center justify-between gap-2">
                   <span>The Simplest Bitcoin Book Ever Written - by Knut Svanholm</span>
                   <Button variant="outline" size="sm" className="gap-2" asChild>
                     <a href="https://thesimplestbitcoinbook.net/#Free-Download" target="_blank" rel="noopener noreferrer">
@@ -348,7 +348,7 @@ const TimeForce = () => {
                 <h3 className="text-xl font-semibold">Education & Articles</h3>
               </div>
               <ul className="space-y-3">
-                <li className="flex items-center justify-between">
+                <li className="flex flex-wrap items-center justify-between gap-2">
                   <span>A Look at the Lightning Network - by Lyn Alden</span>
                   <Button variant="outline" size="sm" className="gap-2" asChild>
                     <a href="https://www.lynalden.com/lightning-network/" target="_blank" rel="noopener noreferrer">
@@ -357,7 +357,7 @@ const TimeForce = () => {
                     </a>
                   </Button>
                 </li>
-                <li className="flex items-center justify-between">
+                <li className="flex flex-wrap items-center justify-between gap-2">
                   <span>The Saylor Academy - Bitcoin for Everybody</span>
                   <Button variant="outline" size="sm" className="gap-2" asChild>
                     <a href="https://learn.saylor.org/course/view.php?id=468" target="_blank" rel="noopener noreferrer">

@@ -4,18 +4,50 @@ This file tracks the tasks performed by the Gemini assistant on the `EasyHub` pr
 
 ## November 12, 2025
 
-### Task: Fix GitHub Pages Deployment
+### Task: Site-wide Responsiveness Audit and Fix
 
-*   **Problem:** User reported that the GitHub Pages site shows a blank white page after changes related to an "InfinityFree" deployment.
-*   **Investigation:**
-    *   Checked `src/App.tsx`: `BrowserRouter` `basename` was correct for the old strategy.
-    *   Checked `vite.config.ts` and found conflicting changes.
-*   **Conflict Resolution and Fix:**
-    *   A merge conflict occurred when pulling from remote. The remote had `base: "./"` while local history expected `base: "/EasyHub/"`.
-    *   Adopted the `base: "./"` strategy for better portability.
-    *   Resolved conflict in `vite.config.ts` by setting `base: "./"` and PWA `start_url` and `scope` to `.`.
-    *   Resolved conflict in `GEMINI.md` by overwriting with the latest session log.
-    *   Preparing to modify `src/App.tsx` to remove the `basename` prop, making it compatible with the relative pathing strategy.
+*   **Problem:** User reported that multiple pages are not responsive on mobile devices, specifically mentioning the `EasyJobs` page and its `iframe`.
+*   **Action:** Performed an audit of all pages and applied responsiveness fixes.
+*   **`EasyJobs.tsx`:**
+    *   Made the embedded Bitcoiner Jobs `iframe` responsive by setting its width to 100%.
+    *   Removed a misplaced YouTube `iframe`.
+    *   Fixed the main navigation, which was hidden on mobile, by making it wrap.
+    *   Made the button groups in the hero and call-to-action sections wrap on mobile.
+*   **`EasyDevs.tsx`:**
+    *   Fixed the main navigation, which was hidden on mobile, by making it wrap.
+*   **`TimeForce.tsx`:**
+    *   Fixed the main navigation to wrap on mobile.
+    *   Made the hero button group wrap on mobile.
+    *   Made the "Profit Share" table rows wrap on mobile.
+    *   Made the "Resources" lists wrap on mobile to prevent overflow.
+*   **`About.tsx` & `TPOK.tsx`:**
+    *   Reviewed and confirmed these pages are already responsive. No changes needed.
+*   **Status:** All pages have been reviewed and fixed. Preparing to deploy the changes.
+
+### Task: Fix GitHub Pages Deployment (Round 2)
+
+*   **Problem:** After deploying a fix, the site loaded but showed a 404 error for the route `/EasyHub/`.
+*   **Analysis:** The previous fix used a relative `base: "./"` path in Vite, but did not account for the sub-directory in React Router, causing the router to see `/EasyHub/` as an invalid route.
+*   **Action:** Reverted the deployment strategy to use an absolute `base: "/EasyHub/"` in `vite.config.ts` and the corresponding `basename="/EasyHub"` in `BrowserRouter` in `src/App.tsx`.
+*   **Result:** Redeployed the site with the correct configuration, which resolved the routing error.
+
+### Task: Fix Initial Mobile Responsiveness
+
+*   **Problem:** User reported the site was not displaying properly on mobile.
+*   **Analysis:** Found that the header navigation and a button group on the main page (`EasySatsHub.tsx`) were not wrapping on mobile screens. Also found a script that was disabling the PWA service worker.
+*   **Action:**
+    *   Applied `flex-wrap` to the navigation and button group containers to allow them to stack vertically on small screens.
+    *   Removed the service worker un-registration script from `index.html`.
+*   **Result:** Deployed the fix for the main page.
+
+### Task: Fix GitHub Pages Deployment (Round 1)
+
+*   **Problem:** User reported that the GitHub Pages site shows a blank white page.
+*   **Investigation & Conflict Resolution:**
+    *   Found and corrected an incorrect PWA `start_url` and `scope` in `vite.config.ts`.
+    *   Encountered and resolved a `git` merge conflict, adopting a `base: "./"` strategy temporarily.
+    *   Removed the `basename` from `BrowserRouter` to match the relative strategy.
+*   **Result:** Deployed the changes, which led to the Round 2 problem.
 
 ## November 9, 2025
 
