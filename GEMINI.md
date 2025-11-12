@@ -4,6 +4,13 @@ This file tracks the tasks performed by the Gemini assistant on the `EasyHub` pr
 
 ## November 12, 2025
 
+### Task: Fix Homepage Title/Subtitle Visibility on Mobile
+
+*   **Problem:** User reported that the main title and subtitle on the homepage (`EasySatsHub.tsx`) were missing on mobile devices.
+*   **Analysis:** During the hamburger menu implementation, `hidden md:block` classes were mistakenly added to these elements, hiding them on mobile.
+*   **Action:** Removed `hidden md:block` classes from the `<h1>` and `<p>` tags for the main title and subtitle. Adjusted font sizes (`text-3xl sm:text-4xl md:text-5xl` for `<h1>` and `text-xs sm:text-sm` for `<p>`) to ensure mobile responsiveness without overflow.
+*   **Status:** Fix applied to `EasySatsHub.tsx`. Preparing to deploy.
+
 ### Task: Implement Hamburger Menu for Mobile Navigation
 
 *   **Problem:** User reported that mobile navigation spacing was still problematic, and requested a hamburger menu for a better user experience.

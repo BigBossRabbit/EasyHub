@@ -18,10 +18,10 @@ const EasySatsHub = () => {
                 <img src="easysats-logo.png" alt="EasySats" className="h-12 w-12" />
                 <div className="h-px flex-1 bg-primary md:hidden"></div>
               </div>
-              <h1 className="text-5xl font-serif font-bold tracking-wider hidden md:block">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-wider">
                 THE EASYSATS CHRONICLE
               </h1>
-              <p className="text-sm text-muted-foreground tracking-widest hidden md:block">
+              <p className="text-xs sm:text-sm text-muted-foreground tracking-widest">
                 BUILDING TOMORROW, TODAY • EST. BLOCKHEIGHT 736,253 • NAMIBIA
               </p>
             </div>
