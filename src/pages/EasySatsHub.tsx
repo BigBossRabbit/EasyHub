@@ -22,7 +22,7 @@ const EasySatsHub = () => {
               BUILDING TOMORROW, TODAY • EST. BLOCKHEIGHT 736,253 • NAMIBIA
             </p>
           </div>
-          <nav className="flex justify-center gap-8 mt-6 text-sm font-serif border-t border-b border-border py-3">
+          <nav className="flex flex-wrap justify-center gap-x-8 gap-y-2 mt-6 text-sm font-serif border-t border-b border-border py-3">
             <Link to="/about" className="hover:text-primary transition-colors uppercase tracking-wide">About</Link>
             <Link to="/easyjobs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
             <Link to="/timeforce" className="hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
@@ -58,7 +58,7 @@ const EasySatsHub = () => {
               </p>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <Button size="lg" className="font-serif">Read Full Story</Button>
               <Button size="lg" variant="outline" className="font-serif" asChild>
                 <Link to="/timeforce">Join TimeForce</Link>
