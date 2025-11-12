@@ -8,10 +8,13 @@ import {
   Zap,
   Users,
   Globe,
-  ArrowRight
+  ArrowRight,
+  Menu
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
+import { useState } from "react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const EasyJobs = () => {
   return (
@@ -31,13 +34,35 @@ const EasyJobs = () => {
                 </span>
               </div>
             </Link>
-            <nav className="flex flex-wrap justify-center md:justify-end items-center gap-x-2 gap-y-1 md:gap-6 text-xs md:text-sm mt-4 md:mt-0">
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center gap-6 text-sm">
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
               <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
               <Link to="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</Link>
               <Link to="/easyjobs" className="text-primary">~/easyjobs</Link>
               <Link to="/install" className="text-muted-foreground hover:text-primary transition-colors">~/install</Link>
             </nav>
+
+            {/* Mobile Navigation (Hamburger Menu) */}
+            <div className="flex md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="outline" size="icon">
+                    <Menu className="h-6 w-6" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right">
+                  <nav className="flex flex-col gap-4 pt-8">
+                    <Link to="/" className="text-lg font-semibold hover:text-primary transition-colors">~/home</Link>
+                    <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors">~/easydevs</Link>
+                    <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
+                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
+                    <Link to="/install" className="text-lg font-semibold hover:text-primary transition-colors">~/install</Link>
+                  </nav>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
         </div>
       </header>

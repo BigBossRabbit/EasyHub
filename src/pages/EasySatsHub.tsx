@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { Newspaper } from "lucide-react";
+import { Newspaper, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
+import { useState } from "react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const EasySatsHub = () => {
   return (
@@ -9,27 +11,52 @@ const EasySatsHub = () => {
       <Seo title="EasySats Chronicle" description="Namibia's First Bitcoin Revolution: Easy, Accessible & Unstoppable" />
       <header className="border-b-4 border-primary bg-card">
         <div className="container mx-auto px-6 py-8">
-          <div className="text-center space-y-2">
-            <div className="flex items-center justify-center gap-3 mb-2">
-              <div className="h-px flex-1 bg-primary"></div>
-              <img src="easysats-logo.png" alt="EasySats" className="h-12 w-12" />
-              <div className="h-px flex-1 bg-primary"></div>
+          <div className="flex items-center justify-between">
+            <div className="text-center space-y-2 md:text-left">
+              <div className="flex items-center justify-center gap-3 mb-2 md:justify-start">
+                <div className="h-px flex-1 bg-primary md:hidden"></div>
+                <img src="easysats-logo.png" alt="EasySats" className="h-12 w-12" />
+                <div className="h-px flex-1 bg-primary md:hidden"></div>
+              </div>
+              <h1 className="text-5xl font-serif font-bold tracking-wider hidden md:block">
+                THE EASYSATS CHRONICLE
+              </h1>
+              <p className="text-sm text-muted-foreground tracking-widest hidden md:block">
+                BUILDING TOMORROW, TODAY • EST. BLOCKHEIGHT 736,253 • NAMIBIA
+              </p>
             </div>
-            <h1 className="text-5xl font-serif font-bold tracking-wider">
-              THE EASYSATS CHRONICLE
-            </h1>
-            <p className="text-sm text-muted-foreground tracking-widest">
-              BUILDING TOMORROW, TODAY • EST. BLOCKHEIGHT 736,253 • NAMIBIA
-            </p>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-serif border-t border-b border-border py-3">
+              <Link to="/about" className="hover:text-primary transition-colors uppercase tracking-wide">About</Link>
+              <Link to="/easyjobs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
+              <Link to="/timeforce" className="hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
+              <Link to="/tpok" className="hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
+              <Link to="/easydevs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
+              <Link to="/install" className="hover:text-primary transition-colors uppercase tracking-wide">Install PWA</Link>
+            </nav>
+
+            {/* Mobile Navigation (Hamburger Menu) */}
+            <div className="flex md:hidden">
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="outline" size="icon">
+                    <Menu className="h-6 w-6" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right">
+                  <nav className="flex flex-col gap-4 pt-8">
+                    <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">About</Link>
+                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
+                    <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
+                    <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
+                    <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
+                    <Link to="/install" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">Install PWA</Link>
+                  </nav>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
-          <nav className="flex flex-wrap justify-center gap-x-8 gap-y-2 mt-6 text-sm font-serif border-t border-b border-border py-3">
-            <Link to="/about" className="hover:text-primary transition-colors uppercase tracking-wide">About</Link>
-            <Link to="/easyjobs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
-            <Link to="/timeforce" className="hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
-            <Link to="/tpok" className="hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
-            <Link to="/easydevs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
-            <Link to="/install" className="hover:text-primary transition-colors uppercase tracking-wide">Install PWA</Link>
-          </nav>
         </div>
       </header>
 
