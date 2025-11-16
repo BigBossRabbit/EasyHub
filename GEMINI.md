@@ -2,6 +2,14 @@
 
 This file tracks the tasks performed by the Gemini assistant on the `EasyHub` project.
 
+## November 15, 2025
+
+### Task: Untrack dev-dist files
+
+*   **Problem:** `dev-dist/registerSW.js` and `dev-dist/sw.js` were being tracked by git despite `dev-dist/` being in `.gitignore`. This was due to the files being tracked before the `.gitignore` entry was added.
+*   **Action:** Removed `dev-dist/registerSW.js` and `dev-dist/sw.js` from the git index using `git rm --cached`.
+*   **Result:** The files are no longer tracked by git, and the working directory is clean.
+
 ## November 12, 2025
 
 ### Task: Fix Homepage Title/Subtitle Visibility on Mobile
