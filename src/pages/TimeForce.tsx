@@ -42,8 +42,8 @@ const TimeForce = () => {
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
               <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">~/about</Link>
               <Link to="/connect" className="text-muted-foreground hover:text-primary transition-colors">~/connect</Link>
-              <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
               <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
+              <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
               <Link to="/timeforce" className="text-primary">~/timeforce</Link>
               <Link to="/tpok" className="text-muted-foreground hover:text-primary transition-colors">~/tpok</Link>
               <Link to="/install" className="text-muted-foreground hover:text-primary transition-colors">~/install</Link>
@@ -62,8 +62,8 @@ const TimeForce = () => {
                     <Link to="/" className="text-lg font-semibold hover:text-primary transition-colors">~/home</Link>
                     <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors">~/about</Link>
                     <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors">~/connect</Link>
-                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
                     <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors">~/easydevs</Link>
+                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
                     <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
                     <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors">~/tpok</Link>
                     <Link to="/install" className="text-lg font-semibold hover:text-primary transition-colors">~/install</Link>
@@ -483,23 +483,24 @@ const TimeForce = () => {
                 </div>
               </div>
             </div>
-
-            <div className="mt-6 text-center">
-              <p className="text-sm text-muted-foreground">
-                Having trouble with the form?
-                <a
-                  href="https://easysats.okinent.org/register"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline ml-1"
-                >
-                  Open in new tab
-                </a>
-              </p>
-            </div>
           </div>
         </div>
+
+        <div className="mt-6 text-center">
+          <p className="text-sm text-muted-foreground">
+            Having trouble with the form?
+            <a
+              href="https://easysats.okinent.org/register"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline ml-1"
+            >
+              Open in new tab
+            </a>
+          </p>
+        </div>
       </section>
+      <Footer />
     </div>
   );
 };

@@ -30,8 +30,8 @@ const About = () => {
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
               <Link to="/about" className="text-primary">~/about</Link>
               <Link to="/connect" className="text-muted-foreground hover:text-primary transition-colors">~/connect</Link>
-              <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
               <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
+              <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
               <Link to="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</Link>
               <Link to="/tpok" className="text-muted-foreground hover:text-primary transition-colors">~/tpok</Link>
               <Link to="/install" className="text-muted-foreground hover:text-primary transition-colors">~/install</Link>
@@ -50,8 +50,8 @@ const About = () => {
                     <Link to="/" className="text-lg font-semibold hover:text-primary transition-colors">~/home</Link>
                     <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors">~/about</Link>
                     <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors">~/connect</Link>
-                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
                     <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors">~/easydevs</Link>
+                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
                     <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
                     <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors">~/tpok</Link>
                     <Link to="/install" className="text-lg font-semibold hover:text-primary transition-colors">~/install</Link>

@@ -16,6 +16,7 @@ import Seo from "@/components/Seo";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
+
 const EasyJobs = () => {
   return (
     <div className="min-h-screen text-foreground">
@@ -40,8 +41,8 @@ const EasyJobs = () => {
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
               <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">~/about</Link>
               <Link to="/connect" className="text-muted-foreground hover:text-primary transition-colors">~/connect</Link>
-              <Link to="/easyjobs" className="text-primary">~/easyjobs</Link>
               <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
+              <Link to="/easyjobs" className="text-primary">~/easyjobs</Link>
               <Link to="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</Link>
               <Link to="/tpok" className="text-muted-foreground hover:text-primary transition-colors">~/tpok</Link>
               <Link to="/install" className="text-muted-foreground hover:text-primary transition-colors">~/install</Link>
@@ -60,8 +61,8 @@ const EasyJobs = () => {
                     <Link to="/" className="text-lg font-semibold hover:text-primary transition-colors">~/home</Link>
                     <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors">~/about</Link>
                     <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors">~/connect</Link>
-                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
                     <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors">~/easydevs</Link>
+                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
                     <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
                     <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors">~/tpok</Link>
                     <Link to="/install" className="text-lg font-semibold hover:text-primary transition-colors">~/install</Link>
@@ -230,7 +231,7 @@ const EasyJobs = () => {
                 {/* Bitcoiner Jobs Branding */}
                 <div className="flex items-center justify-center gap-4 mb-4">
                   <div className="flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full">
-                    <img src="/1.png" alt="Bitcoiner Jobs" className="h-12 w-15" />
+                    <img src="/EasyHub/1.png" alt="Bitcoiner Jobs" className="h-12 w-15" />
                     <span className="text-xs font-medium text-primary">Powered by Bitcoiner Jobs</span>
                   </div>
                   <div className="text-xs text-muted-foreground">
@@ -379,7 +380,7 @@ const EasyJobs = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-card border border-primary/50 rounded-lg p-8">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <img src="/2.png" alt="Bitcoiner Jobs" className="h-12 w-21" />
+              <img src="/EasyHub/2.png" alt="Bitcoiner Jobs" className="h-12 w-21" />
               <h2 className="text-3xl font-bold">
                 Ready to Start Earning Bitcoin?
               </h2>

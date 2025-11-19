@@ -39,8 +39,8 @@ const EasySatsHub = () => {
                   <nav className="flex flex-col gap-4 pt-8">
                     <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">About</Link>
                     <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">Connect</Link>
-                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
                     <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
+                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
                     <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
                     <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
                     <Link to="/install" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">Install PWA</Link>
@@ -54,8 +54,8 @@ const EasySatsHub = () => {
           <nav className="hidden md:flex flex-wrap justify-between items-center gap-x-4 gap-y-2 text-sm font-serif border-t border-b border-border py-4 mt-8 w-full">
             <Link to="/about" className="hover:text-primary transition-colors uppercase tracking-wide">About</Link>
             <Link to="/connect" className="hover:text-primary transition-colors uppercase tracking-wide">Connect</Link>
-            <Link to="/easyjobs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
             <Link to="/easydevs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
+            <Link to="/easyjobs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
             <Link to="/timeforce" className="hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
             <Link to="/tpok" className="hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
             <Link to="/install" className="hover:text-primary transition-colors uppercase tracking-wide">Install PWA</Link>
@@ -125,7 +125,9 @@ const EasySatsHub = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-4 justify-center mt-12">
-          <Button size="lg" className="font-serif">Read Full Story</Button>
+          <Button size="lg" className="font-serif" asChild>
+            <a href="https://bitcoin.org/bitcoin.pdf" target="_blank" rel="noopener noreferrer">Bitcoin Whitepaper</a>
+          </Button>
           <Button size="lg" variant="outline" className="font-serif" asChild>
             <Link to="/timeforce">Join TimeForce</Link>
           </Button>
@@ -134,6 +136,12 @@ const EasySatsHub = () => {
           </Button>
           <Button size="lg" variant="outline" className="font-serif" asChild>
             <Link to="/easydevs">Build the Future</Link>
+          </Button>
+          <Button size="lg" className="font-serif" asChild>
+            <Link to="/terms">Terms & Conditions</Link>
+          </Button>
+          <Button size="lg" className="font-serif" asChild>
+            <Link to="/privacy">Privacy Policy</Link>
           </Button>
         </div>
       </section>
