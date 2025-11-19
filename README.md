@@ -1,4 +1,4 @@
-# Rabbit PWA Craft
+# EasyHub
 
 This project is a Progressive Web App built with Vite, React, TypeScript, and shadcn-ui.
 
