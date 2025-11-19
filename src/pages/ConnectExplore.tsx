@@ -153,7 +153,6 @@ const ConnectExplore = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
         </div>
     );
 };

@@ -500,7 +500,6 @@ const TimeForce = () => {
           </p>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

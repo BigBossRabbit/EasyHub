@@ -199,14 +199,17 @@ export const StackerNewsFeed = () => {
                       <span className="text-gray-600">•</span>
                       <span className="text-orange-400 group-hover:text-orange-300 transition-colors">{item.category}</span>
                       <span className="text-gray-600 mx-1">•</span>
-                      <a
-                        href={item.discussionLink}
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-yellow-400/70 hover:text-yellow-400 transition-colors inline-flex items-center gap-1 group/discuss"
+                      <span
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          window.open(item.discussionLink, '_blank');
+                        }}
+                        className="text-yellow-400/70 hover:text-yellow-400 transition-colors inline-flex items-center gap-1 group/discuss cursor-pointer"
                       >
                         <span className="group-hover/discuss:underline">discuss</span>
                         <ExternalLink className="h-3 w-3 group-hover/discuss:translate-x-0.5 transition-transform" />
-                      </a>
+                      </span>
                       <span className="text-gray-600 ml-auto hidden sm:inline">
                         {new Date(item.pubDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
                       </span>

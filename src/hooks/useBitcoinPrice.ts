@@ -13,21 +13,19 @@ export const useBitcoinPrice = () => {
     useEffect(() => {
         const fetchRates = async () => {
             try {
-                // Fetch USD rate
-                const usdResponse = await fetch(
-                    'https://api.bitnob.com/api/v1/rates/USD'
+                // Use CoinGecko as fallback since Bitnob has CORS restrictions
+                const response = await fetch(
+                    'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd'
                 );
-                const usdData = await usdResponse.json();
+                const data = await response.json();
 
-                // Fetch NAD rate
-                const nadResponse = await fetch(
-                    'https://api.bitnob.com/api/v1/rates/NAD'
-                );
-                const nadData = await nadResponse.json();
+                // Get NAD rate by converting USD (approximate: 1 USD ≈ 18 NAD)
+                const usdRate = data.bitcoin.usd;
+                const nadRate = usdRate * 18; // Approximate conversion
 
                 setRates({
-                    usd: usdData?.data?.buy_rate || null,
-                    nad: nadData?.data?.buy_rate || null,
+                    usd: usdRate || null,
+                    nad: nadRate || null,
                 });
                 setError(null);
             } catch (err) {
