@@ -5,7 +5,6 @@ import Seo from "@/components/Seo";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { StackerNewsFeed } from "@/components/StackerNewsFeed";
-import { BountyBoard } from "@/components/BountyBoard";
 
 const EasySatsHub = () => {
   return (
@@ -100,12 +99,9 @@ const EasySatsHub = () => {
               </Button>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 pt-8 border-t border-border/50">
-              <div className="h-[400px]">
+            <div className="pt-8 border-t border-border/50">
+              <div className="h-[400px] max-w-2xl">
                 <StackerNewsFeed />
-              </div>
-              <div className="h-[400px]">
-                <BountyBoard />
               </div>
             </div>
           </div>

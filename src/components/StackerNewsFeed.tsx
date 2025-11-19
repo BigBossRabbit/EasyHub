@@ -22,14 +22,14 @@ export const StackerNewsFeed = () => {
       // Using allorigins.win as a CORS proxy
       const response = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://stacker.news/rss'));
       if (!response.ok) throw new Error('Network response was not ok');
-      
+
       const data = await response.json();
       const parser = new DOMParser();
       const xmlDoc = parser.parseFromString(data.contents, "text/xml");
-      
+
       const items = xmlDoc.querySelectorAll('item');
       const newsItems: NewsItem[] = [];
-      
+
       items.forEach((item, index) => {
         if (index < 5) { // Limit to 5 items
           newsItems.push({
@@ -40,7 +40,7 @@ export const StackerNewsFeed = () => {
           });
         }
       });
-      
+
       setNews(newsItems);
     } catch (err) {
       console.error("Error fetching Stacker News:", err);
@@ -61,17 +61,17 @@ export const StackerNewsFeed = () => {
           <Zap className="h-5 w-5 text-yellow-400 fill-yellow-400" />
           Stacker News
         </CardTitle>
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          onClick={fetchNews} 
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={fetchNews}
           disabled={loading}
           className="text-yellow-500/70 hover:text-yellow-400 hover:bg-yellow-500/10"
         >
           <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
         </Button>
       </CardHeader>
-      <CardContent>
+      <CardContent className="overflow-y-auto h-[calc(100%-60px)]">
         {error ? (
           <div className="text-red-400 text-sm text-center py-4">{error}</div>
         ) : (
@@ -87,9 +87,9 @@ export const StackerNewsFeed = () => {
             ) : (
               news.map((item, index) => (
                 <div key={index} className="group border-b border-yellow-500/10 last:border-0 pb-3 last:pb-0">
-                  <a 
-                    href={item.link} 
-                    target="_blank" 
+                  <a
+                    href={item.link}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="block space-y-1 hover:bg-yellow-500/5 p-2 rounded-lg transition-colors -mx-2"
                   >

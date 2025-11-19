@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { BountyBoard } from "@/components/BountyBoard";
 
 const EasyDevs = () => {
   return (
@@ -78,7 +79,7 @@ const EasyDevs = () => {
               <span className="font-semibold">// About EasyDevs</span>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Explore open source projects & opportunities in the Bitcoin & freedom technology space. 
+              Explore open source projects & opportunities in the Bitcoin & freedom technology space.
               Contribute to building a more sovereign future through code, design, and innovation.
             </p>
           </div>
@@ -104,7 +105,7 @@ const EasyDevs = () => {
               <div className="absolute bottom-4 left-4 w-8 h-8 border border-primary/20 rounded-full"></div>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 border border-primary/10 rounded-full"></div>
             </div>
-            
+
             <div className="relative z-10">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
@@ -122,13 +123,13 @@ const EasyDevs = () => {
                 </div>
                 <span className="text-xs text-muted-foreground font-mono">REMOTE</span>
               </div>
-              
+
               <h3 className="text-lg font-semibold mb-2 font-mono">Time2Build Bitcoin Development by Breez</h3>
               <p className="text-sm text-muted-foreground mb-4">
-                Join a worldwide developer challenge to bring bitcoin to the world's leading Open-Source applications & services using the Breez SDK. 
+                Join a worldwide developer challenge to bring bitcoin to the world's leading Open-Source applications & services using the Breez SDK.
                 The goal is not to build another Bitcoin wallet, but to integrate Bitcoin into popular Open-Source apps that already exist.
               </p>
-              
+
               {/* Additional Details */}
               <div className="mb-4 p-3 bg-primary/5 border border-primary/20 rounded">
                 <div className="text-xs text-primary font-mono mb-2">PROGRAM DETAILS:</div>
@@ -139,15 +140,15 @@ const EasyDevs = () => {
                   <li>• $25,000 prize pool to be won!</li>
                 </ul>
               </div>
-              
+
               {/* Tech Stack Visualization */}
               <div className="mb-4">
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-xs text-muted-foreground font-mono">STACK:</span>
                   <div className="flex gap-1">
                     <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                    <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+                    <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                    <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-1">
@@ -158,7 +159,7 @@ const EasyDevs = () => {
                   ))}
                 </div>
               </div>
-              
+
               {/* Terminal Status */}
               <div className="mb-4 p-2 bg-black/50 rounded font-mono text-xs">
                 <div className="text-green-400 mb-1">
@@ -168,7 +169,7 @@ const EasyDevs = () => {
                   ✓ Program active • ✓ Remote positions available • ✓ Bitcoin focus
                 </div>
               </div>
-              
+
               <div className="flex gap-2">
                 <Button variant="outline" size="sm" className="gap-2" asChild>
                   <a href="https://www.time2build.dev/" target="_blank" rel="noopener noreferrer">
@@ -180,33 +181,8 @@ const EasyDevs = () => {
             </div>
           </div>
 
-          {/* Placeholder for Future Project */}
-          <div className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-colors relative overflow-hidden">
-            {/* Subtle Tech Pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-primary/20 to-transparent"></div>
-              <div className="absolute top-6 left-6 w-12 h-12 border border-primary/20 rounded-full"></div>
-              <div className="absolute bottom-6 right-6 w-6 h-6 border border-primary/20 rounded-full"></div>
-            </div>
-            
-            <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4">
-                <GitBranch className="h-8 w-8 text-primary" />
-                <span className="text-xs text-muted-foreground font-mono">COMING SOON</span>
-              </div>
-              <h3 className="text-lg font-semibold mb-2">More Projects Coming</h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                We're constantly adding new Bitcoin & freedom tech opportunities. 
-                Stay tuned for more exciting projects.
-              </p>
-              <div className="flex gap-2">
-                <Button variant="outline" size="sm" className="gap-2" disabled>
-                  <ExternalLink className="h-3 w-3" />
-                  View Project
-                </Button>
-              </div>
-            </div>
-          </div>
+          {/* Bounty Board */}
+          <BountyBoard />
         </div>
 
         <div className="mt-8 bg-card border border-primary/50 rounded-lg p-6">
