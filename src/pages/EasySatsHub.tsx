@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { StackerNewsFeed } from "@/components/StackerNewsFeed";
+import { BountyBoard } from "@/components/BountyBoard";
 
 const EasySatsHub = () => {
   return (
@@ -96,6 +98,15 @@ const EasySatsHub = () => {
               <Button size="lg" variant="outline" className="font-serif" asChild>
                 <Link to="/easydevs">Build the Future</Link>
               </Button>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6 pt-8 border-t border-border/50">
+              <div className="h-[400px]">
+                <StackerNewsFeed />
+              </div>
+              <div className="h-[400px]">
+                <BountyBoard />
+              </div>
             </div>
           </div>
 
