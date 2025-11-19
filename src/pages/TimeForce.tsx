@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { 
-  Clock, 
-  Shield, 
-  DollarSign, 
-  Users, 
-  BookOpen, 
-  ExternalLink, 
+import {
+  Clock,
+  Shield,
+  DollarSign,
+  Users,
+  BookOpen,
+  ExternalLink,
   CheckCircle,
   ArrowRight,
   Zap,
@@ -20,7 +20,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const TimeForce = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen text-foreground">
       <Seo title="TimeForce — Bitcoin Onboarding Handbook" description="A structured approach to onboarding business owners with Bitcoin solutions." canonical="/timeforce" />
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-6 py-4">
@@ -40,9 +40,12 @@ const TimeForce = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6 text-sm">
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
+              <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">~/about</Link>
+              <Link to="/connect" className="text-muted-foreground hover:text-primary transition-colors">~/connect</Link>
+              <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
               <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
               <Link to="/timeforce" className="text-primary">~/timeforce</Link>
-              <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
+              <Link to="/tpok" className="text-muted-foreground hover:text-primary transition-colors">~/tpok</Link>
               <Link to="/install" className="text-muted-foreground hover:text-primary transition-colors">~/install</Link>
             </nav>
 
@@ -57,9 +60,12 @@ const TimeForce = () => {
                 <SheetContent side="right">
                   <nav className="flex flex-col gap-4 pt-8">
                     <Link to="/" className="text-lg font-semibold hover:text-primary transition-colors">~/home</Link>
+                    <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors">~/about</Link>
+                    <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors">~/connect</Link>
+                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
                     <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors">~/easydevs</Link>
                     <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
-                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
+                    <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors">~/tpok</Link>
                     <Link to="/install" className="text-lg font-semibold hover:text-primary transition-colors">~/install</Link>
                   </nav>
                 </SheetContent>
@@ -76,7 +82,7 @@ const TimeForce = () => {
             <span className="text-primary">$</span>
             <span className="animate-pulse">loading_timeforce_handbook...</span>
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             <span className="text-primary">&gt;</span> TimeForce
             <br />
@@ -84,12 +90,12 @@ const TimeForce = () => {
             <br />
             <span className="text-primary">&gt;</span> Handbook
           </h1>
-          
+
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A structured approach to onboarding business owners with Bitcoin solutions. 
+            A structured approach to onboarding business owners with Bitcoin solutions.
             Keep it simple, stay confident & help others understand the power of true financial freedom.
           </p>
-          
+
           <div className="flex flex-wrap gap-4 justify-center">
             <Button size="lg" className="gap-2">
               <Users className="h-4 w-4" />
@@ -113,13 +119,13 @@ const TimeForce = () => {
               <Shield className="h-6 w-6" />
               <span className="text-2xl font-bold">The Problem</span>
             </div>
-            
+
             <div className="space-y-4 text-muted-foreground">
               <p className="text-lg">
-                Many tend to complicate the easiest parts about Bitcoin when most will come to 
+                Many tend to complicate the easiest parts about Bitcoin when most will come to
                 understand it the easiest by the use cases it solves.
               </p>
-              
+
               <div className="grid md:grid-cols-2 gap-6 mt-6">
                 <div className="space-y-3">
                   <h3 className="text-lg font-semibold text-foreground">Banking Overreach</h3>
@@ -138,7 +144,7 @@ const TimeForce = () => {
                     </li>
                   </ul>
                 </div>
-                
+
                 <div className="space-y-3">
                   <h3 className="text-lg font-semibold text-foreground">Security Risks</h3>
                   <ul className="space-y-2 text-sm">
@@ -173,7 +179,7 @@ const TimeForce = () => {
               Three key Bitcoin solutions that solve the problems above
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {/* Ease of Usage */}
             <div className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-colors">
@@ -182,7 +188,7 @@ const TimeForce = () => {
                 <h3 className="text-xl font-semibold">Ease of Usage</h3>
               </div>
               <p className="text-muted-foreground mb-4">
-                If you have ever used cell phone banking or recharged your cell phone with airtime, 
+                If you have ever used cell phone banking or recharged your cell phone with airtime,
                 then you can receive, send & store Bitcoin by yourself.
               </p>
               <ul className="space-y-2 text-sm">
@@ -208,7 +214,7 @@ const TimeForce = () => {
                 <h3 className="text-xl font-semibold">True Ownership</h3>
               </div>
               <p className="text-muted-foreground mb-4">
-                Unlike your bank account, your Bitcoin Application (Wallet) is owned by you 
+                Unlike your bank account, your Bitcoin Application (Wallet) is owned by you
                 if you choose to use Self-Custody.
               </p>
               <ul className="space-y-2 text-sm">
@@ -234,7 +240,7 @@ const TimeForce = () => {
                 <h3 className="text-xl font-semibold">Additional Revenue Stream</h3>
               </div>
               <p className="text-muted-foreground mb-4">
-                Accepting Bitcoin opens doors to new customers & revenue opportunities 
+                Accepting Bitcoin opens doors to new customers & revenue opportunities
                 beyond traditional payment methods.
               </p>
               <ul className="space-y-2 text-sm">
@@ -267,7 +273,7 @@ const TimeForce = () => {
               Join the #EasySats Bitcoin Network of Merchants
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="space-y-6">
               <div className="flex items-center gap-3">
@@ -275,7 +281,7 @@ const TimeForce = () => {
                 <h3 className="text-2xl font-semibold">Bitcoin Merchants</h3>
               </div>
               <p className="text-muted-foreground">
-                We don't teach you how to trade Bitcoin, we show you how to earn Bitcoin. 
+                We don't teach you how to trade Bitcoin, we show you how to earn Bitcoin.
                 Using our Merchant Platform, you can easily Accept Bitcoin for your Goods & Service.
               </p>
               <ul className="space-y-3">
@@ -301,14 +307,14 @@ const TimeForce = () => {
                 </li>
               </ul>
             </div>
-            
+
             <div className="bg-primary/10 border border-primary rounded-lg p-6">
               <h3 className="text-xl font-semibold mb-4">TimeForce Onboarding Profit Share</h3>
               <div className="space-y-4">
-              <p className="text-muted-foreground">
-                For those interested in joining the TimeForce & what that means for your ability to earn.
-                Sign-up a Sub-vendor & earn your percentage of their Subscription.
-              </p>
+                <p className="text-muted-foreground">
+                  For those interested in joining the TimeForce & what that means for your ability to earn.
+                  Sign-up a Sub-vendor & earn your percentage of their Subscription.
+                </p>
                 <div className="flex flex-wrap justify-between items-center gap-2">
                   <span className="text-sm">0-10 Sub-vendors</span>
                   <span className="font-semibold text-primary text-right">70% EasySats / 30% You</span>
@@ -338,7 +344,7 @@ const TimeForce = () => {
               Educational materials to deepen your Bitcoin knowledge
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-card border border-border rounded-lg p-6">
               <div className="flex items-center gap-3 mb-4">
@@ -366,7 +372,7 @@ const TimeForce = () => {
                 </li>
               </ul>
             </div>
-            
+
             <div className="bg-card border border-border rounded-lg p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Zap className="h-6 w-6 text-primary" />
@@ -405,13 +411,13 @@ const TimeForce = () => {
               <span className="text-primary">&gt;</span> Join TimeForce
             </h2>
             <p className="text-xl text-muted-foreground">
-              Ready to become a Sub-Vendor, or to sign them up & become part of the TimeForce? 
+              Ready to become a Sub-Vendor, or to sign them up & become part of the TimeForce?
             </p>
             <p className="text-xl text-muted-foreground">
               Sign up directly through our platform below.
             </p>
           </div>
-          
+
           <div className="bg-background border border-border rounded-lg p-8">
             <div className="mb-6 text-center">
               <div className="flex items-center justify-center gap-2 text-primary mb-2">
@@ -422,7 +428,7 @@ const TimeForce = () => {
                 Register for EasySats Server access - Building Tomorrow, Today!
               </p>
             </div>
-            
+
             <div className="w-full">
               <div className="text-center p-8 bg-background border border-border rounded-lg">
                 <div className="mb-6">
@@ -433,15 +439,15 @@ const TimeForce = () => {
                   </div>
                   <h3 className="text-xl font-semibold mb-3">EasySats Server Registration</h3>
                   <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-                    Register for secure, private & censorship-resistant Bitcoin payment processing. 
+                    Register for secure, private & censorship-resistant Bitcoin payment processing.
                     Click below to access our registration form.
                   </p>
                 </div>
-                
+
                 <div className="space-y-4">
-                  <a 
-                    href="https://easysats.okinent.org/register" 
-                    target="_blank" 
+                  <a
+                    href="https://easysats.okinent.org/register"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-lg font-semibold"
                   >
@@ -450,11 +456,11 @@ const TimeForce = () => {
                     </svg>
                     Register for EasySats Server access
                   </a>
-                  
+
                   <div className="text-sm text-muted-foreground">
                     <p className="mb-2">What you'll get:</p>
                     <ul className="space-y-1 text-left max-w-sm mx-auto">
-                    <li className="flex items-center gap-2">
+                      <li className="flex items-center gap-2">
                         <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
@@ -477,13 +483,13 @@ const TimeForce = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="mt-6 text-center">
               <p className="text-sm text-muted-foreground">
-                Having trouble with the form? 
-                <a 
-                  href="https://easysats.okinent.org/register" 
-                  target="_blank" 
+                Having trouble with the form?
+                <a
+                  href="https://easysats.okinent.org/register"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary hover:underline ml-1"
                 >

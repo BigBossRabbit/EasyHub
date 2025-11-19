@@ -8,13 +8,13 @@ import { StackerNewsFeed } from "@/components/StackerNewsFeed";
 
 const EasySatsHub = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen text-foreground">
       <Seo title="EasySats Chronicle" description="Namibia's First Bitcoin Revolution: Easy, Accessible & Unstoppable" />
       <header className="border-b-4 border-primary bg-card">
         <div className="container mx-auto px-6 py-8">
           <div className="flex items-center justify-between">
-            <div className="text-center space-y-2 md:text-left">
-              <div className="flex items-center justify-center gap-3 mb-2 md:justify-start">
+            <div className="text-center space-y-2 w-full">
+              <div className="flex items-center justify-center gap-3 mb-2">
                 <div className="h-px flex-1 bg-primary md:hidden"></div>
                 <img src="easysats-logo.png" alt="EasySats" className="h-12 w-12" />
                 <div className="h-px flex-1 bg-primary md:hidden"></div>
@@ -27,16 +27,6 @@ const EasySatsHub = () => {
               </p>
             </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm font-serif border-t border-b border-border py-3">
-              <Link to="/about" className="hover:text-primary transition-colors uppercase tracking-wide">About</Link>
-              <Link to="/easyjobs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
-              <Link to="/timeforce" className="hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
-              <Link to="/tpok" className="hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
-              <Link to="/easydevs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
-              <Link to="/install" className="hover:text-primary transition-colors uppercase tracking-wide">Install PWA</Link>
-            </nav>
-
             {/* Mobile Navigation (Hamburger Menu) */}
             <div className="flex md:hidden">
               <Sheet>
@@ -48,16 +38,28 @@ const EasySatsHub = () => {
                 <SheetContent side="right">
                   <nav className="flex flex-col gap-4 pt-8">
                     <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">About</Link>
+                    <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">Connect</Link>
                     <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
+                    <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
                     <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
                     <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
-                    <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
                     <Link to="/install" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">Install PWA</Link>
                   </nav>
                 </SheetContent>
               </Sheet>
             </div>
           </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex flex-wrap justify-between items-center gap-x-4 gap-y-2 text-sm font-serif border-t border-b border-border py-4 mt-8 w-full">
+            <Link to="/about" className="hover:text-primary transition-colors uppercase tracking-wide">About</Link>
+            <Link to="/connect" className="hover:text-primary transition-colors uppercase tracking-wide">Connect</Link>
+            <Link to="/easyjobs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
+            <Link to="/easydevs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
+            <Link to="/timeforce" className="hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
+            <Link to="/tpok" className="hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
+            <Link to="/install" className="hover:text-primary transition-colors uppercase tracking-wide">Install PWA</Link>
+          </nav>
         </div>
       </header>
 
@@ -84,25 +86,6 @@ const EasySatsHub = () => {
                 who are always excluded. Anyone can earn, purchase, accept & store Bitcoin using tailored
                 solutions from us, regardless of their financial status or level of experience.
               </p>
-            </div>
-
-            <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="font-serif">Read Full Story</Button>
-              <Button size="lg" variant="outline" className="font-serif" asChild>
-                <Link to="/timeforce">Join TimeForce</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="font-serif" asChild>
-                <Link to="/easyjobs">Earn Bitcoin</Link>
-              </Button>
-              <Button size="lg" variant="outline" className="font-serif" asChild>
-                <Link to="/easydevs">Build the Future</Link>
-              </Button>
-            </div>
-
-            <div className="pt-8 border-t border-border/50">
-              <div className="h-[400px] max-w-2xl">
-                <StackerNewsFeed />
-              </div>
             </div>
           </div>
 
@@ -131,6 +114,27 @@ const EasySatsHub = () => {
               <p className="text-sm text-muted-foreground">Subscribe to receive Bitcoin education & updates</p>
             </div>
           </div>
+        </div>
+
+        {/* Stacker News Section - Full Width */}
+        <div className="mt-12 pt-8 border-t border-border/50">
+          <div className="h-[450px] w-full">
+            <StackerNewsFeed />
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-wrap gap-4 justify-center mt-12">
+          <Button size="lg" className="font-serif">Read Full Story</Button>
+          <Button size="lg" variant="outline" className="font-serif" asChild>
+            <Link to="/timeforce">Join TimeForce</Link>
+          </Button>
+          <Button size="lg" variant="outline" className="font-serif" asChild>
+            <Link to="/easyjobs">Earn Bitcoin</Link>
+          </Button>
+          <Button size="lg" variant="outline" className="font-serif" asChild>
+            <Link to="/easydevs">Build the Future</Link>
+          </Button>
         </div>
       </section>
     </div>

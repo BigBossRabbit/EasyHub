@@ -4,7 +4,7 @@ import Seo from "@/components/Seo";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
+    <div className="flex min-h-screen items-center justify-center">
       <Seo title="Easysats — Home" description="Install the Easysats PWA for a fast, offline-first experience." canonical="/" />
       <div className="mx-auto max-w-2xl text-center">
         <h1 className="mb-4 text-4xl font-bold">Easysats App</h1>

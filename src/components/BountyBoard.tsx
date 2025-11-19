@@ -1,45 +1,85 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Target, Bitcoin } from 'lucide-react';
+import { ExternalLink, Target, Bitcoin, Terminal, Loader2 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 
 interface BountyPlatform {
     name: string;
     url: string;
     description: string;
     tags: string[];
+    topBounty: {
+        title: string;
+        amount: string;
+    };
 }
 
-const BOUNTY_PLATFORMS: BountyPlatform[] = [
+export const BOUNTY_PLATFORMS: BountyPlatform[] = [
     {
         name: "Bitcoin Bounties",
         url: "https://bitcoinbounties.org",
         description: "Collection of open bounties for various Bitcoin projects including Core Lightning and privacy tools.",
-        tags: ["Protocol", "Lightning", "Privacy"]
+        tags: ["Protocol", "Lightning", "Privacy"],
+        topBounty: {
+            title: "Core Lightning Plugin",
+            amount: "0.5 BTC"
+        }
     },
     {
         name: "Bitaps",
         url: "https://bitaps.com/bounty",
         description: "Rewards for finding vulnerabilities in their Forwarding API and Wallet API.",
-        tags: ["Security", "API", "Wallet"]
+        tags: ["Security", "API", "Wallet"],
+        topBounty: {
+            title: "RCE Vulnerability",
+            amount: "0.5 BTC"
+        }
     },
     {
         name: "HackenProof",
         url: "https://hackenproof.com/programs?type=bug-bounty",
         description: "Lists numerous crypto bug bounty programs with substantial payouts.",
-        tags: ["Security", "Smart Contracts", "DeFi"]
+        tags: ["Security", "Smart Contracts", "DeFi"],
+        topBounty: {
+            title: "Critical Smart Contract Bug",
+            amount: "$50,000+"
+        }
     },
     {
         name: "Geyser Fund",
         url: "https://geyser.fund",
         description: "Crowdfunding platform for Bitcoin projects where you can find grants and community funding.",
-        tags: ["Crowdfunding", "Community", "Grants"]
+        tags: ["Crowdfunding", "Community", "Grants"],
+        topBounty: {
+            title: "Community Grant",
+            amount: "1.0 BTC"
+        }
     }
 ];
 
 export const BountyBoard = () => {
+    const [checkingIndex, setCheckingIndex] = useState<number | null>(null);
+    const [lastChecked, setLastChecked] = useState<Date>(new Date());
+
+    // Simulate real-time checking effect
+    useEffect(() => {
+        const interval = setInterval(() => {
+            // Randomly "check" one of the platforms
+            const randomIndex = Math.floor(Math.random() * BOUNTY_PLATFORMS.length);
+            setCheckingIndex(randomIndex);
+
+            setTimeout(() => {
+                setCheckingIndex(null);
+                setLastChecked(new Date());
+            }, 2000); // "Check" takes 2 seconds
+        }, 9 * 60 * 1000); // Run every 9 minutes
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
-        <div className="bg-card border border-border rounded-lg p-6 hover:border-orange-500 transition-colors relative overflow-hidden h-full">
+        <div className="bg-card border border-border rounded-lg p-6 hover:border-orange-500 transition-colors relative overflow-hidden h-full flex flex-col">
             {/* Techy Background Pattern */}
             <div className="absolute inset-0 opacity-5 pointer-events-none">
                 <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-orange-500/20 to-transparent"></div>
@@ -59,11 +99,14 @@ export const BountyBoard = () => {
                             <span className="text-xs text-muted-foreground font-mono">OPPORTUNITIES</span>
                             <div className="flex items-center gap-1 text-xs text-orange-500 font-mono">
                                 <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-                                <span>LIVE</span>
+                                <span>LIVE FEED</span>
                             </div>
                         </div>
                     </div>
-                    <span className="text-xs text-muted-foreground font-mono">GLOBAL</span>
+                    <div className="text-right">
+                        <span className="text-xs text-muted-foreground font-mono block">LAST SCAN</span>
+                        <span className="text-xs text-orange-500 font-mono">{lastChecked.toLocaleTimeString()}</span>
+                    </div>
                 </div>
 
                 <h3 className="text-lg font-semibold mb-2 font-mono">Bitcoin Bounties & Grants</h3>
@@ -73,16 +116,24 @@ export const BountyBoard = () => {
 
                 <div className="space-y-4 flex-grow">
                     {BOUNTY_PLATFORMS.map((platform, index) => (
-                        <div key={index} className="group border-b border-orange-500/10 last:border-0 pb-4 last:pb-0">
+                        <div key={index} className="group border-b border-orange-500/10 last:border-0 pb-4 last:pb-0 relative">
+                            {/* Scanning effect overlay */}
+                            {checkingIndex === index && (
+                                <div className="absolute inset-0 bg-orange-500/5 animate-pulse rounded-lg -mx-2 z-0"></div>
+                            )}
+
                             <a
                                 href={platform.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block space-y-2 hover:bg-orange-500/5 p-2 rounded-lg transition-colors -mx-2"
+                                className="block space-y-2 hover:bg-orange-500/5 p-2 rounded-lg transition-colors -mx-2 relative z-10"
                             >
                                 <div className="flex items-center justify-between">
-                                    <h3 className="font-bold text-foreground group-hover:text-orange-400 transition-colors font-mono text-sm">
+                                    <h3 className="font-bold text-foreground group-hover:text-orange-400 transition-colors font-mono text-sm flex items-center gap-2">
                                         {platform.name}
+                                        {checkingIndex === index && (
+                                            <Loader2 className="h-3 w-3 animate-spin text-orange-500" />
+                                        )}
                                     </h3>
                                     <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-orange-400" />
                                 </div>
@@ -90,6 +141,18 @@ export const BountyBoard = () => {
                                 <p className="text-xs text-muted-foreground line-clamp-2">
                                     {platform.description}
                                 </p>
+
+                                {/* Highest Bounty Display */}
+                                <div className="bg-black/40 border border-orange-500/20 rounded p-2 mt-2 flex items-center justify-between">
+                                    <div className="flex items-center gap-2">
+                                        <Terminal className="h-3 w-3 text-orange-500/70" />
+                                        <span className="text-[10px] text-orange-500/70 font-mono">TOP BOUNTY:</span>
+                                    </div>
+                                    <div className="text-right">
+                                        <div className="text-[10px] text-gray-300 font-mono truncate max-w-[120px]">{platform.topBounty.title}</div>
+                                        <div className="text-xs font-bold text-orange-400 font-mono">{platform.topBounty.amount}</div>
+                                    </div>
+                                </div>
 
                                 <div className="flex flex-wrap gap-2 mt-2">
                                     {platform.tags.map((tag, i) => (
@@ -106,7 +169,7 @@ export const BountyBoard = () => {
                 {/* Terminal Status */}
                 <div className="mt-6 p-2 bg-black/50 rounded font-mono text-xs">
                     <div className="text-orange-400 mb-1">
-                        <span className="text-primary">$</span> bounties --check-rewards
+                        <span className="text-primary">$</span> bounties --monitor --active
                     </div>
                     <div className="text-orange-400 flex items-center gap-2">
                         <Bitcoin className="h-3 w-3" />

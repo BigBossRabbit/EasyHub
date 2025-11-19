@@ -8,7 +8,7 @@ import { BountyBoard } from "@/components/BountyBoard";
 
 const EasyDevs = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground font-mono">
+    <div className="min-h-screen text-foreground font-mono">
       <Seo title="EasyDevs — Open Source Opportunities" description="Explore open source projects & opportunities in the Bitcoin & freedom technology space." canonical="/easydevs" />
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-6 py-4">
@@ -28,9 +28,12 @@ const EasyDevs = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6 text-sm">
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
+              <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">~/about</Link>
+              <Link to="/connect" className="text-muted-foreground hover:text-primary transition-colors">~/connect</Link>
+              <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
               <Link to="/easydevs" className="text-primary">~/easydevs</Link>
               <Link to="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</Link>
-              <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
+              <Link to="/tpok" className="text-muted-foreground hover:text-primary transition-colors">~/tpok</Link>
               <Link to="/install" className="text-muted-foreground hover:text-primary transition-colors">~/install</Link>
             </nav>
 
@@ -45,9 +48,12 @@ const EasyDevs = () => {
                 <SheetContent side="right">
                   <nav className="flex flex-col gap-4 pt-8">
                     <Link to="/" className="text-lg font-semibold hover:text-primary transition-colors">~/home</Link>
+                    <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors">~/about</Link>
+                    <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors">~/connect</Link>
+                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
                     <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors">~/easydevs</Link>
                     <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
-                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
+                    <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors">~/tpok</Link>
                     <Link to="/install" className="text-lg font-semibold hover:text-primary transition-colors">~/install</Link>
                   </nav>
                 </SheetContent>
@@ -73,7 +79,7 @@ const EasyDevs = () => {
             </h1>
           </div>
 
-          <div className="bg-card border border-border rounded-lg p-6 space-y-4">
+          <div className="bg-card border border-border rounded-lg p-6 space-y-4 mb-6">
             <div className="flex items-center gap-2 text-primary">
               <Code2 className="h-5 w-5" />
               <span className="font-semibold">// About EasyDevs</span>
@@ -82,6 +88,31 @@ const EasyDevs = () => {
               Explore open source projects & opportunities in the Bitcoin & freedom technology space.
               Contribute to building a more sovereign future through code, design, and innovation.
             </p>
+          </div>
+
+          {/* Highest Bounty Terminal Display */}
+          <div className="bg-black/80 border border-green-500/30 rounded-lg p-4 font-mono text-sm shadow-lg shadow-green-500/5 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 p-2 opacity-50 group-hover:opacity-100 transition-opacity">
+              <div className="flex gap-1">
+                <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
+                <div className="w-2 h-2 rounded-full bg-green-500"></div>
+              </div>
+            </div>
+            <div className="text-green-400 mb-2 flex items-center gap-2">
+              <span className="text-primary">$</span>
+              <span className="animate-pulse">fetch_highest_bounty.sh</span>
+            </div>
+            <div className="space-y-1">
+              <div className="text-gray-400">Searching available platforms...</div>
+              <div className="text-gray-400">Analyzing reward pools...</div>
+              <div className="text-green-500 mt-2">FOUND: Critical Smart Contract Bug</div>
+              <div className="pl-4 text-gray-300">
+                <span className="text-purple-400">Platform:</span> HackenProof<br />
+                <span className="text-purple-400">Reward:</span> <span className="text-yellow-400 font-bold">$50,000+</span><br />
+                <span className="text-purple-400">Type:</span> Security / DeFi
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -131,14 +162,40 @@ const EasyDevs = () => {
               </p>
 
               {/* Additional Details */}
-              <div className="mb-4 p-3 bg-primary/5 border border-primary/20 rounded">
-                <div className="text-xs text-primary font-mono mb-2">PROGRAM DETAILS:</div>
-                <ul className="text-xs text-muted-foreground space-y-1">
-                  <li>• Remote Bitcoin development opportunities</li>
-                  <li>• Work on real-world Open-Source projects</li>
-                  <li>• Contribute to the Bitcoin ecosystem</li>
-                  <li>• $25,000 prize pool to be won!</li>
-                </ul>
+              <div className="mb-4 p-3 bg-primary/5 border border-primary/20 rounded space-y-3">
+                <div>
+                  <div className="text-xs text-primary font-mono mb-1">PROGRAM DETAILS:</div>
+                  <ul className="text-xs text-muted-foreground space-y-1">
+                    <li>• Remote Bitcoin development opportunities</li>
+                    <li>• Work on real-world Open-Source projects</li>
+                    <li>• Contribute to the Bitcoin ecosystem</li>
+                    <li>• $25,000 prize pool to be won!</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <div className="text-xs text-primary font-mono mb-1">JUDGING CRITERIA:</div>
+                  <ul className="text-xs text-muted-foreground space-y-1">
+                    <li>• <span className="text-foreground">Impact:</span> Potential to drive Bitcoin adoption</li>
+                    <li>• <span className="text-foreground">Quality:</span> Code architecture and implementation</li>
+                    <li>• <span className="text-foreground">UX/UI:</span> Ease of use and design aesthetics</li>
+                    <li>• <span className="text-foreground">Innovation:</span> Creative use of Breez SDK features</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <div className="text-xs text-primary font-mono mb-1">TIMELINE:</div>
+                  <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
+                    <div>
+                      <span className="text-foreground block">Registration:</span>
+                      Open Now
+                    </div>
+                    <div>
+                      <span className="text-foreground block">Submission Deadline:</span>
+                      Dec 31, 2025
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* Tech Stack Visualization */}
@@ -199,7 +256,7 @@ const EasyDevs = () => {
           </Button>
         </div>
       </section>
-    </div>
+    </div >
   );
 };
 

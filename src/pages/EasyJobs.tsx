@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { 
-  Briefcase, 
-  MapPin, 
-  Clock, 
-  DollarSign, 
-  ExternalLink, 
+import {
+  Briefcase,
+  MapPin,
+  Clock,
+  DollarSign,
+  ExternalLink,
   Zap,
   Users,
   Globe,
@@ -18,7 +18,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const EasyJobs = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen text-foreground">
       <Seo title="EasyJobs — Earn Sats" description="Turn your existing skills into Bitcoin earnings. Find remote opportunities that pay in the world's hardest money." canonical="/easyjobs" />
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-6 py-4">
@@ -38,9 +38,12 @@ const EasyJobs = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-6 text-sm">
               <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
+              <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">~/about</Link>
+              <Link to="/connect" className="text-muted-foreground hover:text-primary transition-colors">~/connect</Link>
+              <Link to="/easyjobs" className="text-primary">~/easyjobs</Link>
               <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
               <Link to="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</Link>
-              <Link to="/easyjobs" className="text-primary">~/easyjobs</Link>
+              <Link to="/tpok" className="text-muted-foreground hover:text-primary transition-colors">~/tpok</Link>
               <Link to="/install" className="text-muted-foreground hover:text-primary transition-colors">~/install</Link>
             </nav>
 
@@ -55,9 +58,12 @@ const EasyJobs = () => {
                 <SheetContent side="right">
                   <nav className="flex flex-col gap-4 pt-8">
                     <Link to="/" className="text-lg font-semibold hover:text-primary transition-colors">~/home</Link>
+                    <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors">~/about</Link>
+                    <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors">~/connect</Link>
+                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
                     <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors">~/easydevs</Link>
                     <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
-                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
+                    <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors">~/tpok</Link>
                     <Link to="/install" className="text-lg font-semibold hover:text-primary transition-colors">~/install</Link>
                   </nav>
                 </SheetContent>
@@ -74,7 +80,7 @@ const EasyJobs = () => {
             <span className="text-primary">$</span>
             <span className="animate-pulse">loading_easyjobs...</span>
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             <span className="text-primary">&gt;</span> EasyJobs
             <br />
@@ -82,12 +88,12 @@ const EasyJobs = () => {
             <br />
             <span className="text-primary">&gt;</span> Build Freedom
           </h1>
-          
+
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Turn your existing skills into Bitcoin earnings. Find remote opportunities 
+            Turn your existing skills into Bitcoin earnings. Find remote opportunities
             that pay in the world's hardest money.
           </p>
-          
+
           <div className="flex flex-wrap gap-4 justify-center">
             <Button size="lg" className="gap-2">
               <Briefcase className="h-4 w-4" />
@@ -114,7 +120,7 @@ const EasyJobs = () => {
               Your skills deserve the world's hardest money
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {/* True Ownership */}
             <div className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-colors">
@@ -123,7 +129,7 @@ const EasyJobs = () => {
                 <h3 className="text-xl font-semibold">Hard Money</h3>
               </div>
               <p className="text-muted-foreground mb-4">
-                Bitcoin is the hardest money ever created. When you earn Bitcoin, 
+                Bitcoin is the hardest money ever created. When you earn Bitcoin,
                 you're earning something that can't be inflated away.
               </p>
               <ul className="space-y-2 text-sm">
@@ -149,7 +155,7 @@ const EasyJobs = () => {
                 <h3 className="text-xl font-semibold">Global Opportunities</h3>
               </div>
               <p className="text-muted-foreground mb-4">
-                Bitcoin jobs are typically remote-first, giving you access to 
+                Bitcoin jobs are typically remote-first, giving you access to
                 opportunities worldwide without geographic limitations.
               </p>
               <ul className="space-y-2 text-sm">
@@ -175,7 +181,7 @@ const EasyJobs = () => {
                 <h3 className="text-xl font-semibold">Use Your Skills</h3>
               </div>
               <p className="text-muted-foreground mb-4">
-                Bitcoin companies need all types of professionals - developers, 
+                Bitcoin companies need all types of professionals - developers,
                 designers, marketers, writers & more.
               </p>
               <ul className="space-y-2 text-sm">
@@ -208,7 +214,7 @@ const EasyJobs = () => {
               Browse opportunities from Bitcoiner Jobs - the premier global Bitcoin job board
             </p>
           </div>
-          
+
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Job Board Embed */}
             <div className="bg-background border border-border rounded-lg p-16">
@@ -220,7 +226,7 @@ const EasyJobs = () => {
                 <p className="text-sm text-muted-foreground mb-4">
                   Real-time Bitcoin job listings from our trusted partner
                 </p>
-                
+
                 {/* Bitcoiner Jobs Branding */}
                 <div className="flex items-center justify-center gap-4 mb-4">
                   <div className="flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full">
@@ -232,7 +238,7 @@ const EasyJobs = () => {
                   </div>
                 </div>
               </div>
-              
+
               {/* Bitcoiner Jobs Embed */}
               <div className="w-full flex justify-center">
                 <div className="relative w-full">
@@ -242,17 +248,17 @@ const EasyJobs = () => {
                       External
                     </div>
                   </div>
-                  
-                  <iframe 
-                    src="https://bitcoinerjobs.com/embed/jobs?remote=true" 
-                    height="600" 
-                    style={{border: 0, borderRadius: '8px', background: '#f0f0f0'}}
+
+                  <iframe
+                    src="https://bitcoinerjobs.com/embed/jobs?remote=true"
+                    height="600"
+                    style={{ border: 0, borderRadius: '8px', background: '#f0f0f0' }}
                     title="Bitcoiner Jobs Remote Bitcoin Jobs"
                     className="rounded-lg w-full"
                   />
                 </div>
               </div>
-              
+
               <div className="mt-6 text-center space-y-3">
 
                 <p className="text-sm text-muted-foreground">
@@ -345,7 +351,7 @@ const EasyJobs = () => {
                 <div className="space-y-2">
                   <Button variant="outline" size="sm" className="w-full justify-start gap-2" asChild>
                     <a href="https://planb.network/en/courses?topics=bitcoin" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-3 w-3" /> 
+                      <ExternalLink className="h-3 w-3" />
                       PlanB - Free Bitcoin Education Courses
                     </a>
                   </Button>
@@ -362,7 +368,7 @@ const EasyJobs = () => {
                     </a>
                   </Button>
                 </div>
-            </div>
+              </div>
             </div>
           </div>
         </div>
