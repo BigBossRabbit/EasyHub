@@ -75,7 +75,7 @@ const ConnectExplore = () => {
 
                     <div className="grid md:grid-cols-2 gap-6">
                         {/* EasySats Merchant Platform */}
-                        <a href="https://easysats.okinent.org/" target="_blank" rel="noopener noreferrer" className="group">
+                        <a href="https://easysats.okinent.org/register?returnurl=%2F" target="_blank" rel="noopener noreferrer" className="group">
                             <Card className="bg-card/50 border-primary/20 hover:border-primary/40 transition-all duration-300 h-full hover:shadow-lg hover:shadow-primary/10">
                                 <CardContent className="pt-8 pb-6">
                                     <div className="flex items-start justify-between mb-3">

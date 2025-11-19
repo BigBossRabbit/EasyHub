@@ -144,11 +144,11 @@ const About = () => {
               </h2>
               <p className="text-muted-foreground mb-4">
                 As the host of the <strong>#FromTheJump</strong> podcast, OKIN has pioneered the integration of Bitcoin into the creative industry.
-                It was the first podcast in Namibia to accept payments and gifts in Bitcoin, setting a standard for value-for-value content creation.
+                It was the first podcast across the entire Arican continent to accept payments and gifts in Bitcoin, setting a standard for value-for-value content creation.
               </p>
               <p className="text-muted-foreground">
-                Through engaging discussions with the public and dialogues with institutions like the Central Bank of Namibia,
-                we are actively shaping the narrative and regulatory landscape of digital assets in our country.
+                Through engaging discussions with the public and open dialogues with key Regulatory and Development Stakeholders in Namibia,
+                we are actively shaping the narrative and regulatory landscape of virtual assets in our country.
               </p>
               <p className="text-muted-foreground">
                 Explore our initiatives including <a href="/connect" className="text-primary hover:underline font-semibold">EasySats Merchant Platform</a>, <a href="/connect" className="text-primary hover:underline font-semibold">SovereignKey</a>, and more on our <Link to="/connect" className="text-primary hover:underline font-semibold">Connect & Explore</Link> page.
