@@ -362,7 +362,7 @@ const TimeForce = () => {
                   </Button>
                 </li>
                 <li className="flex flex-wrap items-center justify-between gap-2">
-                  <span>The Simplest Bitcoin Book Ever Written - by Knut Svanholm</span>
+                  <span>The Simplest Bitcoin Book Ever Written - by Keysa Luna</span>
                   <Button variant="outline" size="sm" className="gap-2" asChild>
                     <a href="https://thesimplestbitcoinbook.net/#Free-Download" target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-3 w-3" />
