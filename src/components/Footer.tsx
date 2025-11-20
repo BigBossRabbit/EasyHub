@@ -9,6 +9,13 @@ const Footer = () => {
     const { stats, loading: statsLoading } = useBitcoinNetworkStats();
 
     const moscowTime = rates.nad ? Math.floor(100000000 / rates.nad) : null;
+    const formattedMoscowTime = moscowTime
+        ? moscowTime < 100
+            ? `00:${moscowTime}`
+            : moscowTime < 1000
+                ? `0${Math.floor(moscowTime / 100)}:${moscowTime % 100}`
+                : `${Math.floor(moscowTime / 100)}:${moscowTime % 100}`
+        : null;
     const loading = priceLoading || statsLoading;
 
     return (
@@ -49,9 +56,9 @@ const Footer = () => {
                     </div>
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
                         <Zap className="h-4 w-4" />
-                        <span className="font-bold">FEES:</span>
+                        <span className="font-bold">AVG FEES:</span>
                         <span className="text-green-400">
-                            {loading ? '[LOADING...]' : stats.fees ? `${stats.fees.fastestFee} sat/vB` : '[N/A]'}
+                            {loading ? '[LOADING...]' : stats.fees ? `~${stats.fees.halfHourFee} sat/vB` : '[N/A]'}
                         </span>
                     </div>
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
@@ -72,7 +79,7 @@ const Footer = () => {
                         <Clock className="h-4 w-4" />
                         <span className="font-bold">MOSCOW TIME (NAD):</span>
                         <span className="text-green-400">
-                            {loading ? '[LOADING...]' : moscowTime ? moscowTime.toLocaleString() : '[N/A]'}
+                            {loading ? '[LOADING...]' : formattedMoscowTime || '[N/A]'}
                         </span>
                     </div>
 
@@ -86,9 +93,9 @@ const Footer = () => {
                     </div>
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
                         <Zap className="h-4 w-4" />
-                        <span className="font-bold">FEES:</span>
+                        <span className="font-bold">AVG FEES:</span>
                         <span className="text-green-400">
-                            {loading ? '[LOADING...]' : stats.fees ? `${stats.fees.fastestFee} sat/vB` : '[N/A]'}
+                            {loading ? '[LOADING...]' : stats.fees ? `~${stats.fees.halfHourFee} sat/vB` : '[N/A]'}
                         </span>
                     </div>
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
@@ -109,7 +116,7 @@ const Footer = () => {
                         <Clock className="h-4 w-4" />
                         <span className="font-bold">MOSCOW TIME (NAD):</span>
                         <span className="text-green-400">
-                            {loading ? '[LOADING...]' : moscowTime ? moscowTime.toLocaleString() : '[N/A]'}
+                            {loading ? '[LOADING...]' : formattedMoscowTime || '[N/A]'}
                         </span>
                     </div>
                 </div>
