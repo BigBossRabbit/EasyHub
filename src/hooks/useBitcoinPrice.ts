@@ -13,15 +13,20 @@ export const useBitcoinPrice = () => {
     useEffect(() => {
         const fetchRates = async () => {
             try {
-                // Use CoinGecko as fallback since Bitnob has CORS restrictions
+                // Use CoinGecko to fetch both USD and ZAR (which is 1:1 with NAD)
                 const response = await fetch(
-                    'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd'
+                    'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,zar'
                 );
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
                 const data = await response.json();
 
-                // Get NAD rate by converting USD (approximate: 1 USD ≈ 18 NAD)
+                // ZAR is pegged 1:1 to NAD
                 const usdRate = data.bitcoin.usd;
-                const nadRate = usdRate * 18; // Approximate conversion
+                const nadRate = data.bitcoin.zar;
 
                 setRates({
                     usd: usdRate || null,
@@ -37,8 +42,8 @@ export const useBitcoinPrice = () => {
         };
 
         fetchRates();
-        // Update rates every 30 seconds for real-time data
-        const interval = setInterval(fetchRates, 30000);
+        // Update rates every 60 seconds to avoid rate limits while keeping data fresh
+        const interval = setInterval(fetchRates, 60000);
 
         return () => clearInterval(interval);
     }, []);

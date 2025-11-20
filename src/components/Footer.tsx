@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
-import { Twitter, Instagram, Linkedin, Github, Terminal, TrendingUp } from "lucide-react";
+import { Twitter, Instagram, Linkedin, Github, Terminal, TrendingUp, Activity, Zap, Clock } from "lucide-react";
 import { useBitcoinPrice } from "@/hooks/useBitcoinPrice";
+import { useBitcoinNetworkStats } from "@/hooks/useBitcoinNetworkStats";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
-    const { rates, loading } = useBitcoinPrice();
+    const { rates, loading: priceLoading } = useBitcoinPrice();
+    const { stats, loading: statsLoading } = useBitcoinNetworkStats();
+
+    const moscowTime = rates.nad ? Math.floor(100000000 / rates.nad) : null;
+    const loading = priceLoading || statsLoading;
 
     return (
         <footer className="bg-black/95 border-t-2 border-primary mt-auto relative overflow-hidden font-mono">
@@ -36,9 +41,18 @@ const Footer = () => {
             <div className="bg-primary/10 border-b border-primary/30 py-2 overflow-hidden relative">
                 <div className="flex items-center gap-3 animate-marquee whitespace-nowrap">
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
-                        <Terminal className="h-4 w-4" />
-                        <span className="font-bold">SYSTEM STATUS:</span>
-                        <span className="text-green-400">[ONLINE]</span>
+                        <Activity className="h-4 w-4" />
+                        <span className="font-bold">BLOCK HEIGHT:</span>
+                        <span className="text-green-400">
+                            {loading ? '[LOADING...]' : stats.blockHeight ? stats.blockHeight.toLocaleString() : '[N/A]'}
+                        </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                        <Zap className="h-4 w-4" />
+                        <span className="font-bold">FEES:</span>
+                        <span className="text-green-400">
+                            {loading ? '[LOADING...]' : stats.fees ? `${stats.fees.fastestFee} sat/vB` : '[N/A]'}
+                        </span>
                     </div>
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
                         <TrendingUp className="h-4 w-4" />
@@ -55,15 +69,27 @@ const Footer = () => {
                         </span>
                     </div>
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
-                        <Terminal className="h-4 w-4" />
-                        <span className="font-bold">NETWORK:</span>
-                        <span className="text-green-400">[BITCOIN MAINNET]</span>
+                        <Clock className="h-4 w-4" />
+                        <span className="font-bold">MOSCOW TIME (NAD):</span>
+                        <span className="text-green-400">
+                            {loading ? '[LOADING...]' : moscowTime ? moscowTime.toLocaleString() : '[N/A]'}
+                        </span>
                     </div>
+
                     {/* Duplicate for seamless loop */}
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
-                        <Terminal className="h-4 w-4" />
-                        <span className="font-bold">SYSTEM STATUS:</span>
-                        <span className="text-green-400">[ONLINE]</span>
+                        <Activity className="h-4 w-4" />
+                        <span className="font-bold">BLOCK HEIGHT:</span>
+                        <span className="text-green-400">
+                            {loading ? '[LOADING...]' : stats.blockHeight ? stats.blockHeight.toLocaleString() : '[N/A]'}
+                        </span>
+                    </div>
+                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                        <Zap className="h-4 w-4" />
+                        <span className="font-bold">FEES:</span>
+                        <span className="text-green-400">
+                            {loading ? '[LOADING...]' : stats.fees ? `${stats.fees.fastestFee} sat/vB` : '[N/A]'}
+                        </span>
                     </div>
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
                         <TrendingUp className="h-4 w-4" />
@@ -80,9 +106,11 @@ const Footer = () => {
                         </span>
                     </div>
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
-                        <Terminal className="h-4 w-4" />
-                        <span className="font-bold">NETWORK:</span>
-                        <span className="text-green-400">[BITCOIN MAINNET]</span>
+                        <Clock className="h-4 w-4" />
+                        <span className="font-bold">MOSCOW TIME (NAD):</span>
+                        <span className="text-green-400">
+                            {loading ? '[LOADING...]' : moscowTime ? moscowTime.toLocaleString() : '[N/A]'}
+                        </span>
                     </div>
                 </div>
             </div>
