@@ -6,7 +6,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: "/EasyHub/",
+  base: "/",
   server: {
     host: "::",
     port: 8080,
@@ -38,7 +38,7 @@ export default defineConfig(({ mode }) => ({
         enabled: mode === "development",
       },
     }),
-    
+
   ].filter(Boolean),
   resolve: {
     alias: {

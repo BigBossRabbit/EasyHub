@@ -26,7 +26,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter basename="/EasyHub">
+        <BrowserRouter>
           <ScrollToTop />
           <Routes>
             {/* Homepage without footer */}

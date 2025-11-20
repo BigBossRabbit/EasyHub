@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Newspaper, Menu } from "lucide-react";
+import { Newspaper, Menu, FileText, Scale, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { useState } from "react";
@@ -126,14 +126,23 @@ const EasySatsHub = () => {
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-4 justify-center mt-12">
           <Button size="lg" className="font-serif" asChild>
-            <a href="/EasyHub/bitcoin-whitepaper.html" target="_blank" rel="noopener noreferrer">Bitcoin Whitepaper</a>
+            <a href="/bitcoin-whitepaper.html" target="_blank" rel="noopener noreferrer">
+              <FileText className="mr-2 h-4 w-4" />
+              Bitcoin Whitepaper
+            </a>
           </Button>
 
-          <Button size="lg" className="font-serif" asChild>
-            <Link to="/terms">Terms & Conditions</Link>
+          <Button size="lg" className="font-serif bg-neutral-900 hover:bg-neutral-800 text-white" asChild>
+            <Link to="/terms">
+              <Scale className="mr-2 h-4 w-4" />
+              Terms & Conditions
+            </Link>
           </Button>
-          <Button size="lg" className="font-serif" asChild>
-            <Link to="/privacy">Privacy Policy</Link>
+          <Button size="lg" className="font-serif bg-neutral-900 hover:bg-neutral-800 text-white" asChild>
+            <Link to="/privacy">
+              <Shield className="mr-2 h-4 w-4" />
+              Privacy Policy
+            </Link>
           </Button>
         </div>
       </section>
