@@ -135,7 +135,7 @@ const Footer = () => {
                             <li><Link to="/terms" className="hover:text-primary transition-colors">{'> '}terms & conditions</Link></li>
                             <li><Link to="/privacy" className="hover:text-primary transition-colors">{'> '}privacy policy</Link></li>
                             <li>
-                                <span className="opacity-50 cursor-not-allowed" title="Coming Soon">{'> '}white paper [coming soon]</span>
+                                <a href="/bitcoin-whitepaper.html" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{'> '}white paper</a>
                             </li>
                         </ul>
                     </div>
