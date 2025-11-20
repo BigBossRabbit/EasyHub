@@ -126,7 +126,7 @@ const EasySatsHub = () => {
         {/* Action Buttons */}
         <div className="flex flex-wrap gap-4 justify-center mt-12">
           <Button size="lg" className="font-serif" asChild>
-            <a href="https://bitcoin.org/bitcoin.pdf" target="_blank" rel="noopener noreferrer">Bitcoin Whitepaper</a>
+            <a href="/bitcoin-whitepaper.html" target="_blank" rel="noopener noreferrer">Bitcoin Whitepaper</a>
           </Button>
           <Button size="lg" variant="outline" className="font-serif" asChild>
             <Link to="/timeforce">Join TimeForce</Link>
