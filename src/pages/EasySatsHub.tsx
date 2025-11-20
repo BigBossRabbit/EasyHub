@@ -128,15 +128,7 @@ const EasySatsHub = () => {
           <Button size="lg" className="font-serif" asChild>
             <a href="/EasyHub/bitcoin-whitepaper.html" target="_blank" rel="noopener noreferrer">Bitcoin Whitepaper</a>
           </Button>
-          <Button size="lg" variant="outline" className="font-serif" asChild>
-            <Link to="/timeforce">Join TimeForce</Link>
-          </Button>
-          <Button size="lg" variant="outline" className="font-serif" asChild>
-            <Link to="/easyjobs">Earn Bitcoin</Link>
-          </Button>
-          <Button size="lg" variant="outline" className="font-serif" asChild>
-            <Link to="/easydevs">Build the Future</Link>
-          </Button>
+
           <Button size="lg" className="font-serif" asChild>
             <Link to="/terms">Terms & Conditions</Link>
           </Button>

@@ -131,13 +131,13 @@ const Footer = () => {
                             {'> '} Namibia's First Bitcoin Revolution. Making Bitcoin easy, accessible, and unstoppable for everyone.
                         </p>
                         <div className="flex gap-4">
-                            <a href="https://x.com/okin_17" target="_blank" rel="noopener noreferrer" className="text-green-400/60 hover:text-primary transition-colors">
+                            <a href="https://x.com/easysats_" target="_blank" rel="noopener noreferrer" className="text-green-400/60 hover:text-primary transition-colors">
                                 <Twitter className="h-5 w-5" />
                             </a>
                             <a href="https://instagram.com/easysats" target="_blank" rel="noopener noreferrer" className="text-green-400/60 hover:text-primary transition-colors">
                                 <Instagram className="h-5 w-5" />
                             </a>
-                            <a href="https://www.linkedin.com/in/okin/" target="_blank" rel="noopener noreferrer" className="text-green-400/60 hover:text-primary transition-colors">
+                            <a href="https://www.linkedin.com/company/easysats/" target="_blank" rel="noopener noreferrer" className="text-green-400/60 hover:text-primary transition-colors">
                                 <Linkedin className="h-5 w-5" />
                             </a>
                             <a href="https://www.github.com/bigbossrabbit" target="_blank" rel="noopener noreferrer" className="text-green-400/60 hover:text-primary transition-colors">
