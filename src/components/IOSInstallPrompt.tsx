@@ -6,17 +6,27 @@ const IOSInstallPrompt = () => {
     const [showPrompt, setShowPrompt] = useState(false);
 
     useEffect(() => {
+        // Check for debug mode
+        const urlParams = new URLSearchParams(window.location.search);
+        const debugMode = urlParams.get('force_ios') === 'true';
+
         // Detect if device is iOS
         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+
+        // Detect iPadOS 13+ (which requests desktop site by default)
+        const isIPad = navigator.maxTouchPoints &&
+            navigator.maxTouchPoints > 2 &&
+            /MacIntel/.test(navigator.platform);
 
         // Detect if already in standalone mode (installed)
         const isStandalone = window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone;
 
-        // Show prompt only on iOS and if not already installed
-        if (isIOS && !isStandalone) {
-            // Check if prompt was already dismissed in this session
+        // Show prompt only on iOS (or iPad) and if not already installed
+        // OR if debug mode is enabled
+        if (((isIOS || isIPad) && !isStandalone) || debugMode) {
+            // Check if prompt was already dismissed in this session (ignore in debug mode)
             const isDismissed = sessionStorage.getItem('iosInstallPromptDismissed');
-            if (!isDismissed) {
+            if (!isDismissed || debugMode) {
                 // Show after a short delay
                 const timer = setTimeout(() => setShowPrompt(true), 3000);
                 return () => clearTimeout(timer);
