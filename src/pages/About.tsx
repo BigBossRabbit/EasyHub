@@ -70,7 +70,7 @@ const About = () => {
           <div className="md:col-span-1 space-y-6">
             <div className="aspect-square rounded-2xl overflow-hidden bg-muted border-2 border-primary/20 relative group">
               <img
-                src="/EasyHub/assets/okin-profile.jpg"
+                src="/assets/okin-profile.jpg"
                 alt="Nikolai 'OKIN' Tjongarero"
                 className="w-full h-full object-cover"
               />

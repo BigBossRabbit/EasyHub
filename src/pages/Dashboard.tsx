@@ -252,7 +252,7 @@ const Dashboard = () => {
                                             tick={{ fill: '#4ade80', fontSize: 10 }}
                                             tickLine={false}
                                             axisLine={false}
-                                            domain={['auto', 'auto']}
+                                            domain={['dataMin - 1000', 'dataMax + 1000']}
                                             tickFormatter={(value) => currency === 'USD' ? `$${value / 1000}k` : `N$${value / 1000}k`}
                                         />
                                         <Tooltip

@@ -20,45 +20,47 @@ const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) =
 
     useEffect(() => {
         const fetchHistory = async () => {
-            const today = new Date();
-            const yearsBack = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Look back up to 10 years
-            const results: HistoricalData[] = [];
+            try {
+                const vsCurrency = currency === 'USD' ? 'usd' : 'zar';
+                // Fetch full history (daily data)
+                const response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${vsCurrency}&days=max&interval=daily`);
+                if (!response.ok) throw new Error('Failed fetch');
+                const data = await response.json();
+                const prices = data.prices; // Array of [timestamp, price]
 
-            // We'll fetch sequentially to avoid hitting rate limits too hard, 
-            // or we could just pick a few interesting years to minimize calls.
-            // Let's pick 1, 2, 4 (halving cycle approx), and 8 years for now to be safe with free tier.
-            // Actually, let's try to get a good spread.
-            const selectedYears = [1, 2, 4, 8];
+                const today = new Date();
+                const targetMonth = today.getMonth();
+                const targetDate = today.getDate();
 
-            for (const years of selectedYears) {
-                const date = new Date();
-                date.setFullYear(today.getFullYear() - years);
-                const dateString = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+                const results: HistoricalData[] = [];
+                const yearsBack = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-                try {
-                    // Add a small delay between requests
-                    await new Promise(resolve => setTimeout(resolve, 1000));
+                yearsBack.forEach(yearOffset => {
+                    const targetYear = today.getFullYear() - yearOffset;
 
-                    const response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/history?date=${dateString}`);
-                    if (!response.ok) throw new Error('Failed fetch');
-                    const data = await response.json();
+                    // Find the closest data point to this date
+                    // Since data is daily, we look for a timestamp that matches the date
+                    const foundPoint = prices.find((p: number[]) => {
+                        const d = new Date(p[0]);
+                        return d.getFullYear() === targetYear && d.getMonth() === targetMonth && d.getDate() === targetDate;
+                    });
 
-                    if (data.market_data && data.market_data.current_price) {
+                    if (foundPoint) {
                         results.push({
-                            year: date.getFullYear(),
-                            price: currency === 'USD' ? data.market_data.current_price.usd : data.market_data.current_price.zar, // ZAR as NAD proxy
+                            year: targetYear,
+                            price: foundPoint[1],
                             loading: false,
                             error: false
                         });
                     }
-                } catch (e) {
-                    console.error(`Error fetching history for ${date.getFullYear()}`, e);
-                    // Skip failed years
-                }
-            }
+                });
 
-            setHistoryData(results.sort((a, b) => b.year - a.year)); // Most recent first
-            setLoading(false);
+                setHistoryData(results.sort((a, b) => b.year - a.year)); // Most recent first
+            } catch (e) {
+                console.error('Error fetching history', e);
+            } finally {
+                setLoading(false);
+            }
         };
 
         fetchHistory();
@@ -117,7 +119,7 @@ const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) =
                             : "A rare moment where price was higher."}
                     </p>
                     <div className="text-3xl font-bold text-primary">
-                        {currency === 'USD' ? `$${item.price.toLocaleString()}` : `N$${item.price.toLocaleString()}`}
+                        {currency === 'USD' ? `$${item.price.toLocaleString(undefined, { maximumFractionDigits: 0 })}` : `N$${item.price.toLocaleString(undefined, { maximumFractionDigits: 0 })}`}
                     </div>
                 </div>
                 <div className="text-right hidden md:block">
