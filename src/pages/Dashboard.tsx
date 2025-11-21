@@ -5,6 +5,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import Seo from '@/components/Seo';
 import { useBitcoinPrice } from '@/hooks/useBitcoinPrice';
 import { useBitcoinNetworkStats } from '@/hooks/useBitcoinNetworkStats';
+import { useFearGreedIndex } from '@/hooks/useFearGreedIndex';
 import { Button } from '@/components/ui/button';
 import OnThisDayCarousel from '@/components/OnThisDayCarousel';
 
@@ -14,6 +15,7 @@ const Dashboard = () => {
     const [chartData, setChartData] = useState<any[]>([]);
     const { rates, loading: priceLoading } = useBitcoinPrice();
     const { stats, loading: statsLoading } = useBitcoinNetworkStats();
+    const { data: fearGreedData, loading: fearGreedLoading } = useFearGreedIndex();
     const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
     const [isInstallable, setIsInstallable] = useState(false);
     const [chartLoading, setChartLoading] = useState(true);
@@ -172,20 +174,35 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        {/* Fear & Greed Index (Mock Dial) */}
+                        {/* Fear & Greed Index */}
                         <div className="bg-black/50 border border-primary/30 p-6 rounded-lg">
                             <h2 className="text-sm text-green-400/60 mb-6 flex items-center gap-2">
                                 <Activity className="h-4 w-4" /> MARKET SENTIMENT
                             </h2>
-                            <div className="relative h-40 flex items-center justify-center">
-                                {/* Simple CSS Gauge */}
-                                <div className="w-32 h-32 rounded-full border-8 border-gray-800 border-t-primary border-r-primary rotate-45 relative shadow-[0_0_20px_rgba(247,147,26,0.2)]">
-                                    <div className="absolute inset-0 flex items-center justify-center flex-col -rotate-45">
-                                        <span className="text-3xl font-bold text-white">76</span>
-                                        <span className="text-xs text-primary font-bold">GREED</span>
+                            {fearGreedLoading ? (
+                                <div className="text-primary animate-pulse text-center py-16">LOADING...</div>
+                            ) : fearGreedData ? (
+                                <div className="relative h-40 flex items-center justify-center">
+                                    {/* Dynamic CSS Gauge based on Fear & Greed value */}
+                                    <div
+                                        className={`w-32 h-32 rounded-full border-8 border-gray-800 relative shadow-[0_0_20px_rgba(247,147,26,0.2)]`}
+                                        style={{
+                                            borderTopColor: fearGreedData.value >= 50 ? '#4ade80' : '#ef4444',
+                                            borderRightColor: fearGreedData.value >= 50 ? '#4ade80' : '#ef4444',
+                                            transform: `rotate(${(fearGreedData.value / 100) * 180}deg)`,
+                                        }}
+                                    >
+                                        <div className="absolute inset-0 flex items-center justify-center flex-col" style={{ transform: `rotate(-${(fearGreedData.value / 100) * 180}deg)` }}>
+                                            <span className="text-3xl font-bold text-white">{fearGreedData.value}</span>
+                                            <span className={`text-xs font-bold uppercase ${fearGreedData.value >= 75 ? 'text-green-400' : fearGreedData.value >= 50 ? 'text-green-400/70' : fearGreedData.value >= 25 ? 'text-yellow-400' : 'text-red-400'}`}>
+                                                {fearGreedData.valueClassification}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            ) : (
+                                <div className="text-red-400 text-center py-16 text-sm">Failed to load</div>
+                            )}
                         </div>
 
                         {/* Network Stats */}
