@@ -38,11 +38,13 @@ const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) =
                 yearsBack.forEach(yearOffset => {
                     const targetYear = today.getFullYear() - yearOffset;
 
-                    // Find the closest data point to this date
-                    // Since data is daily, we look for a timestamp that matches the date
+                    // Find the closest data point to this date (within 3 days tolerance)
                     const foundPoint = prices.find((p: number[]) => {
                         const d = new Date(p[0]);
-                        return d.getFullYear() === targetYear && d.getMonth() === targetMonth && d.getDate() === targetDate;
+                        const daysDiff = Math.abs(d.getDate() - targetDate);
+                        return d.getFullYear() === targetYear &&
+                            d.getMonth() === targetMonth &&
+                            daysDiff <= 3; // Allow 3-day tolerance
                     });
 
                     if (foundPoint) {
@@ -55,6 +57,7 @@ const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) =
                     }
                 });
 
+                console.log('OnThisDay: Found', results.length, 'historical data points');
                 setHistoryData(results.sort((a, b) => b.year - a.year)); // Most recent first
             } catch (e) {
                 console.error('Error fetching history', e);
