@@ -118,7 +118,7 @@ const Dashboard = () => {
                                 SYSTEM_DASHBOARD
                             </h1>
                             <p className="text-xs text-green-400/60 mt-1">
-                                v0.0.1 // CONNECTED TO MAINNET
+                                v0.0.2 // CONNECTED TO MAINNET
                             </p>
                         </div>
                     </div>
@@ -188,8 +188,8 @@ const Dashboard = () => {
                                         {/* Dynamic CSS Gauge with pulse animation */}
                                         <div
                                             className={`w-32 h-32 rounded-full border-8 border-gray-800 relative transition-all duration-1000 ${fearGreedData.trend === 'up' ? 'shadow-[0_0_30px_rgba(74,222,128,0.4)]' :
-                                                    fearGreedData.trend === 'down' ? 'shadow-[0_0_30px_rgba(239,68,68,0.4)]' :
-                                                        'shadow-[0_0_20px_rgba(247,147,26,0.2)]'
+                                                fearGreedData.trend === 'down' ? 'shadow-[0_0_30px_rgba(239,68,68,0.4)]' :
+                                                    'shadow-[0_0_20px_rgba(247,147,26,0.2)]'
                                                 }`}
                                             style={{
                                                 borderTopColor: fearGreedData.value >= 50 ? '#4ade80' : '#ef4444',
@@ -212,8 +212,8 @@ const Dashboard = () => {
                                         <div className="bg-black/30 border border-primary/20 p-3 rounded">
                                             <div className="text-green-400/60 mb-1">24H CHANGE</div>
                                             <div className={`flex items-center gap-1 font-bold ${fearGreedData.change && fearGreedData.change > 0 ? 'text-green-400' :
-                                                    fearGreedData.change && fearGreedData.change < 0 ? 'text-red-400' :
-                                                        'text-gray-400'
+                                                fearGreedData.change && fearGreedData.change < 0 ? 'text-red-400' :
+                                                    'text-gray-400'
                                                 }`}>
                                                 {fearGreedData.change && fearGreedData.change > 0 && '↑'}
                                                 {fearGreedData.change && fearGreedData.change < 0 && '↓'}
@@ -227,8 +227,8 @@ const Dashboard = () => {
                                         <div className="bg-black/30 border border-primary/20 p-3 rounded">
                                             <div className="text-green-400/60 mb-1">TREND</div>
                                             <div className={`font-bold uppercase flex items-center gap-1 ${fearGreedData.trend === 'up' ? 'text-green-400' :
-                                                    fearGreedData.trend === 'down' ? 'text-red-400' :
-                                                        'text-gray-400'
+                                                fearGreedData.trend === 'down' ? 'text-red-400' :
+                                                    'text-gray-400'
                                                 }`}>
                                                 {fearGreedData.trend === 'up' && '↗ Rising'}
                                                 {fearGreedData.trend === 'down' && '↘ Falling'}
@@ -248,9 +248,9 @@ const Dashboard = () => {
                                         <div className="bg-black/30 border border-primary/20 p-3 rounded">
                                             <div className="text-green-400/60 mb-1">STATUS</div>
                                             <div className={`font-bold uppercase text-xs ${fearGreedData.value >= 75 ? 'text-green-400' :
-                                                    fearGreedData.value >= 50 ? 'text-green-400/70' :
-                                                        fearGreedData.value >= 25 ? 'text-yellow-400' :
-                                                            'text-red-400'
+                                                fearGreedData.value >= 50 ? 'text-green-400/70' :
+                                                    fearGreedData.value >= 25 ? 'text-yellow-400' :
+                                                        'text-red-400'
                                                 }`}>
                                                 {fearGreedData.value >= 75 ? 'Bullish' :
                                                     fearGreedData.value >= 50 ? 'Optimistic' :
