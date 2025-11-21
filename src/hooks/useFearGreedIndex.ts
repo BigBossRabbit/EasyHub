@@ -4,6 +4,9 @@ interface FearGreedData {
     value: number; // 0-100
     valueClassification: string; // e.g., "Extreme Fear", "Fear", "Neutral", "Greed", "Extreme Greed"
     timestamp: number;
+    previousValue?: number; // Yesterday's value for comparison
+    change?: number; // Change from yesterday
+    trend?: 'up' | 'down' | 'stable'; // Trend direction
 }
 
 export const useFearGreedIndex = () => {
@@ -14,16 +17,29 @@ export const useFearGreedIndex = () => {
     useEffect(() => {
         const fetchFearGreed = async () => {
             try {
-                // Alternative Fear & Greed Index API
-                const response = await fetch('https://api.alternative.me/fng/?limit=1');
+                // Fetch last 2 days to calculate change
+                const response = await fetch('https://api.alternative.me/fng/?limit=2');
                 const result = await response.json();
 
                 if (result.data && result.data.length > 0) {
-                    const latest = result.data[0];
+                    const today = result.data[0];
+                    const yesterday = result.data[1];
+
+                    const currentValue = parseInt(today.value, 10);
+                    const previousValue = yesterday ? parseInt(yesterday.value, 10) : currentValue;
+                    const change = currentValue - previousValue;
+
+                    let trend: 'up' | 'down' | 'stable' = 'stable';
+                    if (change > 2) trend = 'up';
+                    else if (change < -2) trend = 'down';
+
                     setData({
-                        value: parseInt(latest.value, 10),
-                        valueClassification: latest.value_classification,
-                        timestamp: parseInt(latest.timestamp, 10),
+                        value: currentValue,
+                        valueClassification: today.value_classification,
+                        timestamp: parseInt(today.timestamp, 10),
+                        previousValue,
+                        change,
+                        trend,
                     });
                 }
 
