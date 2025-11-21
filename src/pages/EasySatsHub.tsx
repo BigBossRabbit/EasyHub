@@ -43,7 +43,7 @@ const EasySatsHub = () => {
                     <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
                     <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
                     <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
-                    <Link to="/install" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">Install PWA</Link>
+
                   </nav>
                 </SheetContent>
               </Sheet>
@@ -58,7 +58,7 @@ const EasySatsHub = () => {
             <Link to="/easyjobs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
             <Link to="/timeforce" className="hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
             <Link to="/tpok" className="hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
-            <Link to="/install" className="hover:text-primary transition-colors uppercase tracking-wide">Install PWA</Link>
+
           </nav>
         </div>
       </header>

@@ -78,7 +78,7 @@ const Footer = () => {
 
                     {/* Price USD - Links to Dashboard */}
                     <Link
-                        to="/dashboard"
+                        to="/easystats"
                         className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
                     >
                         <TrendingUp className="h-4 w-4" />
@@ -90,7 +90,7 @@ const Footer = () => {
 
                     {/* Price NAD - Links to Dashboard */}
                     <Link
-                        to="/dashboard"
+                        to="/easystats"
                         className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
                     >
                         <TrendingUp className="h-4 w-4" />
@@ -102,7 +102,7 @@ const Footer = () => {
 
                     {/* Moscow Time - Links to Dashboard */}
                     <Link
-                        to="/dashboard"
+                        to="/easystats"
                         className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
                     >
                         <Clock className="h-4 w-4" />
@@ -143,7 +143,7 @@ const Footer = () => {
 
                     {/* Price USD - Links to Dashboard */}
                     <Link
-                        to="/dashboard"
+                        to="/easystats"
                         className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
                     >
                         <TrendingUp className="h-4 w-4" />
@@ -155,7 +155,7 @@ const Footer = () => {
 
                     {/* Price NAD - Links to Dashboard */}
                     <Link
-                        to="/dashboard"
+                        to="/easystats"
                         className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
                     >
                         <TrendingUp className="h-4 w-4" />
@@ -167,7 +167,7 @@ const Footer = () => {
 
                     {/* Moscow Time - Links to Dashboard */}
                     <Link
-                        to="/dashboard"
+                        to="/easystats"
                         className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
                     >
                         <Clock className="h-4 w-4" />

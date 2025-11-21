@@ -20,7 +20,7 @@ export default defineConfig(({ mode }) => ({
         name: "EasyHub",
         short_name: "EasyHub",
         description: "Making it Easy to find everything in one place",
-        start_url: "/dashboard",
+        start_url: "/easystats",
         scope: "/",
         display: "standalone",
         background_color: "#000000",

@@ -8,7 +8,7 @@ import { useBitcoinNetworkStats } from '@/hooks/useBitcoinNetworkStats';
 import { useFearGreedIndex } from '@/hooks/useFearGreedIndex';
 import { Button } from '@/components/ui/button';
 import OnThisDayCarousel from '@/components/OnThisDayCarousel';
-import IOSInstallPrompt from '@/components/IOSInstallPrompt';
+
 
 const Dashboard = () => {
     const [currency, setCurrency] = useState<'USD' | 'NAD'>('USD');
@@ -17,8 +17,7 @@ const Dashboard = () => {
     const { rates, loading: priceLoading } = useBitcoinPrice();
     const { stats, loading: statsLoading } = useBitcoinNetworkStats();
     const { data: fearGreedData, loading: fearGreedLoading } = useFearGreedIndex();
-    const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
-    const [isInstallable, setIsInstallable] = useState(false);
+
     const [chartLoading, setChartLoading] = useState(true);
 
     // Fetch Chart Data from CoinGecko
@@ -71,25 +70,7 @@ const Dashboard = () => {
         fetchChartData();
     }, [currency, timeframe]);
 
-    useEffect(() => {
-        const handler = (e: any) => {
-            e.preventDefault();
-            setDeferredPrompt(e);
-            setIsInstallable(true);
-        };
-        window.addEventListener('beforeinstallprompt', handler);
-        return () => window.removeEventListener('beforeinstallprompt', handler);
-    }, []);
 
-    const handleInstallClick = async () => {
-        if (!deferredPrompt) return;
-        deferredPrompt.prompt();
-        const { outcome } = await deferredPrompt.userChoice;
-        if (outcome === 'accepted') {
-            setIsInstallable(false);
-        }
-        setDeferredPrompt(null);
-    };
 
     const currentPrice = currency === 'USD' ? rates.usd : rates.nad;
 
@@ -98,7 +79,7 @@ const Dashboard = () => {
             <Seo
                 title="Bitcoin Dashboard"
                 description="Real-time Bitcoin analytics, historical data, and network statistics."
-                canonical="/dashboard"
+                canonical="/easystats"
             />
 
             {/* Cyberpunk Background Effects */}
@@ -125,16 +106,7 @@ const Dashboard = () => {
                     </div>
 
                     <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
-                        {isInstallable && (
-                            <Button
-                                onClick={handleInstallClick}
-                                variant="outline"
-                                className="border-primary text-primary hover:bg-primary hover:text-black gap-2"
-                            >
-                                <Download className="h-4 w-4" />
-                                INSTALL APP
-                            </Button>
-                        )}
+
 
                         <div className="flex items-center gap-2">
                             <Link to="/tpok">
@@ -408,8 +380,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-            {/* iOS Install Prompt */}
-            <IOSInstallPrompt />
+
         </div>
     );
 };
