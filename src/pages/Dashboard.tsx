@@ -252,8 +252,11 @@ const Dashboard = () => {
                                             tick={{ fill: '#4ade80', fontSize: 10 }}
                                             tickLine={false}
                                             axisLine={false}
-                                            domain={['dataMin - 1000', 'dataMax + 1000']}
-                                            tickFormatter={(value) => currency === 'USD' ? `$${value / 1000}k` : `N$${value / 1000}k`}
+                                            domain={[(dataMin: number) => Math.floor(dataMin * 0.995), (dataMax: number) => Math.ceil(dataMax * 1.005)]}
+                                            tickFormatter={(value) => {
+                                                const formatted = Math.round(value / 1000);
+                                                return currency === 'USD' ? `$${formatted}k` : `N$${formatted}k`;
+                                            }}
                                         />
                                         <Tooltip
                                             contentStyle={{ backgroundColor: '#000', border: '1px solid #f7931a', color: '#fff' }}

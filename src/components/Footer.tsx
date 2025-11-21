@@ -46,8 +46,8 @@ const Footer = () => {
 
             {/* Bitcoin Price Ticker */}
             {/* Bitcoin Price Ticker */}
-            <div className="bg-primary/10 border-b border-primary/30 py-2 overflow-hidden relative">
-                <div className="flex items-center gap-3 animate-marquee whitespace-nowrap">
+            <div className="bg-primary/10 border-b border-primary/30 py-2 overflow-x-auto overflow-y-hidden relative" style={{ WebkitOverflowScrolling: 'touch' }}>
+                <div className="flex items-center gap-6 animate-marquee whitespace-nowrap min-w-max">
                     {/* Block Height - Links to Mempool */}
                     <a
                         href="https://mempool.space"

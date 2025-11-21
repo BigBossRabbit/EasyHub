@@ -1,12 +1,68 @@
 import { useState, useEffect } from 'react';
-import { Calendar, TrendingUp, TrendingDown } from 'lucide-react';
+import { Calendar, Zap, TrendingUp } from 'lucide-react';
 
-interface HistoricalData {
+interface BitcoinEvent {
+    date: string; // MM-DD format
     year: number;
-    price: number;
-    loading: boolean;
-    error: boolean;
+    title: string;
+    description: string;
+    significance: 'high' | 'medium' | 'low';
 }
+
+// Historical Bitcoin events database - organized by date (MM-DD)
+const BITCOIN_EVENTS: BitcoinEvent[] = [
+    // January
+    { date: '01-03', year: 2009, title: 'Genesis Block Mined', description: 'Satoshi Nakamoto mined the first Bitcoin block, embedding "The Times 03/Jan/2009 Chancellor on brink of second bailout for banks"', significance: 'high' },
+    { date: '01-12', year: 2009, title: 'First Bitcoin Transaction', description: 'Satoshi sent 10 BTC to Hal Finney in the first-ever Bitcoin transaction', significance: 'high' },
+    { date: '01-11', year: 2024, title: 'Bitcoin Spot ETF Approved', description: 'The SEC approved the first Bitcoin spot ETFs in the United States, marking a major milestone for institutional adoption', significance: 'high' },
+
+    // February
+    { date: '02-09', year: 2011, title: 'Bitcoin Reaches Parity with USD', description: 'Bitcoin reached $1.00 for the first time, achieving parity with the US Dollar', significance: 'high' },
+    { date: '02-08', year: 2021, title: 'Tesla Buys Bitcoin', description: 'Tesla announced a $1.5 billion Bitcoin purchase, signaling major corporate adoption', significance: 'high' },
+
+    // March
+    { date: '03-17', year: 2010, title: 'First Bitcoin Exchange Opens', description: 'BitcoinMarket.com, the first Bitcoin exchange, launched', significance: 'medium' },
+    { date: '03-13', year: 2024, title: 'Bitcoin Reaches New ATH', description: 'Bitcoin surpassed $73,000, setting a new all-time high before the 2024 halving', significance: 'high' },
+
+    // April
+    { date: '04-23', year: 2011, title: 'Satoshi\'s Last Message', description: 'Satoshi Nakamoto sent their last known email: "I\'ve moved on to other things"', significance: 'high' },
+    { date: '04-20', year: 2024, title: 'Fourth Bitcoin Halving', description: 'Bitcoin\'s fourth halving reduced block reward from 6.25 BTC to 3.125 BTC', significance: 'high' },
+
+    // May
+    { date: '05-22', year: 2010, title: 'Bitcoin Pizza Day', description: 'Laszlo Hanyecz paid 10,000 BTC for two pizzas - the first real-world Bitcoin transaction', significance: 'high' },
+    { date: '05-11', year: 2020, title: 'Third Bitcoin Halving', description: 'Bitcoin\'s third halving reduced block reward from 12.5 BTC to 6.25 BTC', significance: 'high' },
+
+    // June
+    { date: '06-08', year: 2011, title: 'Bitcoin Reaches $30', description: 'Bitcoin hit $30 in its first major bull run before crashing to $2', significance: 'medium' },
+    { date: '06-09', year: 2021, title: 'El Salvador Announces Bitcoin Law', description: 'President Bukele announced El Salvador would adopt Bitcoin as legal tender', significance: 'high' },
+
+    // July
+    { date: '07-17', year: 2010, title: 'Mt. Gox Launches', description: 'Mt. Gox Bitcoin exchange launched, eventually handling 70% of all Bitcoin transactions', significance: 'medium' },
+    { date: '07-09', year: 2016, title: 'Second Bitcoin Halving', description: 'Bitcoin\'s second halving reduced block reward from 25 BTC to 12.5 BTC', significance: 'high' },
+
+    // August
+    { date: '08-01', year: 2017, title: 'Bitcoin Cash Fork', description: 'Bitcoin Cash hard forked from Bitcoin, creating a new cryptocurrency', significance: 'medium' },
+    { date: '08-15', year: 2010, title: 'Value Overflow Incident', description: 'A bug allowed creation of 184 billion BTC. Fixed within hours - Bitcoin\'s only major exploit', significance: 'high' },
+
+    // September
+    { date: '09-07', year: 2021, title: 'El Salvador Adopts Bitcoin', description: 'El Salvador became the first country to adopt Bitcoin as legal tender', significance: 'high' },
+    { date: '09-24', year: 2024, title: 'Bitcoin Breaks $64,000', description: 'Bitcoin surged past $64,000 as institutional interest continued to grow', significance: 'medium' },
+
+    // October
+    { date: '10-31', year: 2008, title: 'Bitcoin Whitepaper Published', description: 'Satoshi Nakamoto published "Bitcoin: A Peer-to-Peer Electronic Cash System"', significance: 'high' },
+    { date: '10-29', year: 2024, title: 'Bitcoin Reaches $72,000', description: 'Bitcoin climbed to $72,000 amid growing ETF inflows and institutional adoption', significance: 'medium' },
+
+    // November
+    { date: '11-28', year: 2012, title: 'First Halving', description: 'Bitcoin\'s first halving reduced block reward from 50 BTC to 25 BTC', significance: 'high' },
+    { date: '11-28', year: 2013, title: 'Bitcoin Surpasses $1,000', description: 'Bitcoin exceeded $1,000 for the first time during the 2013 bull run', significance: 'medium' },
+    { date: '11-10', year: 2021, title: 'Bitcoin All-Time High', description: 'Bitcoin reached its all-time high of $69,000', significance: 'high' },
+    { date: '11-21', year: 2024, title: 'Bitcoin Surges Past $98,000', description: 'Bitcoin reached new heights above $98,000, continuing its post-halving bull run', significance: 'high' },
+    { date: '11-21', year: 2013, title: 'Bitcoin Breaks $800', description: 'During the 2013 bull run, Bitcoin surpassed $800 for the first time', significance: 'medium' },
+
+    // December
+    { date: '12-17', year: 2017, title: 'Bitcoin Hits $20,000', description: 'Bitcoin reached $20,000 in the 2017 bull run peak', significance: 'medium' },
+    { date: '12-16', year: 2020, title: 'Bitcoin Breaks 2017 ATH', description: 'Bitcoin surpassed its 2017 all-time high, beginning the 2020-2021 bull run', significance: 'medium' },
+];
 
 interface OnThisDayCarouselProps {
     currency: 'USD' | 'NAD';
@@ -14,156 +70,125 @@ interface OnThisDayCarouselProps {
 }
 
 const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) => {
-    const [historyData, setHistoryData] = useState<HistoricalData[]>([]);
+    const [relevantEvents, setRelevantEvents] = useState<BitcoinEvent[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const fetchHistory = async () => {
-            try {
-                const vsCurrency = currency === 'USD' ? 'usd' : 'zar';
-                // Try to fetch 1 year of history
-                const response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${vsCurrency}&days=365&interval=daily`);
+        // Get today's date in MM-DD format
+        const today = new Date();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        const todayStr = `${month}-${day}`;
 
-                if (response.ok) {
-                    const data = await response.json();
-                    const prices = data.prices;
+        // Find all events that happened on this day
+        const events = BITCOIN_EVENTS.filter(event => event.date === todayStr);
 
-                    const results: HistoricalData[] = [];
-                    const monthsBack = [1, 2, 3, 4, 6, 9, 12];
+        // Sort by year (most recent first)
+        events.sort((a, b) => b.year - a.year);
 
-                    monthsBack.forEach(months => {
-                        const targetDate = new Date();
-                        targetDate.setMonth(targetDate.getMonth() - months);
-
-                        let closestPoint = prices[0];
-                        let minDiff = Math.abs(prices[0][0] - targetDate.getTime());
-
-                        prices.forEach((p: number[]) => {
-                            const diff = Math.abs(p[0] - targetDate.getTime());
-                            if (diff < minDiff) {
-                                minDiff = diff;
-                                closestPoint = p;
-                            }
-                        });
-
-                        const pointDate = new Date(closestPoint[0]);
-                        results.push({
-                            year: pointDate.getFullYear(),
-                            price: closestPoint[1],
-                            loading: false,
-                            error: false
-                        });
-                    });
-
-                    console.log('OnThisDay: Found', results.length, 'historical data points from API');
-                    setHistoryData(results);
-                } else {
-                    throw new Error('API rate limited');
-                }
-            } catch (e) {
-                console.log('OnThisDay: Using curated historical data (API unavailable)');
-                // Fallback: Curated historical Bitcoin prices for key moments
-                const curatedData: HistoricalData[] = currency === 'USD' ? [
-                    { year: 2024, price: 94217, loading: false, error: false }, // Nov 2024
-                    { year: 2023, price: 37000, loading: false, error: false }, // Nov 2023
-                    { year: 2022, price: 16500, loading: false, error: false }, // Nov 2022 (bear market low)
-                    { year: 2021, price: 65000, loading: false, error: false }, // Nov 2021 (ATH era)
-                    { year: 2020, price: 15500, loading: false, error: false }, // Nov 2020
-                    { year: 2019, price: 9200, loading: false, error: false },  // Nov 2019
-                    { year: 2017, price: 10000, loading: false, error: false }, // Nov 2017 (bull run)
-                ] : [
-                    { year: 2024, price: 1700000, loading: false, error: false },
-                    { year: 2023, price: 670000, loading: false, error: false },
-                    { year: 2022, price: 298000, loading: false, error: false },
-                    { year: 2021, price: 1175000, loading: false, error: false },
-                    { year: 2020, price: 280000, loading: false, error: false },
-                    { year: 2019, price: 166000, loading: false, error: false },
-                    { year: 2017, price: 181000, loading: false, error: false },
-                ];
-                setHistoryData(curatedData);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchHistory();
-    }, [currency]);
+        setRelevantEvents(events);
+        setCurrentIndex(0);
+    }, []);
 
     useEffect(() => {
-        if (historyData.length === 0) return;
+        if (relevantEvents.length <= 1) return;
 
         const interval = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % historyData.length);
-        }, 21000); // 21 seconds
+            setCurrentIndex((prev) => (prev + 1) % relevantEvents.length);
+        }, 21000); // 21 seconds (Bitcoin block time!)
 
         return () => clearInterval(interval);
-    }, [historyData]);
+    }, [relevantEvents.length]);
 
-    if (loading) {
+    if (relevantEvents.length === 0) {
         return (
-            <div className="bg-black/50 border border-primary/30 p-6 rounded-lg h-[160px] flex items-center justify-center">
-                <div className="text-primary animate-pulse">LOADING HISTORY...</div>
+            <div className="bg-black/50 border border-primary/30 p-6 rounded-lg">
+                <div className="flex items-center gap-3 mb-4">
+                    <Calendar className="h-6 w-6 text-primary" />
+                    <h2 className="text-sm text-green-400/60 font-bold">ON THIS DAY IN BITCOIN HISTORY</h2>
+                </div>
+                <p className="text-green-400/80 text-sm">
+                    No major Bitcoin events recorded for today's date. Every day is a good day to stack sats! ⚡
+                </p>
             </div>
         );
     }
 
-    if (historyData.length === 0) {
-        return (
-            <div className="bg-black/50 border border-primary/30 p-6 rounded-lg h-[160px] flex items-center justify-center">
-                <div className="text-green-400/60">HISTORY DATA UNAVAILABLE</div>
-            </div>
-        );
-    }
-
-    const item = historyData[currentIndex];
-    const roi = currentPrice && item.price ? ((currentPrice - item.price) / item.price) * 100 : 0;
+    const event = relevantEvents[currentIndex];
+    const yearsAgo = new Date().getFullYear() - event.year;
 
     return (
         <div className="bg-black/50 border border-primary/30 p-6 rounded-lg relative overflow-hidden transition-all duration-500">
-            <div className="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+            <div className={`absolute top-0 left-0 w-1 h-full ${event.significance === 'high' ? 'bg-primary' :
+                event.significance === 'medium' ? 'bg-green-400' :
+                    'bg-green-400/50'
+                }`}></div>
 
             {/* Progress Bar for 21s timer */}
-            <div className="absolute top-0 left-0 h-1 bg-primary/30 w-full">
-                <div
-                    key={currentIndex} // Reset animation on change
-                    className="h-full bg-primary animate-[progress_21s_linear]"
-                ></div>
-            </div>
+            {relevantEvents.length > 1 && (
+                <div className="absolute top-0 left-0 h-1 bg-primary/30 w-full">
+                    <div
+                        key={currentIndex}
+                        className="h-full bg-primary animate-[progress_21s_linear]"
+                    ></div>
+                </div>
+            )}
 
-            <div className="flex flex-col md:flex-row items-center gap-8 mt-2">
-                <div className="p-4 bg-primary/10 rounded-full border border-primary/30">
-                    <Calendar className="h-8 w-8 text-primary" />
+            <div className="flex flex-col md:flex-row items-start gap-6 mt-2">
+                <div className="p-4 bg-primary/10 rounded-full border border-primary/30 shrink-0">
+                    {event.significance === 'high' ? (
+                        <Zap className="h-8 w-8 text-primary" />
+                    ) : (
+                        <Calendar className="h-8 w-8 text-primary" />
+                    )}
                 </div>
-                <div className="flex-1 text-center md:text-left">
-                    <h2 className="text-lg font-bold text-white mb-1">BITCOIN IN {item.year}</h2>
-                    <p className="text-green-400/80 text-sm mb-4">
-                        {roi > 0
-                            ? "HODLers from this era are now up significantly."
-                            : "A rare moment where price was higher."}
-                    </p>
-                    <div className="text-3xl font-bold text-primary">
-                        {currency === 'USD' ? `$${item.price.toLocaleString(undefined, { maximumFractionDigits: 0 })}` : `N$${item.price.toLocaleString(undefined, { maximumFractionDigits: 0 })}`}
+
+                <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-2">
+                        <h2 className="text-xs text-green-400/60 font-bold">
+                            ON THIS DAY IN BITCOIN HISTORY
+                        </h2>
+                        {event.significance === 'high' && (
+                            <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded">
+                                MILESTONE
+                            </span>
+                        )}
                     </div>
-                </div>
-                <div className="text-right hidden md:block">
-                    <div className="text-xs text-green-400/60 mb-1">ROI SINCE THEN</div>
-                    <div className={`text-2xl font-bold ${roi >= 0 ? 'text-green-400' : 'text-red-400'} flex items-center justify-end gap-2`}>
-                        {roi >= 0 ? <TrendingUp className="h-5 w-5" /> : <TrendingDown className="h-5 w-5" />}
-                        {roi > 0 ? '+' : ''}{roi.toFixed(0)}%
+
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+                        {event.title}
+                    </h3>
+
+                    <p className="text-green-400/80 text-sm mb-3 leading-relaxed">
+                        {event.description}
+                    </p>
+
+                    <div className="flex items-center gap-4 text-xs">
+                        <div className="flex items-center gap-2">
+                            <TrendingUp className="h-4 w-4 text-primary" />
+                            <span className="text-primary font-bold">
+                                {event.year}
+                            </span>
+                            <span className="text-green-400/60">
+                                ({yearsAgo} year{yearsAgo !== 1 ? 's' : ''} ago)
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             {/* Pagination Dots */}
-            <div className="absolute bottom-2 right-4 flex gap-1">
-                {historyData.map((_, idx) => (
-                    <div
-                        key={idx}
-                        className={`w-1.5 h-1.5 rounded-full transition-colors ${idx === currentIndex ? 'bg-primary' : 'bg-primary/20'}`}
-                    />
-                ))}
-            </div>
+            {relevantEvents.length > 1 && (
+                <div className="absolute bottom-2 right-4 flex gap-1">
+                    {relevantEvents.map((_, idx) => (
+                        <div
+                            key={idx}
+                            className={`w-1.5 h-1.5 rounded-full transition-colors ${idx === currentIndex ? 'bg-primary' : 'bg-primary/20'
+                                }`}
+                        />
+                    ))}
+                </div>
+            )}
 
             <style>{`
                 @keyframes progress {
