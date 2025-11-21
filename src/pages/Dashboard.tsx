@@ -136,6 +136,15 @@ const Dashboard = () => {
                             </Button>
                         )}
 
+                        <Link to="/tpok">
+                            <Button
+                                variant="outline"
+                                className="border-primary text-primary hover:bg-primary hover:text-black"
+                            >
+                                TPOK
+                            </Button>
+                        </Link>
+
                         <div className="flex bg-primary/10 rounded-lg p-1 border border-primary/30">
                             <button
                                 onClick={() => setCurrency('USD')}
