@@ -127,7 +127,7 @@ const Footer = () => {
                     <div className="col-span-1 md:col-span-2">
                         <div className="flex items-center gap-2 mb-4">
                             <span className="text-primary text-xl">{'>'}</span>
-                            <img src="/EasyHub/easysats-logo.png" alt="EasySats" className="h-8 w-8" />
+                            <img src="/easysats-logo.png" alt="EasySats" className="h-8 w-8" />
                             <span className="text-xl font-bold">
                                 <span className="text-primary">easy</span>
                                 <span className="text-green-400">sats</span>

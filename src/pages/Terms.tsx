@@ -131,7 +131,7 @@ const Terms = () => {
                 </div>
             </main>
 
-            <Footer />
+
         </div>
     );
 };
