@@ -22,44 +22,66 @@ const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) =
         const fetchHistory = async () => {
             try {
                 const vsCurrency = currency === 'USD' ? 'usd' : 'zar';
-                // Fetch 1 year of history (365 days is the max for free tier without API key)
+                // Try to fetch 1 year of history
                 const response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${vsCurrency}&days=365&interval=daily`);
-                if (!response.ok) throw new Error('Failed fetch');
-                const data = await response.json();
-                const prices = data.prices; // Array of [timestamp, price]
 
-                const results: HistoricalData[] = [];
-                const monthsBack = [1, 2, 3, 4, 6, 9, 12]; // Show snapshots from these months ago
+                if (response.ok) {
+                    const data = await response.json();
+                    const prices = data.prices;
 
-                monthsBack.forEach(months => {
-                    const targetDate = new Date();
-                    targetDate.setMonth(targetDate.getMonth() - months);
+                    const results: HistoricalData[] = [];
+                    const monthsBack = [1, 2, 3, 4, 6, 9, 12];
 
-                    // Find the closest data point to this date
-                    let closestPoint = prices[0];
-                    let minDiff = Math.abs(prices[0][0] - targetDate.getTime());
+                    monthsBack.forEach(months => {
+                        const targetDate = new Date();
+                        targetDate.setMonth(targetDate.getMonth() - months);
 
-                    prices.forEach((p: number[]) => {
-                        const diff = Math.abs(p[0] - targetDate.getTime());
-                        if (diff < minDiff) {
-                            minDiff = diff;
-                            closestPoint = p;
-                        }
+                        let closestPoint = prices[0];
+                        let minDiff = Math.abs(prices[0][0] - targetDate.getTime());
+
+                        prices.forEach((p: number[]) => {
+                            const diff = Math.abs(p[0] - targetDate.getTime());
+                            if (diff < minDiff) {
+                                minDiff = diff;
+                                closestPoint = p;
+                            }
+                        });
+
+                        const pointDate = new Date(closestPoint[0]);
+                        results.push({
+                            year: pointDate.getFullYear(),
+                            price: closestPoint[1],
+                            loading: false,
+                            error: false
+                        });
                     });
 
-                    const pointDate = new Date(closestPoint[0]);
-                    results.push({
-                        year: pointDate.getFullYear(),
-                        price: closestPoint[1],
-                        loading: false,
-                        error: false
-                    });
-                });
-
-                console.log('OnThisDay: Found', results.length, 'historical data points');
-                setHistoryData(results);
+                    console.log('OnThisDay: Found', results.length, 'historical data points from API');
+                    setHistoryData(results);
+                } else {
+                    throw new Error('API rate limited');
+                }
             } catch (e) {
-                console.error('Error fetching history', e);
+                console.log('OnThisDay: Using curated historical data (API unavailable)');
+                // Fallback: Curated historical Bitcoin prices for key moments
+                const curatedData: HistoricalData[] = currency === 'USD' ? [
+                    { year: 2024, price: 94217, loading: false, error: false }, // Nov 2024
+                    { year: 2023, price: 37000, loading: false, error: false }, // Nov 2023
+                    { year: 2022, price: 16500, loading: false, error: false }, // Nov 2022 (bear market low)
+                    { year: 2021, price: 65000, loading: false, error: false }, // Nov 2021 (ATH era)
+                    { year: 2020, price: 15500, loading: false, error: false }, // Nov 2020
+                    { year: 2019, price: 9200, loading: false, error: false },  // Nov 2019
+                    { year: 2017, price: 10000, loading: false, error: false }, // Nov 2017 (bull run)
+                ] : [
+                    { year: 2024, price: 1700000, loading: false, error: false },
+                    { year: 2023, price: 670000, loading: false, error: false },
+                    { year: 2022, price: 298000, loading: false, error: false },
+                    { year: 2021, price: 1175000, loading: false, error: false },
+                    { year: 2020, price: 280000, loading: false, error: false },
+                    { year: 2019, price: 166000, loading: false, error: false },
+                    { year: 2017, price: 181000, loading: false, error: false },
+                ];
+                setHistoryData(curatedData);
             } finally {
                 setLoading(false);
             }
