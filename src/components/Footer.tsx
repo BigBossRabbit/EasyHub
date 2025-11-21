@@ -45,80 +45,137 @@ const Footer = () => {
             </div>
 
             {/* Bitcoin Price Ticker */}
+            {/* Bitcoin Price Ticker */}
             <div className="bg-primary/10 border-b border-primary/30 py-2 overflow-hidden relative">
                 <div className="flex items-center gap-3 animate-marquee whitespace-nowrap">
-                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                    {/* Block Height - Links to Mempool */}
+                    <a
+                        href="https://mempool.space"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                    >
                         <Activity className="h-4 w-4" />
                         <span className="font-bold">BLOCK HEIGHT:</span>
                         <span className="text-green-400">
                             {loading ? '[LOADING...]' : stats.blockHeight ? stats.blockHeight.toLocaleString() : '[N/A]'}
                         </span>
-                    </div>
-                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                    </a>
+
+                    {/* Fees - Links to Mempool */}
+                    <a
+                        href="https://mempool.space"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                    >
                         <Zap className="h-4 w-4" />
                         <span className="font-bold">AVG FEES:</span>
                         <span className="text-green-400">
                             {loading ? '[LOADING...]' : stats.fees ? `~${stats.fees.halfHourFee} sat/vB` : '[N/A]'}
                         </span>
-                    </div>
-                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                    </a>
+
+                    {/* Price USD - Links to Dashboard */}
+                    <Link
+                        to="/dashboard"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                    >
                         <TrendingUp className="h-4 w-4" />
                         <span className="font-bold">BTC/USD:</span>
                         <span className="text-green-400">
                             {loading ? '[LOADING...]' : rates.usd ? `$${rates.usd.toLocaleString()}` : '[N/A]'}
                         </span>
-                    </div>
-                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                    </Link>
+
+                    {/* Price NAD - Links to Dashboard */}
+                    <Link
+                        to="/dashboard"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                    >
                         <TrendingUp className="h-4 w-4" />
                         <span className="font-bold">BTC/NAD:</span>
                         <span className="text-green-400">
                             {loading ? '[LOADING...]' : rates.nad ? `N$${rates.nad.toLocaleString()}` : '[N/A]'}
                         </span>
-                    </div>
-                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                    </Link>
+
+                    {/* Moscow Time - Links to Dashboard */}
+                    <Link
+                        to="/dashboard"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                    >
                         <Clock className="h-4 w-4" />
                         <span className="font-bold">MOSCOW TIME (NAD):</span>
                         <span className="text-green-400">
                             {loading ? '[LOADING...]' : formattedMoscowTime || '[N/A]'}
                         </span>
-                    </div>
+                    </Link>
 
                     {/* Duplicate for seamless loop */}
-                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                    {/* Block Height - Links to Mempool */}
+                    <a
+                        href="https://mempool.space"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                    >
                         <Activity className="h-4 w-4" />
                         <span className="font-bold">BLOCK HEIGHT:</span>
                         <span className="text-green-400">
                             {loading ? '[LOADING...]' : stats.blockHeight ? stats.blockHeight.toLocaleString() : '[N/A]'}
                         </span>
-                    </div>
-                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                    </a>
+
+                    {/* Fees - Links to Mempool */}
+                    <a
+                        href="https://mempool.space"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                    >
                         <Zap className="h-4 w-4" />
                         <span className="font-bold">AVG FEES:</span>
                         <span className="text-green-400">
                             {loading ? '[LOADING...]' : stats.fees ? `~${stats.fees.halfHourFee} sat/vB` : '[N/A]'}
                         </span>
-                    </div>
-                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                    </a>
+
+                    {/* Price USD - Links to Dashboard */}
+                    <Link
+                        to="/dashboard"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                    >
                         <TrendingUp className="h-4 w-4" />
                         <span className="font-bold">BTC/USD:</span>
                         <span className="text-green-400">
                             {loading ? '[LOADING...]' : rates.usd ? `$${rates.usd.toLocaleString()}` : '[N/A]'}
                         </span>
-                    </div>
-                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                    </Link>
+
+                    {/* Price NAD - Links to Dashboard */}
+                    <Link
+                        to="/dashboard"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                    >
                         <TrendingUp className="h-4 w-4" />
                         <span className="font-bold">BTC/NAD:</span>
                         <span className="text-green-400">
                             {loading ? '[LOADING...]' : rates.nad ? `N$${rates.nad.toLocaleString()}` : '[N/A]'}
                         </span>
-                    </div>
-                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                    </Link>
+
+                    {/* Moscow Time - Links to Dashboard */}
+                    <Link
+                        to="/dashboard"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                    >
                         <Clock className="h-4 w-4" />
                         <span className="font-bold">MOSCOW TIME (NAD):</span>
                         <span className="text-green-400">
                             {loading ? '[LOADING...]' : formattedMoscowTime || '[N/A]'}
                         </span>
-                    </div>
+                    </Link>
                 </div>
             </div>
 
@@ -191,7 +248,7 @@ const Footer = () => {
                     animation: marquee 30s linear infinite;
                 }
             `}</style>
-        </footer>
+        </footer >
     );
 };
 
