@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, TrendingUp, Activity, Zap, DollarSign, Download } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Activity, Zap, DollarSign, Download, BookOpen } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Seo from '@/components/Seo';
 import { useBitcoinPrice } from '@/hooks/useBitcoinPrice';
@@ -136,28 +136,31 @@ const Dashboard = () => {
                             </Button>
                         )}
 
-                        <Link to="/tpok">
-                            <Button
-                                variant="outline"
-                                className="border-primary text-primary hover:bg-primary hover:text-black"
-                            >
-                                TPOK
-                            </Button>
-                        </Link>
+                        <div className="flex items-center gap-2">
+                            <Link to="/tpok">
+                                <Button
+                                    variant="ghost"
+                                    className="text-green-400 hover:text-primary hover:bg-primary/10 gap-2"
+                                >
+                                    <BookOpen className="h-4 w-4" />
+                                    TPOK
+                                </Button>
+                            </Link>
 
-                        <div className="flex bg-primary/10 rounded-lg p-1 border border-primary/30">
-                            <button
-                                onClick={() => setCurrency('USD')}
-                                className={`px-4 py-1 rounded-md text-sm font-bold transition-all ${currency === 'USD' ? 'bg-primary text-black shadow-[0_0_10px_rgba(247,147,26,0.5)]' : 'text-green-400 hover:text-primary'}`}
-                            >
-                                USD
-                            </button>
-                            <button
-                                onClick={() => setCurrency('NAD')}
-                                className={`px-4 py-1 rounded-md text-sm font-bold transition-all ${currency === 'NAD' ? 'bg-primary text-black shadow-[0_0_10px_rgba(247,147,26,0.5)]' : 'text-green-400 hover:text-primary'}`}
-                            >
-                                NAD
-                            </button>
+                            <div className="flex bg-primary/10 rounded-lg p-1 border border-primary/30">
+                                <button
+                                    onClick={() => setCurrency('USD')}
+                                    className={`px-4 py-1 rounded-md text-sm font-bold transition-all ${currency === 'USD' ? 'bg-primary text-black shadow-[0_0_10px_rgba(247,147,26,0.5)]' : 'text-green-400 hover:text-primary'}`}
+                                >
+                                    USD
+                                </button>
+                                <button
+                                    onClick={() => setCurrency('NAD')}
+                                    className={`px-4 py-1 rounded-md text-sm font-bold transition-all ${currency === 'NAD' ? 'bg-primary text-black shadow-[0_0_10px_rgba(247,147,26,0.5)]' : 'text-green-400 hover:text-primary'}`}
+                                >
+                                    NAD
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </header>
