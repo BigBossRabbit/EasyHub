@@ -31,7 +31,7 @@ const App = () => (
           <ScrollToTop />
           <Routes>
             {/* Homepage without footer */}
-            <Route path="/" element={<EasySatsHub />} />
+            <Route path="/" element={<Layout><EasySatsHub /></Layout>} />
 
             {/* All other routes with footer via Layout */}
             <Route path="/easydevs" element={<Layout><EasyDevs /></Layout>} />
