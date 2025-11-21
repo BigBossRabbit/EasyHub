@@ -9,7 +9,6 @@ import EasySatsHub from "./pages/EasySatsHub";
 import EasyDevs from "./pages/EasyDevs";
 import TimeForce from "./pages/TimeForce";
 import EasyJobs from "./pages/EasyJobs";
-import Install from "./pages/Install";
 import About from "./pages/About";
 import ConnectExplore from "@/pages/ConnectExplore";
 import Terms from "@/pages/Terms";
@@ -37,7 +36,6 @@ const App = () => (
             <Route path="/easydevs" element={<Layout><EasyDevs /></Layout>} />
             <Route path="/timeforce" element={<Layout><TimeForce /></Layout>} />
             <Route path="/easyjobs" element={<Layout><EasyJobs /></Layout>} />
-            <Route path="/install" element={<Layout><Install /></Layout>} />
             <Route path="/about" element={<Layout><About /></Layout>} />
             <Route path="/connect" element={<Layout><ConnectExplore /></Layout>} />
             <Route path="/terms" element={<Layout><Terms /></Layout>} />

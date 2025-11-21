@@ -1,38 +1,81 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, RefreshCw, TrendingUp, Calendar, Activity, Zap, DollarSign } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Calendar, Activity, Zap, DollarSign, Download } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Seo from '@/components/Seo';
-import { Button } from '@/components/ui/button';
 import { useBitcoinPrice } from '@/hooks/useBitcoinPrice';
+import { Button } from '@/components/ui/button';
 
-// Mock historical data for the chart (in a real app, fetch from CoinGecko API)
-const generateMockData = (currency: 'USD' | 'NAD') => {
+// Mock historical data generator based on timeframe
+const generateMockData = (currency: 'USD' | 'NAD', timeframe: '1H' | '24H' | '7D' | '30D') => {
     const basePrice = currency === 'USD' ? 95000 : 1700000;
-    const volatility = currency === 'USD' ? 2000 : 36000;
+    const volatility = currency === 'USD' ? 500 : 9000;
 
-    return Array.from({ length: 30 }, (_, i) => {
+    let points = 24;
+    let intervalLabel = 'Time';
+
+    if (timeframe === '1H') points = 60;
+    if (timeframe === '24H') points = 24;
+    if (timeframe === '7D') points = 7;
+    if (timeframe === '30D') points = 30;
+
+    return Array.from({ length: points }, (_, i) => {
+        let dateLabel = '';
         const date = new Date();
-        date.setDate(date.getDate() - (29 - i));
+
+        if (timeframe === '1H') {
+            date.setMinutes(date.getMinutes() - (points - i));
+            dateLabel = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        } else if (timeframe === '24H') {
+            date.setHours(date.getHours() - (points - i));
+            dateLabel = date.toLocaleTimeString([], { hour: '2-digit' });
+        } else {
+            date.setDate(date.getDate() - (points - i));
+            dateLabel = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
+
         return {
-            date: date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-            price: basePrice + (Math.random() - 0.5) * volatility + (i * (volatility / 10))
+            date: dateLabel,
+            price: basePrice + (Math.random() - 0.5) * volatility * (timeframe === '1H' ? 0.1 : timeframe === '24H' ? 0.5 : 1) + (i * (volatility / 10))
         };
     });
 };
 
 const Dashboard = () => {
     const [currency, setCurrency] = useState<'USD' | 'NAD'>('USD');
-    const [chartData, setChartData] = useState(generateMockData('USD'));
+    const [timeframe, setTimeframe] = useState<'1H' | '24H' | '7D' | '30D'>('24H');
+    const [chartData, setChartData] = useState(generateMockData('USD', '24H'));
     const { rates, loading } = useBitcoinPrice();
+    const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+    const [isInstallable, setIsInstallable] = useState(false);
 
     // "On This Day" mock data
     const historicalPrice = currency === 'USD' ? 16500 : 297000; // Example: Price 2 years ago
     const year = 2022;
 
     useEffect(() => {
-        setChartData(generateMockData(currency));
-    }, [currency]);
+        setChartData(generateMockData(currency, timeframe));
+    }, [currency, timeframe]);
+
+    useEffect(() => {
+        const handler = (e: any) => {
+            e.preventDefault();
+            setDeferredPrompt(e);
+            setIsInstallable(true);
+        };
+        window.addEventListener('beforeinstallprompt', handler);
+        return () => window.removeEventListener('beforeinstallprompt', handler);
+    }, []);
+
+    const handleInstallClick = async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+            setIsInstallable(false);
+        }
+        setDeferredPrompt(null);
+    };
 
     const currentPrice = currency === 'USD' ? rates.usd : rates.nad;
 
@@ -52,22 +95,33 @@ const Dashboard = () => {
 
             <div className="relative z-10 container mx-auto px-6 py-8">
                 {/* Header */}
-                <header className="flex items-center justify-between mb-12 border-b border-primary/30 pb-6">
-                    <div className="flex items-center gap-4">
+                <header className="flex flex-col md:flex-row items-center justify-between mb-12 border-b border-primary/30 pb-6 gap-4">
+                    <div className="flex items-center gap-4 w-full md:w-auto">
                         <Link to="/" className="p-2 hover:bg-primary/20 rounded-full transition-colors text-primary">
                             <ArrowLeft className="h-6 w-6" />
                         </Link>
                         <div>
-                            <h1 className="text-3xl md:text-4xl font-bold text-primary tracking-tighter">
+                            <h1 className="text-2xl md:text-4xl font-bold text-primary tracking-tighter">
                                 SYSTEM_DASHBOARD
                             </h1>
                             <p className="text-xs text-green-400/60 mt-1">
-                                v2.0.45 // CONNECTED TO MAINNET
+                                v0.0.1 // CONNECTED TO MAINNET
                             </p>
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+                        {isInstallable && (
+                            <Button
+                                onClick={handleInstallClick}
+                                variant="outline"
+                                className="border-primary text-primary hover:bg-primary hover:text-black gap-2"
+                            >
+                                <Download className="h-4 w-4" />
+                                INSTALL APP
+                            </Button>
+                        )}
+
                         <div className="flex bg-primary/10 rounded-lg p-1 border border-primary/30">
                             <button
                                 onClick={() => setCurrency('USD')}
@@ -103,7 +157,7 @@ const Dashboard = () => {
                             </div>
                             <div className="flex items-center gap-2 text-sm">
                                 <span className="text-primary animate-pulse">● LIVE</span>
-                                <span className="text-green-400/60"> // UPDATED 10s AGO</span>
+                                <span className="text-green-400/60"> // VIA BITPAY API</span>
                             </div>
                         </div>
 
@@ -149,43 +203,60 @@ const Dashboard = () => {
                     <div className="lg:col-span-2 space-y-8">
 
                         {/* Price Chart */}
-                        <div className="bg-black/50 border border-primary/30 p-6 rounded-lg h-[400px] relative">
-                            <h2 className="text-sm text-green-400/60 mb-6 flex items-center gap-2">
-                                <Activity className="h-4 w-4" /> PRICE ACTION (30D)
-                            </h2>
-                            <ResponsiveContainer width="100%" height="85%">
-                                <LineChart data={chartData}>
-                                    <CartesianGrid strokeDasharray="3 3" stroke="#333" vertical={false} />
-                                    <XAxis
-                                        dataKey="date"
-                                        stroke="#4ade80"
-                                        tick={{ fill: '#4ade80', fontSize: 10 }}
-                                        tickLine={false}
-                                        axisLine={false}
-                                    />
-                                    <YAxis
-                                        stroke="#4ade80"
-                                        tick={{ fill: '#4ade80', fontSize: 10 }}
-                                        tickLine={false}
-                                        axisLine={false}
-                                        domain={['auto', 'auto']}
-                                        tickFormatter={(value) => currency === 'USD' ? `$${value / 1000}k` : `N$${value / 1000}k`}
-                                    />
-                                    <Tooltip
-                                        contentStyle={{ backgroundColor: '#000', border: '1px solid #f7931a', color: '#fff' }}
-                                        itemStyle={{ color: '#f7931a' }}
-                                        formatter={(value: number) => [currency === 'USD' ? `$${value.toLocaleString()}` : `N$${value.toLocaleString()}`, 'Price']}
-                                    />
-                                    <Line
-                                        type="monotone"
-                                        dataKey="price"
-                                        stroke="#f7931a"
-                                        strokeWidth={2}
-                                        dot={false}
-                                        activeDot={{ r: 6, fill: '#f7931a' }}
-                                    />
-                                </LineChart>
-                            </ResponsiveContainer>
+                        <div className="bg-black/50 border border-primary/30 p-6 rounded-lg h-[500px] relative flex flex-col">
+                            <div className="flex flex-wrap items-center justify-between mb-6 gap-4">
+                                <h2 className="text-sm text-green-400/60 flex items-center gap-2">
+                                    <Activity className="h-4 w-4" /> PRICE ACTION
+                                </h2>
+                                <div className="flex bg-primary/10 rounded-lg p-1 border border-primary/30">
+                                    {(['1H', '24H', '7D', '30D'] as const).map((tf) => (
+                                        <button
+                                            key={tf}
+                                            onClick={() => setTimeframe(tf)}
+                                            className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${timeframe === tf ? 'bg-primary text-black' : 'text-green-400 hover:text-primary'}`}
+                                        >
+                                            {tf}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="flex-1 w-full min-h-0">
+                                <ResponsiveContainer width="100%" height="100%">
+                                    <LineChart data={chartData}>
+                                        <CartesianGrid strokeDasharray="3 3" stroke="#333" vertical={false} />
+                                        <XAxis
+                                            dataKey="date"
+                                            stroke="#4ade80"
+                                            tick={{ fill: '#4ade80', fontSize: 10 }}
+                                            tickLine={false}
+                                            axisLine={false}
+                                            minTickGap={30}
+                                        />
+                                        <YAxis
+                                            stroke="#4ade80"
+                                            tick={{ fill: '#4ade80', fontSize: 10 }}
+                                            tickLine={false}
+                                            axisLine={false}
+                                            domain={['auto', 'auto']}
+                                            tickFormatter={(value) => currency === 'USD' ? `$${value / 1000}k` : `N$${value / 1000}k`}
+                                        />
+                                        <Tooltip
+                                            contentStyle={{ backgroundColor: '#000', border: '1px solid #f7931a', color: '#fff' }}
+                                            itemStyle={{ color: '#f7931a' }}
+                                            formatter={(value: number) => [currency === 'USD' ? `$${value.toLocaleString()}` : `N$${value.toLocaleString()}`, 'Price']}
+                                        />
+                                        <Line
+                                            type="monotone"
+                                            dataKey="price"
+                                            stroke="#f7931a"
+                                            strokeWidth={2}
+                                            dot={false}
+                                            activeDot={{ r: 6, fill: '#f7931a' }}
+                                        />
+                                    </LineChart>
+                                </ResponsiveContainer>
+                            </div>
                         </div>
 
                         {/* On This Day */}
