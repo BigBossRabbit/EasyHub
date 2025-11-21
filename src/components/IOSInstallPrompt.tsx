@@ -53,7 +53,7 @@ const IOSInstallPrompt = () => {
 
                 <div className="flex gap-4">
                     <div className="bg-zinc-800 rounded-xl w-16 h-16 flex-shrink-0 overflow-hidden border border-white/10">
-                        <img src="/icons/icon-192.png" alt="App Icon" className="w-full h-full object-cover" />
+                        <img src="/easysats-logo.png" alt="App Icon" className="w-full h-full object-cover" />
                     </div>
 
                     <div className="flex-1">

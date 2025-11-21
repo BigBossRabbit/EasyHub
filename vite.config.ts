@@ -26,8 +26,8 @@ export default defineConfig(({ mode }) => ({
         background_color: "#000000",
         theme_color: "#000000",
         icons: [
-          { src: "icons/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any maskable" },
-          { src: "icons/icon-1024.png", sizes: "1024x1024", type: "image/png", purpose: "any maskable" }
+          { src: "/easysats-logo.png", sizes: "192x192", type: "image/png", purpose: "any maskable" },
+          { src: "/easysats-logo.png", sizes: "512x512", type: "image/png", purpose: "any maskable" }
         ],
       },
       workbox: {
