@@ -1,60 +1,69 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, TrendingUp, Calendar, Activity, Zap, DollarSign, Download } from 'lucide-react';
+import { ArrowLeft, TrendingUp, Activity, Zap, DollarSign, Download } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Seo from '@/components/Seo';
 import { useBitcoinPrice } from '@/hooks/useBitcoinPrice';
 import { Button } from '@/components/ui/button';
-
-// Mock historical data generator based on timeframe
-const generateMockData = (currency: 'USD' | 'NAD', timeframe: '1H' | '24H' | '7D' | '30D') => {
-    const basePrice = currency === 'USD' ? 95000 : 1700000;
-    const volatility = currency === 'USD' ? 500 : 9000;
-
-    let points = 24;
-    let intervalLabel = 'Time';
-
-    if (timeframe === '1H') points = 60;
-    if (timeframe === '24H') points = 24;
-    if (timeframe === '7D') points = 7;
-    if (timeframe === '30D') points = 30;
-
-    return Array.from({ length: points }, (_, i) => {
-        let dateLabel = '';
-        const date = new Date();
-
-        if (timeframe === '1H') {
-            date.setMinutes(date.getMinutes() - (points - i));
-            dateLabel = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        } else if (timeframe === '24H') {
-            date.setHours(date.getHours() - (points - i));
-            dateLabel = date.toLocaleTimeString([], { hour: '2-digit' });
-        } else {
-            date.setDate(date.getDate() - (points - i));
-            dateLabel = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-        }
-
-        return {
-            date: dateLabel,
-            price: basePrice + (Math.random() - 0.5) * volatility * (timeframe === '1H' ? 0.1 : timeframe === '24H' ? 0.5 : 1) + (i * (volatility / 10))
-        };
-    });
-};
+import OnThisDayCarousel from '@/components/OnThisDayCarousel';
 
 const Dashboard = () => {
     const [currency, setCurrency] = useState<'USD' | 'NAD'>('USD');
     const [timeframe, setTimeframe] = useState<'1H' | '24H' | '7D' | '30D'>('24H');
-    const [chartData, setChartData] = useState(generateMockData('USD', '24H'));
-    const { rates, loading } = useBitcoinPrice();
+    const [chartData, setChartData] = useState<any[]>([]);
+    const { rates, loading: priceLoading } = useBitcoinPrice();
     const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
     const [isInstallable, setIsInstallable] = useState(false);
+    const [chartLoading, setChartLoading] = useState(true);
 
-    // "On This Day" mock data
-    const historicalPrice = currency === 'USD' ? 16500 : 297000; // Example: Price 2 years ago
-    const year = 2022;
-
+    // Fetch Chart Data from CoinGecko
     useEffect(() => {
-        setChartData(generateMockData(currency, timeframe));
+        const fetchChartData = async () => {
+            setChartLoading(true);
+            try {
+                let days = '1';
+                if (timeframe === '7D') days = '7';
+                if (timeframe === '30D') days = '30';
+
+                const vsCurrency = currency === 'USD' ? 'usd' : 'zar'; // ZAR as NAD proxy
+                const response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${vsCurrency}&days=${days}`);
+                if (!response.ok) throw new Error('Failed to fetch chart data');
+
+                const data = await response.json();
+                let prices = data.prices;
+
+                // Filter for 1H if selected (since API min is 1 day)
+                if (timeframe === '1H') {
+                    const oneHourAgo = Date.now() - 3600000;
+                    prices = prices.filter((p: any[]) => p[0] >= oneHourAgo);
+                }
+
+                const formattedData = prices.map((item: any[]) => {
+                    const date = new Date(item[0]);
+                    let dateLabel = '';
+
+                    if (timeframe === '1H' || timeframe === '24H') {
+                        dateLabel = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                    } else {
+                        dateLabel = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                    }
+
+                    return {
+                        date: dateLabel,
+                        price: item[1],
+                        timestamp: item[0]
+                    };
+                });
+
+                setChartData(formattedData);
+            } catch (error) {
+                console.error('Error fetching chart data:', error);
+            } finally {
+                setChartLoading(false);
+            }
+        };
+
+        fetchChartData();
     }, [currency, timeframe]);
 
     useEffect(() => {
@@ -153,7 +162,7 @@ const Dashboard = () => {
                                 <DollarSign className="h-4 w-4" /> CURRENT PRICE
                             </h2>
                             <div className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-wider">
-                                {loading ? 'LOADING...' : currency === 'USD' ? `$${currentPrice?.toLocaleString()}` : `N$${currentPrice?.toLocaleString()}`}
+                                {priceLoading ? 'LOADING...' : currency === 'USD' ? `$${currentPrice?.toLocaleString()}` : `N$${currentPrice?.toLocaleString()}`}
                             </div>
                             <div className="flex items-center gap-2 text-sm">
                                 <span className="text-primary animate-pulse">● LIVE</span>
@@ -221,7 +230,12 @@ const Dashboard = () => {
                                 </div>
                             </div>
 
-                            <div className="flex-1 w-full min-h-0">
+                            <div className="flex-1 w-full min-h-0 relative">
+                                {chartLoading && (
+                                    <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-10">
+                                        <div className="text-primary animate-pulse">LOADING CHART DATA...</div>
+                                    </div>
+                                )}
                                 <ResponsiveContainer width="100%" height="100%">
                                     <LineChart data={chartData}>
                                         <CartesianGrid strokeDasharray="3 3" stroke="#333" vertical={false} />
@@ -245,6 +259,7 @@ const Dashboard = () => {
                                             contentStyle={{ backgroundColor: '#000', border: '1px solid #f7931a', color: '#fff' }}
                                             itemStyle={{ color: '#f7931a' }}
                                             formatter={(value: number) => [currency === 'USD' ? `$${value.toLocaleString()}` : `N$${value.toLocaleString()}`, 'Price']}
+                                            labelFormatter={(label) => label}
                                         />
                                         <Line
                                             type="monotone"
@@ -259,30 +274,8 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        {/* On This Day */}
-                        <div className="bg-black/50 border border-primary/30 p-6 rounded-lg relative overflow-hidden">
-                            <div className="absolute top-0 left-0 w-1 h-full bg-primary"></div>
-                            <div className="flex flex-col md:flex-row items-center gap-8">
-                                <div className="p-4 bg-primary/10 rounded-full border border-primary/30">
-                                    <Calendar className="h-8 w-8 text-primary" />
-                                </div>
-                                <div className="flex-1 text-center md:text-left">
-                                    <h2 className="text-lg font-bold text-white mb-1">ON THIS DAY IN {year}</h2>
-                                    <p className="text-green-400/80 text-sm mb-4">
-                                        Bitcoin was trading at a significantly different valuation. HODLers from this era are now up significantly.
-                                    </p>
-                                    <div className="text-3xl font-bold text-primary">
-                                        {currency === 'USD' ? `$${historicalPrice.toLocaleString()}` : `N$${historicalPrice.toLocaleString()}`}
-                                    </div>
-                                </div>
-                                <div className="text-right hidden md:block">
-                                    <div className="text-xs text-green-400/60 mb-1">ROI SINCE THEN</div>
-                                    <div className="text-2xl font-bold text-green-400">
-                                        +{((((currentPrice || 0) - historicalPrice) / historicalPrice) * 100).toFixed(0)}%
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {/* On This Day Carousel */}
+                        <OnThisDayCarousel currency={currency} currentPrice={currentPrice} />
 
                     </div>
                 </div>
