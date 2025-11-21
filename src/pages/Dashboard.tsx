@@ -8,6 +8,7 @@ import { useBitcoinNetworkStats } from '@/hooks/useBitcoinNetworkStats';
 import { useFearGreedIndex } from '@/hooks/useFearGreedIndex';
 import { Button } from '@/components/ui/button';
 import OnThisDayCarousel from '@/components/OnThisDayCarousel';
+import IOSInstallPrompt from '@/components/IOSInstallPrompt';
 
 const Dashboard = () => {
     const [currency, setCurrency] = useState<'USD' | 'NAD'>('USD');
@@ -395,6 +396,8 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+            {/* iOS Install Prompt */}
+            <IOSInstallPrompt />
         </div>
     );
 };

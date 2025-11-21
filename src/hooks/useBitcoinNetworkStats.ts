@@ -48,9 +48,10 @@ export const useBitcoinNetworkStats = () => {
                 const difficulty = parseFloat(await difficultyResponse.text());
 
                 // Fetch previous difficulty to calculate change
-                const statsResponse = await fetch('https://blockchain.info/stats?format=json');
-                const statsData = await statsResponse.json();
-                const difficultyChange = ((difficulty - statsData.difficulty) / statsData.difficulty) * 100;
+                // Use mempool.space API for accurate difficulty adjustment estimate
+                const difficultyAdjResponse = await fetch('https://mempool.space/api/v1/difficulty-adjustment');
+                const difficultyAdjData = await difficultyAdjResponse.json();
+                const difficultyChange = difficultyAdjData.difficultyChange;
 
                 // Calculate hashrate from difficulty (approximate)
                 // Hashrate (H/s) = difficulty * 2^32 / 600

@@ -1,29 +1,37 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script>
-      // Immediately apply dark mode to prevent FOUC
-      document.documentElement.classList.add('dark');
-    </script>
-    <title>EasyHub</title>
-    <link rel="icon" href="/favicon.ico">
-    <meta name="description" content="Making it Easy to find everything in one place" />
-    <meta name="author" content="" />
 
-    <meta property="og:title" content="EasyHub" />
-    <meta property="og:description" content="Making it Easy to find everything in one place" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    // Immediately apply dark mode to prevent FOUC
+    document.documentElement.classList.add('dark');
+  </script>
+  <title>EasyHub</title>
+  <link rel="icon" href="/favicon.ico">
+  <meta name="description" content="Making it Easy to find everything in one place" />
+  <meta name="author" content="" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="" />
-    <meta name="twitter:image" content="" />
-  </head>
+  <meta property="og:title" content="EasyHub" />
+  <meta property="og:description" content="Making it Easy to find everything in one place" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="" />
+  <meta name="twitter:image" content="" />
+
+  <!-- iOS PWA Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="EasyHub" />
+  <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>
