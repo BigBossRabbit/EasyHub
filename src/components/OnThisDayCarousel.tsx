@@ -22,43 +22,42 @@ const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) =
         const fetchHistory = async () => {
             try {
                 const vsCurrency = currency === 'USD' ? 'usd' : 'zar';
-                // Fetch full history (daily data)
-                const response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${vsCurrency}&days=max&interval=daily`);
+                // Fetch 1 year of history (365 days is the max for free tier without API key)
+                const response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${vsCurrency}&days=365&interval=daily`);
                 if (!response.ok) throw new Error('Failed fetch');
                 const data = await response.json();
                 const prices = data.prices; // Array of [timestamp, price]
 
-                const today = new Date();
-                const targetMonth = today.getMonth();
-                const targetDate = today.getDate();
-
                 const results: HistoricalData[] = [];
-                const yearsBack = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+                const monthsBack = [1, 2, 3, 4, 6, 9, 12]; // Show snapshots from these months ago
 
-                yearsBack.forEach(yearOffset => {
-                    const targetYear = today.getFullYear() - yearOffset;
+                monthsBack.forEach(months => {
+                    const targetDate = new Date();
+                    targetDate.setMonth(targetDate.getMonth() - months);
 
-                    // Find the closest data point to this date (within 3 days tolerance)
-                    const foundPoint = prices.find((p: number[]) => {
-                        const d = new Date(p[0]);
-                        const daysDiff = Math.abs(d.getDate() - targetDate);
-                        return d.getFullYear() === targetYear &&
-                            d.getMonth() === targetMonth &&
-                            daysDiff <= 3; // Allow 3-day tolerance
+                    // Find the closest data point to this date
+                    let closestPoint = prices[0];
+                    let minDiff = Math.abs(prices[0][0] - targetDate.getTime());
+
+                    prices.forEach((p: number[]) => {
+                        const diff = Math.abs(p[0] - targetDate.getTime());
+                        if (diff < minDiff) {
+                            minDiff = diff;
+                            closestPoint = p;
+                        }
                     });
 
-                    if (foundPoint) {
-                        results.push({
-                            year: targetYear,
-                            price: foundPoint[1],
-                            loading: false,
-                            error: false
-                        });
-                    }
+                    const pointDate = new Date(closestPoint[0]);
+                    results.push({
+                        year: pointDate.getFullYear(),
+                        price: closestPoint[1],
+                        loading: false,
+                        error: false
+                    });
                 });
 
                 console.log('OnThisDay: Found', results.length, 'historical data points');
-                setHistoryData(results.sort((a, b) => b.year - a.year)); // Most recent first
+                setHistoryData(results);
             } catch (e) {
                 console.error('Error fetching history', e);
             } finally {
@@ -115,7 +114,7 @@ const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) =
                     <Calendar className="h-8 w-8 text-primary" />
                 </div>
                 <div className="flex-1 text-center md:text-left">
-                    <h2 className="text-lg font-bold text-white mb-1">ON THIS DAY IN {item.year}</h2>
+                    <h2 className="text-lg font-bold text-white mb-1">BITCOIN IN {item.year}</h2>
                     <p className="text-green-400/80 text-sm mb-4">
                         {roi > 0
                             ? "HODLers from this era are now up significantly."
