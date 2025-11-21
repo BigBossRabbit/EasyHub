@@ -4,6 +4,7 @@ import { ArrowLeft, TrendingUp, Activity, Zap, DollarSign, Download } from 'luci
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import Seo from '@/components/Seo';
 import { useBitcoinPrice } from '@/hooks/useBitcoinPrice';
+import { useBitcoinNetworkStats } from '@/hooks/useBitcoinNetworkStats';
 import { Button } from '@/components/ui/button';
 import OnThisDayCarousel from '@/components/OnThisDayCarousel';
 
@@ -12,6 +13,7 @@ const Dashboard = () => {
     const [timeframe, setTimeframe] = useState<'1H' | '24H' | '7D' | '30D'>('24H');
     const [chartData, setChartData] = useState<any[]>([]);
     const { rates, loading: priceLoading } = useBitcoinPrice();
+    const { stats, loading: statsLoading } = useBitcoinNetworkStats();
     const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
     const [isInstallable, setIsInstallable] = useState(false);
     const [chartLoading, setChartLoading] = useState(true);
@@ -161,7 +163,7 @@ const Dashboard = () => {
                             <h2 className="text-sm text-green-400/60 mb-2 flex items-center gap-2">
                                 <DollarSign className="h-4 w-4" /> CURRENT PRICE
                             </h2>
-                            <div className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-wider">
+                            <div className="text-3xl md:text-5xl font-bold text-white mb-2 tracking-wider break-words">
                                 {priceLoading ? 'LOADING...' : currency === 'USD' ? `$${currentPrice?.toLocaleString()}` : `N$${currentPrice?.toLocaleString()}`}
                             </div>
                             <div className="flex items-center gap-2 text-sm">
@@ -191,20 +193,53 @@ const Dashboard = () => {
                             <h2 className="text-sm text-green-400/60 mb-4 flex items-center gap-2">
                                 <Zap className="h-4 w-4" /> NETWORK STATUS
                             </h2>
-                            <div className="space-y-4">
-                                <div className="flex justify-between items-center border-b border-gray-800 pb-2">
-                                    <span>Hashrate</span>
-                                    <span className="text-white font-bold">650 EH/s</span>
+                            {statsLoading ? (
+                                <div className="text-primary animate-pulse text-center py-8">LOADING...</div>
+                            ) : (
+                                <div className="space-y-3">
+                                    <div className="flex justify-between items-center border-b border-gray-800 pb-2">
+                                        <span className="text-sm">Hashrate</span>
+                                        <span className="text-white font-bold text-sm">{stats.hashrate || 'N/A'}</span>
+                                    </div>
+                                    <div className="flex justify-between items-center border-b border-gray-800 pb-2">
+                                        <span className="text-sm">Difficulty</span>
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-white font-bold text-sm">
+                                                {stats.difficulty ? `${(stats.difficulty / 1e12).toFixed(1)} T` : 'N/A'}
+                                            </span>
+                                            {stats.difficultyChange !== null && (
+                                                <span className={`text-xs ${stats.difficultyChange >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                                                    {stats.difficultyChange >= 0 ? '↑' : '↓'} {Math.abs(stats.difficultyChange).toFixed(2)}%
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <div className="flex justify-between items-center border-b border-gray-800 pb-2">
+                                        <span className="text-sm">Next Halving</span>
+                                        <span className="text-primary font-bold text-sm">
+                                            {stats.nextHalving ? `~${stats.nextHalving.daysRemaining.toLocaleString()} Days` : 'N/A'}
+                                        </span>
+                                    </div>
+                                    <div className="flex justify-between items-center border-b border-gray-800 pb-2">
+                                        <span className="text-sm">Mempool</span>
+                                        <span className="text-white font-bold text-sm">
+                                            {stats.mempoolSize ? `${stats.mempoolSize.toLocaleString()} tx` : 'N/A'}
+                                        </span>
+                                    </div>
+                                    <div className="flex justify-between items-center border-b border-gray-800 pb-2">
+                                        <span className="text-sm">Avg Block Time</span>
+                                        <span className="text-white font-bold text-sm">
+                                            {stats.blockTime ? `${Math.floor(stats.blockTime / 60)}m ${stats.blockTime % 60}s` : 'N/A'}
+                                        </span>
+                                    </div>
+                                    <div className="flex justify-between items-center">
+                                        <span className="text-sm">Block Height</span>
+                                        <span className="text-white font-bold text-sm">
+                                            {stats.blockHeight ? stats.blockHeight.toLocaleString() : 'N/A'}
+                                        </span>
+                                    </div>
                                 </div>
-                                <div className="flex justify-between items-center border-b border-gray-800 pb-2">
-                                    <span>Difficulty</span>
-                                    <span className="text-white font-bold">88.1 T</span>
-                                </div>
-                                <div className="flex justify-between items-center">
-                                    <span>Next Halving</span>
-                                    <span className="text-primary font-bold">~1,240 Days</span>
-                                </div>
-                            </div>
+                            )}
                         </div>
                     </div>
 
