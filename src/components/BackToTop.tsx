@@ -34,7 +34,7 @@ const BackToTop = () => {
         <button
             onClick={scrollToTop}
             className={cn(
-                "fixed bottom-8 right-8 z-50 p-3 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 bg-card border border-primary/20 group",
+                "fixed bottom-8 right-8 z-[100] p-3 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 bg-card border border-primary/20 group",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
             )}
             aria-label="Back to top"
