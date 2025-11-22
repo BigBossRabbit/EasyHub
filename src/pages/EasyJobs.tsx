@@ -25,7 +25,7 @@ const EasyJobs = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-3">
-              <img src="easysats-logo.png" alt="EasySats" className="h-10 w-10" />
+              <img src="/easysats-logo.png" alt="EasySats" className="h-10 w-10" />
               <div className="flex items-center gap-2">
                 <Briefcase className="h-4 w-4 text-primary" />
                 <span className="text-xl font-bold">
@@ -231,7 +231,7 @@ const EasyJobs = () => {
                 {/* Bitcoiner Jobs Branding */}
                 <div className="flex items-center justify-center gap-4 mb-4">
                   <div className="flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full">
-                    <img src="/EasyHub/1.png" alt="Bitcoiner Jobs" className="h-12 w-15" />
+                    <img src="/1.png" alt="Bitcoiner Jobs" className="h-12 w-15" />
                     <span className="text-xs font-medium text-primary">Powered by Bitcoiner Jobs</span>
                   </div>
                   <div className="text-xs text-muted-foreground">
@@ -380,7 +380,7 @@ const EasyJobs = () => {
         <div className="max-w-4xl mx-auto text-center">
           <div className="bg-card border border-primary/50 rounded-lg p-8">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <img src="/EasyHub/2.png" alt="Bitcoiner Jobs" className="h-12 w-21" />
+              <img src="/2.png" alt="Bitcoiner Jobs" className="h-12 w-21" />
               <h2 className="text-3xl font-bold">
                 Ready to Start Earning Bitcoin?
               </h2>

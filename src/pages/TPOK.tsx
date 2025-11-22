@@ -67,35 +67,34 @@ const courses = [
     duration: "7 hours",
     level: "Beginner",
     description: "Discover Bitcoin fundamentals, including its monetary value proposition, miners, transactions, and wallets.",
-    url: "https://planb.academy/en/courses/the-bitcoin-journey"
+    url: "https://planb.academy/en/courses/the-bitcoin-journey-2b7dc507-81e3-4b70-88e6-41ed44239966"
   },
   {
     title: "Getting your first bitcoins",
     duration: "14 hours",
     level: "Beginner",
     description: "Learn how to buy, secure, and manage your first bitcoins independently.",
-    url: "https://planb.academy/en/courses/getting-your-first-bitcoins"
+    url: "https://planb.academy/en/courses/getting-your-first-bitcoins-f3e3843d-1a1d-450c-96d6-d7232158b81f"
   },
   {
     title: "Setting up your first Bitcoin node",
     duration: "10 hours",
     level: "Intermediate",
     description: "Understanding, installing, configuring, and using a Bitcoin node.",
-    url: "https://planb.academy/en/courses/setting-up-your-first-bitcoin-node"
+    url: "https://planb.academy/en/courses/setting-up-your-first-bitcoin-node-3cd9cb94-82e8-417a-9c5a-02afc2589426"
   }
 ];
 
 const galleryImages = [
   '/tpok/IMG_2930.JPG',
   '/tpok/IMG_2945.JPG',
-  '/tpok/IMG_2922.JPG',
-  '/tpok/IMG_2925.JPG',
+  // Removed IMG_2922.JPG and IMG_2925.JPG as requested
   '/tpok/IMG_2935.JPG',
   '/tpok/IMG_2950.JPG',
   '/tpok/062A5160.JPG',
   '/tpok/062A5180.JPG',
-  '/tpok/062A5150.JPG',
-  '/tpok/062A5170.JPG'
+  '/tpok/062A5150.JPG'
+  // Removed 062A5170.JPG as requested
 ];
 
 const TPOK = () => {
@@ -105,7 +104,7 @@ const TPOK = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <a href="/" className="flex items-center gap-3">
-              <img src="easysats-logo.png" alt="EasySats" className="h-10 w-10" />
+              <img src="/easysats-logo.png" alt="EasySats" className="h-10 w-10" />
               <div className="flex items-center gap-2">
                 <Terminal className="h-4 w-4 text-primary" />
                 <span className="text-xl font-bold">

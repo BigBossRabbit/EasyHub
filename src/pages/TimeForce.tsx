@@ -26,7 +26,7 @@ const TimeForce = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-3">
-              <img src="easysats-logo.png" alt="EasySats" className="h-10 w-10" />
+              <img src="/easysats-logo.png" alt="EasySats" className="h-10 w-10" />
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4 text-primary" />
                 <span className="text-xl font-bold">

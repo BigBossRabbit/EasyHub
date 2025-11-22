@@ -16,7 +16,7 @@ const EasySatsHub = () => {
             <div className="text-center space-y-2 w-full">
               <div className="flex items-center justify-center gap-3 mb-2">
                 <div className="h-px flex-1 bg-primary md:hidden"></div>
-                <img src="easysats-logo.png" alt="EasySats" className="h-12 w-12" />
+                <img src="/easysats-logo.png" alt="EasySats" className="h-12 w-12" />
                 <div className="h-px flex-1 bg-primary md:hidden"></div>
               </div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-wider">
