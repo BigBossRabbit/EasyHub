@@ -125,7 +125,6 @@ const TPOK = () => {
               <a href="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</a>
               <a href="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</a>
               <a href="/tpok" className="text-primary">~/tpok</a>
-              <a href="/install" className="text-muted-foreground hover:text-primary transition-colors">~/install</a>
             </nav>
 
             {/* Mobile Navigation (Hamburger Menu) */}
@@ -145,7 +144,6 @@ const TPOK = () => {
                     <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
                     <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
                     <Link to="/tpok" className="text-lg font-semibold text-primary">~/tpok</Link>
-                    <Link to="/install" className="text-lg font-semibold hover:text-primary transition-colors">~/install</Link>
                   </nav>
                 </SheetContent>
               </Sheet>
