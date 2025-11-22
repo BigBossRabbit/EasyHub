@@ -121,7 +121,7 @@ const About = () => {
                   <CardContent className="pt-6">
                     <h3 className="font-bold text-xl mb-2 text-primary">TPOK</h3>
                     <p className="text-sm text-muted-foreground">
-                      The Pursuit Of Knowledge - Educational initiative and certification program.
+                      The Persuit Of Knowledge - Educational initiative and certification program.
                     </p>
                   </CardContent>
                 </Card>
