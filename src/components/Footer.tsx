@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
-import { Twitter, Instagram, Linkedin, Github, Terminal, TrendingUp, Activity, Zap, Clock } from "lucide-react";
+import { Twitter, Instagram, Linkedin, Github, Terminal, TrendingUp, Activity, Zap, Clock, Eye } from "lucide-react";
 import { useBitcoinPrice } from "@/hooks/useBitcoinPrice";
 import { useBitcoinNetworkStats } from "@/hooks/useBitcoinNetworkStats";
+import { usePageVisits } from "@/hooks/usePageVisits";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
     const { rates, loading: priceLoading } = useBitcoinPrice();
     const { stats, loading: statsLoading } = useBitcoinNetworkStats();
+    const { visits, loading: visitsLoading } = usePageVisits();
 
     const moscowTime = rates.nad ? Math.floor(100000000 / rates.nad) : null;
     const formattedMoscowTime = moscowTime
@@ -112,6 +114,15 @@ const Footer = () => {
                         </span>
                     </Link>
 
+                    {/* Page Visits */}
+                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                        <Eye className="h-4 w-4" />
+                        <span className="font-bold">PAGE VISITS:</span>
+                        <span className="text-green-400">
+                            {visitsLoading ? '[LOADING...]' : visits.toLocaleString()}
+                        </span>
+                    </div>
+
                     {/* Duplicate for seamless loop */}
                     {/* Block Height - Links to Mempool */}
                     <a
@@ -176,6 +187,15 @@ const Footer = () => {
                             {loading ? '[LOADING...]' : formattedMoscowTime || '[N/A]'}
                         </span>
                     </Link>
+
+                    {/* Page Visits */}
+                    <div className="flex items-center gap-2 text-primary text-sm px-4">
+                        <Eye className="h-4 w-4" />
+                        <span className="font-bold">PAGE VISITS:</span>
+                        <span className="text-green-400">
+                            {visitsLoading ? '[LOADING...]' : visits.toLocaleString()}
+                        </span>
+                    </div>
                 </div>
             </div>
 

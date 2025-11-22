@@ -108,11 +108,11 @@ const EasySatsHub = () => {
               </ul>
             </div>
 
-            <div className="bg-primary/10 border border-primary p-6">
-              <Newspaper className="h-8 w-8 text-primary mb-3" />
-              <h3 className="text-lg font-serif font-bold mb-2">Latest Edition</h3>
-              <p className="text-sm text-muted-foreground">Subscribe to receive Bitcoin education & updates</p>
-            </div>
+            <Link to="/tpok" className="bg-primary/10 border border-primary p-6 block hover:bg-primary/20 transition-colors group">
+              <Newspaper className="h-8 w-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
+              <h3 className="text-lg font-serif font-bold mb-2 group-hover:text-primary transition-colors">TPOK - The Proof of Knowledge</h3>
+              <p className="text-sm text-muted-foreground">Explore Bitcoin education resources & learning materials →</p>
+            </Link>
           </div>
         </div>
 
