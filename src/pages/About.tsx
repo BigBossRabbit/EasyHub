@@ -34,7 +34,7 @@ const About = () => {
               <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
               <Link to="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</Link>
               <Link to="/tpok" className="text-muted-foreground hover:text-primary transition-colors">~/tpok</Link>
-              <Link to="/install" className="text-muted-foreground hover:text-primary transition-colors">~/install</Link>
+
             </nav>
 
             {/* Mobile Navigation (Hamburger Menu) */}
@@ -54,7 +54,7 @@ const About = () => {
                     <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
                     <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
                     <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors">~/tpok</Link>
-                    <Link to="/install" className="text-lg font-semibold hover:text-primary transition-colors">~/install</Link>
+
                   </nav>
                 </SheetContent>
               </Sheet>
@@ -121,7 +121,7 @@ const About = () => {
                   <CardContent className="pt-6">
                     <h3 className="font-bold text-xl mb-2 text-primary">TPOK</h3>
                     <p className="text-sm text-muted-foreground">
-                      The Proof of Knowledge - Educational initiative and certification program.
+                      The Pursuit Of Knowledge - Educational initiative and certification program.
                     </p>
                   </CardContent>
                 </Card>
