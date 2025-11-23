@@ -22,27 +22,17 @@ export const BOUNTY_DATA = {
         { title: "Display Full Engagement Metrics", amount: "30,000 sats", tags: ["Feature", "UI"] },
         { title: "Implement Followers in Audience Tab", amount: "10,080 sats", tags: ["Feature", "Social"] },
         { title: "Add Yourself to Contributors Page", amount: "7,500 sats", tags: ["Documentation", "Easy"] }
-    ],
-    "Stacks Blockchain": [
-        { title: "Critical Smart Contract Bug", amount: "$250,000", tags: ["Smart Contract", "Critical"] },
-        { title: "PoX Consensus Vulnerability", amount: "$100,000+", tags: ["Consensus", "High"] },
-        { title: "BNS Name System Exploit", amount: "$50,000+", tags: ["Protocol", "Medium"] }
-    ],
-    "Bitcoin.org": [
-        { title: "Website Improvements", amount: "Variable BTC", tags: ["Website", "Documentation"] },
-        { title: "Translation Updates", amount: "Variable BTC", tags: ["i18n", "Content"] },
-        { title: "Developer Documentation", amount: "Variable BTC", tags: ["Docs", "Dev"] }
-    ],
+
     "Geyser Fund": [
-        { title: "Bitcoin Education & Culture", amount: "Up to 1 BTC", tags: ["Education", "Grants"] },
-        { title: "Circular Economy Projects", amount: "Variable", tags: ["Community", "Adoption"] },
-        { title: "Open Source Development", amount: "Variable", tags: ["Dev", "FOSS"] }
-    ],
-    "Kraken Exchange": [
-        { title: "Critical Security Vulnerability", amount: "Variable BTC", tags: ["Security", "Critical"] },
-        { title: "Trading Engine Exploit", amount: "Variable BTC", tags: ["Exchange", "High"] },
-        { title: "API Security Issues", amount: "Variable BTC", tags: ["API", "Medium"] }
-    ]
+            { title: "Bitcoin Education & Culture", amount: "Up to 1 BTC", tags: ["Education", "Grants"] },
+            { title: "Circular Economy Projects", amount: "Variable", tags: ["Community", "Adoption"] },
+            { title: "Open Source Development", amount: "Variable", tags: ["Dev", "FOSS"] }
+        ],
+        "Kraken Exchange": [
+            { title: "Critical Security Vulnerability", amount: "Variable BTC", tags: ["Security", "Critical"] },
+            { title: "Trading Engine Exploit", amount: "Variable BTC", tags: ["Exchange", "High"] },
+            { title: "API Security Issues", amount: "Variable BTC", tags: ["API", "Medium"] }
+        ]
 };
 
 export const BOUNTY_PLATFORMS: BountyPlatform[] = [
@@ -54,26 +44,6 @@ export const BOUNTY_PLATFORMS: BountyPlatform[] = [
         topBounty: {
             title: "M3Y Scanner works not properly",
             amount: "201,621 sats"
-        }
-    },
-    {
-        name: "Stacks Blockchain",
-        url: "https://immunefi.com/bug-bounty/stacks/",
-        description: "Bitcoin layer for smart contracts - Critical vulnerabilities up to $250,000.",
-        tags: ["Bitcoin L2", "Smart Contracts", "Critical"],
-        topBounty: {
-            title: "Critical Smart Contract Bug",
-            amount: "$250,000"
-        }
-    },
-    {
-        name: "Bitcoin.org Website",
-        url: "https://github.com/bitcoin-dot-org/bitcoin.org/issues?q=is%3Aopen+is%3Aissue+label%3ABounty",
-        description: "Contribute to Bitcoin.org - Bounties paid in BTC for merged PRs.",
-        tags: ["Website", "Documentation", "BTC"],
-        topBounty: {
-            title: "Website Improvements",
-            amount: "Variable BTC"
         }
     },
     {
@@ -215,3 +185,14 @@ export const BountyBoard = ({ platforms, checkingIndex, lastChecked }: BountyBoa
     );
 };
 
+    ],
+"Stacks Blockchain": [
+    { title: "Critical Smart Contract Bug", amount: "$250,000", tags: ["Smart Contract", "Critical"] },
+    { title: "PoX Consensus Vulnerability", amount: "$100,000+", tags: ["Consensus", "High"] },
+    { title: "BNS Name System Exploit", amount: "$50,000+", tags: ["Protocol", "Medium"] }
+],
+    "Bitcoin.org": [
+        { title: "Website Improvements", amount: "Variable BTC", tags: ["Website", "Documentation"] },
+        { title: "Translation Updates", amount: "Variable BTC", tags: ["i18n", "Content"] },
+        { title: "Developer Documentation", amount: "Variable BTC", tags: ["Docs", "Dev"] }
+    ],
