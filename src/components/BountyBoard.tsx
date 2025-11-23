@@ -15,6 +15,30 @@ interface BountyPlatform {
     };
 }
 
+export const BOUNTY_DATA = {
+    "Bitcoin Bounties": [
+        { title: "Core Lightning Plugin", amount: "0.5 BTC" },
+        { title: "Bolt12 Implementation", amount: "1.2 BTC" },
+        { title: "Privacy Review", amount: "0.3 BTC" },
+        { title: "Documentation Fixes", amount: "0.05 BTC" }
+    ],
+    "Bitaps": [
+        { title: "RCE Vulnerability", amount: "0.5 BTC" },
+        { title: "API Rate Limit Bypass", amount: "0.1 BTC" },
+        { title: "Wallet Injection", amount: "0.8 BTC" }
+    ],
+    "HackenProof": [
+        { title: "Critical Smart Contract Bug", amount: "$50,000+" },
+        { title: "Bridge Vulnerability", amount: "$100,000+" },
+        { title: "Logic Error in Swap", amount: "$25,000+" }
+    ],
+    "Geyser Fund": [
+        { title: "Community Grant", amount: "1.0 BTC" },
+        { title: "Education Initiative", amount: "0.5 BTC" },
+        { title: "Local Meetup Fund", amount: "0.1 BTC" }
+    ]
+};
+
 export const BOUNTY_PLATFORMS: BountyPlatform[] = [
     {
         name: "Bitcoin Bounties",
@@ -61,19 +85,35 @@ export const BOUNTY_PLATFORMS: BountyPlatform[] = [
 export const BountyBoard = () => {
     const [checkingIndex, setCheckingIndex] = useState<number | null>(null);
     const [lastChecked, setLastChecked] = useState<Date>(new Date());
+    const [platforms, setPlatforms] = useState(BOUNTY_PLATFORMS);
 
     // Simulate real-time checking effect
     useEffect(() => {
         const interval = setInterval(() => {
             // Randomly "check" one of the platforms
-            const randomIndex = Math.floor(Math.random() * BOUNTY_PLATFORMS.length);
+            const randomIndex = Math.floor(Math.random() * platforms.length);
             setCheckingIndex(randomIndex);
 
             setTimeout(() => {
                 setCheckingIndex(null);
                 setLastChecked(new Date());
+
+                // Update the top bounty for this platform
+                setPlatforms(currentPlatforms => {
+                    const newPlatforms = [...currentPlatforms];
+                    const platformName = newPlatforms[randomIndex].name;
+                    const platformBounties = BOUNTY_DATA[platformName as keyof typeof BOUNTY_DATA];
+                    if (platformBounties) {
+                        const randomBounty = platformBounties[Math.floor(Math.random() * platformBounties.length)];
+                        newPlatforms[randomIndex] = {
+                            ...newPlatforms[randomIndex],
+                            topBounty: randomBounty
+                        };
+                    }
+                    return newPlatforms;
+                });
             }, 2000); // "Check" takes 2 seconds
-        }, 9 * 60 * 1000); // Run every 9 minutes
+        }, 60 * 1000); // Run every 60 seconds
 
         return () => clearInterval(interval);
     }, []);
@@ -115,7 +155,7 @@ export const BountyBoard = () => {
                 </p>
 
                 <div className="space-y-4 flex-grow">
-                    {BOUNTY_PLATFORMS.map((platform, index) => (
+                    {platforms.map((platform, index) => (
                         <div key={index} className="group border-b border-orange-500/10 last:border-0 pb-4 last:pb-0 relative">
                             {/* Scanning effect overlay */}
                             {checkingIndex === index && (

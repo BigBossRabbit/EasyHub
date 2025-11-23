@@ -5,8 +5,53 @@ import Seo from "@/components/Seo";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { BountyBoard } from "@/components/BountyBoard";
+import { SovereignKey } from "@/components/SovereignKey";
+import { useEffect } from "react";
+
+const BOUNTY_MESSAGES = [
+  {
+    title: "Critical Smart Contract Bug",
+    platform: "HackenProof",
+    reward: "$50,000+",
+    type: "Security / DeFi",
+    color: "text-green-500"
+  },
+  {
+    title: "Core Lightning Plugin",
+    platform: "Bitcoin Bounties",
+    reward: "0.5 BTC",
+    type: "Protocol / Lightning",
+    color: "text-orange-500"
+  },
+  {
+    title: "RCE Vulnerability",
+    platform: "Bitaps",
+    reward: "0.5 BTC",
+    type: "Security / API",
+    color: "text-red-500"
+  },
+  {
+    title: "Community Grant",
+    platform: "Geyser Fund",
+    reward: "1.0 BTC",
+    type: "Crowdfunding / Grants",
+    color: "text-purple-500"
+  }
+];
 
 const EasyDevs = () => {
+  const [currentBountyIndex, setCurrentBountyIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBountyIndex((prev) => (prev + 1) % BOUNTY_MESSAGES.length);
+    }, 60000); // Rotate every 60 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const currentBounty = BOUNTY_MESSAGES[currentBountyIndex];
+
   return (
     <div className="min-h-screen text-foreground font-mono">
       <Seo title="EasyDevs — Open Source Opportunities" description="Explore open source projects & opportunities in the Bitcoin & freedom technology space." canonical="/easydevs" />
@@ -106,11 +151,11 @@ const EasyDevs = () => {
             <div className="space-y-1">
               <div className="text-gray-400">Searching available platforms...</div>
               <div className="text-gray-400">Analyzing reward pools...</div>
-              <div className="text-green-500 mt-2">FOUND: Critical Smart Contract Bug</div>
+              <div className={`mt-2 ${currentBounty.color}`}>FOUND: {currentBounty.title}</div>
               <div className="pl-4 text-gray-300">
-                <span className="text-purple-400">Platform:</span> HackenProof<br />
-                <span className="text-purple-400">Reward:</span> <span className="text-yellow-400 font-bold">$50,000+</span><br />
-                <span className="text-purple-400">Type:</span> Security / DeFi
+                <span className="text-purple-400">Platform:</span> {currentBounty.platform}<br />
+                <span className="text-purple-400">Reward:</span> <span className="text-yellow-400 font-bold">{currentBounty.reward}</span><br />
+                <span className="text-purple-400">Type:</span> {currentBounty.type}
               </div>
             </div>
           </div>
@@ -192,7 +237,7 @@ const EasyDevs = () => {
                     </div>
                     <div>
                       <span className="text-foreground block">Submission Deadline:</span>
-                      Dec 31, 2025
+                      Dec 16, 2025
                     </div>
                   </div>
                 </div>
@@ -238,8 +283,13 @@ const EasyDevs = () => {
             </div>
           </div>
 
-          {/* Bounty Board */}
-          <BountyBoard />
+          {/* SovereignKey Project */}
+          <SovereignKey />
+
+          {/* Bounty Board - Full Width */}
+          <div className="md:col-span-2">
+            <BountyBoard />
+          </div>
         </div>
 
         <div className="mt-8 bg-card border border-primary/50 rounded-lg p-6">
