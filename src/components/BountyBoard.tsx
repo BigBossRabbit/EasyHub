@@ -16,32 +16,46 @@ export interface BountyPlatform {
 }
 
 export const BOUNTY_DATA = {
-    "HackenProof": [
-        { title: "Layer 1 Blockchain Critical", amount: "$500,000+", tags: ["Protocol", "Critical"] },
-        { title: "DeFi Bridge Vulnerability", amount: "$250,000+", tags: ["Smart Contract", "High"] },
-        { title: "Exchange Wallet Exploit", amount: "$100,000+", tags: ["Wallet", "Critical"] },
-        { title: "ZK-Rollup Logic Error", amount: "$75,000+", tags: ["L2", "High"] }
+    "Lightning Bounties": [
+        { title: "M3Y Scanner works not properly", amount: "201,621 sats", tags: ["Hardware", "Bug"] },
+        { title: "Improve Relay Handling & Resilient Client-Side Strategy", amount: "112,320 sats", tags: ["Protocol", "Dev"] },
+        { title: "Display Full Engagement Metrics", amount: "30,000 sats", tags: ["Feature", "UI"] },
+        { title: "Implement Followers in Audience Tab", amount: "10,080 sats", tags: ["Feature", "Social"] },
+        { title: "Add Yourself to Contributors Page", amount: "7,500 sats", tags: ["Documentation", "Easy"] }
     ],
-    "Bitcoin Bounties": [
-        { title: "Web UI for JoinMarket", amount: "0.5 BTC", tags: ["UI/UX", "Privacy"] },
-        { title: "Core Lightning Plugin", amount: "0.5 BTC", tags: ["Lightning", "Dev"] },
-        { title: "Silent Payments Implementation", amount: "0.4 BTC", tags: ["Protocol", "Privacy"] },
-        { title: "Stratum V2 Template Provider", amount: "0.3 BTC", tags: ["Mining", "Rust"] }
+    "Stacks Blockchain": [
+        { title: "Critical Smart Contract Bug", amount: "$250,000", tags: ["Smart Contract", "Critical"] },
+        { title: "PoX Consensus Vulnerability", amount: "$100,000+", tags: ["Consensus", "High"] },
+        { title: "BNS Name System Exploit", amount: "$50,000+", tags: ["Protocol", "Medium"] }
     ],
-    "Bitaps": [
-        { title: "Zero Day Exploit", amount: "2.0 BTC", tags: ["Critical", "Exploit"] },
-        { title: "Double Spend Vector", amount: "1.5 BTC", tags: ["Consensus", "High"] },
-        { title: "Mempool DoS Attack", amount: "0.8 BTC", tags: ["Network", "Medium"] }
+    "Bitcoin.org": [
+        { title: "Website Improvements", amount: "Variable BTC", tags: ["Website", "Documentation"] },
+        { title: "Translation Updates", amount: "Variable BTC", tags: ["i18n", "Content"] },
+        { title: "Developer Documentation", amount: "Variable BTC", tags: ["Docs", "Dev"] }
     ],
     "Geyser Fund": [
-        { title: "WallAxe: Mining Revolution", amount: "1.5 BTC", tags: ["Hardware", "Mining"] },
-        { title: "Bitcoin Standard in Parliament", amount: "0.8 BTC", tags: ["Education", "Policy"] },
-        { title: "Nostr Relay Implementation", amount: "0.5 BTC", tags: ["Nostr", "Dev"] },
-        { title: "Free Open Source Education", amount: "0.3 BTC", tags: ["Education", "Content"] }
+        { title: "Bitcoin Education & Culture", amount: "Up to 1 BTC", tags: ["Education", "Grants"] },
+        { title: "Circular Economy Projects", amount: "Variable", tags: ["Community", "Adoption"] },
+        { title: "Open Source Development", amount: "Variable", tags: ["Dev", "FOSS"] }
+    ],
+    "Kraken Exchange": [
+        { title: "Critical Security Vulnerability", amount: "Variable BTC", tags: ["Security", "Critical"] },
+        { title: "Trading Engine Exploit", amount: "Variable BTC", tags: ["Exchange", "High"] },
+        { title: "API Security Issues", amount: "Variable BTC", tags: ["API", "Medium"] }
     ]
 };
 
 export const BOUNTY_PLATFORMS: BountyPlatform[] = [
+    {
+        name: "Lightning Bounties",
+        url: "https://app.lightningbounties.com/feed",
+        description: "Earn sats by solving GitHub issues - Real bounties cycling every 60 seconds.",
+        tags: ["Lightning", "GitHub", "Sats"],
+        topBounty: {
+            title: "M3Y Scanner works not properly",
+            amount: "201,621 sats"
+        }
+    },
     {
         name: "Stacks Blockchain",
         url: "https://immunefi.com/bug-bounty/stacks/",
