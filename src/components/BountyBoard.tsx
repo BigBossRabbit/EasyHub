@@ -43,43 +43,123 @@ export const BOUNTY_DATA = {
 
 export const BOUNTY_PLATFORMS: BountyPlatform[] = [
     {
-        name: "Bitcoin Bounties",
-        url: "https://bitcoinbounties.org",
-        description: "Collection of open bounties for various Bitcoin projects including Core Lightning and privacy tools.",
-        tags: ["Protocol", "Lightning", "Privacy"],
+        name: "Lightning Bounties",
+        url: "https://lightningbounties.com",
+        description: "Earn sats by solving issues on Lightning Network repositories.",
+        tags: ["Lightning", "Dev", "Sats"],
         topBounty: {
-            title: "Core Lightning Plugin",
-            amount: "0.5 BTC"
-        }
-    },
-    {
-        name: "Bitaps",
-        url: "https://bitaps.com/bounty",
-        description: "Rewards for finding vulnerabilities in their Forwarding API and Wallet API.",
-        tags: ["Security", "API", "Wallet"],
-        topBounty: {
-            title: "RCE Vulnerability",
-            amount: "0.5 BTC"
+            title: "LND: Add support for new TLV records",
+            amount: "500,000 sats"
         }
     },
     {
         name: "HackenProof",
         url: "https://hackenproof.com/programs?type=bug-bounty",
-        description: "Lists numerous crypto bug bounty programs with substantial payouts.",
-        tags: ["Security", "Smart Contracts", "DeFi"],
+        description: "Web3 bug bounty platform with active crypto programs.",
+        tags: ["Security", "DeFi", "Web3"],
         topBounty: {
             title: "Critical Smart Contract Bug",
             amount: "$50,000+"
         }
     },
     {
+        name: "Immunefi",
+        url: "https://immunefi.com/explore/",
+        description: "Leading bug bounty platform for DeFi and crypto projects.",
+        tags: ["Security", "DeFi", "High Rewards"],
+        topBounty: {
+            title: "Protocol Logic Error",
+            amount: "$1,000,000+"
+        }
+    },
+    {
+        name: "Blink",
+        url: "https://github.com/GaloyMoney/blink",
+        description: "Contribute to the Blink Bitcoin wallet ecosystem.",
+        tags: ["Wallet", "API", "Open Source"],
+        topBounty: {
+            title: "LNbits Funding Source Integration",
+            amount: "250,000 sats"
+        }
+    },
+    {
         name: "Geyser Fund",
         url: "https://geyser.fund",
-        description: "Crowdfunding platform for Bitcoin projects where you can find grants and community funding.",
-        tags: ["Crowdfunding", "Community", "Grants"],
+        description: "Crowdfunding for Bitcoin creators and builders.",
+        tags: ["Crowdfunding", "Grants", "Community"],
         topBounty: {
-            title: "Community Grant",
-            amount: "1.0 BTC"
+            title: "Bitcoin Education Hub",
+            amount: "0.5 BTC"
+        }
+    },
+    {
+        name: "Bitcoin Dev Kit",
+        url: "https://bitcoindevkit.org/blog/contributing/",
+        description: "Seamlessly build Bitcoin wallets with BDK.",
+        tags: ["Rust", "Library", "Wallet"],
+        topBounty: {
+            title: "Coin Selection Algorithm Optimization",
+            amount: "1,000,000 sats"
+        }
+    },
+    {
+        name: "Nostr Bounties",
+        url: "https://nostrbounties.com",
+        description: "Bounties for Nostr protocol development.",
+        tags: ["Nostr", "Social", "Protocol"],
+        topBounty: {
+            title: "NIP-57 Implementation for Relay",
+            amount: "300,000 sats"
+        }
+    },
+    {
+        name: "Stratum V2",
+        url: "https://stratumprotocol.org",
+        description: "Next-gen pooled mining protocol.",
+        tags: ["Mining", "Protocol", "Rust"],
+        topBounty: {
+            title: "Job Negotiation Extension",
+            amount: "0.2 BTC"
+        }
+    },
+    {
+        name: "Fedimint",
+        url: "https://fedimint.org",
+        description: "Federated Chaumian E-Cash for Bitcoin.",
+        tags: ["Privacy", "Scaling", "Rust"],
+        topBounty: {
+            title: "Client Module Refactor",
+            amount: "1,500,000 sats"
+        }
+    },
+    {
+        name: "Alby",
+        url: "https://getalby.com",
+        description: "Bitcoin Lightning wallet for the web.",
+        tags: ["Extension", "Lightning", "Web"],
+        topBounty: {
+            title: "WebLN Provider Enhancement",
+            amount: "200,000 sats"
+        }
+    },
+    {
+        name: "BTCPay Server",
+        url: "https://btcpayserver.org",
+        description: "Self-hosted, open-source cryptocurrency payment processor.",
+        tags: ["Payments", "Merchant", "C#"],
+        topBounty: {
+            title: "Plugin System Security Review",
+            amount: "$2,000"
+        }
+    },
+    {
+        name: "OpenSats",
+        url: "https://opensats.org",
+        description: "Non-profit supporting Bitcoin and FOSS contributors.",
+        tags: ["Grants", "FOSS", "Non-profit"],
+        topBounty: {
+            title: "Long-term Support Grant",
+            amount: "Variable"
         }
     }
 ];
@@ -129,52 +209,57 @@ export const BountyBoard = ({ platforms, checkingIndex, lastChecked }: BountyBoa
                     Earn Bitcoin by contributing to open source projects, finding bugs, or securing grants for your own ideas.
                 </p>
 
-                <div className="space-y-4 flex-grow">
+                <div className="grid md:grid-cols-2 gap-4 flex-grow">
                     {platforms.map((platform, index) => (
-                        <div key={index} className="group border-b border-orange-500/10 last:border-0 pb-4 last:pb-0 relative">
+                        <div key={index} className="group border border-orange-500/10 rounded-lg p-3 relative hover:border-orange-500/30 transition-colors bg-black/20">
                             {/* Scanning effect overlay */}
                             {checkingIndex === index && (
-                                <div className="absolute inset-0 bg-orange-500/5 animate-pulse rounded-lg -mx-2 z-0"></div>
+                                <div className="absolute inset-0 bg-orange-500/5 animate-pulse rounded-lg z-0"></div>
                             )}
 
                             <a
                                 href={platform.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block space-y-2 hover:bg-orange-500/5 p-2 rounded-lg transition-colors -mx-2 relative z-10"
+                                className="block space-y-2 relative z-10 h-full flex flex-col"
                             >
-                                <div className="flex items-center justify-between">
-                                    <h3 className="font-bold text-foreground group-hover:text-orange-400 transition-colors font-mono text-sm flex items-center gap-2">
+                                <div className="flex items-center justify-between mb-1">
+                                    <h3 className="font-bold text-foreground group-hover:text-orange-400 transition-colors font-mono text-sm flex items-center gap-2 truncate">
                                         {platform.name}
                                         {checkingIndex === index && (
                                             <Loader2 className="h-3 w-3 animate-spin text-orange-500" />
                                         )}
                                     </h3>
-                                    <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-orange-400" />
+                                    <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-orange-400 flex-shrink-0" />
                                 </div>
 
-                                <p className="text-xs text-muted-foreground line-clamp-2">
+                                <p className="text-[10px] text-muted-foreground line-clamp-2 mb-2 flex-grow">
                                     {platform.description}
                                 </p>
 
                                 {/* Highest Bounty Display */}
-                                <div className="bg-black/40 border border-orange-500/20 rounded p-2 mt-2 flex items-center justify-between">
+                                <div className="bg-black/40 border border-orange-500/20 rounded p-2 mt-auto flex items-center justify-between">
                                     <div className="flex items-center gap-2">
                                         <Terminal className="h-3 w-3 text-orange-500/70" />
-                                        <span className="text-[10px] text-orange-500/70 font-mono">TOP BOUNTY:</span>
+                                        <span className="text-[10px] text-orange-500/70 font-mono">TOP:</span>
                                     </div>
-                                    <div className="text-right">
-                                        <div className="text-[10px] text-gray-300 font-mono truncate max-w-[120px]">{platform.topBounty.title}</div>
+                                    <div className="text-right overflow-hidden">
+                                        <div className="text-[10px] text-gray-300 font-mono truncate max-w-[80px]">{platform.topBounty.title}</div>
                                         <div className="text-xs font-bold text-orange-400 font-mono">{platform.topBounty.amount}</div>
                                     </div>
                                 </div>
 
-                                <div className="flex flex-wrap gap-2 mt-2">
-                                    {(platform.topBounty.tags || platform.tags).map((tag, i) => (
-                                        <Badge key={i} variant="outline" className="text-[10px] border-orange-500/30 text-orange-400 bg-orange-500/5 font-mono">
+                                <div className="flex flex-wrap gap-1 mt-2">
+                                    {(platform.topBounty.tags || platform.tags).slice(0, 2).map((tag, i) => (
+                                        <Badge key={i} variant="outline" className="text-[9px] px-1 py-0 h-4 border-orange-500/30 text-orange-400 bg-orange-500/5 font-mono">
                                             {tag}
                                         </Badge>
                                     ))}
+                                    {(platform.topBounty.tags || platform.tags).length > 2 && (
+                                        <Badge variant="outline" className="text-[9px] px-1 py-0 h-4 border-orange-500/30 text-orange-400 bg-orange-500/5 font-mono">
+                                            +{(platform.topBounty.tags || platform.tags).length - 2}
+                                        </Badge>
+                                    )}
                                 </div>
                             </a>
                         </div>
@@ -195,3 +280,4 @@ export const BountyBoard = ({ platforms, checkingIndex, lastChecked }: BountyBoa
         </div>
     );
 };
+
