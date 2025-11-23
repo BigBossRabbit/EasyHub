@@ -103,16 +103,6 @@ export const BOUNTY_PLATFORMS: BountyPlatform[] = [
         }
     },
     {
-        name: "Nostr Bounties",
-        url: "https://nostrbounties.com",
-        description: "Bounties for Nostr protocol development.",
-        tags: ["Nostr", "Social", "Protocol"],
-        topBounty: {
-            title: "NIP-57 Implementation for Relay",
-            amount: "300,000 sats"
-        }
-    },
-    {
         name: "Bolt.fun",
         url: "https://bolt.fun/tournaments",
         description: "Hackathons and tournaments for building on Bitcoin.",
@@ -120,16 +110,6 @@ export const BOUNTY_PLATFORMS: BountyPlatform[] = [
         topBounty: {
             title: "Legends of Lightning Winner",
             amount: "1.0 BTC"
-        }
-    },
-    {
-        name: "Bisq",
-        url: "https://github.com/bisq-network/bisq/issues?q=is%3Aissue+is%3Aopen+label%3Abounty",
-        description: "Contribute to the decentralized exchange network.",
-        tags: ["DEX", "Privacy", "Java"],
-        topBounty: {
-            title: "New Payment Method Integration",
-            amount: "Variable"
         }
     },
     {

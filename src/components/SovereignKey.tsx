@@ -47,15 +47,21 @@ export const SovereignKey = () => {
                     </div>
                 </div>
 
-                {/* Hardware Specs */}
+                {/* Installation Steps */}
                 <div className="mb-4 p-3 bg-primary/5 border border-primary/20 rounded space-y-3">
                     <div>
-                        <div className="text-xs text-primary font-mono mb-1">RECOMMENDED HARDWARE:</div>
-                        <ul className="text-xs text-muted-foreground space-y-1">
-                            <li className="flex items-center gap-2"><Usb className="h-3 w-3" /> USB 3.0+ Flash Drive (32GB+)</li>
-                            <li className="flex items-center gap-2"><Cpu className="h-3 w-3" /> x86_64 Processor (Intel/AMD)</li>
-                            <li className="flex items-center gap-2"><Lock className="h-3 w-3" /> 4GB+ RAM (8GB Recommended)</li>
-                        </ul>
+                        <div className="text-xs text-primary font-mono mb-1">INSTALLATION STEPS:</div>
+                        <ol className="text-xs text-muted-foreground space-y-1 list-decimal list-inside">
+                            <li>Power off your computer</li>
+                            <li>Insert SovereignKey USB drive</li>
+                            <li>Power on and access Boot Menu</li>
+                            <li>Select Boot from USB</li>
+                            <li>Wait for Tails OS to load</li>
+                            <li>Enter Persistent Storage passphrase</li>
+                            <li>Click Start Tails</li>
+                            <li>Connect to internet</li>
+                            <li>Choose Connect to Tor</li>
+                        </ol>
                     </div>
                 </div>
 
