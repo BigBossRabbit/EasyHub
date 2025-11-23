@@ -4,53 +4,80 @@ import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { BountyBoard } from "@/components/BountyBoard";
+import { BountyBoard, BOUNTY_PLATFORMS, BOUNTY_DATA } from "@/components/BountyBoard";
 import { SovereignKey } from "@/components/SovereignKey";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const BOUNTY_MESSAGES = [
-  {
-    title: "Critical Smart Contract Bug",
-    platform: "HackenProof",
-    reward: "$50,000+",
-    type: "Security / DeFi",
-    color: "text-green-500"
-  },
-  {
-    title: "Core Lightning Plugin",
-    platform: "Bitcoin Bounties",
-    reward: "0.5 BTC",
-    type: "Protocol / Lightning",
-    color: "text-orange-500"
-  },
-  {
-    title: "RCE Vulnerability",
-    platform: "Bitaps",
-    reward: "0.5 BTC",
-    type: "Security / API",
-    color: "text-red-500"
-  },
-  {
-    title: "Community Grant",
-    platform: "Geyser Fund",
-    reward: "1.0 BTC",
-    type: "Crowdfunding / Grants",
-    color: "text-purple-500"
-  }
-];
+
 
 const EasyDevs = () => {
-  const [currentBountyIndex, setCurrentBountyIndex] = useState(0);
+  const [checkingIndex, setCheckingIndex] = useState<number | null>(null);
+  const [lastChecked, setLastChecked] = useState<Date>(new Date());
+  const [platforms, setPlatforms] = useState(BOUNTY_PLATFORMS);
 
+  // Simulate real-time checking effect (lifted from BountyBoard)
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentBountyIndex((prev) => (prev + 1) % BOUNTY_MESSAGES.length);
-    }, 60000); // Rotate every 60 seconds
+      // Randomly "check" one of the platforms
+      const randomIndex = Math.floor(Math.random() * platforms.length);
+      setCheckingIndex(randomIndex);
+
+      setTimeout(() => {
+        setCheckingIndex(null);
+        setLastChecked(new Date());
+
+        // Update the top bounty for this platform
+        setPlatforms(currentPlatforms => {
+          const newPlatforms = [...currentPlatforms];
+          const platformName = newPlatforms[randomIndex].name;
+          const platformBounties = BOUNTY_DATA[platformName as keyof typeof BOUNTY_DATA];
+          if (platformBounties) {
+            const randomBounty = platformBounties[Math.floor(Math.random() * platformBounties.length)];
+            newPlatforms[randomIndex] = {
+              ...newPlatforms[randomIndex],
+              topBounty: randomBounty
+            };
+          }
+          return newPlatforms;
+        });
+      }, 2000); // "Check" takes 2 seconds
+    }, 60 * 1000); // Run every 60 seconds
 
     return () => clearInterval(interval);
   }, []);
 
-  const currentBounty = BOUNTY_MESSAGES[currentBountyIndex];
+  // Helper to find the "highest" bounty
+  // For simplicity, we'll prioritize BTC amounts over USD, and higher numbers
+  const getHighestBounty = () => {
+    let highest = platforms[0];
+    let highestValue = 0;
+
+    platforms.forEach(p => {
+      let value = 0;
+      if (p.topBounty.amount.includes("BTC")) {
+        value = parseFloat(p.topBounty.amount.replace(" BTC", "")) * 100000; // Weight BTC heavily
+      } else if (p.topBounty.amount.includes("$")) {
+        value = parseFloat(p.topBounty.amount.replace(/[^0-9.]/g, ""));
+      }
+
+      if (value > highestValue) {
+        highestValue = value;
+        highest = p;
+      }
+    });
+
+    return {
+      title: highest.topBounty.title,
+      platform: highest.name,
+      reward: highest.topBounty.amount,
+      type: (highest.topBounty.tags || highest.tags).join(" / "),
+      color: highest.name === "Bitcoin Bounties" ? "text-orange-500" :
+        highest.name === "HackenProof" ? "text-green-500" :
+          highest.name === "Bitaps" ? "text-red-500" : "text-purple-500"
+    };
+  };
+
+  const currentBounty = getHighestBounty();
 
   return (
     <div className="min-h-screen text-foreground font-mono">
@@ -288,7 +315,11 @@ const EasyDevs = () => {
 
           {/* Bounty Board - Full Width */}
           <div className="md:col-span-2">
-            <BountyBoard />
+            <BountyBoard
+              platforms={platforms}
+              checkingIndex={checkingIndex}
+              lastChecked={lastChecked}
+            />
           </div>
         </div>
 

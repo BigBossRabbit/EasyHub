@@ -2,9 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Target, Bitcoin, Terminal, Loader2 } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { useState, useEffect } from "react";
 
-interface BountyPlatform {
+export interface BountyPlatform {
     name: string;
     url: string;
     description: string;
@@ -12,30 +11,33 @@ interface BountyPlatform {
     topBounty: {
         title: string;
         amount: string;
+        tags?: string[];
     };
 }
 
 export const BOUNTY_DATA = {
+    "HackenProof": [
+        { title: "Layer 1 Blockchain Critical", amount: "$500,000+", tags: ["Protocol", "Critical"] },
+        { title: "DeFi Bridge Vulnerability", amount: "$250,000+", tags: ["Smart Contract", "High"] },
+        { title: "Exchange Wallet Exploit", amount: "$100,000+", tags: ["Wallet", "Critical"] },
+        { title: "ZK-Rollup Logic Error", amount: "$75,000+", tags: ["L2", "High"] }
+    ],
     "Bitcoin Bounties": [
-        { title: "Core Lightning Plugin", amount: "0.5 BTC" },
-        { title: "Bolt12 Implementation", amount: "1.2 BTC" },
-        { title: "Privacy Review", amount: "0.3 BTC" },
-        { title: "Documentation Fixes", amount: "0.05 BTC" }
+        { title: "Web UI for JoinMarket", amount: "0.5 BTC", tags: ["UI/UX", "Privacy"] },
+        { title: "Core Lightning Plugin", amount: "0.5 BTC", tags: ["Lightning", "Dev"] },
+        { title: "Silent Payments Implementation", amount: "0.4 BTC", tags: ["Protocol", "Privacy"] },
+        { title: "Stratum V2 Template Provider", amount: "0.3 BTC", tags: ["Mining", "Rust"] }
     ],
     "Bitaps": [
-        { title: "RCE Vulnerability", amount: "0.5 BTC" },
-        { title: "API Rate Limit Bypass", amount: "0.1 BTC" },
-        { title: "Wallet Injection", amount: "0.8 BTC" }
-    ],
-    "HackenProof": [
-        { title: "Critical Smart Contract Bug", amount: "$50,000+" },
-        { title: "Bridge Vulnerability", amount: "$100,000+" },
-        { title: "Logic Error in Swap", amount: "$25,000+" }
+        { title: "Zero Day Exploit", amount: "2.0 BTC", tags: ["Critical", "Exploit"] },
+        { title: "Double Spend Vector", amount: "1.5 BTC", tags: ["Consensus", "High"] },
+        { title: "Mempool DoS Attack", amount: "0.8 BTC", tags: ["Network", "Medium"] }
     ],
     "Geyser Fund": [
-        { title: "Community Grant", amount: "1.0 BTC" },
-        { title: "Education Initiative", amount: "0.5 BTC" },
-        { title: "Local Meetup Fund", amount: "0.1 BTC" }
+        { title: "WallAxe: Mining Revolution", amount: "1.5 BTC", tags: ["Hardware", "Mining"] },
+        { title: "Bitcoin Standard in Parliament", amount: "0.8 BTC", tags: ["Education", "Policy"] },
+        { title: "Nostr Relay Implementation", amount: "0.5 BTC", tags: ["Nostr", "Dev"] },
+        { title: "Free Open Source Education", amount: "0.3 BTC", tags: ["Education", "Content"] }
     ]
 };
 
@@ -82,41 +84,14 @@ export const BOUNTY_PLATFORMS: BountyPlatform[] = [
     }
 ];
 
-export const BountyBoard = () => {
-    const [checkingIndex, setCheckingIndex] = useState<number | null>(null);
-    const [lastChecked, setLastChecked] = useState<Date>(new Date());
-    const [platforms, setPlatforms] = useState(BOUNTY_PLATFORMS);
+interface BountyBoardProps {
+    platforms: BountyPlatform[];
+    checkingIndex: number | null;
+    lastChecked: Date;
+}
 
-    // Simulate real-time checking effect
-    useEffect(() => {
-        const interval = setInterval(() => {
-            // Randomly "check" one of the platforms
-            const randomIndex = Math.floor(Math.random() * platforms.length);
-            setCheckingIndex(randomIndex);
+export const BountyBoard = ({ platforms, checkingIndex, lastChecked }: BountyBoardProps) => {
 
-            setTimeout(() => {
-                setCheckingIndex(null);
-                setLastChecked(new Date());
-
-                // Update the top bounty for this platform
-                setPlatforms(currentPlatforms => {
-                    const newPlatforms = [...currentPlatforms];
-                    const platformName = newPlatforms[randomIndex].name;
-                    const platformBounties = BOUNTY_DATA[platformName as keyof typeof BOUNTY_DATA];
-                    if (platformBounties) {
-                        const randomBounty = platformBounties[Math.floor(Math.random() * platformBounties.length)];
-                        newPlatforms[randomIndex] = {
-                            ...newPlatforms[randomIndex],
-                            topBounty: randomBounty
-                        };
-                    }
-                    return newPlatforms;
-                });
-            }, 2000); // "Check" takes 2 seconds
-        }, 60 * 1000); // Run every 60 seconds
-
-        return () => clearInterval(interval);
-    }, []);
 
     return (
         <div className="bg-card border border-border rounded-lg p-6 hover:border-orange-500 transition-colors relative overflow-hidden h-full flex flex-col">
@@ -195,7 +170,7 @@ export const BountyBoard = () => {
                                 </div>
 
                                 <div className="flex flex-wrap gap-2 mt-2">
-                                    {platform.tags.map((tag, i) => (
+                                    {(platform.topBounty.tags || platform.tags).map((tag, i) => (
                                         <Badge key={i} variant="outline" className="text-[10px] border-orange-500/30 text-orange-400 bg-orange-500/5 font-mono">
                                             {tag}
                                         </Badge>
