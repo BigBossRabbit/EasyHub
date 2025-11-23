@@ -73,13 +73,13 @@ export const BOUNTY_PLATFORMS: BountyPlatform[] = [
         }
     },
     {
-        name: "Blink",
-        url: "https://github.com/GaloyMoney/blink",
-        description: "Contribute to the Blink Bitcoin wallet ecosystem.",
-        tags: ["Wallet", "API", "Open Source"],
+        name: "Strike",
+        url: "https://strike.me/legal/bug-bounty/",
+        description: "Report security vulnerabilities in Strike's infrastructure.",
+        tags: ["Security", "App", "Infrastructure"],
         topBounty: {
-            title: "LNbits Funding Source Integration",
-            amount: "250,000 sats"
+            title: "Critical API Vulnerability",
+            amount: "Variable"
         }
     },
     {
@@ -93,13 +93,13 @@ export const BOUNTY_PLATFORMS: BountyPlatform[] = [
         }
     },
     {
-        name: "Bitcoin Dev Kit",
-        url: "https://bitcoindevkit.org/blog/contributing/",
-        description: "Seamlessly build Bitcoin wallets with BDK.",
-        tags: ["Rust", "Library", "Wallet"],
+        name: "Swan Bitcoin",
+        url: "https://www.swanbitcoin.com/security/",
+        description: "Responsible disclosure program for Swan Bitcoin.",
+        tags: ["Security", "Exchange", "Web"],
         topBounty: {
-            title: "Coin Selection Algorithm Optimization",
-            amount: "1,000,000 sats"
+            title: "Remote Code Execution",
+            amount: "Variable"
         }
     },
     {
@@ -113,53 +113,53 @@ export const BOUNTY_PLATFORMS: BountyPlatform[] = [
         }
     },
     {
-        name: "Stratum V2",
-        url: "https://stratumprotocol.org",
-        description: "Next-gen pooled mining protocol.",
-        tags: ["Mining", "Protocol", "Rust"],
+        name: "Bolt.fun",
+        url: "https://bolt.fun/tournaments",
+        description: "Hackathons and tournaments for building on Bitcoin.",
+        tags: ["Hackathon", "Lightning", "Dev"],
         topBounty: {
-            title: "Job Negotiation Extension",
-            amount: "0.2 BTC"
+            title: "Legends of Lightning Winner",
+            amount: "1.0 BTC"
         }
     },
     {
-        name: "Fedimint",
-        url: "https://fedimint.org",
-        description: "Federated Chaumian E-Cash for Bitcoin.",
-        tags: ["Privacy", "Scaling", "Rust"],
+        name: "Bisq",
+        url: "https://github.com/bisq-network/bisq/issues?q=is%3Aissue+is%3Aopen+label%3Abounty",
+        description: "Contribute to the decentralized exchange network.",
+        tags: ["DEX", "Privacy", "Java"],
         topBounty: {
-            title: "Client Module Refactor",
-            amount: "1,500,000 sats"
-        }
-    },
-    {
-        name: "Alby",
-        url: "https://getalby.com",
-        description: "Bitcoin Lightning wallet for the web.",
-        tags: ["Extension", "Lightning", "Web"],
-        topBounty: {
-            title: "WebLN Provider Enhancement",
-            amount: "200,000 sats"
-        }
-    },
-    {
-        name: "BTCPay Server",
-        url: "https://btcpayserver.org",
-        description: "Self-hosted, open-source cryptocurrency payment processor.",
-        tags: ["Payments", "Merchant", "C#"],
-        topBounty: {
-            title: "Plugin System Security Review",
-            amount: "$2,000"
-        }
-    },
-    {
-        name: "OpenSats",
-        url: "https://opensats.org",
-        description: "Non-profit supporting Bitcoin and FOSS contributors.",
-        tags: ["Grants", "FOSS", "Non-profit"],
-        topBounty: {
-            title: "Long-term Support Grant",
+            title: "New Payment Method Integration",
             amount: "Variable"
+        }
+    },
+    {
+        name: "Cash App",
+        url: "https://hackerone.com/cashapp",
+        description: "Bug bounty program for Cash App via HackerOne.",
+        tags: ["Security", "Mobile", "Payments"],
+        topBounty: {
+            title: "Critical Payment Bypass",
+            amount: "$5,000+"
+        }
+    },
+    {
+        name: "Kraken",
+        url: "https://hackerone.com/kraken",
+        description: "Security bug bounty for Kraken Exchange.",
+        tags: ["Security", "Exchange", "High Rewards"],
+        topBounty: {
+            title: "Trading Engine Exploit",
+            amount: "$100,000+"
+        }
+    },
+    {
+        name: "Bitfinex",
+        url: "https://www.bitfinex.com/legal/bug-bounty/",
+        description: "Bug bounty program for Bitfinex exchange.",
+        tags: ["Security", "Exchange", "Trading"],
+        topBounty: {
+            title: "Critical Platform Vulnerability",
+            amount: "$10,000+"
         }
     }
 ];
