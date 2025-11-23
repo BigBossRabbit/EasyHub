@@ -113,7 +113,7 @@ export const BountyBoard = ({ platforms, checkingIndex, lastChecked }: BountyBoa
                     Earn Bitcoin by contributing to open source projects, finding bugs, or securing grants for your own ideas.
                 </p>
 
-                <div className="grid md:grid-cols-2 gap-4 flex-grow">
+                <div className="grid md:grid-cols-3 gap-4 flex-grow">
                     {platforms.map((platform, index) => (
                         <div key={index} className="group border border-orange-500/10 rounded-lg p-3 relative hover:border-orange-500/30 transition-colors bg-black/20">
                             {/* Scanning effect overlay */}
@@ -184,15 +184,3 @@ export const BountyBoard = ({ platforms, checkingIndex, lastChecked }: BountyBoa
         </div>
     );
 };
-
-    ],
-"Stacks Blockchain": [
-    { title: "Critical Smart Contract Bug", amount: "$250,000", tags: ["Smart Contract", "Critical"] },
-    { title: "PoX Consensus Vulnerability", amount: "$100,000+", tags: ["Consensus", "High"] },
-    { title: "BNS Name System Exploit", amount: "$50,000+", tags: ["Protocol", "Medium"] }
-],
-    "Bitcoin.org": [
-        { title: "Website Improvements", amount: "Variable BTC", tags: ["Website", "Documentation"] },
-        { title: "Translation Updates", amount: "Variable BTC", tags: ["i18n", "Content"] },
-        { title: "Developer Documentation", amount: "Variable BTC", tags: ["Docs", "Dev"] }
-    ],
