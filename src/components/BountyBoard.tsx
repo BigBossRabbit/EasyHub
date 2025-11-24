@@ -22,17 +22,17 @@ export const BOUNTY_DATA = {
         { title: "Display Full Engagement Metrics", amount: "30,000 sats", tags: ["Feature", "UI"] },
         { title: "Implement Followers in Audience Tab", amount: "10,080 sats", tags: ["Feature", "Social"] },
         { title: "Add Yourself to Contributors Page", amount: "7,500 sats", tags: ["Documentation", "Easy"] }
-
+    ],
     "Geyser Fund": [
-            { title: "Bitcoin Education & Culture", amount: "Up to 1 BTC", tags: ["Education", "Grants"] },
-            { title: "Circular Economy Projects", amount: "Variable", tags: ["Community", "Adoption"] },
-            { title: "Open Source Development", amount: "Variable", tags: ["Dev", "FOSS"] }
-        ],
-        "Kraken Exchange": [
-            { title: "Critical Security Vulnerability", amount: "Variable BTC", tags: ["Security", "Critical"] },
-            { title: "Trading Engine Exploit", amount: "Variable BTC", tags: ["Exchange", "High"] },
-            { title: "API Security Issues", amount: "Variable BTC", tags: ["API", "Medium"] }
-        ]
+        { title: "Bitcoin Education & Culture", amount: "Up to 1 BTC", tags: ["Education", "Grants"] },
+        { title: "Circular Economy Projects", amount: "Variable", tags: ["Community", "Adoption"] },
+        { title: "Open Source Development", amount: "Variable", tags: ["Dev", "FOSS"] }
+    ],
+    "Kraken Exchange": [
+        { title: "Critical Security Vulnerability", amount: "Variable BTC", tags: ["Security", "Critical"] },
+        { title: "Trading Engine Exploit", amount: "Variable BTC", tags: ["Exchange", "High"] },
+        { title: "API Security Issues", amount: "Variable BTC", tags: ["API", "Medium"] }
+    ]
 };
 
 export const BOUNTY_PLATFORMS: BountyPlatform[] = [
