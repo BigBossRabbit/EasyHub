@@ -54,7 +54,7 @@ export const SovereignKey = () => {
                         <ol className="text-xs text-muted-foreground space-y-1 list-decimal list-inside">
                             <li>Power off your computer</li>
                             <li>Insert SovereignKey USB drive</li>
-                            <li>Power on & access Boot using designated key for your hardware (see the PC Brands & Hotkeys section)</li>
+                            <li>Power on & access Boot using designated key for your hardware</li>
                             <li>Select Boot from USB</li>
                             <li>Wait for Tails OS to load</li>
                             <li>Enter Persistent Storage passphrase (found in SK packaging)</li>
@@ -82,7 +82,7 @@ export const SovereignKey = () => {
                         <span className="text-xs text-muted-foreground font-mono">STACK:</span>
                     </div>
                     <div className="flex flex-wrap gap-1">
-                        {['Tails OS', 'Bitcoin', 'Sparrow', 'Liana', 'Tor', 'Linux', 'FreedomTech'].map((tech) => (
+                        {['Tails OS', 'Bitcoin', 'Sparrow', 'Liana', 'Tor', 'FreedomTech'].map((tech) => (
                             <span key={tech} className="px-2 py-1 text-xs bg-primary/10 text-primary rounded font-mono">
                                 {tech}
                             </span>
