@@ -54,13 +54,14 @@ export const SovereignKey = () => {
                         <ol className="text-xs text-muted-foreground space-y-1 list-decimal list-inside">
                             <li>Power off your computer</li>
                             <li>Insert SovereignKey USB drive</li>
-                            <li>Power on and access Boot Menu</li>
+                            <li>Power on and access Boot using designated key for your hardware (see the PC Brands & Hotkeys section)</li>
                             <li>Select Boot from USB</li>
                             <li>Wait for Tails OS to load</li>
-                            <li>Enter Persistent Storage passphrase</li>
+                            <li>Enter Persistent Storage passphrase (found in SK packaging)</li>
                             <li>Click Start Tails</li>
                             <li>Connect to internet</li>
                             <li>Choose Connect to Tor</li>
+                            <li>Enjoy your journey as a Sovereign Individual</li>
                         </ol>
                     </div>
                 </div>
@@ -69,9 +70,9 @@ export const SovereignKey = () => {
                 <div className="mb-4 p-2 bg-black/80 rounded font-mono text-[10px] leading-tight text-gray-400 border border-gray-800">
                     <div className="text-green-500 mb-1 border-b border-gray-800 pb-1">{">>"} BOOT_SEQUENCE_INIT</div>
                     <div>[ OK ] Loading kernel modules...</div>
-                    <div>[ OK ] Mounting encrypted volumes...</div>
-                    <div>[ OK ] Starting Tor service...</div>
-                    <div>[ OK ] Verifying Electrum signatures...</div>
+                    <div>[ OK ] Running everything off of RAM...</div>
+                    <div>[ OK ] Starting your SK...</div>
+                    <div>[ OK ] Verifying SK authenticity...</div>
                     <div className="text-primary animate-pulse">_ Awaiting user login...</div>
                 </div>
 
@@ -81,7 +82,7 @@ export const SovereignKey = () => {
                         <span className="text-xs text-muted-foreground font-mono">STACK:</span>
                     </div>
                     <div className="flex flex-wrap gap-1">
-                        {['Tails OS', 'Electrum', 'Sparrow', 'Liana', 'Tor', 'Linux', 'GPG'].map((tech) => (
+                        {['Tails OS', 'Bitcoin', 'Sparrow', 'Liana', 'Tor', 'Linux', 'FreedomTech'].map((tech) => (
                             <span key={tech} className="px-2 py-1 text-xs bg-primary/10 text-primary rounded font-mono">
                                 {tech}
                             </span>
