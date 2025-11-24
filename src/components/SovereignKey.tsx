@@ -54,13 +54,14 @@ export const SovereignKey = () => {
                         <ol className="text-xs text-muted-foreground space-y-1 list-decimal list-inside">
                             <li>Power off your computer</li>
                             <li>Insert SovereignKey USB drive</li>
-                            <li>Power on and access Boot using designated key for your hardware (see the PC Brands & Hotkeys section)</li>
+                            <li>Power on & access Boot using designated key for your hardware
+                                (see the PC Brands & Hotkeys section)</li>
                             <li>Select Boot from USB</li>
                             <li>Wait for Tails OS to load</li>
                             <li>Enter Persistent Storage passphrase (found in SK packaging)</li>
                             <li>Click Start Tails</li>
                             <li>Connect to internet</li>
-                            <li>Choose Connect to Tor</li>
+                            <li>Choose Connect to Tor when prompted</li>
                             <li>Enjoy your journey as a Sovereign Individual</li>
                         </ol>
                     </div>
