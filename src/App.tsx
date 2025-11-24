@@ -40,7 +40,6 @@ const App = () => (
             <Route path="/connect" element={<Layout><ConnectExplore /></Layout>} />
             <Route path="/terms" element={<Layout><Terms /></Layout>} />
             <Route path="/privacy" element={<Layout><Privacy /></Layout>} />
-            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/easystats" element={<Dashboard />} />
             <Route path="/tpok" element={<Layout><TPOK /></Layout>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
