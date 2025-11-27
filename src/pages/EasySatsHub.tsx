@@ -5,6 +5,7 @@ import Seo from "@/components/Seo";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { StackerNewsFeed } from "@/components/StackerNewsFeed";
+import { Classifieds } from "@/components/Classifieds";
 
 const EasySatsHub = () => {
   return (
@@ -99,6 +100,10 @@ const EasySatsHub = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-primary">■</span>
+                  <span>First Self-Custodial Bitcoin Payment Server in Namibia</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary">■</span>
                   <span>Instant payment confirmation via Lightning Network</span>
                 </li>
                 <li className="flex items-start gap-2">
@@ -110,14 +115,19 @@ const EasySatsHub = () => {
 
             <Link to="/tpok" className="bg-primary/10 border border-primary p-6 block hover:bg-primary/20 transition-colors group">
               <Newspaper className="h-8 w-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
-              <h3 className="text-lg font-serif font-bold mb-2 group-hover:text-primary transition-colors">TPOK - The Persuit Of Knowledge</h3>
-              <p className="text-sm text-muted-foreground">Explore Bitcoin education resources & learning materials →</p>
+              <h3 className="text-lg font-serif font-bold mb-2 group-hover:text-primary transition-colors">Why Buy Bitcoin when you can Earn It?</h3>
+              <p className="text-sm text-muted-foreground">Your first Bitcoin paycheck could be one click away... So why are you still reading this instead of clicking on me?→</p>
             </Link>
           </div>
         </div>
 
+        {/* Classifieds Section */}
+        <div className="mt-12">
+          <Classifieds />
+        </div>
+
         {/* Stacker News Section - Full Width */}
-        <div className="mt-12 pt-8 border-t border-border/50">
+        <div className="pt-8 border-t border-border/50">
           <div className="h-[450px] w-full">
             <StackerNewsFeed />
           </div>
