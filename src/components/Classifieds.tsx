@@ -31,7 +31,7 @@ export const Classifieds = () => {
         },
         {
             title: "EasyDevs",
-            description: "A platform for Developers to connect with clients & find work in Bitocin & FreedomTech.",
+            description: "A platform for Developers to connect with clients & find work in Bitcoin & FreedomTech.",
             icon: <Code className="h-5 w-5" />,
             link: "/easydevs",
             isExternal: false,
