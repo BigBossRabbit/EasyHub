@@ -61,7 +61,7 @@ export const SovereignKey = () => {
                             <li>Click Start Tails</li>
                             <li>Connect to internet</li>
                             <li>Choose Connect to Tor when prompted</li>
-                            <li>Enjoy your journey as a Sovereign Individual</li>
+                            <li>npEnjoy your journey as a Sovereign Individual</li>
                         </ol>
                     </div>
                 </div>

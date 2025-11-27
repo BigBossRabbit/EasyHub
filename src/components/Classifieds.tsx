@@ -23,7 +23,7 @@ export const Classifieds = () => {
         },
         {
             title: "TimeForce",
-            description: "Exchange your time and skills for sats. Peer-to-peer task marketplace.",
+            description: "Exchange your time & skills for Sats. Help build the future.",
             icon: <Clock className="h-5 w-5" />,
             link: "/timeforce",
             isExternal: false,
@@ -31,7 +31,7 @@ export const Classifieds = () => {
         },
         {
             title: "EasyDevs",
-            description: "Hire top-tier Bitcoin developers for your next project.",
+            description: "A platform for Developers to connect with clients & find work in Bitocin & FreedomTech.",
             icon: <Code className="h-5 w-5" />,
             link: "/easydevs",
             isExternal: false,
@@ -47,7 +47,7 @@ export const Classifieds = () => {
         },
         {
             title: "Merchant Platform",
-            description: "Accept Bitcoin payments seamlessly. No bank account required.",
+            description: "Accept Bitcoin payments seamlessly & non-custodially. No bank account required.",
             icon: <ShoppingBag className="h-5 w-5" />,
             link: "https://easysats.okinent.org/register?returnurl=%2F",
             isExternal: true,
@@ -63,7 +63,7 @@ export const Classifieds = () => {
         },
         {
             title: "SovereignKey",
-            description: "Take control of your financial future with self-custody solutions.",
+            description: "Take control of your privacy & financial future with self-custody solutions.",
             icon: <Key className="h-5 w-5" />,
             link: "https://sovereignkey.carrd.co/",
             isExternal: true,
@@ -71,7 +71,7 @@ export const Classifieds = () => {
         },
         {
             title: "Trezor Academy",
-            description: "Master hardware wallet security with our expert-led sessions.",
+            description: "Bitcoin Video Training for Beginners. Get started with Bitcoin basics.",
             icon: <Shield className="h-5 w-5" />,
             link: "https://www.youtube.com/watch?v=w3hnFCfCo84",
             isExternal: true,
