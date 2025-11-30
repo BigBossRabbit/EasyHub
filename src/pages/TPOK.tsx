@@ -95,19 +95,46 @@ const courses = [
   }
 ];
 
-const galleryImages = [
-  '/tpok/IMG_2930.JPG',
-  '/tpok/IMG_2945.JPG',
-  // Removed IMG_2922.JPG and IMG_2925.JPG as requested
-  '/tpok/IMG_2935.JPG',
-  '/tpok/IMG_2950.JPG',
+// All available images in the tpok folder
+const allGalleryImages = [
+  '/tpok/062A5150.JPG',
   '/tpok/062A5160.JPG',
   '/tpok/062A5180.JPG',
-  '/tpok/062A5150.JPG'
-  // Removed 062A5170.JPG as requested
+  '/tpok/IMG_2930.JPG',
+  '/tpok/IMG_2935.JPG',
+  '/tpok/IMG_2945.JPG',
+  '/tpok/IMG_2950.JPG',
+  '/tpok/OKIN.jpg',
+  '/tpok/OKIN1.jpg',
+  '/tpok/Squad.jpg',
+  '/tpok/TPOK Creatives Sesssion-00010.jpg',
+  '/tpok/TPOK Creatives Sesssion-00026.jpg',
+  '/tpok/TPOK Creatives Sesssion-00054.jpg',
+  '/tpok/TPOK Creatives Sesssion-00089.jpg',
+  '/tpok/TPOK Creatives Sesssion-00099.jpg',
+  '/tpok/TPOK Creatives Sesssion-00102.jpg',
+  '/tpok/TPOK Creatives Sesssion-00110.jpg',
+  '/tpok/TPOK Creatives Sesssion-00117.jpg',
+  '/tpok/TPOK Creatives Sesssion-00119.jpg',
+  '/tpok/TPOK Creatives Sesssion-00121.jpg',
+  '/tpok/TPOK Creatives Sesssion-00127.jpg',
+  '/tpok/TPOK Creatives Sesssion-00129.jpg'
 ];
 
+// Function to shuffle array and select random items
+const getRandomImages = (images: string[], count: number) => {
+  const shuffled = [...images].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, count);
+};
+
 const TPOK = () => {
+  const [galleryImages, setGalleryImages] = React.useState<string[]>([]);
+
+  // Select random images on component mount
+  React.useEffect(() => {
+    setGalleryImages(getRandomImages(allGalleryImages, 7));
+  }, []);
+
   return (
     <div className="min-h-screen text-foreground font-mono pb-24">
       <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
