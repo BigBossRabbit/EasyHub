@@ -139,7 +139,7 @@ const Contact = () => {
                                             value={formData.name}
                                             onChange={handleChange}
                                             className="w-full bg-background border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 font-mono placeholder:text-muted-foreground/50"
-                                            placeholder="Satoshi Nakamoto"
+                                            placeholder="OKIN | Nikolai Tjongarero"
                                         />
                                     </div>
 
@@ -156,7 +156,7 @@ const Contact = () => {
                                             value={formData.email}
                                             onChange={handleChange}
                                             className="w-full bg-background border border-border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 font-mono placeholder:text-muted-foreground/50"
-                                            placeholder="satoshi@bitcoin.org"
+                                            placeholder="okin@okinent.org"
                                         />
                                     </div>
                                 </div>
@@ -212,7 +212,7 @@ const Contact = () => {
                     {/* Footer Note */}
                     <div className="mt-8 text-center text-sm text-muted-foreground font-mono">
                         <p>SECURE CONNECTION ESTABLISHED.</p>
-                        <p>Response time: ~24 hours.</p>
+                        <p>Response time: ~48 hours.</p>
                     </div>
 
                 </div>
