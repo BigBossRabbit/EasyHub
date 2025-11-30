@@ -200,10 +200,12 @@ const Contact = () => {
                                 </div>
 
                                 {/* Submit Button */}
-                                <Button type="submit" className="w-full md:w-auto gap-2 font-bold uppercase tracking-wider">
-                                    <Send className="h-4 w-4" />
-                                    Transmit Inquiry
-                                </Button>
+                                <div className="flex justify-center">
+                                    <Button type="submit" className="w-full md:w-auto gap-2 font-bold uppercase tracking-wider">
+                                        <Send className="h-4 w-4" />
+                                        Transmit Inquiry
+                                    </Button>
+                                </div>
 
                             </form>
                         </CardContent>
