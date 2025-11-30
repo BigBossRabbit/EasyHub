@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Briefcase, Clock, Code, BookOpen, ShoppingBag, Heart, Key, Shield, ExternalLink } from "lucide-react";
+import { Briefcase, Clock, Code, BookOpen, ShoppingBag, Heart, Key, Shield, ExternalLink, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface ServiceItem {
@@ -76,6 +76,14 @@ export const Classifieds = () => {
             link: "https://www.youtube.com/watch?v=w3hnFCfCo84",
             isExternal: true,
             tag: "TRAINING"
+        },
+        {
+            title: "Contact Us",
+            description: "EasySats Business & Bitcoin Consultations. Reach out for inquiries.",
+            icon: <Mail className="h-5 w-5" />,
+            link: "/contact",
+            isExternal: false,
+            tag: "INQUIRY"
         }
     ];
 

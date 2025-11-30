@@ -15,6 +15,7 @@ import Terms from "@/pages/Terms";
 import Privacy from "@/pages/Privacy";
 import Dashboard from "./pages/Dashboard";
 import TPOK from "./pages/TPOK";
+import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -42,6 +43,7 @@ const App = () => (
             <Route path="/privacy" element={<Layout><Privacy /></Layout>} />
             <Route path="/easystats" element={<Dashboard />} />
             <Route path="/tpok" element={<Layout><TPOK /></Layout>} />
+            <Route path="/contact" element={<Layout><Contact /></Layout>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<Layout><NotFound /></Layout>} />
           </Routes>
