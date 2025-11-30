@@ -57,6 +57,16 @@ const videos = {
       id: 'azAnsreJ8dI',
       title: 'The Evening Review | Nikolai Tjongarero',
       category: 'News'
+    },
+    {
+      id: 'ZGYG0BQvs-o',
+      title: 'What is the African Bitcoin Mission? Full interview with Okin #16',
+      category: 'Interview'
+    },
+    {
+      id: 'Xwid89KQK98',
+      title: 'Bitcoin Is Reshaping Namibia\'s Commerce | Okin',
+      category: 'Interview'
     }
   ]
 };
