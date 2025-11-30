@@ -16,10 +16,15 @@ const Contact = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission logic here (e.g., console.log or API call)
-        console.log("Form submitted:", formData);
-        alert("Message sent! We'll get back to you shortly.");
-        setFormData({ name: "", email: "", subject: "consultation", message: "" });
+
+        const subject = `[EasySats Inquiry] ${formData.subject.toUpperCase()} - ${formData.name}`;
+        const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+
+        // Opens user's email client
+        window.location.href = `mailto:okin@okinent.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        // Optional: Reset form or show a "Redirecting to email..." toast
+        alert("Opening your email client to send the message...");
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
