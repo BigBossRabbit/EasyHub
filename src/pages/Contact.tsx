@@ -28,7 +28,7 @@ const Contact = () => {
     };
 
     return (
-        <div className="min-h-screen text-foreground bg-background flex flex-col">
+        <div className="min-h-screen text-foreground flex flex-col">
             <Seo title="Contact Us — EasySats" description="Get in touch for Bitcoin consultations and business inquiries." canonical="/contact" />
 
             {/* Header */}
