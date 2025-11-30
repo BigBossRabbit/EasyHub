@@ -7,59 +7,98 @@ import { useBitcoinPrice } from '@/hooks/useBitcoinPrice';
 import { useBitcoinNetworkStats } from '@/hooks/useBitcoinNetworkStats';
 import { useFearGreedIndex } from '@/hooks/useFearGreedIndex';
 import { Button } from '@/components/ui/button';
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import OnThisDayCarousel from '@/components/OnThisDayCarousel';
+import { useFuelPriceData } from '@/hooks/useFuelPriceData';
+import { useRetailPriceData } from '@/hooks/useRetailPriceData';
 
 const Dashboard = () => {
     const [currency, setCurrency] = useState<'USD' | 'NAD'>('USD');
     const [timeframe, setTimeframe] = useState<'1H' | '24H' | '7D' | '30D'>('24H');
     const [chartData, setChartData] = useState<any[]>([]);
+    const [chartType, setChartType] = useState<'price' | 'fuel' | 'retail'>('price');
+    const [selectedCommodity, setSelectedCommodity] = useState<'bread' | 'milk' | 'eggs'>('bread');
     const { rates, loading: priceLoading } = useBitcoinPrice();
     const { stats, loading: statsLoading } = useBitcoinNetworkStats();
     const { data: fearGreedData, loading: fearGreedLoading } = useFearGreedIndex();
+    const { data: fuelData, loading: fuelLoading } = useFuelPriceData(currency);
+    const { data: retailData, loading: retailLoading } = useRetailPriceData(currency, selectedCommodity);
 
 
     const [chartLoading, setChartLoading] = useState(true);
 
-    // Fetch Chart Data from CoinGecko
+    // Fetch Chart Data
     useEffect(() => {
         const fetchChartData = async () => {
             setChartLoading(true);
             try {
-                let days = '1';
-                if (timeframe === '7D') days = '7';
-                if (timeframe === '30D') days = '30';
+                if (chartType === 'price') {
+                    // Existing BTC Price Logic
+                    let days = '1';
+                    if (timeframe === '7D') days = '7';
+                    if (timeframe === '30D') days = '30';
 
-                const vsCurrency = currency === 'USD' ? 'usd' : 'zar'; // ZAR as NAD proxy
-                const response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${vsCurrency}&days=${days}`);
-                if (!response.ok) throw new Error('Failed to fetch chart data');
+                    const vsCurrency = currency === 'USD' ? 'usd' : 'zar'; // ZAR as NAD proxy
+                    const response = await fetch(`https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=${vsCurrency}&days=${days}`);
+                    if (!response.ok) throw new Error('Failed to fetch chart data');
 
-                const data = await response.json();
-                let prices = data.prices;
+                    const data = await response.json();
+                    let prices = data.prices;
 
-                // Filter for 1H if selected (since API min is 1 day)
-                if (timeframe === '1H') {
-                    const oneHourAgo = Date.now() - 3600000;
-                    prices = prices.filter((p: any[]) => p[0] >= oneHourAgo);
-                }
-
-                const formattedData = prices.map((item: any[]) => {
-                    const date = new Date(item[0]);
-                    let dateLabel = '';
-
-                    if (timeframe === '1H' || timeframe === '24H') {
-                        dateLabel = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                    } else {
-                        dateLabel = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                    // Filter for 1H if selected (since API min is 1 day)
+                    if (timeframe === '1H') {
+                        const oneHourAgo = Date.now() - 3600000;
+                        prices = prices.filter((p: any[]) => p[0] >= oneHourAgo);
                     }
 
-                    return {
-                        date: dateLabel,
-                        price: item[1],
-                        timestamp: item[0]
-                    };
-                });
+                    const formattedData = prices.map((item: any[]) => {
+                        const date = new Date(item[0]);
+                        let dateLabel = '';
 
-                setChartData(formattedData);
+                        if (timeframe === '1H' || timeframe === '24H') {
+                            dateLabel = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                        } else {
+                            dateLabel = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+                        }
+
+                        return {
+                            date: dateLabel,
+                            price: item[1],
+                            timestamp: item[0]
+                        };
+                    });
+
+                    setChartData(formattedData);
+                } else if (chartType === 'fuel') {
+                    // Fuel Price Logic
+                    // Filter based on timeframe if needed, or show all for context
+                    // For now, showing all historical data points available
+                    const formattedData = fuelData.map(item => ({
+                        date: item.date,
+                        price: item.btcPrice, // Plotting BTC price
+                        fiatPrice: item.fiatPrice,
+                        timestamp: item.timestamp,
+                        unit: item.unit
+                    }));
+                    setChartData(formattedData);
+                } else if (chartType === 'retail') {
+                    // Retail Price Logic
+                    const formattedData = retailData.map(item => ({
+                        date: item.date,
+                        price: item.btcPrice, // Plotting BTC price
+                        fiatPrice: item.fiatPrice,
+                        timestamp: item.timestamp,
+                        unit: item.unit
+                    }));
+                    setChartData(formattedData);
+                }
             } catch (error) {
                 console.error('Error fetching chart data:', error);
             } finally {
@@ -68,7 +107,7 @@ const Dashboard = () => {
         };
 
         fetchChartData();
-    }, [currency, timeframe]);
+    }, [currency, timeframe, chartType, selectedCommodity, fuelData, retailData]);
 
 
     const currentPrice = currency === 'USD' ? rates.usd : rates.nad;
@@ -312,18 +351,66 @@ const Dashboard = () => {
                         <div className="bg-black/50 border border-primary/30 p-6 rounded-lg h-[500px] relative flex flex-col">
                             <div className="flex flex-wrap items-center justify-between mb-6 gap-4">
                                 <h2 className="text-sm text-green-400/60 flex items-center gap-2">
-                                    <Activity className="h-4 w-4" /> PRICE ACTION
+                                    <Activity className="h-4 w-4" />
+                                    {chartType === 'price' ? 'PRICE ACTION' :
+                                        chartType === 'fuel' ? 'FUEL PRICE IN BTC' :
+                                            `${selectedCommodity.toUpperCase()} PRICE IN BTC`}
                                 </h2>
-                                <div className="flex bg-primary/10 rounded-lg p-1 border border-primary/30">
-                                    {(['1H', '24H', '7D', '30D'] as const).map((tf) => (
-                                        <button
-                                            key={tf}
-                                            onClick={() => setTimeframe(tf)}
-                                            className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${timeframe === tf ? 'bg-primary text-black' : 'text-green-400 hover:text-primary'}`}
-                                        >
-                                            {tf}
-                                        </button>
-                                    ))}
+                                <div className="flex gap-2">
+                                    {chartType === 'price' && (
+                                        <div className="flex bg-primary/10 rounded-lg p-1 border border-primary/30">
+                                            {(['1H', '24H', '7D', '30D'] as const).map((tf) => (
+                                                <button
+                                                    key={tf}
+                                                    onClick={() => setTimeframe(tf)}
+                                                    className={`px-3 py-1 rounded-md text-xs font-bold transition-all ${timeframe === tf ? 'bg-primary text-black' : 'text-green-400 hover:text-primary'}`}
+                                                >
+                                                    {tf}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    <div className="relative">
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger asChild>
+                                                <Button
+                                                    variant="outline"
+                                                    className={`text-xs font-bold h-full ${chartType !== 'price'
+                                                            ? 'bg-primary text-black border-primary'
+                                                            : 'text-green-400 border-primary/30 hover:text-primary hover:border-primary bg-transparent'
+                                                        }`}
+                                                >
+                                                    {chartType === 'price' ? 'Alt Graphs' :
+                                                        chartType === 'fuel' ? 'Fuel Prices' :
+                                                            selectedCommodity.charAt(0).toUpperCase() + selectedCommodity.slice(1)}
+                                                </Button>
+                                            </DropdownMenuTrigger>
+                                            <DropdownMenuContent className="bg-black border border-primary/30 text-green-400">
+                                                <DropdownMenuItem onClick={() => setChartType('price')} className="hover:bg-primary/20 focus:bg-primary/20 cursor-pointer">
+                                                    BTC Price (Default)
+                                                </DropdownMenuItem>
+                                                <DropdownMenuSeparator className="bg-primary/20" />
+                                                <DropdownMenuItem onClick={() => setChartType('fuel')} className="hover:bg-primary/20 focus:bg-primary/20 cursor-pointer">
+                                                    Fuel Prices in BTC
+                                                </DropdownMenuItem>
+                                                <DropdownMenuSeparator className="bg-primary/20" />
+                                                <DropdownMenuLabel className="text-primary">Retail Goods in BTC</DropdownMenuLabel>
+                                                {(['bread', 'milk', 'eggs'] as const).map(commodity => (
+                                                    <DropdownMenuItem
+                                                        key={commodity}
+                                                        onClick={() => {
+                                                            setChartType('retail');
+                                                            setSelectedCommodity(commodity);
+                                                        }}
+                                                        className="hover:bg-primary/20 focus:bg-primary/20 cursor-pointer pl-6"
+                                                    >
+                                                        {commodity.charAt(0).toUpperCase() + commodity.slice(1)}
+                                                    </DropdownMenuItem>
+                                                ))}
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
+                                    </div>
                                 </div>
                             </div>
 
@@ -349,16 +436,36 @@ const Dashboard = () => {
                                             tick={{ fill: '#4ade80', fontSize: 10 }}
                                             tickLine={false}
                                             axisLine={false}
-                                            domain={[(dataMin: number) => Math.floor(dataMin * 0.995), (dataMax: number) => Math.ceil(dataMax * 1.005)]}
+                                            domain={['auto', 'auto']}
                                             tickFormatter={(value) => {
-                                                const formatted = Math.round(value / 1000);
-                                                return currency === 'USD' ? `$${formatted}k` : `N$${formatted}k`;
+                                                if (chartType === 'price') {
+                                                    const formatted = Math.round(value / 1000);
+                                                    return currency === 'USD' ? `$${formatted}k` : `N$${formatted}k`;
+                                                } else {
+                                                    // For BTC denominated charts, use smaller notation
+                                                    return value.toFixed(8);
+                                                }
                                             }}
                                         />
                                         <Tooltip
                                             contentStyle={{ backgroundColor: '#000', border: '1px solid #f7931a', color: '#fff' }}
                                             itemStyle={{ color: '#f7931a' }}
-                                            formatter={(value: number) => [currency === 'USD' ? `$${value.toLocaleString()}` : `N$${value.toLocaleString()}`, 'Price']}
+                                            formatter={(value: number, name: string, props: any) => {
+                                                if (chartType === 'price') {
+                                                    return [currency === 'USD' ? `$${value.toLocaleString()}` : `N$${value.toLocaleString()}`, 'Price'];
+                                                } else {
+                                                    const unit = props.payload.unit || '';
+                                                    const fiatPrice = props.payload.fiatPrice;
+                                                    const fiatFormatted = currency === 'USD' ? `$${fiatPrice}` : `N$${fiatPrice}`;
+                                                    return [
+                                                        <div key="tooltip" className="flex flex-col gap-1">
+                                                            <span>{value.toFixed(8)} BTC / {unit}</span>
+                                                            <span className="text-xs text-gray-400">({fiatFormatted} / {unit})</span>
+                                                        </div>,
+                                                        'Price'
+                                                    ];
+                                                }
+                                            }}
                                             labelFormatter={(label) => label}
                                         />
                                         <Line
