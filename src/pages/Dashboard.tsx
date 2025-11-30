@@ -78,11 +78,11 @@ const Dashboard = () => {
                     setChartData(formattedData);
                 } else if (chartType === 'fuel') {
                     // Fuel Price Logic
-                    // Filter based on timeframe if needed, or show all for context
-                    // For now, showing all historical data points available
+                    // Convert to Satoshis for better graph scaling (1 BTC = 100,000,000 sats)
                     const formattedData = fuelData.map(item => ({
                         date: item.date,
-                        price: item.btcPrice, // Plotting BTC price
+                        price: Math.round(item.btcPrice * 100000000), // Convert to Sats
+                        btcPrice: item.btcPrice, // Keep original for tooltip
                         fiatPrice: item.fiatPrice,
                         timestamp: item.timestamp,
                         unit: item.unit
@@ -92,7 +92,8 @@ const Dashboard = () => {
                     // Retail Price Logic
                     const formattedData = retailData.map(item => ({
                         date: item.date,
-                        price: item.btcPrice, // Plotting BTC price
+                        price: Math.round(item.btcPrice * 100000000), // Convert to Sats
+                        btcPrice: item.btcPrice, // Keep original for tooltip
                         fiatPrice: item.fiatPrice,
                         timestamp: item.timestamp,
                         unit: item.unit
@@ -353,8 +354,8 @@ const Dashboard = () => {
                                 <h2 className="text-sm text-green-400/60 flex items-center gap-2">
                                     <Activity className="h-4 w-4" />
                                     {chartType === 'price' ? 'PRICE ACTION' :
-                                        chartType === 'fuel' ? 'FUEL PRICE IN BTC' :
-                                            `${selectedCommodity.toUpperCase()} PRICE IN BTC`}
+                                        chartType === 'fuel' ? 'FUEL PRICE (SATS)' :
+                                            `${selectedCommodity.toUpperCase()} PRICE (SATS)`}
                                 </h2>
                                 <div className="flex gap-2">
                                     {chartType === 'price' && (
@@ -377,8 +378,8 @@ const Dashboard = () => {
                                                 <Button
                                                     variant="outline"
                                                     className={`text-xs font-bold h-full ${chartType !== 'price'
-                                                            ? 'bg-primary text-black border-primary'
-                                                            : 'text-green-400 border-primary/30 hover:text-primary hover:border-primary bg-transparent'
+                                                        ? 'bg-primary text-black border-primary'
+                                                        : 'text-green-400 border-primary/30 hover:text-primary hover:border-primary bg-transparent'
                                                         }`}
                                                 >
                                                     {chartType === 'price' ? 'Alt Graphs' :
@@ -436,14 +437,15 @@ const Dashboard = () => {
                                             tick={{ fill: '#4ade80', fontSize: 10 }}
                                             tickLine={false}
                                             axisLine={false}
+                                            width={60}
                                             domain={['auto', 'auto']}
                                             tickFormatter={(value) => {
                                                 if (chartType === 'price') {
                                                     const formatted = Math.round(value / 1000);
                                                     return currency === 'USD' ? `$${formatted}k` : `N$${formatted}k`;
                                                 } else {
-                                                    // For BTC denominated charts, use smaller notation
-                                                    return value.toFixed(8);
+                                                    // For Alt Graphs, value is now in Sats
+                                                    return `${value.toLocaleString()} sats`;
                                                 }
                                             }}
                                         />
@@ -456,10 +458,12 @@ const Dashboard = () => {
                                                 } else {
                                                     const unit = props.payload.unit || '';
                                                     const fiatPrice = props.payload.fiatPrice;
+                                                    const btcPrice = props.payload.btcPrice;
                                                     const fiatFormatted = currency === 'USD' ? `$${fiatPrice}` : `N$${fiatPrice}`;
                                                     return [
                                                         <div key="tooltip" className="flex flex-col gap-1">
-                                                            <span>{value.toFixed(8)} BTC / {unit}</span>
+                                                            <span>{value.toLocaleString()} sats / {unit}</span>
+                                                            <span className="text-xs text-gray-400">({btcPrice.toFixed(8)} BTC)</span>
                                                             <span className="text-xs text-gray-400">({fiatFormatted} / {unit})</span>
                                                         </div>,
                                                         'Price'
