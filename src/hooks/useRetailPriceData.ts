@@ -111,30 +111,35 @@ export const useRetailPriceData = (currency: 'NAD' | 'USD', commodity: 'bread' |
                 unit = commodity === 'bread' ? 'lb' : commodity === 'milk' ? 'Gallon' : 'Dozen';
             }
 
-            const formattedData: RetailPriceDataPoint[] = Object.entries(sourceData).map(([dateStr, price]) => {
-                const date = new Date(dateStr);
-                const btcPriceUSD = getHistoricalBtcPrice(date);
+            const formattedData: RetailPriceDataPoint[] = Object.entries(sourceData)
+                .filter(([dateStr]) => {
+                    const year = new Date(dateStr).getFullYear();
+                    return year >= 2014; // Only show data from 2014 onwards for better visibility
+                })
+                .map(([dateStr, price]) => {
+                    const date = new Date(dateStr);
+                    const btcPriceUSD = getHistoricalBtcPrice(date);
 
-                let btcPrice = 0;
-                if (currency === 'USD') {
-                    btcPrice = price / btcPriceUSD;
-                } else {
-                    const year = date.getFullYear();
-                    const exchangeRate = getHistoricalUsdNadRate(year);
-                    const btcPriceNAD = btcPriceUSD * exchangeRate;
-                    btcPrice = price / btcPriceNAD;
-                }
+                    let btcPrice = 0;
+                    if (currency === 'USD') {
+                        btcPrice = price / btcPriceUSD;
+                    } else {
+                        const year = date.getFullYear();
+                        const exchangeRate = getHistoricalUsdNadRate(year);
+                        const btcPriceNAD = btcPriceUSD * exchangeRate;
+                        btcPrice = price / btcPriceNAD;
+                    }
 
-                return {
-                    date: date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
-                    timestamp: date.getTime(),
-                    fiatPrice: price,
-                    btcPrice: btcPrice,
-                    currency,
-                    commodity,
-                    unit
-                };
-            }).sort((a, b) => a.timestamp - b.timestamp);
+                    return {
+                        date: date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
+                        timestamp: date.getTime(),
+                        fiatPrice: price,
+                        btcPrice: btcPrice,
+                        currency,
+                        commodity,
+                        unit
+                    };
+                }).sort((a, b) => a.timestamp - b.timestamp);
 
             setData(formattedData);
             setLoading(false);
