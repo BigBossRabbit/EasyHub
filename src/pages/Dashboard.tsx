@@ -444,8 +444,12 @@ const Dashboard = () => {
                                                     const formatted = Math.round(value / 1000);
                                                     return currency === 'USD' ? `$${formatted}k` : `N$${formatted}k`;
                                                 } else {
-                                                    // For Alt Graphs, value is now in Sats
-                                                    return `${value.toLocaleString()} sats`;
+                                                    // For Alt Graphs, value is in Sats
+                                                    // Use 'k' notation for thousands to save space
+                                                    if (value >= 1000) {
+                                                        return `${Math.round(value / 1000)}k sats`;
+                                                    }
+                                                    return `${value} sats`;
                                                 }
                                             }}
                                         />
