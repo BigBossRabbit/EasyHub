@@ -438,7 +438,10 @@ const Dashboard = () => {
                                             tickLine={false}
                                             axisLine={false}
                                             width={60}
-                                            domain={['auto', 'auto']}
+                                            domain={chartType === 'price'
+                                                ? [(dataMin: number) => Math.floor(dataMin * 0.995), (dataMax: number) => Math.ceil(dataMax * 1.005)]
+                                                : [(dataMin: number) => Math.floor(dataMin * 0.90), (dataMax: number) => Math.ceil(dataMax * 1.10)]
+                                            }
                                             tickFormatter={(value) => {
                                                 if (chartType === 'price') {
                                                     const formatted = Math.round(value / 1000);

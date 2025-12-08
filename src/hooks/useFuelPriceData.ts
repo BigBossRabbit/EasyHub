@@ -55,31 +55,36 @@ export const useFuelPriceData = (currency: 'NAD' | 'USD') => {
             const sourceData = currency === 'NAD' ? NAMIBIA_FUEL_PRICES : USA_FUEL_PRICES;
             const unit = currency === 'NAD' ? 'Liter' : 'Gallon';
 
-            const formattedData: FuelPriceDataPoint[] = Object.entries(sourceData).map(([dateStr, price]) => {
-                const date = new Date(dateStr);
-                const btcPriceUSD = getHistoricalBtcPrice(date);
+            const formattedData: FuelPriceDataPoint[] = Object.entries(sourceData)
+                .filter(([dateStr]) => {
+                    const year = new Date(dateStr).getFullYear();
+                    return year >= 2014; // Only show data from 2014 onwards for better visibility
+                })
+                .map(([dateStr, price]) => {
+                    const date = new Date(dateStr);
+                    const btcPriceUSD = getHistoricalBtcPrice(date);
 
-                let btcPrice = 0;
-                if (currency === 'USD') {
-                    btcPrice = price / btcPriceUSD;
-                } else {
-                    // Convert NAD price to USD first, then to BTC
-                    // Or convert BTC price to NAD
-                    const year = date.getFullYear();
-                    const exchangeRate = getHistoricalUsdNadRate(year);
-                    const btcPriceNAD = btcPriceUSD * exchangeRate;
-                    btcPrice = price / btcPriceNAD;
-                }
+                    let btcPrice = 0;
+                    if (currency === 'USD') {
+                        btcPrice = price / btcPriceUSD;
+                    } else {
+                        // Convert NAD price to USD first, then to BTC
+                        // Or convert BTC price to NAD
+                        const year = date.getFullYear();
+                        const exchangeRate = getHistoricalUsdNadRate(year);
+                        const btcPriceNAD = btcPriceUSD * exchangeRate;
+                        btcPrice = price / btcPriceNAD;
+                    }
 
-                return {
-                    date: date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
-                    timestamp: date.getTime(),
-                    fiatPrice: price,
-                    btcPrice: btcPrice,
-                    currency,
-                    unit
-                };
-            }).sort((a, b) => a.timestamp - b.timestamp);
+                    return {
+                        date: date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
+                        timestamp: date.getTime(),
+                        fiatPrice: price,
+                        btcPrice: btcPrice,
+                        currency,
+                        unit
+                    };
+                }).sort((a, b) => a.timestamp - b.timestamp);
 
             setData(formattedData);
             setLoading(false);
