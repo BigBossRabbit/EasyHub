@@ -151,7 +151,7 @@ const ConnectExplore = () => {
                             <div className="flex-shrink-0">
                                 <div className="bg-white p-4 rounded-xl shadow-lg">
                                     <img
-                                        src="/assets/whatsapp-qr.jpg"
+                                        src="/assets/whatsapp-qr.png"
                                         alt="WhatsApp Community QR Code"
                                         className="w-48 h-48 object-contain"
                                     />
