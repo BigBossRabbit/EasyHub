@@ -136,6 +136,32 @@ const ConnectExplore = () => {
                     </div>
 
                     <div className="mt-12 p-8 bg-card/30 rounded-2xl border border-primary/20">
+                        <div className="flex flex-col md:flex-row items-center gap-8">
+                            <div className="flex-1 text-center md:text-left">
+                                <h3 className="text-2xl font-serif font-bold mb-4">Join our WhatsApp Community</h3>
+                                <p className="text-muted-foreground mb-6">
+                                    Connect with other Bitcoiners in Namibia. Get updates, ask questions, and be part of the conversation in our dedicated WhatsApp community.
+                                </p>
+                                <Button asChild variant="default" className="w-full md:w-auto">
+                                    <a href="https://chat.whatsapp.com/GE18aVdTwT2BwJyzR2zl3F" target="_blank" rel="noopener noreferrer">
+                                        Join Community
+                                    </a>
+                                </Button>
+                            </div>
+                            <div className="flex-shrink-0">
+                                <div className="bg-white p-4 rounded-xl shadow-lg">
+                                    <img
+                                        src="/assets/whatsapp-qr.jpg"
+                                        alt="WhatsApp Community QR Code"
+                                        className="w-48 h-48 object-contain"
+                                    />
+                                </div>
+                                <p className="text-xs text-center mt-2 text-muted-foreground">Scan to join</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="mt-12 p-8 bg-card/30 rounded-2xl border border-primary/20">
                         <h3 className="text-2xl font-serif font-bold mb-4 text-center">Want to Get Involved?</h3>
                         <p className="text-center text-muted-foreground mb-6">
                             Join us in building a Bitcoin-powered future for Namibia. Whether you're a merchant, educator, or enthusiast, there's a place for you in our community.
