@@ -446,7 +446,7 @@ const TimeForce = () => {
 
                 <div className="space-y-4">
                   <a
-                    href="https://easysats.okinent.org/register"
+                    href="https://merchant.okinent.org/register"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-lg font-semibold"
@@ -490,7 +490,7 @@ const TimeForce = () => {
           <p className="text-sm text-muted-foreground">
             Having trouble with the form?
             <a
-              href="https://easysats.okinent.org/register"
+              href="https://merchant.okinent.org/register"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:underline ml-1"
