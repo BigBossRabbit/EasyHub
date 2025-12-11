@@ -1,5 +1,40 @@
 # Project Context & History
 
+## Session: EasyTours Page & Navigation Updates (Dec 11, 2025)
+
+### Key Accomplishments
+1.  **New "EasyTours" Page**:
+    -   Created `src/pages/EasyTours.tsx` to showcase Bitcoin-friendly tours in Namibia.
+    -   Features include:
+        -   **Hero Section**: Stunning visual with "Discover Namibia Paid in Bitcoin" headline.
+        -   **Tour Packages**: "Dunes & Sats Expedition", "Skeleton Coast Crypto Retreat", "Windhoek City Bitcoin Walk".
+        -   **Premium Design**: Glassmorphism, hover effects, and responsive layout.
+    -   Added route `/easytours` to `App.tsx`.
+
+2.  **Global Navigation Update**:
+    -   Added "EasyTours" link to the navigation menu (both Desktop and Mobile) across all pages:
+        -   `EasySatsHub` (Home)
+        -   `About`
+        -   `ConnectExplore`
+        -   `EasyDevs`
+        -   `EasyJobs`
+        -   `TimeForce`
+        -   `TPOK`
+    -   Ensured consistent ordering and styling.
+
+3.  **Link Verification**:
+    -   Checked `TimeForce.tsx` for "Register for EasySats Server access" links. Both the main button and "Open in new tab" link point to `https://easysats.okinent.org/register`.
+
+4.  **Deployment**:
+    -   Built and deployed the latest version to GitHub Pages.
+    -   Live site: `https://bitcoin.okinent.org/easytours` (and other pages).
+
+### Technical Details
+-   **New Asset**: Generated and added `public/assets/namibia-hero.png` for the EasyTours hero section.
+-   **Routing**: Updated `App.tsx` to include the new route.
+
+---
+
 ## Session: Custom Domain, Network Stats & Whitepaper (Nov 20-21, 2025)
 
 ### Key Accomplishments

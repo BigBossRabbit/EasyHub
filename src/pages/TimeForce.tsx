@@ -45,7 +45,6 @@ const TimeForce = () => {
               <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
               <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
               <Link to="/timeforce" className="text-primary">~/timeforce</Link>
-              <Link to="/easytours" className="text-muted-foreground hover:text-primary transition-colors">~/easytours</Link>
               <Link to="/tpok" className="text-muted-foreground hover:text-primary transition-colors">~/tpok</Link>
 
             </nav>
@@ -66,7 +65,6 @@ const TimeForce = () => {
                     <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors">~/easydevs</Link>
                     <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
                     <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
-                    <Link to="/easytours" className="text-lg font-semibold hover:text-primary transition-colors">~/easytours</Link>
                     <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors">~/tpok</Link>
 
                   </nav>
