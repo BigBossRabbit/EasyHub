@@ -43,6 +43,7 @@ const EasySatsHub = () => {
                     <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
                     <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
                     <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
+                    <Link to="/easytours" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyTours</Link>
                     <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
 
                   </nav>
@@ -58,6 +59,7 @@ const EasySatsHub = () => {
             <Link to="/easydevs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
             <Link to="/easyjobs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
             <Link to="/timeforce" className="hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
+            <Link to="/easytours" className="hover:text-primary transition-colors uppercase tracking-wide">EasyTours</Link>
             <Link to="/tpok" className="hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
 
           </nav>

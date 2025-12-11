@@ -7,7 +7,24 @@ interface BitcoinEvent {
     title: string;
     description: string;
     significance: 'high' | 'medium' | 'low';
+    category?: 'bitcoin' | 'finance';
 }
+
+// Historical Financial Events (Fallback)
+const FINANCIAL_EVENTS: BitcoinEvent[] = [
+    { date: '08-15', year: 1971, title: 'Nixon Shock', description: 'President Nixon ended the convertibility of the US dollar to gold, effectively ending the Bretton Woods system.', significance: 'high', category: 'finance' },
+    { date: '12-23', year: 1913, title: 'Federal Reserve Act', description: 'President Woodrow Wilson signed the Federal Reserve Act, creating the central banking system of the US.', significance: 'high', category: 'finance' },
+    { date: '10-19', year: 1987, title: 'Black Monday', description: 'Global stock markets crashed, with the Dow Jones dropping 22.6% in a single day.', significance: 'high', category: 'finance' },
+    { date: '09-15', year: 2008, title: 'Lehman Brothers Collapse', description: 'Lehman Brothers filed for bankruptcy, intensifying the 2008 global financial crisis.', significance: 'high', category: 'finance' },
+    { date: '04-05', year: 1933, title: 'Executive Order 6102', description: 'President FDR forbade the hoarding of gold coin, bullion, and certificates in the US.', significance: 'high', category: 'finance' },
+    { date: '10-29', year: 1929, title: 'Black Tuesday', description: 'The Wall Street Crash of 1929 hit its peak, marking the beginning of the Great Depression.', significance: 'high', category: 'finance' },
+    { date: '07-01', year: 1944, title: 'Bretton Woods Conference', description: 'Delegates from 44 nations met to establish a new international monetary system.', significance: 'medium', category: 'finance' },
+    { date: '03-10', year: 2000, title: 'Dot-com Bubble Peak', description: 'The NASDAQ peaked at 5,132.52 before the dot-com bubble burst.', significance: 'medium', category: 'finance' },
+    { date: '01-01', year: 1999, title: 'Euro Introduced', description: 'The Euro was established as an accounting currency, replacing the ECU.', significance: 'medium', category: 'finance' },
+    { date: '03-09', year: 2009, title: 'Market Bottom', description: 'The S&P 500 hit its lowest point during the Great Recession before beginning a historic bull run.', significance: 'medium', category: 'finance' },
+    { date: '09-17', year: 2011, title: 'Occupy Wall Street', description: 'Protests began in Zuccotti Park, NYC, against economic inequality and the influence of money in politics.', significance: 'medium', category: 'finance' },
+    { date: '01-03', year: 2000, title: 'Tech Bubble Peak', description: 'The height of the dot-com boom saw massive valuations for internet companies before the crash.', significance: 'medium', category: 'finance' },
+];
 
 // Historical Bitcoin events database - organized by date (MM-DD)
 // Covering Bitcoin's entire history from 2008-2025
@@ -135,7 +152,13 @@ const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) =
         const dateStr = `${month}-${day}`;
 
         // Find all events that happened on this day
-        const events = BITCOIN_EVENTS.filter(event => event.date === dateStr);
+        let events: BitcoinEvent[] = BITCOIN_EVENTS.filter(event => event.date === dateStr).map(e => ({ ...e, category: 'bitcoin' as const }));
+
+        // If no Bitcoin events, check for financial events
+        if (events.length === 0) {
+            const financialEvents = FINANCIAL_EVENTS.filter(event => event.date === dateStr).map(e => ({ ...e, category: 'finance' as const }));
+            events = [...financialEvents];
+        }
 
         // Sort by year (most recent first)
         events.sort((a, b) => b.year - a.year);
@@ -181,7 +204,7 @@ const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) =
                 <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
                         <Calendar className="h-6 w-6 text-primary" />
-                        <h2 className="text-sm text-green-400/60 font-bold">ON THIS DAY IN BITCOIN HISTORY</h2>
+                        <h2 className="text-sm text-green-400/60 font-bold">ON THIS DAY IN HISTORY</h2>
                     </div>
                     <div className="flex items-center gap-2">
                         <button
@@ -206,7 +229,7 @@ const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) =
 
                 <div className="flex flex-col items-center justify-center py-4 text-center">
                     <p className="text-green-400/80 text-sm mb-4">
-                        No major Bitcoin events recorded for {formatDate(selectedDate)}.
+                        No major events recorded for {formatDate(selectedDate)}.
                     </p>
                     {!isToday(selectedDate) && (
                         <button
@@ -291,7 +314,7 @@ const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) =
                 <div className="flex-1 pr-24"> {/* Added padding right to avoid overlap with nav */}
                     <div className="flex items-center gap-3 mb-2">
                         <h2 className="text-xs text-green-400/60 font-bold">
-                            ON THIS DAY IN BITCOIN HISTORY
+                            {event.category === 'finance' ? 'ON THIS DAY IN FINANCIAL HISTORY' : 'ON THIS DAY IN BITCOIN HISTORY'}
                         </h2>
                         {event.significance === 'high' && (
                             <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded">

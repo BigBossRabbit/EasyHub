@@ -113,8 +113,10 @@ export const useRetailPriceData = (currency: 'NAD' | 'USD', commodity: 'bread' |
 
             const formattedData: RetailPriceDataPoint[] = Object.entries(sourceData)
                 .filter(([dateStr]) => {
-                    const year = new Date(dateStr).getFullYear();
-                    return year >= 2014; // Only show data from 2014 onwards for better visibility
+                    const date = new Date(dateStr);
+                    const fiveYearsAgo = new Date();
+                    fiveYearsAgo.setFullYear(fiveYearsAgo.getFullYear() - 5);
+                    return date >= fiveYearsAgo; // Rolling 5-year window
                 })
                 .map(([dateStr, price]) => {
                     const date = new Date(dateStr);
