@@ -425,7 +425,7 @@ const TimeForce = () => {
                 <span className="font-semibold">EasySats Integrations</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                Register for EasySats Server access - Building Tomorrow, Today!
+                The EasySats Server is currently under development and will be available soon.
               </p>
             </div>
 
@@ -445,17 +445,9 @@ const TimeForce = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <a
-                    href="https://merchant.okinent.org/register"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors text-lg font-semibold"
-                  >
-                    <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                    </svg>
-                    Register for EasySats Server access
-                  </a>
+                  <Button disabled size="lg">
+                    Coming sooner than later
+                  </Button>
 
                   <div className="text-sm text-muted-foreground">
                     <p className="mb-2">What you'll get:</p>
@@ -488,15 +480,7 @@ const TimeForce = () => {
 
         <div className="mt-6 text-center">
           <p className="text-sm text-muted-foreground">
-            Having trouble with the form?
-            <a
-              href="https://merchant.okinent.org/register"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline ml-1"
-            >
-              Open in new tab
-            </a>
+            Registration will be available soon.
           </p>
         </div>
       </section>

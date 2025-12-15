@@ -5,6 +5,7 @@ import Seo from "@/components/Seo";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { BountyBoard, BOUNTY_PLATFORMS, BOUNTY_DATA } from "@/components/BountyBoard";
 import { SovereignKey } from "@/components/SovereignKey";
+import BreezCountdown from "@/components/BreezCountdown";
 import { useEffect, useState } from "react";
 
 
@@ -215,13 +216,7 @@ const EasyDevs = () => {
                     <Terminal className="h-8 w-8 text-primary" />
                     <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                   </div>
-                  <div>
-                    <span className="text-xs text-muted-foreground font-mono">TIME2BUILD</span>
-                    <div className="flex items-center gap-1 text-xs text-green-500 font-mono">
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                      <span>ACTIVE</span>
-                    </div>
-                  </div>
+                  <BreezCountdown />
                 </div>
                 <span className="text-xs text-muted-foreground font-mono">REMOTE</span>
               </div>

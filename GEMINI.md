@@ -12,15 +12,9 @@
     -   Added route `/easytours` to `App.tsx`.
 
 2.  **Global Navigation Update**:
-    -   Added "EasyTours" link to the navigation menu (both Desktop and Mobile) across all pages:
-        -   `EasySatsHub` (Home)
-        -   `About`
-        -   `ConnectExplore`
-        -   `EasyDevs`
-        -   `EasyJobs`
-        -   `TimeForce`
-        -   `TPOK`
-    -   Ensured consistent ordering and styling.
+    -   Initially added "EasyTours" link to the navigation menu.
+    -   **Update**: Removed "EasyTours" from global navigation (Desktop & Mobile) at user request to keep it "hidden" for testing.
+    -   Page remains accessible at `/easytours`.
 
 3.  **Link Verification**:
     -   Checked `TimeForce.tsx` for "Register for EasySats Server access" links. Both the main button and "Open in new tab" link point to `https://easysats.okinent.org/register`.
