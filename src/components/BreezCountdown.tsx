@@ -6,15 +6,12 @@ const BreezCountdown = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Get current time as a Date object representing the time in Tel Aviv
-      const nowInTelAviv = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Tel_Aviv' }));
+      const now = new Date();
+      // Deadline: Dec 16, 2025 end of day in Tel Aviv (UTC+2)
+      // which is 2025-12-16 22:00:00 UTC
+      const deadline = new Date('2025-12-16T22:00:00Z');
 
-      // Set target to midnight of the *next* day in Tel Aviv time
-      const midnightTelAviv = new Date(nowInTelAviv);
-      midnightTelAviv.setDate(midnightTelAviv.getDate() + 1);
-      midnightTelAviv.setHours(0, 0, 0, 0);
-
-      const diff = midnightTelAviv.getTime() - nowInTelAviv.getTime();
+      const diff = deadline.getTime() - now.getTime();
 
       if (diff <= 0) {
         setTimeLeft('No More Submissions');
@@ -23,20 +20,21 @@ const BreezCountdown = () => {
         return;
       }
 
-      const hours = Math.floor(diff / (1000 * 60 * 60));
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
       setTimeLeft(
-        `${String(hours).padStart(2, '0')}:${String(minutes).padStart(
+        `${String(days)}d ${String(hours).padStart(2, '0')}:${String(minutes).padStart(
           2,
           '0'
         )}:${String(seconds).padStart(2, '0')}`
       );
 
-      if (hours < 6) {
+      if (days === 0 && hours < 6) {
         setTimeColor('text-red-500');
-      } else if (hours < 24) {
+      } else if (days < 1) {
         setTimeColor('text-orange-500');
       } else {
         setTimeColor('text-green-500');
