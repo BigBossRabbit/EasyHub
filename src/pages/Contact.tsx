@@ -214,7 +214,7 @@ const Contact = () => {
                     {/* Footer Note */}
                     <div className="mt-8 text-center text-sm text-muted-foreground font-mono">
                         <p>SECURE CONNECTION ESTABLISHED.</p>
-                        <p>Response time: ~48 hours.</p>
+                        <p>Response time: ~24 hours.</p>
                     </div>
 
                 </div>

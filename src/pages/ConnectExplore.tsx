@@ -98,7 +98,7 @@ const ConnectExplore = () => {
                                         <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors mt-1" />
                                     </div>
                                     <p className="text-muted-foreground leading-relaxed">
-                                        Support the EasySats mission on Geyser Fund. Help us bring Bitcoin education and accessibility to all Namibians.
+                                        Support the EasySats mission on Geyser Fund to help us bring Bitcoin education and accessibility to all Namibians.
                                     </p>
                                 </CardContent>
                             </Card>
@@ -113,7 +113,7 @@ const ConnectExplore = () => {
                                         <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors mt-1" />
                                     </div>
                                     <p className="text-muted-foreground leading-relaxed">
-                                        Bitcoin education and sovereignty resources. Learn how to take control of your financial future with self-custody solutions.
+                                        Bitcoin education and sovereignty resources. Learn how to take control of your financial future with a self-custodial "Swiss-Army Knife solution.
                                     </p>
                                 </CardContent>
                             </Card>
