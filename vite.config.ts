@@ -10,6 +10,13 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
+    proxy: {
+      '/api-hrf': {
+        target: 'https://hrf.org',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api-hrf/, ''),
+      },
+    },
   },
   plugins: [
     react(),

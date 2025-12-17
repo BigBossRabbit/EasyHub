@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Briefcase,
   MapPin,
@@ -13,8 +12,9 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import HrfJobs from '@/components/HrfJobs'; // Import HrfJobs component
 
 
 const EasyJobs = () => {
@@ -212,13 +212,13 @@ const EasyJobs = () => {
               <span className="text-primary">&gt;</span> Remote EasyJobs
             </h2>
             <p className="text-xl text-muted-foreground">
-              Browse opportunities from Bitcoiner Jobs - the premier global Bitcoin job board
+              Browse opportunities from Bitcoiner Jobs and Human Rights Foundation
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Job Board Embed */}
-            <div className="bg-background border border-border rounded-lg p-16">
+          <div className="grid lg:grid-cols-2 xl:grid-cols-2 gap-8">
+            {/* Bitcoiner Jobs Column */}
+            <div className="bg-background border border-border rounded-lg p-6">
               <div className="mb-6 text-center">
                 <div className="flex items-center justify-center gap-2 text-primary mb-2">
                   <Briefcase className="h-5 w-5" />
@@ -261,7 +261,6 @@ const EasyJobs = () => {
               </div>
 
               <div className="mt-6 text-center space-y-3">
-
                 <p className="text-sm text-muted-foreground">
                   Having trouble viewing jobs?
                 </p>
@@ -274,101 +273,104 @@ const EasyJobs = () => {
               </div>
             </div>
 
-            {/* Job Categories & Tips */}
-            <div className="space-y-6">
-              <div className="bg-background border border-border rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  <MapPin className="h-5 w-5 text-primary" />
-                  Popular Job Categories
-                </h3>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="text-sm">
-                    <span className="text-primary">•</span> Software Development
-                  </div>
-                  <div className="text-sm">
-                    <span className="text-primary">•</span> Design & UX
-                  </div>
-                  <div className="text-sm">
-                    <span className="text-primary">•</span> Marketing & Growth
-                  </div>
-                  <div className="text-sm">
-                    <span className="text-primary">•</span> Content & Writing
-                  </div>
-                  <div className="text-sm">
-                    <span className="text-primary">•</span> Community Management
-                  </div>
-                  <div className="text-sm">
-                    <span className="text-primary">•</span> Business Development
-                  </div>
-                  <div className="text-sm">
-                    <span className="text-primary">•</span> Operations
-                  </div>
-                  <div className="text-sm">
-                    <span className="text-primary">•</span> Legal & Compliance
-                  </div>
-                  <div className="text-sm">
-                    <span className="text-primary">•</span> and many more...
-                  </div>
+            {/* HRF Work Column */}
+            <HrfJobs />
+          </div>
+
+          {/* Job Categories & Tips */}
+          <div className="grid lg:grid-cols-3 gap-8 mt-12">
+            <div className="bg-background border border-border rounded-lg p-6">
+              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                <MapPin className="h-5 w-5 text-primary" />
+                Popular Job Categories
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="text-sm">
+                  <span className="text-primary">•</span> Software Development
+                </div>
+                <div className="text-sm">
+                  <span className="text-primary">•</span> Design & UX
+                </div>
+                <div className="text-sm">
+                  <span className="text-primary">•</span> Marketing & Growth
+                </div>
+                <div className="text-sm">
+                  <span className="text-primary">•</span> Content & Writing
+                </div>
+                <div className="text-sm">
+                  <span className="text-primary">•</span> Community Management
+                </div>
+                <div className="text-sm">
+                  <span className="text-primary">•</span> Business Development
+                </div>
+                <div className="text-sm">
+                  <span className="text-primary">•</span> Operations
+                </div>
+                <div className="text-sm">
+                  <span className="text-primary">•</span> Legal & Compliance
+                </div>
+                <div className="text-sm">
+                  <span className="text-primary">•</span> and many more...
                 </div>
               </div>
+            </div>
 
-              <div className="bg-primary/10 border border-primary rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                  <DollarSign className="h-5 w-5 text-primary" />
-                  Earning Tips
-                </h3>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2">
-                    <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
-                    <span>Build your Bitcoin knowledge through free resources</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
-                    <span>Contribute to open source Bitcoin projects</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
-                    <span>Network in Bitcoin communities & events</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
-                    <span>Start with freelance gigs to build reputation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
-                    <span>Upskill, Upskill, Upskill...</span>
-                  </li>
-                </ul>
-              </div>
+            <div className="bg-primary/10 border border-primary rounded-lg p-6">
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <DollarSign className="h-5 w-5 text-primary" />
+                Earning Tips
+              </h3>
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-start gap-2">
+                  <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
+                  <span>Build your Bitcoin knowledge through free resources</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
+                  <span>Contribute to open source Bitcoin projects</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
+                  <span>Network in Bitcoin communities & events</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
+                  <span>Start with freelance gigs to build reputation</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
+                  <span>Upskill, Upskill, Upskill...</span>
+                </li>
+              </ul>
+            </div>
 
-              <div className="bg-background border border-border rounded-lg p-6">
-                <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                  <Clock className="h-5 w-5 text-primary" />
-                  Getting Started
-                </h3>
-                <p className="text-sm text-muted-foreground mb-3">
-                  New to Bitcoin? Start your journey with these resources:
-                </p>
-                <div className="space-y-2">
-                  <Button variant="outline" size="sm" className="w-full justify-start gap-2" asChild>
-                    <a href="https://planb.network/en/courses?topics=bitcoin" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-3 w-3" />
-                      PlanB - Free Bitcoin Education Courses
-                    </a>
-                  </Button>
-                  <Button variant="outline" size="sm" className="w-full justify-start gap-2" asChild>
-                    <a href="https://www.lynalden.com/lightning-network/" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-3 w-3" />
-                      Lightning Network Guide
-                    </a>
-                  </Button>
-                  <Button variant="outline" size="sm" className="w-full justify-start gap-2" asChild>
-                    <a href="https://bitcoin.org/en/developer-documentation" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-3 w-3" />
-                      Bitcoin Developer Resources
-                    </a>
-                  </Button>
-                </div>
+            <div className="bg-background border border-border rounded-lg p-6">
+              <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                <Clock className="h-5 w-5 text-primary" />
+                Getting Started
+              </h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                New to Bitcoin? Start your journey with these resources:
+              </p>
+              <div className="space-y-2">
+                <Button variant="outline" size="sm" className="w-full justify-start gap-2" asChild>
+                  <a href="https://planb.network/en/courses?topics=bitcoin" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="h-3 w-3" />
+                    PlanB - Free Bitcoin Education Courses
+                  </a>
+                </Button>
+                <Button variant="outline" size="sm" className="w-full justify-start gap-2" asChild>
+                  <a href="https://www.lynalden.com/lightning-network/" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="h-3 w-3" />
+                    Lightning Network Guide
+                  </a>
+                </Button>
+                <Button variant="outline" size="sm" className="w-full justify-start gap-2" asChild>
+                  <a href="https://bitcoin.org/en/developer-documentation" target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="h-3 w-3" />
+                    Bitcoin Developer Resources
+                  </a>
+                </Button>
               </div>
             </div>
           </div>
