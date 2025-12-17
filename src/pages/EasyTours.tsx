@@ -3,38 +3,82 @@ import { MapPin, Calendar, Users, Bitcoin, ArrowRight, Menu, Globe, Camera, Sun 
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useBitcoinPrice } from "@/hooks/useBitcoinPrice";
+import { useState, useEffect } from "react";
 
 const EasyTours = () => {
+    const { rates, loading: priceLoading } = useBitcoinPrice();
+    const [ultimateAdventureBtcPrice, setUltimateAdventureBtcPrice] = useState<string | null>(null);
+    const [ultimateAdventureUsdPrice, setUltimateAdventureUsdPrice] = useState<string | null>(null);
+    const [ultimateAdventureNadPrice, setUltimateAdventureNadPrice] = useState<string | null>(null);
+    const [ultimateAdventureEurPrice, setUltimateAdventureEurPrice] = useState<string | null>(null);
+
+
+    // Calculated from €2200 for 11 days, scaled to 13 days, which is €2600.
+    // Then converted with 1 EUR = 19.7 NAD, so 2600 * 19.7 = N$51220.
+    const baseUltimateAdventureNadPriceFixed = 51220;
+    const baseUltimateAdventureEurPriceFixed = 2600;
+
+    useEffect(() => {
+        if (!priceLoading && rates.nad !== null && rates.usd !== null && rates.nad > 0 && rates.usd > 0) {
+            // Calculate BTC price based on fixed NAD price
+            const btcValue = baseUltimateAdventureNadPriceFixed / rates.nad;
+            setUltimateAdventureBtcPrice(btcValue.toFixed(4)); // Format to 4 decimal places for BTC
+
+            // Calculate current USD equivalent
+            const usdValue = btcValue * rates.usd;
+            setUltimateAdventureUsdPrice(usdValue.toFixed(2));
+
+            // Set NAD price (fixed base price)
+            setUltimateAdventureNadPrice(baseUltimateAdventureNadPriceFixed.toLocaleString());
+
+            // Set EUR price (fixed base price)
+            setUltimateAdventureEurPrice(baseUltimateAdventureEurPriceFixed.toLocaleString());
+
+        }
+    }, [rates, priceLoading]);
+
     const tours = [
         {
+            id: 0,
+            title: "Coming Sooner, rather than Later",
+            duration: "X Days",
+            location: "Namibia",
+            price: { btc: "???.????", usd: "???.??", nad: "???.??", eur: "???.??" },
+            description: "Exciting new adventures are being crafted. Stay tuned for unique experiences across Namibia!",
+            image: "/assets/namibia-hero.png",
+            features: ["Placeholder", "Placeholder", "Placeholder"],
+            isComingSoon: true,
+            link: "#"
+        },
+        {
             id: 1,
-            title: "Dunes & Sats Expedition",
-            duration: "3 Days",
-            location: "Sossusvlei, Namib Desert",
-            price: "0.015 BTC",
-            description: "Climb Big Daddy, walk through the haunting Deadvlei, and sleep under a blanket of stars in the world's oldest desert. Luxury camping included.",
-            image: "/assets/namibia-hero.png", // Reusing the hero for now, or a placeholder if I had one
-            features: ["Guided Dune Walk", "Luxury Camping", "All Meals Included", "Starlink Access"]
+            title: "The Ultimate Namibia Adventure",
+            duration: "13 Days",
+            location: "Across Namibia",
+            price: {
+                btc: ultimateAdventureBtcPrice || "Loading...",
+                usd: ultimateAdventureUsdPrice || "Loading...",
+                nad: ultimateAdventureNadPrice || "Loading...",
+                eur: ultimateAdventureEurPrice || "Loading...",
+            },
+            description: "Embark on an unforgettable 13-day journey through Namibia, combining the best experiences for a truly comprehensive and luxurious adventure.",
+            image: "/assets/namibia-hero.png",
+            features: ["Luxury Accommodation", "Expert Guide", "Wildlife & Culture", "All Transport"],
+            isComingSoon: false,
+            link: "/easytours/ultimate-namibia"
         },
         {
             id: 2,
-            title: "Skeleton Coast Crypto Retreat",
-            duration: "5 Days",
-            location: "Skeleton Coast",
-            price: "0.025 BTC",
-            description: "Escape to one of the most remote places on earth. Perfect for deep work or complete disconnection. Experience the raw power of the Atlantic meeting the desert.",
+            title: "Coming Sooner, rather than Later",
+            duration: "Y Days",
+            location: "Namibia",
+            price: { btc: "???.????", usd: "???.??", nad: "???.??", eur: "???.??" },
+            description: "More incredible journeys are on the horizon. Prepare for unparalleled exploration and discovery!",
             image: "/assets/namibia-hero.png",
-            features: ["Private Chalet", "Shipwreck Tour", "Desert Elephant Tracking", "Secure Workspace"]
-        },
-        {
-            id: 3,
-            title: "Windhoek City Bitcoin Walk",
-            duration: "1 Day",
-            location: "Windhoek",
-            price: "0.001 BTC",
-            description: "Discover the capital's hidden gems. Visit historical sites, meet local Bitcoiners, and shop at merchants who accept Lightning payments.",
-            image: "/assets/namibia-hero.png",
-            features: ["Historical Tour", "Merchant Visits", "Local Cuisine Lunch", "Bitcoin Meetup"]
+            features: ["Placeholder", "Placeholder", "Placeholder"],
+            isComingSoon: true,
+            link: "#"
         }
     ];
 
@@ -179,12 +223,22 @@ const EasyTours = () => {
 
                 <div className="grid md:grid-cols-3 gap-8">
                     {tours.map((tour) => (
-                        <div key={tour.id} className="group rounded-2xl overflow-hidden border border-border bg-card hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 flex flex-col">
+                        <Link
+                            to={tour.link}
+                            key={tour.id}
+                            className={`group relative rounded-2xl overflow-hidden border border-border bg-card hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 flex flex-col ${tour.isComingSoon ? 'cursor-not-allowed' : ''}`}
+                            onClick={(e) => tour.isComingSoon && e.preventDefault()}
+                        >
+                            {tour.isComingSoon && (
+                                <div className="absolute inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-10">
+                                    <span className="text-white text-2xl font-bold text-center">Coming Sooner,<br />Rather than Later</span>
+                                </div>
+                            )}
                             <div className="relative h-64 overflow-hidden">
                                 <img
                                     src={tour.image}
                                     alt={tour.title}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ${tour.isComingSoon ? 'filter blur-sm grayscale' : ''}`}
                                 />
                                 <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-sm font-mono border border-white/20">
                                     {tour.duration}
@@ -212,14 +266,23 @@ const EasyTours = () => {
                                 <div className="flex items-center justify-between pt-6 border-t border-border">
                                     <div className="flex flex-col">
                                         <span className="text-xs text-muted-foreground">Starting from</span>
-                                        <span className="text-xl font-bold font-mono text-primary">{tour.price}</span>
+                                        {typeof tour.price === 'string' ? (
+                                            <span className="text-xl font-bold font-mono text-primary">{tour.price}</span>
+                                        ) : (
+                                            <div className="flex flex-col items-start">
+                                                <span className="text-xl font-bold font-mono text-primary mb-1">{tour.price.btc} BTC</span>
+                                                <span className="text-xs text-muted-foreground font-mono">
+                                                    (${tour.price.usd} USD / N${tour.price.nad} NAD / €{tour.price.eur} EUR)
+                                                </span>
+                                            </div>
+                                        )}
                                     </div>
-                                    <Button className="gap-2 group-hover:translate-x-1 transition-transform">
+                                    <Button className="gap-2 group-hover:translate-x-1 transition-transform" disabled={tour.isComingSoon}>
                                         Book Now <ArrowRight className="h-4 w-4" />
                                     </Button>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </section>

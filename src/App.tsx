@@ -1,3 +1,4 @@
+import UltimateNamibiaAdventureItinerary from "./pages/UltimateNamibiaAdventureItinerary";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,7 +13,7 @@ import EasyJobs from "./pages/EasyJobs";
 import About from "./pages/About";
 import ConnectExplore from "@/pages/ConnectExplore";
 import Terms from "@/pages/Terms";
-import Privacy from "@/pages/Privacy";
+import Privacy from "./pages/Privacy";
 import Dashboard from "./pages/Dashboard";
 import TPOK from "./pages/TPOK";
 import Contact from "./pages/Contact";
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/tpok" element={<Layout><TPOK /></Layout>} />
             <Route path="/contact" element={<Layout><Contact /></Layout>} />
             <Route path="/easytours" element={<Layout><EasyTours /></Layout>} />
+            <Route path="/easytours/ultimate-namibia" element={<Layout><UltimateNamibiaAdventureItinerary /></Layout>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<Layout><NotFound /></Layout>} />
           </Routes>
