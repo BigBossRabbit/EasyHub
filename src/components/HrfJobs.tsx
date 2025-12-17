@@ -28,7 +28,7 @@ const HrfJobs: React.FC = () => {
       }
 
       try {
-        const response = await fetch('https://api.cors.lol/?url=https://hrf.org/work/');
+        const response = await fetch('https://api.allorigins.win/raw?url=https://hrf.org/work/');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
