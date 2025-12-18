@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
-import { ArrowLeft, Bitcoin } from 'lucide-react'; // Assuming Bitcoin icon might be useful
+import { ArrowLeft, CheckCircle, XCircle, MapPin, CalendarDays, Users, Gift, Fuel, Globe } from 'lucide-react'; // Added more icons
 
 const UltimateNamibiaAdventureItinerary = () => {
     return (
