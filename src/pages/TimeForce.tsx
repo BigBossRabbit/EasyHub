@@ -425,7 +425,7 @@ const TimeForce = () => {
                 <span className="font-semibold">EasySats Integrations</span>
               </div>
               <p className="text-sm text-muted-foreground">
-                The EasySats Server is currently under development and will be available soon.
+                Ready to take control? The EasySats Server is live and waiting for you to unlock secure, private, and censorship-resistant Bitcoin payment processing. Register today!
               </p>
             </div>
 
@@ -464,7 +464,7 @@ const TimeForce = () => {
                         <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
-                        Free to use during 7-day trail period.
+                        Free to use during 7-day trial period.
                       </li>
                       <li className="flex items-center gap-2">
                         <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
