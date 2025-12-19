@@ -446,7 +446,7 @@ const TimeForce = () => {
 
                 <div className="space-y-4">
                   <Button size="lg" asChild>
-                    <a href="https://btcpay870642.lndyn.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://btcpay870642.lndyn.com/register" target="_blank" rel="noopener noreferrer">
                       Register Now
                     </a>
                   </Button>
@@ -464,7 +464,7 @@ const TimeForce = () => {
                         <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
-                        Completely free to use - for the 1st Month
+                        Free to use during 7-day trail period.
                       </li>
                       <li className="flex items-center gap-2">
                         <svg className="h-4 w-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -482,7 +482,7 @@ const TimeForce = () => {
 
         <div className="mt-6 text-center">
           <p className="text-sm text-muted-foreground">
-            <a href="https://btcpay870642.lndyn.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+            <a href="https://btcpay870642.lndyn.com/register" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
               Register for EasySats Server
             </a>
           </p>
