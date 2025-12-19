@@ -445,8 +445,10 @@ const TimeForce = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <Button disabled size="lg">
-                    Coming sooner than later
+                  <Button size="lg" asChild>
+                    <a href="https://btcpay870642.lndyn.com" target="_blank" rel="noopener noreferrer">
+                      Register Now
+                    </a>
                   </Button>
 
                   <div className="text-sm text-muted-foreground">
@@ -480,7 +482,9 @@ const TimeForce = () => {
 
         <div className="mt-6 text-center">
           <p className="text-sm text-muted-foreground">
-            Registration will be available soon.
+            <a href="https://btcpay870642.lndyn.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              Register for EasySats Server
+            </a>
           </p>
         </div>
       </section>
