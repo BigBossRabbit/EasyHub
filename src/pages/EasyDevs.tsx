@@ -274,7 +274,7 @@ const EasyDevs = () => {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-1">
-                  {['Bitcoin Core', 'Lightning', 'Rust', 'Cryptography', 'PayJoin', 'LDK'].map((tech) => (
+                  {['Bitcoin Core', 'Lightning', 'Rust', 'BDK', 'Silent Payments', 'LDK'].map((tech) => (
                     <span key={tech} className="px-2 py-1 text-xs bg-primary/10 text-primary rounded font-mono">
                       {tech}
                     </span>
