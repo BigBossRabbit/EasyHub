@@ -313,18 +313,18 @@ const TimeForce = () => {
               <div className="space-y-4">
                 <p className="text-muted-foreground">
                   For those interested in joining the TimeForce & what that means for your ability to earn.
-                  Sign-up a Sub-vendor & earn your percentage of their Subscription.
+                  Sign-up a Merchant & earn your percentage of their Subscription.
                 </p>
                 <div className="flex flex-wrap justify-between items-center gap-2">
-                  <span className="text-sm">0-10 Sub-vendors</span>
+                  <span className="text-sm">0-10 Merchants</span>
                   <span className="font-semibold text-primary text-right">70% EasySats / 30% You</span>
                 </div>
                 <div className="flex flex-wrap justify-between items-center gap-2">
-                  <span className="text-sm">11-20 Sub-vendors</span>
+                  <span className="text-sm">11-20 Merchants</span>
                   <span className="font-semibold text-primary text-right">60% EasySats / 40% You</span>
                 </div>
                 <div className="flex flex-wrap justify-between items-center gap-2">
-                  <span className="text-sm">20+ Sub-vendors</span>
+                  <span className="text-sm">20+ Merchants</span>
                   <span className="font-semibold text-primary text-right">50% EasySats / 50% You</span>
                 </div>
               </div>
