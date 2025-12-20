@@ -7,8 +7,8 @@ const BossCountdown = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
-      // Placeholder Deadline: Dec 16, 2026
-      const deadline = new Date('2026-12-16T22:00:00Z');
+      // Deadline: Dec 31, 2025
+      const deadline = new Date('2025-12-31T23:59:59Z');
 
       const diff = deadline.getTime() - now.getTime();
 
@@ -47,7 +47,7 @@ const BossCountdown = () => {
 
   return (
     <div>
-      <span className="text-xs text-muted-foreground font-mono">BOSS CHALLENGE '26</span>
+      <span className="text-xs text-muted-foreground font-mono">BOSS CHALLENGE '25</span>
       <div className={`flex items-center gap-1 text-xs ${timeColor} font-mono`}>
         <div className={`w-2 h-2 ${pulseColorClass} rounded-full animate-pulse`}></div>
         <span>{timeLeft}</span>
