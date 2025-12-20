@@ -221,7 +221,7 @@ const EasyDevs = () => {
                 <span className="text-xs text-muted-foreground font-mono">REMOTE</span>
               </div>
 
-              <h3 className="text-lg font-semibold mb-2 font-mono">2026 BOSS Challenge by Btrust Builders & Chaincode Labs</h3>
+              <h3 className="text-lg font-semibold mb-2 font-mono">2025 BOSS Challenge by Btrust Builders & Chaincode Labs</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Join the Bitcoin Open Source Software (BOSS) Challenge to kickstart your career in Bitcoin development. A 3-month program to guide you into contributing to open-source Bitcoin projects.
               </p>
@@ -253,7 +253,7 @@ const EasyDevs = () => {
                   <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
                     <div>
                       <span className="text-foreground block">Registration:</span>
-                      Coming Soon
+                      Open until Dec 31, 2025
                     </div>
                     <div>
                       <span className="text-foreground block">Challenge Begins:</span>
