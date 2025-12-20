@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react';
 
-const BreezCountdown = () => {
+const BossCountdown = () => {
   const [timeLeft, setTimeLeft] = useState('Loading...');
   const [timeColor, setTimeColor] = useState('text-green-500');
 
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
-      // Deadline: Dec 16, 2025 end of day in Tel Aviv (UTC+2)
-      // which is 2025-12-16 22:00:00 UTC
-      const deadline = new Date('2025-12-16T22:00:00Z');
+      // Placeholder Deadline: Dec 16, 2026
+      const deadline = new Date('2026-12-16T22:00:00Z');
 
       const diff = deadline.getTime() - now.getTime();
 
       if (diff <= 0) {
-        setTimeLeft('No More Submissions');
+        setTimeLeft('Challenge Over');
         setTimeColor('text-red-500');
         clearInterval(interval);
         return;
@@ -32,9 +31,9 @@ const BreezCountdown = () => {
         )}:${String(seconds).padStart(2, '0')}`
       );
 
-      if (days === 0 && hours < 6) {
+      if (days < 7) {
         setTimeColor('text-red-500');
-      } else if (days < 1) {
+      } else if (days < 30) {
         setTimeColor('text-orange-500');
       } else {
         setTimeColor('text-green-500');
@@ -48,7 +47,7 @@ const BreezCountdown = () => {
 
   return (
     <div>
-      <span className="text-xs text-muted-foreground font-mono">TIME2BUILD</span>
+      <span className="text-xs text-muted-foreground font-mono">BOSS CHALLENGE '26</span>
       <div className={`flex items-center gap-1 text-xs ${timeColor} font-mono`}>
         <div className={`w-2 h-2 ${pulseColorClass} rounded-full animate-pulse`}></div>
         <span>{timeLeft}</span>
@@ -57,4 +56,4 @@ const BreezCountdown = () => {
   );
 };
 
-export default BreezCountdown;
+export default BossCountdown;

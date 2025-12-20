@@ -5,7 +5,7 @@ import Seo from "@/components/Seo";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { BountyBoard, BOUNTY_PLATFORMS, BOUNTY_DATA } from "@/components/BountyBoard";
 import { SovereignKey } from "@/components/SovereignKey";
-import BreezCountdown from "@/components/BreezCountdown";
+import BossCountdown from "@/components/BossCountdown";
 import { useEffect, useState } from "react";
 
 
@@ -199,7 +199,7 @@ const EasyDevs = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {/* Time2Build Project */}
+          {/* BOSS Challenge Project */}
           <div className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-colors relative overflow-hidden">
             {/* Techy Background Pattern */}
             <div className="absolute inset-0 opacity-5">
@@ -216,15 +216,14 @@ const EasyDevs = () => {
                     <Terminal className="h-8 w-8 text-primary" />
                     <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                   </div>
-                  <BreezCountdown />
+                  <BossCountdown />
                 </div>
                 <span className="text-xs text-muted-foreground font-mono">REMOTE</span>
               </div>
 
-              <h3 className="text-lg font-semibold mb-2 font-mono">Time2Build Bitcoin Development by Breez</h3>
+              <h3 className="text-lg font-semibold mb-2 font-mono">2026 BOSS Challenge by Btrust Builders & Chaincode Labs</h3>
               <p className="text-sm text-muted-foreground mb-4">
-                Join a worldwide developer challenge to bring bitcoin to the world's leading Open-Source applications & services using the Breez SDK.
-                The goal is not to build another Bitcoin wallet, but to integrate Bitcoin into popular Open-Source apps that already exist.
+                Join the Bitcoin Open Source Software (BOSS) Challenge to kickstart your career in Bitcoin development. A 3-month program to guide you into contributing to open-source Bitcoin projects.
               </p>
 
               {/* Additional Details */}
@@ -232,20 +231,20 @@ const EasyDevs = () => {
                 <div>
                   <div className="text-xs text-primary font-mono mb-1">PROGRAM DETAILS:</div>
                   <ul className="text-xs text-muted-foreground space-y-1">
-                    <li>• Remote Bitcoin development opportunities</li>
+                    <li>• 3-month structured program</li>
+                    <li>• Mentorship from ₿OSS contributors</li>
                     <li>• Work on real-world Open-Source projects</li>
-                    <li>• Contribute to the Bitcoin ecosystem</li>
-                    <li>• $25,000 prize pool to be won!</li>
+                    <li>• Networking with partner organizations</li>
                   </ul>
                 </div>
 
                 <div>
-                  <div className="text-xs text-primary font-mono mb-1">JUDGING CRITERIA:</div>
+                  <div className="text-xs text-primary font-mono mb-1">PARTICIPANT EXPECTATIONS:</div>
                   <ul className="text-xs text-muted-foreground space-y-1">
-                    <li>• <span className="text-foreground">Impact:</span> Potential to drive Bitcoin adoption</li>
-                    <li>• <span className="text-foreground">Quality:</span> Code architecture and implementation</li>
-                    <li>• <span className="text-foreground">UX/UI:</span> Ease of use and design aesthetics</li>
-                    <li>• <span className="text-foreground">Innovation:</span> Creative use of Breez SDK features</li>
+                    <li>• <span className="text-foreground">Proactive Spirit:</span> Self-starter attitude is key.</li>
+                    <li>• <span className="text-foreground">Time Commitment:</span> Minimum 10 hours/week for prep.</li>
+                    <li>• <span className="text-foreground">Engagement:</span> Participate in async chat discussions.</li>
+                    <li>• <span className="text-foreground">Passion:</span> A drive to contribute to Bitcoin.</li>
                   </ul>
                 </div>
 
@@ -254,11 +253,11 @@ const EasyDevs = () => {
                   <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
                     <div>
                       <span className="text-foreground block">Registration:</span>
-                      Open Now
+                      Coming Soon
                     </div>
                     <div>
-                      <span className="text-foreground block">Submission Deadline:</span>
-                      Dec 16, 2025
+                      <span className="text-foreground block">Challenge Begins:</span>
+                      Q1 2026 (TBA)
                     </div>
                   </div>
                 </div>
@@ -275,7 +274,7 @@ const EasyDevs = () => {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-1">
-                  {['Bitcoin', 'Lightning', 'Rust', 'C++', 'JavaScript', 'Python', 'Breez SDK'].map((tech) => (
+                  {['Bitcoin Core', 'Lightning', 'Rust', 'Cryptography', 'PayJoin', 'LDK'].map((tech) => (
                     <span key={tech} className="px-2 py-1 text-xs bg-primary/10 text-primary rounded font-mono">
                       {tech}
                     </span>
@@ -286,7 +285,7 @@ const EasyDevs = () => {
               {/* Terminal Status */}
               <div className="mb-4 p-2 bg-black/50 rounded font-mono text-xs">
                 <div className="text-green-400 mb-1">
-                  <span className="text-primary">$</span> time2build --status
+                  <span className="text-primary">$</span> boss-challenge --status
                 </div>
                 <div className="text-green-400">
                   ✓ Program active • ✓ Remote positions available • ✓ Bitcoin focus
@@ -295,9 +294,9 @@ const EasyDevs = () => {
 
               <div className="flex gap-2">
                 <Button variant="outline" size="sm" className="gap-2" asChild>
-                  <a href="https://www.time2build.dev/" target="_blank" rel="noopener noreferrer">
+                  <a href="https://bosschallenge.xyz/" target="_blank" rel="noopener noreferrer">
                     <Code2 className="h-3 w-3" />
-                    Learn More & Submit Your Project
+                    Learn More & Get Ready
                   </a>
                 </Button>
               </div>
