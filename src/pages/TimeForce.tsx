@@ -295,7 +295,7 @@ const TimeForce = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-4 w-4 text-primary mt-1" />
-                  <span>Affordable rates with 1st Month completely free</span>
+                  <span>Affordable rates with 1st 7-days completely free</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-4 w-4 text-primary mt-1" />
