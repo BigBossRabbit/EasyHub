@@ -221,7 +221,7 @@ const EasyDevs = () => {
                 <span className="text-xs text-muted-foreground font-mono">REMOTE</span>
               </div>
 
-              <h3 className="text-lg font-semibold mb-2 font-mono">2025 BOSS Challenge by Btrust Builders & Chaincode Labs</h3>
+              <h3 className="text-lg font-semibold mb-2 font-mono">2026 BOSS Challenge by Btrust Builders & Chaincode Labs</h3>
               <p className="text-sm text-muted-foreground mb-4">
                 Join the Bitcoin Open Source Software (BOSS) Challenge to kickstart your career in Bitcoin development. A 3-month program to guide you into contributing to open-source Bitcoin projects.
               </p>
@@ -253,7 +253,7 @@ const EasyDevs = () => {
                   <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
                     <div>
                       <span className="text-foreground block">Registration:</span>
-                      Open until Dec 31, 2025
+                      Coming Soon
                     </div>
                     <div>
                       <span className="text-foreground block">Challenge Begins:</span>
@@ -274,7 +274,7 @@ const EasyDevs = () => {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-1">
-                  {['Bitcoin Core', 'Lightning', 'Rust', 'BDK', 'Silent Payments', 'LDK'].map((tech) => (
+                  {['Bitcoin Core', 'Lightning', 'Rust', 'Cryptography', 'PayJoin', 'LDK'].map((tech) => (
                     <span key={tech} className="px-2 py-1 text-xs bg-primary/10 text-primary rounded font-mono">
                       {tech}
                     </span>
@@ -310,6 +310,9 @@ const EasyDevs = () => {
           <div className="md:col-span-2">
             <BountyBoard
               platforms={platforms}
+
+
+
               checkingIndex={checkingIndex}
               lastChecked={lastChecked}
             />
