@@ -225,8 +225,8 @@ const TimeForce = () => {
               <span className="text-primary">$</span>
               <span className="animate-pulse">loading_timeforce_handbook...</span>
             </div>
-            <div className="flex items-center gap-2 text-[10px] opacity-60 uppercase tracking-widest px-4 py-1 border border-primary/20 rounded-full bg-primary/5">
-              <span className="text-primary">&gt;</span> TimeForce Protocol v1.0.4 | © 2025 EasySats
+            <div className="flex items-center gap-2">
+              <span className="text-primary">&gt;</span> <span className="animate-pulse">TimeForce Protocol v1.0.4 | © 2025 EasySats</span>
             </div>
           </div>
 
@@ -244,17 +244,17 @@ const TimeForce = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="gap-2 shadow-[0_0_20px_rgba(var(--primary),0.2)]" onClick={() => setIsJoinModalOpen(true)}>
+            <Button size="lg" variant="outline" className="gap-2" onClick={() => setIsJoinModalOpen(true)}>
               <Users className="h-4 w-4" />
               Join TimeForce
             </Button>
-            <Button size="lg" variant="outline" className="gap-2" asChild>
+            <Button size="lg" className="gap-2 shadow-[0_0_20px_rgba(var(--primary),0.2)]" asChild>
               <a href="https://btcpay870642.lndyn.com/register" target="_blank" rel="noopener noreferrer">
                 <Globe className="h-4 w-4" />
                 Merchant Registration
               </a>
             </Button>
-            <Button size="lg" variant="ghost" className="gap-2" asChild>
+            <Button size="lg" variant="outline" className="gap-2" asChild>
               <Link to="/easyjobs">
                 <Briefcase className="h-4 w-4" />
                 Find EasyJobs
@@ -590,14 +590,6 @@ const TimeForce = () => {
           </div>
         </div>
       </section>
-
-      <footer className="border-t border-border/50 py-12 mt-20">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest opacity-40">
-            Sovereign Technology by EasySats
-          </p>
-        </div>
-      </footer>
     </div>
   );
 };
