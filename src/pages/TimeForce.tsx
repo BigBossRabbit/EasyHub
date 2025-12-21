@@ -441,7 +441,7 @@ const TimeForce = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-4 w-4 text-primary mt-1" />
-                  <span>Affordable rates with a 7-day free trial</span>
+                  <span>Affordable rates with a 30-day free trial, running till 31st of December 2025</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-4 w-4 text-primary mt-1" />
