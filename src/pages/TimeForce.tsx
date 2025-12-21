@@ -220,9 +220,14 @@ const TimeForce = () => {
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-20">
         <div className="max-w-4xl mx-auto text-center space-y-6">
-          <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm mb-4">
-            <span className="text-primary">$</span>
-            <span className="animate-pulse">loading_timeforce_handbook...</span>
+          <div className="flex flex-col items-center justify-center gap-2 text-muted-foreground text-sm mb-4 font-mono">
+            <div className="flex items-center gap-2">
+              <span className="text-primary">$</span>
+              <span className="animate-pulse">loading_timeforce_handbook...</span>
+            </div>
+            <div className="flex items-center gap-2 text-[10px] opacity-60 uppercase tracking-widest px-4 py-1 border border-primary/20 rounded-full bg-primary/5">
+              <span className="text-primary">&gt;</span> TimeForce Protocol v1.0.4 | © 2025 EasySats
+            </div>
           </div>
 
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
@@ -244,6 +249,12 @@ const TimeForce = () => {
               Join TimeForce
             </Button>
             <Button size="lg" variant="outline" className="gap-2" asChild>
+              <a href="https://btcpay870642.lndyn.com/register" target="_blank" rel="noopener noreferrer">
+                <Globe className="h-4 w-4" />
+                Merchant Registration
+              </a>
+            </Button>
+            <Button size="lg" variant="ghost" className="gap-2" asChild>
               <Link to="/easyjobs">
                 <Briefcase className="h-4 w-4" />
                 Find EasyJobs
@@ -498,11 +509,11 @@ const TimeForce = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Button size="lg" className="h-14 px-10 text-lg shadow-xl shadow-primary/20" onClick={() => setIsJoinModalOpen(true)}>
-                  Access Registration Form
+                  Access TimeForce Registration Form
                 </Button>
                 <Button size="lg" variant="outline" className="h-14 px-10 text-lg backdrop-blur-sm" asChild>
                   <a href="https://btcpay870642.lndyn.com/register" target="_blank" rel="noopener noreferrer">
-                    Direct Server Link
+                    Direct Merchant Server Link
                   </a>
                 </Button>
               </div>
@@ -582,8 +593,8 @@ const TimeForce = () => {
 
       <footer className="border-t border-border/50 py-12 mt-20">
         <div className="container mx-auto px-6 text-center">
-          <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
-            TimeForce Protocol v1.0.4 | © 2025 EasySats
+          <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-widest opacity-40">
+            Sovereign Technology by EasySats
           </p>
         </div>
       </footer>
