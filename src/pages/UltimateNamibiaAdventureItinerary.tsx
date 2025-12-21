@@ -1,219 +1,398 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Seo from '@/components/Seo';
-import { ArrowLeft, CheckCircle, XCircle, MapPin, CalendarDays, Users, Gift, Fuel, Globe } from 'lucide-react'; // Added more icons
+import { Button } from "@/components/ui/button";
+import {
+    ArrowLeft,
+    CheckCircle,
+    XCircle,
+    MapPin,
+    CalendarDays,
+    Users,
+    Clock,
+    Info,
+    Utensils,
+    Camera,
+    Plane,
+    Tent,
+    Compass,
+    Binoculars,
+    Waves,
+    Mountain,
+    Anchor,
+    Car,
+    Gift
+} from 'lucide-react';
+
+const itineraryData = [
+    {
+        day: 1,
+        title: "Arrival in Windhoek & City Exploration",
+        description: "Arrival at Hosea Kutako International Airport (WDH). Meet & greet by your professional English-speaking guide/driver. Private transfer to your luxury hotel in Windhoek.",
+        subDescription: "The afternoon is at leisure to relax and recover. An optional guided city tour (2-3 hours) is available for those eager to start exploring the capital.",
+        accommodation: "The Weinberg Hotel or similar (luxury) OR Urban Camp (comfortable)",
+        meals: "Dinner included at a local restaurant",
+        icon: <Plane className="h-6 w-6" />,
+        color: "from-blue-500/20 to-indigo-500/20"
+    },
+    {
+        day: 2,
+        title: "Windhoek to Namib Desert",
+        description: "Enjoy a leisurely breakfast before departing from Windhoek. Embark on a scenic drive through the breathtaking Khomas Hochland mountains, heading towards the ancient Namib Desert.",
+        subDescription: "Arrive at your lodge near Sossusvlei, with time to relax, enjoy the pool, and soak in the stunning desert views.",
+        accommodation: "Sossusvlei Lodge or similar OR Camp Gecko",
+        meals: "Breakfast, Dinner (Lunch at Camp Gecko)",
+        travelTime: "3 to 4.5 hours",
+        icon: <Mountain className="h-6 w-6" />,
+        color: "from-orange-500/20 to-red-500/20"
+    },
+    {
+        day: 3,
+        title: "Sossusvlei & Sesriem Canyon",
+        description: "A pre-dawn start to witness a spectacular sunrise over the world's highest dunes. Explore Deadvlei and the ancient petrified trees.",
+        subDescription: "Discover the iconic dunes, the vast pans, and a guided excursion into the Sesriem Canyon. Lunch provided inside the national park.",
+        accommodation: "Sossusvlei Lodge or similar OR Camp Gecko",
+        meals: "Breakfast, Lunch, Dinner",
+        travelTime: "1.5 hours to park entrance",
+        icon: <Camera className="h-6 w-6" />,
+        color: "from-yellow-500/20 to-orange-500/20"
+    },
+    {
+        day: 4,
+        title: "Sesriem to Swakopmund",
+        description: "Journey through the vast Namib Desert and the dramatic Kuiseb Canyon, making your way to the charming coastal town of Swakopmund.",
+        subDescription: "Optional Balloon Safari over the Namib Desert at dawn. Free time in Swakopmund to explore the promenade or beachfront cafés.",
+        accommodation: "Beach Hotel Swakopmund or similar OR The Stiltz",
+        meals: "Breakfast",
+        travelTime: "3.5 to 5 hours",
+        icon: <Compass className="h-6 w-6" />,
+        color: "from-cyan-500/20 to-blue-500/20"
+    },
+    {
+        day: 5,
+        title: "Thrilling Coastal Adventures",
+        description: "Choice of exhilarating primary excursions: Sandwich Harbour 4x4 Tour, Catamaran Dolphin Cruise, or Mola Mola Excursion and Braai.",
+        subDescription: "Afternoon free for relaxation or optional add-ons like quad biking, sandboarding, or skydiving.",
+        accommodation: "Beach Hotel Swakopmund or similar OR The Stiltz",
+        meals: "Breakfast (and Lunch on specific excursions)",
+        icon: <Waves className="h-6 w-6" />,
+        color: "from-blue-600/20 to-cyan-600/20"
+    },
+    {
+        day: 6,
+        title: "Swakopmund to Damaraland",
+        description: "Enjoy a quad-bike excursion through the dunes before departing on a scenic coastal drive north, then inland into the dramatic Damaraland scenery.",
+        subDescription: "Optional visit to Cape Cross Seal Reserve. Late afternoon guided nature walk to track desert-adapted wildlife.",
+        accommodation: "Twyfelfontein Lodge or similar OR Twyfelfontein Adventure Camp",
+        meals: "Breakfast, Dinner (Lunch at Twyfelfontein Adventure Camp)",
+        travelTime: "4 to 4.5 hours",
+        icon: <Binoculars className="h-6 w-6" />,
+        color: "from-emerald-500/20 to-teal-500/20"
+    },
+    {
+        day: 7,
+        title: "UNESCO Heritage & Etosha Gateway",
+        description: "Visit the Twyfelfontein UNESCO Rock Engravings and the Damara Living Museum to learn about local culture.",
+        subDescription: "Travel to your lodge on the south-western edge of Etosha National Park. Enjoy an optional sunset game drive.",
+        accommodation: "Etosha Safari Camp or similar OR Twyfelfontein Adventure Camp",
+        meals: "Breakfast, Dinner (Lunch at specific camps)",
+        travelTime: "3.5 hours",
+        icon: <MapPin className="h-6 w-6" />,
+        color: "from-green-500/20 to-emerald-500/20"
+    },
+    {
+        day: 8,
+        title: "Etosha National Park Wildlife",
+        description: "Enter Etosha at sunrise for a full day of game viewing. Spot lions, elephants, rhinos, and diverse antelope species.",
+        subDescription: "Picnic lunch at a rest camp inside the park. Exit on the eastern side for your next lodge.",
+        accommodation: "Mokuti Etosha Lodge or similar OR Etosha Camping2Go",
+        meals: "Breakfast, Dinner (Lunch at Etosha Camping2Go)",
+        icon: <Binoculars className="h-6 w-6" />,
+        color: "from-green-600/20 to-lime-600/20"
+    },
+    {
+        day: 9,
+        title: "Etosha to Rundu",
+        description: "Embark on a leisurely departure, traveling north into the lush Kavango region and the serene Okavango River.",
+        subDescription: "Optional Sundowner Boat Cruise - a perfect, gentle activity to end the day on the river.",
+        accommodation: "Hakusembe River Lodge or similar",
+        meals: "Breakfast, Dinner",
+        travelTime: "3.5 to 5.5 hours",
+        icon: <Waves className="h-6 w-6" />,
+        color: "from-blue-400/20 to-indigo-400/20"
+    },
+    {
+        day: 10,
+        title: "Cultural Immersion & Rundu",
+        description: "Participate in a Guided Cultural Village Visit to learn about Kavango traditions, crafts, and daily life.",
+        subDescription: "Afternoon of pure relaxation at the lodge, soaking in the peaceful river atmosphere.",
+        accommodation: "Riverside Lodge in Rundu",
+        meals: "Breakfast, Dinner",
+        icon: <Users className="h-6 w-6" />,
+        color: "from-indigo-500/20 to-purple-500/20"
+    },
+    {
+        day: 11,
+        title: "Rundu to Otjiwarongo",
+        description: "Primarily a travel and relaxation day, enjoying the changing landscapes as you journey south.",
+        subDescription: "A relaxed lunch stop will be made en route. Arrive early afternoon in Otjiwarongo.",
+        accommodation: "Fly Inn Guesthouse or similar",
+        meals: "Breakfast",
+        travelTime: "6.5 hours",
+        icon: <Car className="h-6 w-6" />,
+        color: "from-slate-500/20 to-gray-500/20"
+    },
+    {
+        day: 12,
+        title: "Otjiwarongo to Windhoek",
+        description: "Enjoy a leisurely drive back to Windhoek. Stop at local craft markets for final souvenir shopping.",
+        subDescription: "Farewell dinner at a premier restaurant, reflecting on your incredible journey through Namibia.",
+        accommodation: "The Weinberg Hotel or similar OR Urban Camp",
+        meals: "Breakfast, Farewell Dinner",
+        travelTime: "3 to 4 hours",
+        icon: <Gift className="h-6 w-6" />,
+        color: "from-amber-500/20 to-orange-500/20"
+    },
+    {
+        day: 13,
+        title: "Departure",
+        description: "Enjoy a final breakfast at your hotel before your transfer to Hosea Kutako International Airport.",
+        subDescription: "Safe travels and hope to see you again in Namibia!",
+        meals: "Breakfast",
+        icon: <Plane className="h-6 w-6" />,
+        color: "from-indigo-600/20 to-blue-600/20"
+    }
+];
+
+const inclusions = [
+    "13 nights of hand-picked luxury & comfortable accommodation",
+    "Breakfast and Dinner daily (approx. 23 meals total)",
+    "Professional English-speaking guide/driver throughout",
+    "Private air-conditioned 4x4 safari vehicle with full insurance",
+    "All fuel, road tolls, and vehicle expenses",
+    "All National Park entrance fees (Sossusvlei, Etosha, etc.)",
+    "Choice of coastal excursion in Swakopmund",
+    "Guided tours of UNESCO sites and cultural villages",
+    "4x Namibian SIM cards with data for your group",
+    "Complimentary snacks and bottled water daily"
+];
+
+const exclusions = [
+    "International flights to and from Windhoek",
+    "Mandatory Travel & Medical Insurance",
+    "Lunches not explicitly mentioned in the itinerary",
+    "Alcoholic beverages and personal drinks",
+    "Optional activities (Balloon Safari, etc.)",
+    "Personal expenses (Visas, tips, laundry, etc.)"
+];
 
 const UltimateNamibiaAdventureItinerary = () => {
     return (
-        <div className="min-h-screen bg-background text-foreground">
+        <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
             <Seo
                 title="The Ultimate Namibia Adventure Itinerary"
                 description="Detailed 13-Day Itinerary for The Ultimate Namibia Adventure, payable in Bitcoin."
                 canonical="/easytours/ultimate-namibia"
             />
 
-            <header className="border-b border-border bg-card/80 backdrop-blur-md sticky top-0 z-50">
+            {/* Navigation */}
+            <header className="border-b border-white/10 bg-black/40 backdrop-blur-xl sticky top-0 z-[60]">
                 <div className="container mx-auto px-6 py-4">
                     <div className="flex items-center justify-between">
-                        <Link to="/easytours" className="flex items-center gap-3 group">
-                            <ArrowLeft className="h-6 w-6 text-primary group-hover:scale-110 transition-transform" />
-                            <span className="text-xl font-bold text-primary">Back to EasyTours</span>
+                        <Link to="/easytours" className="flex items-center gap-3 group transition-all duration-300">
+                            <div className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                <ArrowLeft className="h-5 w-5 text-primary group-hover:-translate-x-1 transition-transform" />
+                            </div>
+                            <span className="text-lg font-bold text-primary tracking-tight">Return to Expeditions</span>
                         </Link>
                     </div>
                 </div>
             </header>
 
-            <main className="container mx-auto px-6 py-12 prose prose-invert max-w-none">
-                <h1 className="text-5xl font-bold mb-6 text-primary">The Ultimate Namibia Adventure - 13-Day Grand Tour</h1>
-                <p className="lead mb-8 text-muted-foreground">
-                    Embark on an unforgettable 13-day journey through Namibia, combining the best experiences from both "Easy Tours" and "Wasafiri Tours & Transfers" for a truly comprehensive and luxurious adventure. This tour offers a blend of breathtaking landscapes, diverse wildlife, and rich cultural encounters, guided by experienced professionals and designed for an immersive experience.
-                </p>
+            {/* Hero Section */}
+            <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 z-0">
+                    <img
+                        src="/assets/namibia-hero.png"
+                        alt="Namibian Landscape"
+                        className="w-full h-full object-cover scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-background" />
+                    <div className="absolute inset-0 backdrop-blur-[2px]" />
+                </div>
 
-                <h2 className="text-3xl font-bold mt-10 mb-4 text-primary">Itinerary Overview</h2>
+                <div className="container relative z-10 px-6 text-center animate-fade-in-up">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/30 border border-primary/50 backdrop-blur-md text-white font-mono text-xs uppercase tracking-widest mb-6">
+                        <Compass className="h-4 w-4 text-primary" />
+                        13-Day Grand Tour
+                    </div>
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 drop-shadow-2xl">
+                        The Ultimate <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">
+                            Namibia Adventure
+                        </span>
+                    </h1>
+                    <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed drop-shadow-md">
+                        A seamless blend of luxury, culture, and wild discovery across Namibia's most iconic landscapes.
+                    </p>
+                </div>
 
-                <h3 className="text-2xl font-bold mt-8 mb-3 text-secondary">Day 1: Arrival in Windhoek & City Exploration</h3>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>Arrival at Hosea Kutako International Airport (WDH). Meet & greet by your professional English-speaking guide/driver. Private transfer to your luxury hotel in Windhoek.</li>
-                    <li>The afternoon is at leisure to relax and recover. An optional guided city tour (2-3 hours) is available for those eager to start exploring the capital.</li>
-                    <li><strong>Accommodation:</strong> The Weinberg Hotel or similar (luxury option) OR Urban Camp (comfortable, budget-friendly option).</li>
-                    <li><strong>Meals:</strong> Dinner (included) at a renowned local restaurant, accompanied by a welcome briefing from your guide.</li>
-                </ul>
+                <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-10" />
+            </section>
 
-                <h3 className="text-2xl font-bold mt-8 mb-3 text-secondary">Day 2: Windhoek to Namib Desert - Gateway to Sossusvlei</h3>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>Enjoy a leisurely breakfast before departing from Windhoek. Embark on a scenic drive through the breathtaking Khomas Hochland mountains, heading towards the ancient Namib Desert.</li>
-                    <li>Arrive at your lodge near Sossusvlei, with time to relax, enjoy the pool, and soak in the stunning desert views.</li>
-                    <li><strong>Optional Activity:</strong> A late afternoon nature drive with your lodge guide to learn about desert ecology OR an optional sundowner drive.</li>
-                    <li><strong>Route:</strong> Windhoek – Sossusvlei Area (Lodge near Sesriem)</li>
-                    <li><strong>Accommodation:</strong> Sossusvlei Lodge or similar (near Sesriem) OR Camp Gecko (glamping/adventure camp option).</li>
-                    <li><strong>Travel Time:</strong> Approximately 3 to 4.5 hours.</li>
-                    <li><strong>Meals:</strong> Breakfast, Dinner (Lunch included if staying at Camp Gecko).</li>
-                </ul>
+            {/* Main Content */}
+            <main className="container mx-auto px-6 pb-24 -mt-24 relative z-20">
+                <div className="max-w-6xl mx-auto">
 
-                <h3 className="text-2xl font-bold mt-8 mb-3 text-secondary">Day 3: Sossusvlei & Sesriem Canyon - Iconic Dunes & Ancient Landscapes</h3>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>A pre-dawn start with an early light breakfast. Depart for the highlight visit to Sossusvlei and Deadvlei, where you will witness a spectacular sunrise over some of the world's highest dunes (with an optional climb of Dune 45).</li>
-                    <li>Enjoy a full-day guided tour discovering the iconic dunes, the vast pans, the ancient petrified trees, and a guided excursion into the Sesriem Canyon. Lunch will be provided inside the national park.</li>
-                    <li>Return to the lodge in time for leisurely late brunch/lunch and relaxation (siesta, swim).</li>
-                    <li><strong>Included Activity:</strong> Full-day guided tour to Sossusvlei and Deadvlei, with lunch inside the park.</li>
-                    <li><strong>Accommodation:</strong> Sossusvlei Lodge or similar (near Sesriem) OR Camp Gecko.</li>
-                    <li><strong>Travel Time:</strong> Approximately 1.5 hours to park entrance.</li>
-                    <li><strong>Meals:</strong> Breakfast, Lunch, Dinner.</li>
-                </ul>
+                    {/* Itinerary Grid */}
+                    <div className="space-y-12">
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 bg-card/40 backdrop-blur-xl border border-white/10 p-8 rounded-3xl">
+                            <div className="space-y-2 text-center md:text-left">
+                                <h2 className="text-3xl font-bold tracking-tight">Expedition Schedule</h2>
+                                <p className="text-muted-foreground">Day-by-day sequence of the journey</p>
+                            </div>
+                            <div className="flex gap-4">
+                                <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20 text-center min-w-[100px]">
+                                    <div className="text-2xl font-bold text-primary">13</div>
+                                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Days</div>
+                                </div>
+                                <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20 text-center min-w-[100px]">
+                                    <div className="text-2xl font-bold text-primary">23</div>
+                                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Meals</div>
+                                </div>
+                                <div className="p-4 rounded-2xl bg-primary/10 border border-primary/20 text-center min-w-[100px]">
+                                    <div className="text-2xl font-bold text-primary">100%</div>
+                                    <div className="text-[10px] uppercase tracking-wider text-muted-foreground">BTC</div>
+                                </div>
+                            </div>
+                        </div>
 
-                <h3 className="text-2xl font-bold mt-8 mb-3 text-secondary">Day 4: Sesriem to Swakopmund - Coastal Charm & Desert Views</h3>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>Enjoy a leisurely departure after breakfast. Journey through the vast Namib Desert and the dramatic Kuiseb Canyon, making your way to the charming coastal town of Swakopmund.</li>
-                    <li><strong>Optional Activity (prior to departure):</strong> Experience a breathtaking Balloon Safari over the Namib Desert at dawn (note: very early rise; estimated cost approx. 500€).</li>
-                    <li>The remainder of the day in Swakopmund is free to explore. Optional activities include: strolling along the promenade, visiting the crystal gallery, or relaxing at a beachfront café.</li>
-                    <li><strong>Accommodation:</strong> Beach Hotel Swakopmund or similar OR The Stiltz (boutique, unique accommodation option).</li>
-                    <li><strong>Travel Time:</strong> Approximately 3.5 to 5 hours.</li>
-                    <li><strong>Meals:</strong> Breakfast.</li>
-                </ul>
+                        <div className="grid gap-8">
+                            {itineraryData.map((item, idx) => (
+                                <div
+                                    key={idx}
+                                    className="group relative flex flex-col md:flex-row gap-8 bg-card/30 backdrop-blur-md border border-white/5 hover:border-primary/30 rounded-3xl p-6 md:p-10 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 cursor-default"
+                                >
+                                    {/* Day Bubble */}
+                                    <div className={`flex-shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br ${item.color} flex flex-col items-center justify-center border border-white/10 group-hover:scale-105 transition-transform duration-500`}>
+                                        <span className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-1 font-mono">Day</span>
+                                        <span className="text-3xl md:text-4xl font-bold text-white">{item.day < 10 ? `0${item.day}` : item.day}</span>
+                                    </div>
 
-                <h3 className="text-2xl font-bold mt-8 mb-3 text-secondary">Day 5: Swakopmund & Thrilling Coastal Adventures</h3>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>Early rise and breakfast. Today offers a choice of exhilarating primary excursions:
-                        <ul className="list-circle list-inside ml-4">
-                            <li><strong>Option A: Full-Day Sandwich Harbour 4x4 Tour,</strong> where the towering dunes meet the Atlantic Ocean, including a delicious picnic lunch on the beach.</li>
-                            <li><strong>Option B: Catamaran Dolphin Cruise from Walvis Bay,</strong> offering sightings of marine life, including oysters & sparkling wine.</li>
-                            <li><strong>Option C: Half-day Mola Mola Sandwich Harbour Excursion and Braai,</strong> featuring a Namibian-style barbecue lunch on the beach.</li>
-                        </ul>
-                    </li>
-                    <li>Afternoon: Free time for relaxation or optional add-ons (at additional cost): Quad biking through the dunes, sandboarding, skydiving, or a cultural township tour.</li>
-                    <li><strong>Included Activity:</strong> Choice of one primary excursion: Sandwich Harbour 4x4 Full-Day Tour (with picnic lunch) OR Catamaran Dolphin Cruise (with oysters & sparkling wine) OR Mola Mola Sandwich Harbour Excursion and Braai.</li>
-                    <li><strong>Accommodation:</strong> Swakopmund (Beach Hotel Swakopmund or similar OR The Stiltz).</li>
-                    <li><strong>Meals:</strong> Breakfast (and Lunch if on Sandwich Harbour tour or Mola Mola excursion).</li>
-                </ul>
+                                    {/* Content */}
+                                    <div className="flex-1 space-y-4">
+                                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                                            <h3 className="text-2xl md:text-3xl font-bold tracking-tight group-hover:text-primary transition-colors">{item.title}</h3>
+                                            <div className="hidden md:flex items-center gap-2 p-2 rounded-xl bg-white/5 text-xs text-muted-foreground">
+                                                {item.icon}
+                                            </div>
+                                        </div>
 
-                <h3 className="text-2xl font-bold mt-8 mb-3 text-secondary">Day 6: Swakopmund to Damaraland - Ancient Rock Art & Desert-Adapted Wildlife</h3>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>After breakfast, enjoy a thrilling 1.5-hour quad-bike excursion through the dunes before departing on a scenic coastal drive north. Then, turn inland into the dramatic Damaraland scenery.</li>
-                    <li><strong>Optional Activity:</strong> Visit Cape Cross Seal Reserve en route.</li>
-                    <li>Arrive at your eco-lodge with time to unwind. In the late afternoon, embark on an optional guided nature walk with a lodge guide to track unique desert-adapted wildlife.</li>
-                    <li><strong>Accommodation:</strong> Twyfelfontein Lodge or similar OR Twyfelfontein Adventure Camp.</li>
-                    <li><strong>Travel Time:</strong> Approximately 4 to 4.5 hours.</li>
-                    <li><strong>Meals:</strong> Breakfast, Dinner (Lunch included if staying at Twyfelfontein Adventure Camp).</li>
-                </ul>
+                                        <div className="space-y-4 text-muted-foreground leading-relaxed">
+                                            <p className="text-lg text-foreground/90">{item.description}</p>
+                                            <p className="text-sm border-l-2 border-primary/30 pl-4">{item.subDescription}</p>
+                                        </div>
 
-                <h3 className="text-2xl font-bold mt-8 mb-3 text-secondary">Day 7: Damaraland - UNESCO Heritage & Etosha Gateway</h3>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>Morning: Visit the Twyfelfontein UNESCO Rock Engravings, a significant archaeological site, followed by a visit to the Damara Living Museum to learn about local culture and traditions.</li>
-                    <li><strong>Included Activities:</strong> Rock painting tour and Damara Living Museum tour.</li>
-                    <li>Travel to your lodge on the south-western edge of Etosha National Park.</li>
-                    <li><strong>Optional Activity:</strong> Huab Nature Drive in search of elephants (enquire at reception).</li>
-                    <li>Enjoy relaxation time before an optional sunset game drive on the lodge's private reserve (outside the national park) or a short drive into Etosha National Park with your guide.</li>
-                    <li><strong>Route:</strong> Damaraland - Etosha National Park (Western Side)</li>
-                    <li><strong>Accommodation:</strong> Lodge near Etosha's Andersson Gate (e.g., Etosha Safari Camp) OR Twyfelfontein Adventure Camp (if extending stay) OR Etosha Camping2Go.</li>
-                    <li><strong>Travel Time:</strong> Approximately 3.5 hours (with stops).</li>
-                    <li><strong>Meals:</strong> Breakfast, Dinner (Lunch included if staying at Twyfelfontein Adventure Camp or Etosha Camping2Go).</li>
-                </ul>
+                                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 mt-6 border-t border-white/5">
+                                            <div className="flex items-start gap-3">
+                                                <div className="mt-1 p-1 rounded-lg bg-primary/10 text-primary">
+                                                    <Tent className="h-4 w-4" />
+                                                </div>
+                                                <div className="space-y-1">
+                                                    <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-mono">Accommodation</span>
+                                                    <p className="text-xs text-foreground/80 leading-snug">{item.accommodation}</p>
+                                                </div>
+                                            </div>
 
-                <h3 className="text-2xl font-bold mt-8 mb-3 text-secondary">Day 8: Etosha National Park - Full Day Wildlife Spectacle</h3>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>Enter Etosha National Park at sunrise for a full day of exhilarating game viewing. Your guide will expertly navigate between waterholes, maximizing your chances of spotting diverse wildlife, including lions, elephants, rhinos, and various antelope species.</li>
-                    <li>Stop for a picnic lunch at a rest camp inside the park. Exit the park on the eastern side.</li>
-                    <li><strong>Included Activity:</strong> Full-day guided game drive through Etosha National Park.</li>
-                    <li><strong>Optional Activity:</strong> An evening Night Game Drive offered by your lodge (highly recommended for spotting nocturnal species like leopards and hyenas).</li>
-                    <li><strong>Accommodation:</strong> Lodge near Namutoni Gate (e.g., Mokuti Etosha Lodge) OR Etosha Camping2Go.</li>
-                    <li><strong>Meals:</strong> Breakfast, Dinner (Lunch included if staying at Etosha Camping2Go from previous day).</li>
-                </ul>
+                                            <div className="flex items-start gap-3">
+                                                <div className="mt-1 p-1 rounded-lg bg-primary/10 text-primary">
+                                                    <Utensils className="h-4 w-4" />
+                                                </div>
+                                                <div className="space-y-1">
+                                                    <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-mono">Gastronomy</span>
+                                                    <p className="text-xs text-foreground/80 leading-snug">{item.meals}</p>
+                                                </div>
+                                            </div>
 
-                <h3 className="text-2xl font-bold mt-8 mb-3 text-secondary">Day 9: Etosha to Rundu - Kavango River Serenity</h3>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>After breakfast, embark on a leisurely departure, traveling north into the lush Kavango region.</li>
-                    <li><strong>Optional Activities:</strong> Visit a Himba village en route OR enjoy a sundowner drive on arrival (enquire).</li>
-                    <li>Arrive at your riverfront lodge in Rundu, with time to relax on your private deck overlooking the serene Okavango River.</li>
-                    <li><strong>Optional Activity:</strong> Enjoy a Sundowner Boat Cruise (2 hours) - a perfect, gentle activity to end the day on the river.</li>
-                    <li><strong>Accommodation:</strong> Riverside Lodge in Rundu (e.g., Hakusembe River Lodge).</li>
-                    <li><strong>Travel Time:</strong> Approximately 3.5 to 5.5 hours.</li>
-                    <li><strong>Meals:</strong> Breakfast, Dinner (Lunch included if staying at Etosha Camping2Go from previous day).</li>
-                </ul>
+                                            {item.travelTime && (
+                                                <div className="flex items-start gap-3">
+                                                    <div className="mt-1 p-1 rounded-lg bg-primary/10 text-primary">
+                                                        <Clock className="h-4 w-4" />
+                                                    </div>
+                                                    <div className="space-y-1">
+                                                        <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-mono">Travel Time</span>
+                                                        <p className="text-xs text-foreground/80 leading-snug">{item.travelTime}</p>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
 
-                <h3 className="text-2xl font-bold mt-8 mb-3 text-secondary">Day 10: Rundu - Cultural Immersion & River Relaxation</h3>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>After breakfast, participate in a Guided Cultural Village Visit to learn about Kavango traditions, crafts, and daily life.</li>
-                    <li>The afternoon offers pure relaxation at the lodge, allowing you to soak in the peaceful river atmosphere.</li>
-                    <li><strong>Optional Activities:</strong> Book a traditional fishing trip, visit the local market, or simply relax with a book by the river.</li>
-                    <li><strong>Accommodation:</strong> Riverside Lodge in Rundu.</li>
-                    <li><strong>Meals:</strong> Breakfast, Dinner.</li>
-                </ul>
+                        {/* Inclusions & Exclusions */}
+                        <div className="grid lg:grid-cols-2 gap-8 pt-12">
+                            <div className="bg-primary/5 backdrop-blur-md border border-primary/20 rounded-3xl p-10 space-y-8">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary text-xs font-mono uppercase tracking-widest">
+                                    <CheckCircle className="h-4 w-4" />
+                                    Expedition Inclusions
+                                </div>
+                                <h3 className="text-3xl font-bold">What's Covered</h3>
+                                <ul className="grid sm:grid-cols-1 gap-4">
+                                    {inclusions.map((text, idx) => (
+                                        <li key={idx} className="flex items-start gap-4 text-sm text-foreground/80">
+                                            <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
+                                            {text}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
 
-                <h3 className="text-2xl font-bold mt-8 mb-3 text-secondary">Day 11: Rundu to Otjiwarongo - Scenic Journey South</h3>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>This is primarily a travel and relaxation day, allowing you to enjoy the changing landscapes as you journey south.</li>
-                    <li>A relaxed lunch stop will be made en route. Arrive early afternoon in Otjiwarongo.</li>
-                    <li>The evening is free to relax.</li>
-                    <li><strong>Optional Activity:</strong> Visit the Crocodile Farm near town.</li>
-                    <li><strong>Accommodation:</strong> Otjiwarongo Guesthouse/Lodge (e.g., Fly Inn Guesthouse).</li>
-                    <li><strong>Travel Time:</strong> Approximately 6.5 hours.</li>
-                    <li><strong>Meals:</strong> Breakfast.</li>
-                </ul>
+                            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 space-y-8">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-muted-foreground text-xs font-mono uppercase tracking-widest">
+                                    <XCircle className="h-4 w-4" />
+                                    Expedition Exclusions
+                                </div>
+                                <h3 className="text-3xl font-bold">Financial Responsibility</h3>
+                                <ul className="grid sm:grid-cols-1 gap-4">
+                                    {exclusions.map((text, idx) => (
+                                        <li key={idx} className="flex items-start gap-4 text-sm text-muted-foreground/80">
+                                            <div className="mt-1.5 h-1.5 w-1.5 rounded-full bg-muted-foreground/30 flex-shrink-0" />
+                                            {text}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
 
-                <h3 className="text-2xl font-bold mt-8 mb-3 text-secondary">Day 12: Otjiwarongo to Windhoek - Farewell Namibia</h3>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>Enjoy a leisurely drive back to the capital, Windhoek.</li>
-                    <li>Stop at the Okahandja Craft Market or a similar venue for final souvenir shopping.</li>
-                    <li><strong>Optional Activity:</strong> Visit Okahandja Woodcarvers Market en route.</li>
-                    <li>Check into your hotel. Free time for last-minute explorations or packing.</li>
-                    <li>In the evening, enjoy a Farewell dinner at a premier restaurant, reflecting on your incredible journey through Namibia.</li>
-                    <li><strong>Accommodation:</strong> Windhoek (The Weinberg Hotel or similar OR Urban Camp).</li>
-                    <li><strong>Travel Time:</strong> Approximately 3 to 4 hours.</li>
-                    <li><strong>Meals:</strong> Breakfast, Farewell Dinner.</li>
-                </ul>
-
-                <h3 className="text-2xl font-bold mt-8 mb-3 text-secondary">Day 13: Departure</h3>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>Enjoy a final breakfast at your hotel.</li>
-                    <li>Transfer to Hosea Kutako International Airport (WDH) for your international departure flight.</li>
-                    <li><strong>Meals:</strong> Breakfast.</li>
-                </ul>
-
-                <h2 className="text-3xl font-bold mt-10 mb-4 text-primary">Inclusions</h2>
-                <p>The "Ultimate Namibia Adventure" package is designed to be comprehensive, ensuring a seamless and enriching travel experience.</p>
-                <h4 className="text-xl font-bold mt-6 mb-2 text-secondary">Accommodation:</h4>
-                <p>13 nights of accommodation as per the itinerary, including a mix of luxury hotels, comfortable lodges, and unique glamping/adventure camps, selected for their quality and location.</p>
-                <h4 className="text-xl font-bold mt-6 mb-2 text-secondary">Meals:</h4>
-                <p>Breakfast and Dinner daily as specified in the itinerary. Selected lunches are also included, particularly during full-day excursions (e.g., Sossusvlei, Sandwich Harbour) and at certain glamping/adventure camp accommodations. (Approximately 23 meals in total).</p>
-                <h4 className="text-xl font-bold mt-6 mb-2 text-secondary">Transportation:</h4>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>All airport transfers on arrival and departure days (to/from Hosea Kutako International Airport - WDH).</li>
-                    <li>A dedicated professional English-speaking guide/driver throughout the tour, who also acts as a chef during glamping/camping stays.</li>
-                    <li>Travel in a private, air-conditioned 4x4 safari vehicle (5-seater), ensuring comfort and optimal viewing.</li>
-                    <li>Full cover rental insurance for the vehicle.</li>
-                    <li>All fuel, road tolls, and vehicle expenses for the duration of the tour.</li>
-                </ul>
-                <h4 className="text-xl font-bold mt-6 mb-2 text-secondary">Activities & Entrance Fees:</h4>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>All National Park entrance fees (including Sossusvlei and Etosha National Park).</li>
-                    <li>Full-day guided tour of Sossusvlei and Deadvlei, including lunch inside the park.</li>
-                    <li>One primary coastal excursion in Swakopmund: Choice of Full-Day Sandwich Harbour 4x4 Tour (with picnic lunch) OR Catamaran Dolphin Cruise (with oysters & sparkling wine) OR Half-day Mola Mola Sandwich Harbour Excursion and Braai (Namibian BBQ).</li>
-                    <li>1.5-hour Quad-bike excursion through the dunes in Swakopmund/Damaraland.</li>
-                    <li>Guided Rock painting tour at Twyfelfontein (UNESCO World Heritage Site).</li>
-                    <li>Guided Damara Village / Living Museum tour.</li>
-                    <li>Extensive game drives in Etosha National Park (combining full-day and half-day options), guided by your professional guide.</li>
-                    <li>Guided excursion to Sesriem Canyon.</li>
-                    <li>Visit to Twyfelfontein UNESCO Rock Engravings.</li>
-                    <li>Guided Cultural Village Visit in Rundu (Kavango traditions).</li>
-                    <li>Local guides where required for specific activities or cultural insights.</li>
-                </ul>
-                <h4 className="text-xl font-bold mt-6 mb-2 text-secondary">Amenities & Services:</h4>
-                <ul className="list-disc list-inside space-y-1">
-                    <li>Complimentary snacks and soft drinks provided daily in the safari vehicle.</li>
-                    <li>Bottled water supplied in the vehicle throughout the tour.</li>
-                    <li>4x Namibian SIM cards with data for the duration of your stay, ensuring connectivity.</li>
-                </ul>
-
-                <h2 className="text-3xl font-bold mt-10 mb-4 text-primary">Exclusions</h2>
-                <p>To ensure transparency and allow for personalized choices, the following are not included in the "Ultimate Namibia Adventure" package:</p>
-                <ul className="list-disc list-inside space-y-1">
-                    <li><strong>Flights:</strong> International flights to and from Namibia (e.g., Luxembourg - Windhoek, Windhoek - Nairobi, or similar departure/arrival points) and associated airport taxes.</li>
-                    <li><strong>Insurance:</strong> Comprehensive Travel & Medical Insurance is mandatory and must be arranged independently by the traveler.</li>
-                    <li><strong>Meals & Beverages:</strong> Lunches not explicitly mentioned as included in the itinerary, all alcoholic beverages, and any personal snacks or drinks purchased outside of those provided in the vehicle.</li>
-                    <li><strong>Optional Activities:</strong> Any activities not explicitly listed under "Included Activities." This includes, but is not limited to: Balloon Safari over the Namib Desert, visit to Cape Cross Seal Reserve, Huab Nature Drive, Himba village visit, additional sundowner drives, guided nature walks, traditional fishing trips, visits to local markets (unless part of an included cultural tour), Crocodile Farm visit, and Okahandja Woodcarvers Market. Costs for these optional activities are extra and can be pre-booked or arranged locally.</li>
-                    <li><strong>Personal Expenses:</strong> Visas for Namibia (travelers must check and arrange their own visa requirements), malaria prophylaxis (consult a travel clinic as northern regions like Etosha and Rundu are malaria areas), tips/gratuities for your guide/driver, lodge staff, restaurant servers, personal shopping (curios, souvenirs), telephone calls, laundry services, and any other expenditures of a personal nature.</li>
-                </ul>
-                <p className="mt-8">This "Ultimate Namibia Adventure" is meticulously crafted to provide a rich, comfortable, and unforgettable exploration of Namibia's diverse wonders.</p>
+                        {/* Call to Action */}
+                        <div className="relative mt-20 p-1 rounded-3xl bg-gradient-to-r from-primary/30 via-orange-400/30 to-primary/30">
+                            <div className="bg-card/90 backdrop-blur-2xl rounded-[1.4rem] p-12 text-center space-y-8">
+                                <h2 className="text-4xl md:text-5xl font-bold tracking-tighter">Ready for this Grand Tour?</h2>
+                                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                                    Experience Namibia in its purest form, powered by the world's hardest money.
+                                    Our team is ready to curate your specific requirements.
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                    <Button size="lg" className="h-16 px-12 text-lg font-bold shadow-2xl shadow-primary/20" asChild>
+                                        <Link to="/contact">Book Expedition</Link>
+                                    </Button>
+                                    <Button size="lg" variant="outline" className="h-16 px-12 text-lg font-bold backdrop-blur-sm" asChild>
+                                        <Link to="/easytours">Explore More Tours</Link>
+                                    </Button>
+                                </div>
+                                <div className="pt-8 flex items-center justify-center gap-6 text-xs font-mono text-muted-foreground uppercase tracking-[0.3em]">
+                                    <span>PEER-TO-PEER</span>
+                                    <div className="h-1 w-1 rounded-full bg-primary" />
+                                    <span>NO FIAT REQUIRED</span>
+                                    <div className="h-1 w-1 rounded-full bg-primary" />
+                                    <span>SOVEREIGN TRAVEL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
         </div>
     );
