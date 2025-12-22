@@ -250,6 +250,9 @@ const Footer = () => {
                             <li>
                                 <a href="/bitcoin-whitepaper.html" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{'> '}white paper</a>
                             </li>
+                            <li>
+                                <a href="https://www.bon.com.na/CMSTemplates/Bon/Files/bon.com.na/90/90d8c518-f9a2-4e6d-98a4-b192c1a93253.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{'> '}Namibian Virtual Assets Act</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
