@@ -8,12 +8,12 @@
             "type": "image/x-icon"
         },
         {
-            "src": "/assets/images/icon.png",
+            "src": "/easypass/assets/images/icon.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "/assets/images/icon.png",
+            "src": "/easypass/assets/images/icon.png",
             "type": "image/png",
             "sizes": "512x512"
         }
