@@ -1,5 +1,22 @@
 # Project Context & History
 
+## Session: EasyPass PWA Sync & Deployment (Dec 28, 2025)
+
+### Key Accomplishments
+1.  **Sync EasyPass PWA**:
+    -   Moved the latest EasyPass PWA files from the root `easypass/` directory to `public/easypass/` to ensure they are correctly served and included in the production build.
+    -   Updated `public/easypass` with fresh assets including `manifest.json`, `service-worker.js`, and `bitcoin-pattern-bg.jpg`.
+2.  **Deployment**:
+    -   Committed changes to `main` branch.
+    -   Ran `npm run deploy` to push the latest version (including the updated PWA) to GitHub Pages.
+
+### Technical Details
+-   **Structure**: Root `easypass/` was removed after syncing to `public/easypass/`.
+-   **PWA**: The subpage is now accessible at `bitcoin.okinent.org/easypass`.
+
+---
+
+
 ## Session: EasyTours Page & Navigation Updates (Dec 11, 2025)
 
 ### Key Accomplishments
