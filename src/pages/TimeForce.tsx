@@ -490,40 +490,84 @@ const TimeForce = () => {
                   <ArrowRight className="h-4 w-4 text-primary mt-1" />
                   <span>POS & Crowdfunding Pages</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-4 w-4 text-primary mt-1" />
-                  <span>{trialText}</span>
+                
+                {/* Promo Box with Billboard Flicker */}
+                <li className="w-full mt-2">
+                  <div className="animate-billboard border-2 border-primary/50 rounded-lg p-3 bg-black/40 backdrop-blur-sm shadow-[0_0_15px_rgba(var(--primary),0.3)] flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="flex items-center gap-2">
+                        <ArrowRight className="h-4 w-4 text-primary shrink-0" />
+                        <span className="font-bold text-sm sm:text-base">{trialText}</span>
+                    </div>
+                    
+                    <div className="h-px w-full sm:h-8 sm:w-px bg-primary/30 shrink-0"></div>
+                    
+                    <div className="shrink-0">
+                        <BossCountdown 
+                        targetDate={targetDate} 
+                        label="PROMO ENDS" 
+                        expiredMessage="ACTIVE" 
+                        />
+                    </div>
+                  </div>
                 </li>
+
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-4 w-4 text-primary mt-1" />
                   <span>Addition to BTCMaps for global visibility</span>
                 </li>
               </ul>
               
-              <div className="mt-4">
-                <BossCountdown 
-                  targetDate={targetDate} 
-                  label="PROMO ENDS" 
-                  expiredMessage="ACTIVE" 
-                />
-              </div>
+              <style>{`
+                  @keyframes billboard-flicker {
+                      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                          border-color: rgba(247, 147, 26, 0.8);
+                          box-shadow: 0 0 15px rgba(247, 147, 26, 0.4), inset 0 0 10px rgba(247, 147, 26, 0.2);
+                      }
+                      20%, 24%, 55% {
+                          border-color: rgba(247, 147, 26, 0.2);
+                          box-shadow: none;
+                      }
+                  }
+                  .animate-billboard {
+                      animation: billboard-flicker 5s infinite;
+                  }
+              `}</style>
             </div>
 
-            <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 backdrop-blur-sm relative overflow-hidden group">
+            <div className="bg-primary/5 border border-primary/20 rounded-lg p-8 backdrop-blur-sm relative overflow-hidden group flex flex-col justify-between min-h-[300px]">
               <div className="absolute top-0 right-0 p-1 bg-primary text-[8px] font-bold text-black transform rotate-45 translate-x-4 -translate-y-2 w-20 text-center">ALPHA</div>
-              <h3 className="text-xl font-semibold mb-4 text-primary">Profit Share Model</h3>
-              <div className="space-y-4">
-                <p className="text-sm text-muted-foreground">
-                  Join TimeForce and earn by onboarding merchants to the network.
+              
+              <div>
+                <h3 className="text-2xl font-semibold mb-6 text-primary flex items-center gap-2">
+                  <Briefcase className="h-6 w-6" />
+                  Profit Share Model
+                </h3>
+                <p className="text-base text-muted-foreground mb-8 leading-relaxed">
+                  Join TimeForce and earn a perpetual revenue share by onboarding merchants to the network. Your impact directly determines your reward.
                 </p>
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center p-2 rounded bg-background/50 border border-border/50">
-                    <span className="text-xs font-mono">0-20 MERCHANTS</span>
-                    <span className="font-bold text-primary">40% SHARE</span>
+              </div>
+
+              <div className="space-y-4 mt-auto">
+                <div className="flex justify-between items-center p-4 rounded-lg bg-background/50 border border-border/50 hover:border-primary/30 transition-colors">
+                  <div className="flex flex-col">
+                    <span className="text-xs font-mono text-muted-foreground mb-1">ENTRY_TIER</span>
+                    <span className="font-bold text-foreground">0-20 MERCHANTS</span>
                   </div>
-                  <div className="flex justify-between items-center p-2 rounded bg-primary/10 border border-primary/30 shadow-[0_0_10px_rgba(var(--primary),0.1)]">
-                    <span className="text-xs font-mono font-bold">20+ MERCHANTS</span>
-                    <span className="font-bold text-primary">50% SHARE</span>
+                  <div className="text-right">
+                    <span className="block text-2xl font-bold text-primary">40%</span>
+                    <span className="text-[10px] font-mono uppercase tracking-wider opacity-70">Share</span>
+                  </div>
+                </div>
+
+                <div className="flex justify-between items-center p-4 rounded-lg bg-primary/10 border border-primary/30 shadow-[0_0_15px_rgba(var(--primary),0.1)] relative overflow-hidden">
+                  <div className="absolute inset-0 bg-primary/5 animate-pulse"></div>
+                  <div className="flex flex-col relative z-10">
+                    <span className="text-xs font-mono text-primary mb-1">ELITE_TIER</span>
+                    <span className="font-bold text-foreground">20+ MERCHANTS</span>
+                  </div>
+                  <div className="text-right relative z-10">
+                    <span className="block text-2xl font-bold text-primary drop-shadow-[0_0_8px_rgba(var(--primary),0.5)]">50%</span>
+                    <span className="text-[10px] font-mono uppercase tracking-wider opacity-70">Share</span>
                   </div>
                 </div>
               </div>
