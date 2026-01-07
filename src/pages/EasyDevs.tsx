@@ -8,12 +8,74 @@ import { SovereignKey } from "@/components/SovereignKey";
 import BossCountdown from "@/components/BossCountdown";
 import { useEffect, useState } from "react";
 
+interface TimedProject {
+  id: string;
+  title: string;
+  description: string;
+  deadline: Date;
+  link: string;
+  details: {
+    program?: string[];
+    expectations?: { label: string; value: string }[];
+    timeline?: { label: string; value: string }[];
+  };
+  stack: string[];
+  status: string;
+}
 
+const TIMED_PROJECTS: TimedProject[] = [
+  {
+    id: 'boss-2026',
+    title: '2026 BOSS Challenge by Btrust Builders & Chaincode Labs',
+    description: 'Join the Bitcoin Open Source Software (BOSS) Challenge to kickstart your career in Bitcoin development. A 3-month program to guide you into contributing to open-source Bitcoin projects.',
+    deadline: new Date('2025-12-31T23:59:59Z'),
+    link: 'https://bosschallenge.xyz/',
+    details: {
+      program: [
+        '3-month structured program',
+        'Mentorship from ₿OSS contributors',
+        'Work on real-world Open-Source projects',
+        'Networking with partner organizations'
+      ],
+      expectations: [
+        { label: 'Proactive Spirit', value: 'Self-starter attitude is key.' },
+        { label: 'Time Commitment', value: 'Minimum 10 hours/week for prep.' },
+        { label: 'Engagement', value: 'Participate in async chat discussions.' },
+        { label: 'Passion', value: 'A drive to contribute to Bitcoin.' }
+      ],
+      timeline: [
+        { label: 'Registration', value: 'Coming Soon' },
+        { label: 'Challenge Begins', value: 'Q1 2026 (TBA)' }
+      ]
+    },
+    stack: ['Bitcoin Core', 'Lightning', 'Rust', 'Cryptography', 'PayJoin', 'LDK'],
+    status: '✓ Program active • ✓ Remote positions available • ✓ Bitcoin focus'
+  }
+];
 
 const EasyDevs = () => {
   const [checkingIndex, setCheckingIndex] = useState<number | null>(null);
   const [lastChecked, setLastChecked] = useState<Date>(new Date());
   const [platforms, setPlatforms] = useState(BOUNTY_PLATFORMS);
+  const [activeProjects, setActiveProjects] = useState<TimedProject[]>([]);
+
+  useEffect(() => {
+    const checkProjects = () => {
+      const now = new Date();
+      const filtered = TIMED_PROJECTS.filter(project => {
+        // 48 hours buffer logic
+        // If deadline is T, removal is T + 48h.
+        // Keep if now < T + 48h.
+        const removalTime = new Date(project.deadline.getTime() + 48 * 60 * 60 * 1000);
+        return now < removalTime;
+      });
+      setActiveProjects(filtered);
+    };
+
+    checkProjects();
+    const interval = setInterval(checkProjects, 60000); // Check every minute
+    return () => clearInterval(interval);
+  }, []);
 
   // Simulate real-time checking effect (lifted from BountyBoard)
   useEffect(() => {
@@ -44,10 +106,9 @@ const EasyDevs = () => {
     }, 60 * 1000); // Run every 60 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [platforms.length]);
 
   // Helper to find the "highest" bounty
-  // For simplicity, we'll prioritize BTC amounts over USD, and higher numbers
   const getHighestBounty = () => {
     let highest = platforms[0];
     let highestValue = 0;
@@ -199,109 +260,113 @@ const EasyDevs = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {/* BOSS Challenge Project */}
-          <div className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-colors relative overflow-hidden">
-            {/* Techy Background Pattern */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/20 to-transparent"></div>
-              <div className="absolute top-4 right-4 w-16 h-16 border border-primary/20 rounded-full"></div>
-              <div className="absolute bottom-4 left-4 w-8 h-8 border border-primary/20 rounded-full"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 border border-primary/10 rounded-full"></div>
-            </div>
-
-            <div className="relative z-10">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="relative">
-                    <Terminal className="h-8 w-8 text-primary" />
-                    <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  </div>
-                  <BossCountdown />
-                </div>
-                <span className="text-xs text-muted-foreground font-mono">REMOTE</span>
+          {/* Mapped Projects */}
+          {activeProjects.map((project) => (
+            <div key={project.id} className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-colors relative overflow-hidden">
+              {/* Techy Background Pattern */}
+              <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/20 to-transparent"></div>
+                <div className="absolute top-4 right-4 w-16 h-16 border border-primary/20 rounded-full"></div>
+                <div className="absolute bottom-4 left-4 w-8 h-8 border border-primary/20 rounded-full"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 border border-primary/10 rounded-full"></div>
               </div>
 
-              <h3 className="text-lg font-semibold mb-2 font-mono">2026 BOSS Challenge by Btrust Builders & Chaincode Labs</h3>
-              <p className="text-sm text-muted-foreground mb-4">
-                Join the Bitcoin Open Source Software (BOSS) Challenge to kickstart your career in Bitcoin development. A 3-month program to guide you into contributing to open-source Bitcoin projects.
-              </p>
-
-              {/* Additional Details */}
-              <div className="mb-4 p-3 bg-primary/5 border border-primary/20 rounded space-y-3">
-                <div>
-                  <div className="text-xs text-primary font-mono mb-1">PROGRAM DETAILS:</div>
-                  <ul className="text-xs text-muted-foreground space-y-1">
-                    <li>• 3-month structured program</li>
-                    <li>• Mentorship from ₿OSS contributors</li>
-                    <li>• Work on real-world Open-Source projects</li>
-                    <li>• Networking with partner organizations</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <div className="text-xs text-primary font-mono mb-1">PARTICIPANT EXPECTATIONS:</div>
-                  <ul className="text-xs text-muted-foreground space-y-1">
-                    <li>• <span className="text-foreground">Proactive Spirit:</span> Self-starter attitude is key.</li>
-                    <li>• <span className="text-foreground">Time Commitment:</span> Minimum 10 hours/week for prep.</li>
-                    <li>• <span className="text-foreground">Engagement:</span> Participate in async chat discussions.</li>
-                    <li>• <span className="text-foreground">Passion:</span> A drive to contribute to Bitcoin.</li>
-                  </ul>
-                </div>
-
-                <div>
-                  <div className="text-xs text-primary font-mono mb-1">TIMELINE:</div>
-                  <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
-                    <div>
-                      <span className="text-foreground block">Registration:</span>
-                      Coming Soon
+              <div className="relative z-10">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="relative">
+                      <Terminal className="h-8 w-8 text-primary" />
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                     </div>
+                    <BossCountdown targetDate={project.deadline} label="DEADLINE" />
+                  </div>
+                  <span className="text-xs text-muted-foreground font-mono">REMOTE</span>
+                </div>
+
+                <h3 className="text-lg font-semibold mb-2 font-mono">{project.title}</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  {project.description}
+                </p>
+
+                {/* Additional Details */}
+                <div className="mb-4 p-3 bg-primary/5 border border-primary/20 rounded space-y-3">
+                  {project.details.program && (
                     <div>
-                      <span className="text-foreground block">Challenge Begins:</span>
-                      Q1 2026 (TBA)
+                      <div className="text-xs text-primary font-mono mb-1">PROGRAM DETAILS:</div>
+                      <ul className="text-xs text-muted-foreground space-y-1">
+                        {project.details.program.map((item, i) => (
+                          <li key={i}>• {item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {project.details.expectations && (
+                    <div>
+                      <div className="text-xs text-primary font-mono mb-1">PARTICIPANT EXPECTATIONS:</div>
+                      <ul className="text-xs text-muted-foreground space-y-1">
+                        {project.details.expectations.map((item, i) => (
+                          <li key={i}>• <span className="text-foreground">{item.label}:</span> {item.value}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {project.details.timeline && (
+                    <div>
+                      <div className="text-xs text-primary font-mono mb-1">TIMELINE:</div>
+                      <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
+                        {project.details.timeline.map((item, i) => (
+                          <div key={i}>
+                            <span className="text-foreground block">{item.label}:</span>
+                            {item.value}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Tech Stack Visualization */}
+                <div className="mb-4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-xs text-muted-foreground font-mono">STACK:</span>
+                    <div className="flex gap-1">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Tech Stack Visualization */}
-              <div className="mb-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="text-xs text-muted-foreground font-mono">STACK:</span>
-                  <div className="flex gap-1">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                    <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  <div className="flex flex-wrap gap-1">
+                    {project.stack.map((tech) => (
+                      <span key={tech} className="px-2 py-1 text-xs bg-primary/10 text-primary rounded font-mono">
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-1">
-                  {['Bitcoin Core', 'Lightning', 'Rust', 'Cryptography', 'PayJoin', 'LDK'].map((tech) => (
-                    <span key={tech} className="px-2 py-1 text-xs bg-primary/10 text-primary rounded font-mono">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
 
-              {/* Terminal Status */}
-              <div className="mb-4 p-2 bg-black/50 rounded font-mono text-xs">
-                <div className="text-green-400 mb-1">
-                  <span className="text-primary">$</span> boss-challenge --status
+                {/* Terminal Status */}
+                <div className="mb-4 p-2 bg-black/50 rounded font-mono text-xs">
+                  <div className="text-green-400 mb-1">
+                    <span className="text-primary">$</span> project --status
+                  </div>
+                  <div className="text-green-400">
+                    {project.status}
+                  </div>
                 </div>
-                <div className="text-green-400">
-                  ✓ Program active • ✓ Remote positions available • ✓ Bitcoin focus
-                </div>
-              </div>
 
-              <div className="flex gap-2">
-                <Button variant="outline" size="sm" className="gap-2" asChild>
-                  <a href="https://bosschallenge.xyz/" target="_blank" rel="noopener noreferrer">
-                    <Code2 className="h-3 w-3" />
-                    Learn More & Get Ready
-                  </a>
-                </Button>
+                <div className="flex gap-2">
+                  <Button variant="outline" size="sm" className="gap-2" asChild>
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <Code2 className="h-3 w-3" />
+                      Learn More & Get Ready
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
 
           {/* SovereignKey Project */}
           <SovereignKey />
@@ -310,9 +375,6 @@ const EasyDevs = () => {
           <div className="md:col-span-2">
             <BountyBoard
               platforms={platforms}
-
-
-
               checkingIndex={checkingIndex}
               lastChecked={lastChecked}
             />

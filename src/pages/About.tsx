@@ -5,10 +5,35 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Twitter, Instagram, Linkedin, Github, User, Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
+const ABOUT_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Nikolai 'OKIN' Tjongarero",
+  "jobTitle": "Digital Disrupter | FreedomTech Enabler",
+  "description": "Founder of OKIN.EnT and advocate for Bitcoin revolution in Namibia.",
+  "image": "https://bitcoin.okinent.org/assets/okin-profile.jpg",
+  "sameAs": [
+    "https://x.com/okin_17",
+    "https://instagram.com/easysats",
+    "https://www.linkedin.com/in/okin/",
+    "https://www.github.com/bigbossrabbit"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "OKIN.EnT"
+  }
+});
+
 const About = () => {
   return (
     <div className="min-h-screen text-foreground">
-      <Seo title="About OKIN.EnT" description="Learn about Nikolai 'OKIN' Tjongarero and the mission of OKIN.EnT." />
+      <Seo 
+        title="About OKIN.EnT" 
+        description="Learn about Nikolai 'OKIN' Tjongarero and the mission of OKIN.EnT."
+        image="/assets/okin-profile.jpg"
+        type="profile"
+        schema={ABOUT_SCHEMA}
+      />
 
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-6 py-4">
@@ -73,6 +98,9 @@ const About = () => {
                 src="/assets/okin-profile.jpg"
                 alt="Nikolai 'OKIN' Tjongarero"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                width="400"
+                height="400"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
             </div>

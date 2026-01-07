@@ -233,6 +233,7 @@ const TPOK = () => {
                   src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
                   alt={video.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                   <div className="w-12 h-12 rounded-full bg-green-500/90 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
@@ -274,6 +275,7 @@ const TPOK = () => {
                   src={`https://img.youtube.com/vi/${video.id}/mqdefault.jpg`}
                   alt={video.title}
                   className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                  loading="lazy"
                 />
                 <div className="absolute top-2 right-2 bg-black/80 px-2 py-1 rounded text-xs font-medium text-primary border border-primary/30">
                   {video.category}
@@ -310,6 +312,7 @@ const TPOK = () => {
                 src={src}
                 alt={`Teaching session ${index + 1}`}
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 hover:scale-110"
+                loading="lazy"
               />
             </div>
           ))}

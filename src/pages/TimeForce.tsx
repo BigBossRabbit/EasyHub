@@ -20,8 +20,26 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetTrigger, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet";
+import BossCountdown from "@/components/BossCountdown";
+
+const TIMEFORCE_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "TimeForce Bitcoin Onboarding",
+  "description": "A structured approach to onboarding business owners with Bitcoin solutions. Part of the EasySats decentralized network.",
+  "brand": {
+    "@type": "Brand",
+    "name": "EasySats"
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+});
 
 const TimeForce = () => {
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
@@ -32,6 +50,16 @@ const TimeForce = () => {
     role: "agent",
     message: ""
   });
+  const [trialText, setTrialText] = useState("14-day FREE trial for the month of January");
+
+  const targetDate = new Date('2026-01-31T23:59:59');
+
+  useEffect(() => {
+    const now = new Date();
+    if (now > targetDate) {
+      setTrialText("7-day FREE trial");
+    }
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -137,7 +165,12 @@ const TimeForce = () => {
 
   return (
     <div className="min-h-screen text-foreground selection:bg-primary/30">
-      <Seo title="TimeForce — Bitcoin Onboarding Handbook" description="A structured approach to onboarding business owners with Bitcoin solutions." canonical="/timeforce" />
+      <Seo 
+        title="TimeForce — Bitcoin Onboarding"
+        description="A structured approach to onboarding business owners with Bitcoin solutions."
+        canonical="/timeforce"
+        schema={TIMEFORCE_SCHEMA}
+      />
 
       <Sheet open={isJoinModalOpen} onOpenChange={setIsJoinModalOpen}>
         <SheetContent side="right" className="w-full sm:max-w-md border-l border-primary/20 bg-background/95 backdrop-blur-xl overflow-y-auto">
@@ -172,7 +205,14 @@ const TimeForce = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center gap-3">
-              <img src="/easysats-logo.png" alt="EasySats" className="h-10 w-10" />
+              <img 
+                src="/easysats-logo.png" 
+                alt="EasySats" 
+                className="h-10 w-10"
+                width="40"
+                height="40"
+                loading="lazy"
+              />
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4 text-primary" />
                 <span className="text-xl font-bold">
@@ -223,7 +263,7 @@ const TimeForce = () => {
           <div className="flex flex-col items-center justify-center gap-2 text-muted-foreground text-sm mb-4 font-mono">
             <div className="flex items-center gap-2">
               <span className="text-primary">$</span>
-              <span className="animate-pulse">loading_timeforce_handbook...</span>
+              <span className="animate-pulse">loading_timeforce_protocol...</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="text-primary">&gt;</span> <span className="animate-pulse">TimeForce Protocol v1.0.4 | © 2025 EasySats</span>
@@ -235,7 +275,7 @@ const TimeForce = () => {
             <br />
             <span className="text-primary">&gt;</span> Bitcoin Onboarding
             <br />
-            <span className="text-primary">&gt;</span> Handbook
+            <span className="text-primary">&gt;</span> Protocol
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -452,13 +492,21 @@ const TimeForce = () => {
                 </li>
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-4 w-4 text-primary mt-1" />
-                  <span>Affordable rates with a 30-day free trial, running till 31st of December 2025</span>
+                  <span>{trialText}</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-4 w-4 text-primary mt-1" />
                   <span>Addition to BTCMaps for global visibility</span>
                 </li>
               </ul>
+              
+              <div className="mt-4">
+                <BossCountdown 
+                  targetDate={targetDate} 
+                  label="PROMO ENDS" 
+                  expiredMessage="ACTIVE" 
+                />
+              </div>
             </div>
 
             <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 backdrop-blur-sm relative overflow-hidden group">
@@ -470,11 +518,7 @@ const TimeForce = () => {
                 </p>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center p-2 rounded bg-background/50 border border-border/50">
-                    <span className="text-xs font-mono">0-10 MERCHANTS</span>
-                    <span className="font-bold text-primary">30% SHARE</span>
-                  </div>
-                  <div className="flex justify-between items-center p-2 rounded bg-background/50 border border-border/50">
-                    <span className="text-xs font-mono">11-20 MERCHANTS</span>
+                    <span className="text-xs font-mono">0-20 MERCHANTS</span>
                     <span className="font-bold text-primary">40% SHARE</span>
                   </div>
                   <div className="flex justify-between items-center p-2 rounded bg-primary/10 border border-primary/30 shadow-[0_0_10px_rgba(var(--primary),0.1)]">

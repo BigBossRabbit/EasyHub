@@ -2,13 +2,56 @@ import Seo from "@/components/Seo";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Globe, Menu } from "lucide-react";
+import { ExternalLink, Globe, Menu, Rocket } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
+const CONNECT_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "OKIN Projects & Platforms",
+  "description": "Platforms and projects empowering Bitcoin adoption in Namibia.",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "EasySats Merchant Platform",
+      "url": "https://easysats.okinent.org/register?returnurl=%2F"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "EasySats Crowdfunding",
+      "url": "https://geyser.fund/project/easysats"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SovereignKey",
+      "url": "https://sovereignkey.carrd.co/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": "Trezor Academy Sessions",
+      "url": "https://www.youtube.com/watch?v=w3hnFCfCo84"
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "name": "Vexlaks",
+      "url": "https://vexlaks.com/"
+    }
+  ]
+});
 
 const ConnectExplore = () => {
     return (
         <div className="min-h-screen text-foreground">
-            <Seo title="Connect & Explore" description="Explore OKIN's projects, platforms, and educational resources in the Bitcoin ecosystem." />
+            <Seo 
+                title="Connect & Explore" 
+                description="Explore OKIN's projects, platforms, and educational resources in the Bitcoin ecosystem."
+                schema={CONNECT_SCHEMA}
+            />
 
             <header className="border-b border-border bg-card">
                 <div className="container mx-auto px-6 py-4">
@@ -133,6 +176,33 @@ const ConnectExplore = () => {
                                 </CardContent>
                             </Card>
                         </a>
+
+                        {/* Vexlaks */}
+                        <a href="https://vexlaks.com/" target="_blank" rel="noopener noreferrer" className="group md:col-span-2">
+                            <Card className="bg-gradient-to-br from-card/80 to-primary/10 border-primary/30 hover:border-primary/60 transition-all duration-300 h-full hover:shadow-xl hover:shadow-primary/20 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
+                                    <Rocket className="h-24 w-24 -rotate-12" />
+                                </div>
+                                <CardContent className="pt-8 pb-6 relative z-10">
+                                    <div className="flex items-start justify-between mb-3">
+                                        <div className="flex items-center gap-3">
+                                            <h2 className="font-bold text-2xl text-primary">Vexlaks Digital Solutions</h2>
+                                            <span className="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-xs font-mono border border-primary/30">PARTNER</span>
+                                        </div>
+                                        <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors mt-1" />
+                                    </div>
+                                    <p className="text-muted-foreground leading-relaxed max-w-2xl">
+                                        Your partner in digital transformation. Vexlaks offers cutting-edge web development, mobile apps, and digital marketing to help businesses thrive in the digital age. Innovate. Create. Transform.
+                                    </p>
+                                    <div className="flex gap-2 mt-4 flex-wrap">
+                                        <span className="text-xs font-mono text-primary/80 bg-background/50 px-2 py-1 rounded border border-primary/10">Web Dev</span>
+                                        <span className="text-xs font-mono text-primary/80 bg-background/50 px-2 py-1 rounded border border-primary/10">Mobile Apps</span>
+                                        <span className="text-xs font-mono text-primary/80 bg-background/50 px-2 py-1 rounded border border-primary/10">UI/UX</span>
+                                        <span className="text-xs font-mono text-primary/80 bg-background/50 px-2 py-1 rounded border border-primary/10">Digital Marketing</span>
+                                    </div>
+                                </CardContent>
+                            </Card>
+                        </a>
                     </div>
 
                     <div className="mt-12 p-8 bg-card/30 rounded-2xl border border-primary/20">
@@ -154,6 +224,9 @@ const ConnectExplore = () => {
                                         src="/assets/whatsapp-qr.png"
                                         alt="WhatsApp Community QR Code"
                                         className="w-48 h-48 object-contain"
+                                        loading="lazy"
+                                        width="192"
+                                        height="192"
                                     />
                                 </div>
                                 <p className="text-xs text-center mt-2 text-muted-foreground">Scan to join</p>

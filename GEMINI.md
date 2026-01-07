@@ -1,5 +1,21 @@
 # Project Context & History
 
+## Session: EasyDevs Expiry Logic (Jan 6, 2026)
+
+### Key Accomplishments
+1.  **Automated Project Expiry**:
+    -   Implemented logic in `src/pages/EasyDevs.tsx` to automatically hide projects 48 hours after their deadline.
+    -   Refactored hardcoded "BOSS Challenge" card into a dynamic `TIMED_PROJECTS` array with `deadline` field.
+    -   Updated `BossCountdown.tsx` to accept dynamic `targetDate` and `label` props.
+    -   The "2026 BOSS Challenge" (deadline Dec 31, 2025) is now automatically hidden.
+
+### Technical Details
+-   **Logic**: Items are filtered out if `currentDate > deadline + 48 hours`.
+-   **Refactoring**: Converted static JSX to mapped data structure for better scalability.
+
+---
+
+
 ## Session: EasyPass PWA Sync & Deployment (Dec 28, 2025)
 
 ### Key Accomplishments
@@ -123,3 +139,48 @@
 -   **Images**: Added `okin-profile.jpg` to `public/assets/`.
 -   **Routing**: Used `react-router-dom` for new `/connect` and `/tpok` links.
 -   **Styling**: Tailwind CSS used for all new components and updates.
+## Session: Comprehensive SEO & Performance Overhaul (Jan 6, 2026)
+
+### Key Accomplishments
+1. **Full Schema Implementation**: Added Person, Organization, Product, ItemList, and CollectionPage schemas across all main pages.
+2. **Sitemap & Robots**: Automated sitemap generation and updated robots.txt.
+3. **Image Optimization**: Added lazy loading and explicit dimensions to all major assets to improve Core Web Vitals (CLS/LCP).
+4. **Accessibility**: Improved alt text for all interactive and informative images.
+
+### Technical Details
+- **Tools**: Created `generate-sitemap.js` for build-time XML generation.
+- **Performance**: Reduced layout shift by defining image aspect ratios in code.
+
+## Session: Vexlaks Integration (Jan 6, 2026)
+
+### Key Accomplishments
+1. **Connect & Explore Page**: Added a featured card for **Vexlaks** (vexlaks.com).
+    - Designed with a "cool" aesthetic: gradient background, background icon watermark, and "Partner" badge.
+    - Spans full width (col-span-2) on medium screens to stand out.
+    - Updated `CONNECT_SCHEMA` to include Vexlaks in the structured data.
+
+## Session: TimeForce Refactor & Vexlaks Integration (Jan 6, 2026)
+
+### Key Accomplishments
+1. **Connect & Explore Page**: Added a featured card for **Vexlaks** (vexlaks.com).
+    - Designed with a "cool" aesthetic: gradient background, background icon watermark, and "Partner" badge.
+    - Spans full width (col-span-2) on medium screens to stand out.
+    - Updated `CONNECT_SCHEMA` to include Vexlaks in the structured data.
+
+2. **TimeForce Page Updates**:
+    - **Handbook Removal**: Removed all references to "Handbook" to reflect the service-based nature of TimeForce.
+    - **Profit Share Update**: Simplified the model to two tiers: 0-20 Merchants (40%) and 20+ Merchants (50%).
+    - **Dynamic Trial Period**: Implemented logic to show "14-day FREE trial for the month of January" until Jan 31, 2026, then switching to "7-day FREE trial".
+    - **Countdown Timer**: Added a `BossCountdown` instance counting down to the promo end date, switching to "ACTIVE" upon expiry.
+
+## Session: Privacy Updates & Personal Dashboard (Jan 7, 2026)
+
+### Key Accomplishments
+1.  **Hidden Page Visits**:
+    -   Commented out the "Page Visits" display in the footer ticker to make it invisible to visitors.
+    -   Preserved the underlying code (`usePageVisits` hook integration) for future use.
+
+### Dashboard Plan (TODO)
+-   **Goal**: Build a personal, admin-only dashboard to view site statistics.
+-   **Data Source**: Reuse the `usePageVisits` hook and other metric hooks (`useBitcoinNetworkStats`, `useBitcoinPrice`).
+-   **Implementation**: Create a protected route or a local-only page that displays these metrics in a comprehensive interface.

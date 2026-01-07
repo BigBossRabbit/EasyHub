@@ -7,10 +7,34 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { StackerNewsFeed } from "@/components/StackerNewsFeed";
 import { Classifieds } from "@/components/Classifieds";
 
+const ORGANIZATION_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "EasySats",
+  "url": "https://bitcoin.okinent.org",
+  "logo": "https://bitcoin.okinent.org/easysats-logo.png",
+  "description": "Namibia's First Bitcoin Revolution: Easy, Accessible & Unstoppable. We provide tools for earning, buying, accepting, and storing Bitcoin.",
+  "foundingDate": "2022",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Namibia"
+  },
+  "sameAs": [
+    "https://github.com/BigBossRabbit",
+    "https://twitter.com/EasySats_NA"
+  ]
+});
+
 const EasySatsHub = () => {
   return (
     <div className="min-h-screen text-foreground">
-      <Seo title="EasySats Chronicle" description="Namibia's First Bitcoin Revolution: Easy, Accessible & Unstoppable" />
+      <Seo 
+        title="EasySats Chronicle" 
+        description="Namibia's First Bitcoin Revolution: Easy, Accessible & Unstoppable" 
+        image="/easysats-logo.png"
+        type="website"
+        schema={ORGANIZATION_SCHEMA}
+      />
       <header className="border-b-4 border-primary bg-card">
         <div className="container mx-auto px-6 py-8">
           <div className="flex items-center justify-between">

@@ -114,7 +114,7 @@ const Footer = () => {
                         </span>
                     </Link>
 
-                    {/* Page Visits */}
+                    {/* Page Visits - HIDDEN FOR VISITORS, SEE GEMINI.md FOR DASHBOARD PLAN
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
                         <Eye className="h-4 w-4" />
                         <span className="font-bold">PAGE VISITS:</span>
@@ -122,6 +122,7 @@ const Footer = () => {
                             {visitsLoading ? '[LOADING...]' : visits.toLocaleString()}
                         </span>
                     </div>
+                    */}
 
                     {/* Duplicate for seamless loop */}
                     {/* Block Height - Links to Mempool */}
@@ -188,7 +189,7 @@ const Footer = () => {
                         </span>
                     </Link>
 
-                    {/* Page Visits */}
+                    {/* Page Visits - HIDDEN FOR VISITORS, SEE GEMINI.md FOR DASHBOARD PLAN
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
                         <Eye className="h-4 w-4" />
                         <span className="font-bold">PAGE VISITS:</span>
@@ -196,6 +197,7 @@ const Footer = () => {
                             {visitsLoading ? '[LOADING...]' : visits.toLocaleString()}
                         </span>
                     </div>
+                    */}
                 </div>
             </div>
 

@@ -16,11 +16,50 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import HrfJobs from '@/components/HrfJobs'; // Import HrfJobs component
 
+const JOB_CATEGORIES = [
+  "Software Development",
+  "Design & UX",
+  "Marketing & Growth",
+  "Content & Writing",
+  "Community Management",
+  "Business Development",
+  "Operations",
+  "Legal & Compliance",
+  "and many more..."
+];
+
+const EARNING_TIPS = [
+  "Build your Bitcoin knowledge through free resources",
+  "Contribute to open source Bitcoin projects",
+  "Network in Bitcoin communities & events",
+  "Start with freelance gigs to build reputation",
+  "Upskill, Upskill, Upskill..."
+];
+
+const JOB_POSTING_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "EasyJobs - Bitcoin Job Board",
+  "description": "Find remote opportunities that pay in Bitcoin.",
+  "url": "https://bitcoin.okinent.org/easyjobs",
+  "provider": {
+    "@type": "Organization",
+    "name": "Bitcoiner Jobs",
+    "url": "https://bitcoinerjobs.com/"
+  }
+});
 
 const EasyJobs = () => {
   return (
     <div className="min-h-screen text-foreground">
-      <Seo title="EasyJobs — Earn Sats" description="Turn your existing skills into Bitcoin earnings. Find remote opportunities that pay in the world's hardest money." canonical="/easyjobs" />
+      <Seo 
+        title="EasyJobs — Earn Sats" 
+        description="Turn your existing skills into Bitcoin earnings. Find remote opportunities that pay in the world's hardest money." 
+        canonical="/easyjobs" 
+        image="/2.png"
+        type="website"
+        schema={JOB_POSTING_SCHEMA}
+      />
       <header className="border-b border-border bg-card">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
@@ -285,33 +324,11 @@ const EasyJobs = () => {
                 Popular Job Categories
               </h3>
               <div className="grid grid-cols-2 gap-3">
-                <div className="text-sm">
-                  <span className="text-primary">•</span> Software Development
-                </div>
-                <div className="text-sm">
-                  <span className="text-primary">•</span> Design & UX
-                </div>
-                <div className="text-sm">
-                  <span className="text-primary">•</span> Marketing & Growth
-                </div>
-                <div className="text-sm">
-                  <span className="text-primary">•</span> Content & Writing
-                </div>
-                <div className="text-sm">
-                  <span className="text-primary">•</span> Community Management
-                </div>
-                <div className="text-sm">
-                  <span className="text-primary">•</span> Business Development
-                </div>
-                <div className="text-sm">
-                  <span className="text-primary">•</span> Operations
-                </div>
-                <div className="text-sm">
-                  <span className="text-primary">•</span> Legal & Compliance
-                </div>
-                <div className="text-sm">
-                  <span className="text-primary">•</span> and many more...
-                </div>
+                {JOB_CATEGORIES.map((category) => (
+                  <div key={category} className="text-sm">
+                    <span className="text-primary">•</span> {category}
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -321,26 +338,12 @@ const EasyJobs = () => {
                 Earning Tips
               </h3>
               <ul className="space-y-2 text-sm">
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
-                  <span>Build your Bitcoin knowledge through free resources</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
-                  <span>Contribute to open source Bitcoin projects</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
-                  <span>Network in Bitcoin communities & events</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
-                  <span>Start with freelance gigs to build reputation</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
-                  <span>Upskill, Upskill, Upskill...</span>
-                </li>
+                {EARNING_TIPS.map((tip, i) => (
+                  <li key={i} className="flex items-start gap-2">
+                    <ArrowRight className="h-4 w-4 text-primary mt-0.5" />
+                    <span>{tip}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 

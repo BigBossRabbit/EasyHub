@@ -4,87 +4,118 @@ import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useBitcoinPrice } from "@/hooks/useBitcoinPrice";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+
+const STATIC_TOUR_DATA = [
+    {
+        id: 0,
+        title: "Coming Sooner, rather than Later",
+        duration: "X Days",
+        location: "Namibia",
+        description: "Exciting new adventures are being crafted. Stay tuned for unique experiences across Namibia!",
+        image: "/assets/namibia-hero.png",
+        features: ["Placeholder", "Placeholder", "Placeholder"],
+        isComingSoon: true,
+        link: "#",
+        basePriceNad: 0,
+        basePriceEur: 0
+    },
+    {
+        id: 1,
+        title: "The Ultimate Namibia Adventure",
+        duration: "13 Days",
+        location: "Across Namibia",
+        description: "Embark on an unforgettable 13-day journey through Namibia, combining the best experiences for a truly comprehensive and luxurious adventure.",
+        image: "/assets/namibia-hero.png",
+        features: ["Luxury Accommodation", "Expert Guide", "Wildlife & Culture", "All Transport"],
+        isComingSoon: false,
+        link: "/easytours/ultimate-namibia",
+        basePriceNad: 51220, // Calculated from €2200 for 11 days -> 13 days (€2600) * 19.7
+        basePriceEur: 2600
+    },
+    {
+        id: 2,
+        title: "Coming Sooner, rather than Later",
+        duration: "Y Days",
+        location: "Namibia",
+        description: "More incredible journeys are on the horizon. Prepare for unparalleled exploration and discovery!",
+        image: "/assets/namibia-hero.png",
+        features: ["Placeholder", "Placeholder", "Placeholder"],
+        isComingSoon: true,
+        link: "#",
+        basePriceNad: 0,
+        basePriceEur: 0
+    }
+];
+
+const TOUR_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": STATIC_TOUR_DATA.filter(t => !t.isComingSoon).map((tour, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "TouristTrip",
+      "name": tour.title,
+      "description": tour.description,
+      "url": `https://bitcoin.okinent.org${tour.link}`,
+      "image": `https://bitcoin.okinent.org${tour.image}`,
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": tour.basePriceEur
+      },
+      "itinerary": {
+        "@type": "ItemList",
+        "numberOfItems": parseInt(tour.duration)
+      }
+    }
+  }))
+});
 
 const EasyTours = () => {
     const { rates, loading: priceLoading } = useBitcoinPrice();
-    const [ultimateAdventureBtcPrice, setUltimateAdventureBtcPrice] = useState<string | null>(null);
-    const [ultimateAdventureUsdPrice, setUltimateAdventureUsdPrice] = useState<string | null>(null);
-    const [ultimateAdventureNadPrice, setUltimateAdventureNadPrice] = useState<string | null>(null);
-    const [ultimateAdventureEurPrice, setUltimateAdventureEurPrice] = useState<string | null>(null);
-
-
-    // Calculated from €2200 for 11 days, scaled to 13 days, which is €2600.
-    // Then converted with 1 EUR = 19.7 NAD, so 2600 * 19.7 = N$51220.
-    const baseUltimateAdventureNadPriceFixed = 51220;
-    const baseUltimateAdventureEurPriceFixed = 2600;
+    const [prices, setPrices] = useState<Record<number, { btc: string, usd: string, nad: string, eur: string }>>({});
 
     useEffect(() => {
-        if (!priceLoading && rates.nad !== null && rates.usd !== null && rates.nad > 0 && rates.usd > 0) {
-            // Calculate BTC price based on fixed NAD price
-            const btcValue = baseUltimateAdventureNadPriceFixed / rates.nad;
-            setUltimateAdventureBtcPrice(btcValue.toFixed(4)); // Format to 4 decimal places for BTC
+        if (!priceLoading && rates.nad && rates.usd) {
+            const newPrices: Record<number, { btc: string, usd: string, nad: string, eur: string }> = {};
 
-            // Calculate current USD equivalent
-            const usdValue = btcValue * rates.usd;
-            setUltimateAdventureUsdPrice(usdValue.toFixed(2));
+            STATIC_TOUR_DATA.forEach(tour => {
+                if (!tour.isComingSoon && tour.basePriceNad > 0) {
+                    const btcValue = tour.basePriceNad / rates.nad;
+                    const usdValue = btcValue * rates.usd;
 
-            // Set NAD price (fixed base price)
-            setUltimateAdventureNadPrice(baseUltimateAdventureNadPriceFixed.toLocaleString());
-
-            // Set EUR price (fixed base price)
-            setUltimateAdventureEurPrice(baseUltimateAdventureEurPriceFixed.toLocaleString());
-
+                    newPrices[tour.id] = {
+                        btc: btcValue.toFixed(4),
+                        usd: usdValue.toFixed(2),
+                        nad: tour.basePriceNad.toLocaleString(),
+                        eur: tour.basePriceEur.toLocaleString()
+                    };
+                } else {
+                    newPrices[tour.id] = { btc: "???.????", usd: "???.??", nad: "???.??", eur: "???.??" };
+                }
+            });
+            setPrices(newPrices);
         }
     }, [rates, priceLoading]);
 
-    const tours = [
-        {
-            id: 0,
-            title: "Coming Sooner, rather than Later",
-            duration: "X Days",
-            location: "Namibia",
-            price: { btc: "???.????", usd: "???.??", nad: "???.??", eur: "???.??" },
-            description: "Exciting new adventures are being crafted. Stay tuned for unique experiences across Namibia!",
-            image: "/assets/namibia-hero.png",
-            features: ["Placeholder", "Placeholder", "Placeholder"],
-            isComingSoon: true,
-            link: "#"
-        },
-        {
-            id: 1,
-            title: "The Ultimate Namibia Adventure",
-            duration: "13 Days",
-            location: "Across Namibia",
-            price: {
-                btc: ultimateAdventureBtcPrice || "Loading...",
-                usd: ultimateAdventureUsdPrice || "Loading...",
-                nad: ultimateAdventureNadPrice || "Loading...",
-                eur: ultimateAdventureEurPrice || "Loading...",
-            },
-            description: "Embark on an unforgettable 13-day journey through Namibia, combining the best experiences for a truly comprehensive and luxurious adventure.",
-            image: "/assets/namibia-hero.png",
-            features: ["Luxury Accommodation", "Expert Guide", "Wildlife & Culture", "All Transport"],
-            isComingSoon: false,
-            link: "/easytours/ultimate-namibia"
-        },
-        {
-            id: 2,
-            title: "Coming Sooner, rather than Later",
-            duration: "Y Days",
-            location: "Namibia",
-            price: { btc: "???.????", usd: "???.??", nad: "???.??", eur: "???.??" },
-            description: "More incredible journeys are on the horizon. Prepare for unparalleled exploration and discovery!",
-            image: "/assets/namibia-hero.png",
-            features: ["Placeholder", "Placeholder", "Placeholder"],
-            isComingSoon: true,
-            link: "#"
-        }
-    ];
+    const tours = useMemo(() => {
+        return STATIC_TOUR_DATA.map(tour => ({
+            ...tour,
+            price: prices[tour.id] || { btc: "Loading...", usd: "Loading...", nad: "Loading...", eur: "Loading..." }
+        }));
+    }, [prices]);
 
     return (
         <div className="min-h-screen text-foreground bg-background">
-            <Seo title="EasyTours — Experience Namibia with Bitcoin" description="Authentic Namibian tours and experiences, payable entirely in Bitcoin." canonical="/easytours" />
+            <Seo 
+                title="EasyTours — Experience Namibia with Bitcoin" 
+                description="Authentic Namibian tours and experiences, payable entirely in Bitcoin." 
+                canonical="/easytours"
+                image="/assets/namibia-hero.png"
+                schema={TOUR_SCHEMA}
+            />
 
             {/* Navigation - Consistent with other pages */}
             <header className="border-b border-border bg-card/80 backdrop-blur-md sticky top-0 z-50">
@@ -144,6 +175,7 @@ const EasyTours = () => {
                         src="/assets/namibia-hero.png"
                         alt="Namibian Desert"
                         className="w-full h-full object-cover"
+                        loading="eager" // Hero image should load eagerly
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/20 to-background/90" />
                 </div>
@@ -239,6 +271,9 @@ const EasyTours = () => {
                                     src={tour.image}
                                     alt={tour.title}
                                     className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ${tour.isComingSoon ? 'filter blur-sm grayscale' : ''}`}
+                                    loading="lazy"
+                                    width="400" // Approximate width for grid item
+                                    height="256" // Based on h-64 (16rem * 16px)
                                 />
                                 <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-sm font-mono border border-white/20">
                                     {tour.duration}
@@ -266,16 +301,12 @@ const EasyTours = () => {
                                 <div className="flex items-center justify-between pt-6 border-t border-border">
                                     <div className="flex flex-col">
                                         <span className="text-xs text-muted-foreground">Starting from</span>
-                                        {typeof tour.price === 'string' ? (
-                                            <span className="text-xl font-bold font-mono text-primary">{tour.price}</span>
-                                        ) : (
-                                            <div className="flex flex-col items-start">
-                                                <span className="text-xl font-bold font-mono text-primary mb-1">{tour.price.btc} BTC</span>
-                                                <span className="text-xs text-muted-foreground font-mono">
-                                                    (${tour.price.usd} USD / N${tour.price.nad} NAD / €{tour.price.eur} EUR)
-                                                </span>
-                                            </div>
-                                        )}
+                                        <div className="flex flex-col items-start">
+                                            <span className="text-xl font-bold font-mono text-primary mb-1">{tour.price.btc} BTC</span>
+                                            <span className="text-xs text-muted-foreground font-mono">
+                                                (${tour.price.usd} USD / N${tour.price.nad} NAD / €{tour.price.eur} EUR)
+                                            </span>
+                                        </div>
                                     </div>
                                     <Button className="gap-2 group-hover:translate-x-1 transition-transform" disabled={tour.isComingSoon}>
                                         Book Now <ArrowRight className="h-4 w-4" />

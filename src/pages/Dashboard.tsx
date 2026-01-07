@@ -19,10 +19,19 @@ import OnThisDayCarousel from '@/components/OnThisDayCarousel';
 import { useFuelPriceData } from '@/hooks/useFuelPriceData';
 import { useRetailPriceData } from '@/hooks/useRetailPriceData';
 
+interface ChartDataPoint {
+    date: string;
+    price: number;
+    timestamp: number;
+    btcPrice?: number;
+    fiatPrice?: number;
+    unit?: string;
+}
+
 const Dashboard = () => {
     const [currency, setCurrency] = useState<'USD' | 'NAD'>('USD');
     const [timeframe, setTimeframe] = useState<'1H' | '24H' | '7D' | '30D'>('24H');
-    const [chartData, setChartData] = useState<any[]>([]);
+    const [chartData, setChartData] = useState<ChartDataPoint[]>([]);
     const [chartType, setChartType] = useState<'price' | 'fuel' | 'retail'>('price');
     const [selectedCommodity, setSelectedCommodity] = useState<'bread' | 'milk' | 'eggs'>('bread');
     const { rates, loading: priceLoading } = useBitcoinPrice();
@@ -50,15 +59,15 @@ const Dashboard = () => {
                     if (!response.ok) throw new Error('Failed to fetch chart data');
 
                     const data = await response.json();
-                    let prices = data.prices;
+                    let prices: [number, number][] = data.prices;
 
                     // Filter for 1H if selected (since API min is 1 day)
                     if (timeframe === '1H') {
                         const oneHourAgo = Date.now() - 3600000;
-                        prices = prices.filter((p: any[]) => p[0] >= oneHourAgo);
+                        prices = prices.filter((p) => p[0] >= oneHourAgo);
                     }
 
-                    const formattedData = prices.map((item: any[]) => {
+                    const formattedData: ChartDataPoint[] = prices.map((item) => {
                         const date = new Date(item[0]);
                         let dateLabel = '';
 
@@ -79,7 +88,7 @@ const Dashboard = () => {
                 } else if (chartType === 'fuel') {
                     // Fuel Price Logic
                     // Convert to Satoshis for better graph scaling (1 BTC = 100,000,000 sats)
-                    const formattedData = fuelData.map(item => ({
+                    const formattedData: ChartDataPoint[] = fuelData.map(item => ({
                         date: item.date,
                         price: Math.round(item.btcPrice * 100000000), // Convert to Sats
                         btcPrice: item.btcPrice, // Keep original for tooltip
@@ -90,7 +99,7 @@ const Dashboard = () => {
                     setChartData(formattedData);
                 } else if (chartType === 'retail') {
                     // Retail Price Logic
-                    const formattedData = retailData.map(item => ({
+                    const formattedData: ChartDataPoint[] = retailData.map(item => ({
                         date: item.date,
                         price: Math.round(item.btcPrice * 100000000), // Convert to Sats
                         btcPrice: item.btcPrice, // Keep original for tooltip
@@ -459,13 +468,13 @@ const Dashboard = () => {
                                         <Tooltip
                                             contentStyle={{ backgroundColor: '#000', border: '1px solid #f7931a', color: '#fff' }}
                                             itemStyle={{ color: '#f7931a' }}
-                                            formatter={(value: number, name: string, props: any) => {
+                                            formatter={(value: number, name: string, props: { payload: ChartDataPoint }) => {
                                                 if (chartType === 'price') {
                                                     return [currency === 'USD' ? `$${value.toLocaleString()}` : `N$${value.toLocaleString()}`, 'Price'];
                                                 } else {
                                                     const unit = props.payload.unit || '';
                                                     const fiatPrice = props.payload.fiatPrice;
-                                                    const btcPrice = props.payload.btcPrice;
+                                                    const btcPrice = props.payload.btcPrice || 0;
                                                     const fiatFormatted = currency === 'USD' ? `$${fiatPrice}` : `N$${fiatPrice}`;
                                                     return [
                                                         <div key="tooltip" className="flex flex-col gap-1">

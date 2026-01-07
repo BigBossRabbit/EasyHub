@@ -1,19 +1,22 @@
 import { useState, useEffect } from 'react';
 
-const BossCountdown = () => {
+interface BossCountdownProps {
+  targetDate?: Date;
+  label?: string;
+  expiredMessage?: string;
+}
+
+const BossCountdown = ({ targetDate = new Date('2025-12-31T23:59:59Z'), label = "BOSS CHALLENGE '25", expiredMessage = "Challenge Over" }: BossCountdownProps) => {
   const [timeLeft, setTimeLeft] = useState('Loading...');
   const [timeColor, setTimeColor] = useState('text-green-500');
 
   useEffect(() => {
     const interval = setInterval(() => {
       const now = new Date();
-      // Deadline: Dec 31, 2025
-      const deadline = new Date('2025-12-31T23:59:59Z');
-
-      const diff = deadline.getTime() - now.getTime();
+      const diff = targetDate.getTime() - now.getTime();
 
       if (diff <= 0) {
-        setTimeLeft('Challenge Over');
+        setTimeLeft(expiredMessage);
         setTimeColor('text-red-500');
         clearInterval(interval);
         return;
@@ -41,13 +44,13 @@ const BossCountdown = () => {
     }, 1000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [targetDate]);
 
   const pulseColorClass = timeColor.replace('text-', 'bg-');
 
   return (
     <div>
-      <span className="text-xs text-muted-foreground font-mono">BOSS CHALLENGE '25</span>
+      <span className="text-xs text-muted-foreground font-mono uppercase">{label}</span>
       <div className={`flex items-center gap-1 text-xs ${timeColor} font-mono`}>
         <div className={`w-2 h-2 ${pulseColorClass} rounded-full animate-pulse`}></div>
         <span>{timeLeft}</span>

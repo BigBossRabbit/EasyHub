@@ -15,6 +15,16 @@ interface NewsItem {
   discussionLink: string;
 }
 
+interface RSSItem {
+  title: string;
+  link: string;
+  pubDate: string;
+  author: string;
+  description: string;
+  categories: string[];
+  guid: string;
+}
+
 export const StackerNewsFeed = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
@@ -24,7 +34,7 @@ export const StackerNewsFeed = () => {
   const getFirstTwoSentences = (text: string) => {
     if (!text) return '';
     // Remove markdown and HTML
-    const cleanText = text.replace(/[#*_`\[\]()]/g, '').replace(/<[^>]*>?/gm, '');
+    const cleanText = text.replace(/[#*_`[\]()]/g, '').replace(/<[^>]*>?/gm, '');
     // Split by sentence endings
     const sentences = cleanText.match(/[^.!?]+[.!?]+/g) || [cleanText];
     // Take first 2 and join
@@ -46,7 +56,7 @@ export const StackerNewsFeed = () => {
 
       if (data.status !== 'ok') throw new Error('Feed fetch failed');
 
-      const newsItems: NewsItem[] = data.items.slice(0, 5).map((item: any, index: number) => {
+      const newsItems: NewsItem[] = data.items.slice(0, 5).map((item: RSSItem) => {
         // Extract description from the content or use a fallback
         const description = item.description ?
           getFirstTwoSentences(item.description.replace(/<[^>]*>/g, '').replace('Comments', '')) :
@@ -104,6 +114,7 @@ export const StackerNewsFeed = () => {
     }, 3 * 60 * 1000);
 
     return () => clearInterval(intervalId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getTimeAgo = (dateString: string) => {
