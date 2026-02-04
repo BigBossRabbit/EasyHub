@@ -38,8 +38,8 @@ const CONNECT_SCHEMA = JSON.stringify({
         {
             "@type": "ListItem",
             "position": 5,
-            "name": "Vexlaks",
-            "url": "https://vexlaks.com/"
+            "name": "Vexl",
+            "url": "https://vexl.it/"
         }
     ]
 });
@@ -125,8 +125,8 @@ const ConnectExplore = () => {
                             </Card>
                         </a>
 
-                        {/* Vexlaks */}
-                        <a href="https://vexlaks.com/" target="_blank" rel="noopener noreferrer" className="group md:col-span-2">
+                        {/* Vexl */}
+                        <a href="https://vexl.it/" target="_blank" rel="noopener noreferrer" className="group md:col-span-2">
                             <Card className="bg-gradient-to-br from-card/80 to-primary/10 border-primary/30 hover:border-primary/60 transition-all duration-300 h-full hover:shadow-xl hover:shadow-primary/20 relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <Rocket className="h-24 w-24 -rotate-12" />
@@ -134,13 +134,14 @@ const ConnectExplore = () => {
                                 <CardContent className="pt-8 pb-6 relative z-10">
                                     <div className="flex items-start justify-between mb-3">
                                         <div className="flex items-center gap-3">
-                                            <h2 className="font-bold text-2xl text-primary">Vexlaks Digital Solutions</h2>
-                                            <span className="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-xs font-mono border border-primary/30">PARTNER</span>
+                                            <h2 className="font-bold text-2xl text-primary">Vexl</h2>
+                                            <span className="px-2 py-0.5 rounded-full bg-primary/20 text-primary text-xs font-mono border border-primary/30">OPEN-SOURCE</span>
                                         </div>
                                         <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors mt-1" />
                                     </div>
                                     <p className="text-muted-foreground leading-relaxed max-w-2xl">
-                                        Your partner in digital transformation. Vexlaks offers cutting-edge web development, mobile apps, and digital marketing to help businesses thrive in the digital age. Innovate. Create. Transform.
+                                        Vexl is a global network of users trading bitcoin for cash, without KYC or AML.
+                                        Private, peer-to-peer, and open-source. Connect with your social graph to trade safely.
                                     </p>
                                     <div className="flex gap-2 mt-4 flex-wrap">
                                         <span className="text-xs font-mono text-primary/80 bg-background/50 px-2 py-1 rounded border border-primary/10">Web Dev</span>

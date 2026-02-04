@@ -95,10 +95,10 @@ const CURATED_STORIES: NewsItem[] = [
     // P2P Trading
     {
         title: "Peer-to-Peer Trading Thrives in African Markets",
-        description: "With limited access to traditional exchanges, Africans are turning to P2P platforms like Vexlaks to buy and sell Bitcoin, often at premium prices due to high demand. This decentralized approach gives users more control.",
-        link: "https://vexlaks.com",
+        description: "With limited access to traditional exchanges, Africans are turning to P2P platforms like Vexl to buy and sell Bitcoin through their social graph. This decentralized approach gives users more privacy and control.",
+        link: "https://vexl.it",
         pubDate: new Date().toISOString(),
-        source: "Vexlaks",
+        source: "Vexl",
         category: "P2P"
     },
     // Bitcoin Education
