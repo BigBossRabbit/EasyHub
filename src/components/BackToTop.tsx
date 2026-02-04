@@ -4,21 +4,40 @@ import { cn } from '@/lib/utils';
 
 const BackToTop = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const [bottomOffset, setBottomOffset] = useState(32); // Default bottom-8 (32px)
 
-    // Toggle visibility based on scroll position
     useEffect(() => {
-        const toggleVisibility = () => {
+        const handleScroll = () => {
+            // Visibility logic
             if (window.scrollY > 300) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
             }
+
+            // Footer avoidance logic
+            const footer = document.querySelector('footer');
+            if (footer) {
+                const footerRect = footer.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // If footer is entering value, push button up
+                if (footerRect.top < windowHeight) {
+                    const overlap = windowHeight - footerRect.top;
+                    // Add extra buffer (20px) to keep it clear of the text
+                    setBottomOffset(32 + overlap);
+                } else {
+                    setBottomOffset(32);
+                }
+            }
         };
 
-        window.addEventListener('scroll', toggleVisibility);
+        window.addEventListener('scroll', handleScroll);
+        // Call once on mount to set initial state
+        handleScroll();
 
         return () => {
-            window.removeEventListener('scroll', toggleVisibility);
+            window.removeEventListener('scroll', handleScroll);
         };
     }, []);
 
@@ -33,8 +52,9 @@ const BackToTop = () => {
     return (
         <button
             onClick={scrollToTop}
+            style={{ bottom: `${bottomOffset}px` }}
             className={cn(
-                "fixed bottom-8 right-8 z-[100] p-3 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 bg-card border border-primary/20 group",
+                "fixed right-8 z-[100] p-3 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 bg-card border border-primary/20 group",
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
             )}
             aria-label="Back to top"
