@@ -50,16 +50,7 @@ const TimeForce = () => {
     role: "agent",
     message: ""
   });
-  const [trialText, setTrialText] = useState("14-day FREE trial for the month of January");
 
-  const targetDate = new Date('2026-01-31T23:59:59');
-
-  useEffect(() => {
-    const now = new Date();
-    if (now > targetDate) {
-      setTrialText("7-day FREE trial");
-    }
-  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -165,7 +156,7 @@ const TimeForce = () => {
 
   return (
     <div className="min-h-screen text-foreground selection:bg-primary/30">
-      <Seo 
+      <Seo
         title="TimeForce — Bitcoin Onboarding"
         description="A structured approach to onboarding business owners with Bitcoin solutions."
         canonical="/timeforce"
@@ -201,64 +192,9 @@ const TimeForce = () => {
         </SheetContent>
       </Sheet>
 
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-40">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-3">
-              <img 
-                src="/easysats-logo.png" 
-                alt="EasySats" 
-                className="h-10 w-10"
-                width="40"
-                height="40"
-                loading="lazy"
-              />
-              <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-primary" />
-                <span className="text-xl font-bold">
-                  <span className="text-primary">easy</span>
-                  <span className="text-foreground">sats</span>
-                  <span className="text-muted-foreground animate-pulse">_</span>
-                </span>
-              </div>
-            </Link>
-
-            <nav className="hidden md:flex items-center gap-6 text-sm">
-              <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
-              <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">~/about</Link>
-              <Link to="/connect" className="text-muted-foreground hover:text-primary transition-colors">~/connect</Link>
-              <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
-              <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
-              <Link to="/timeforce" className="text-primary">~/timeforce</Link>
-              <Link to="/tpok" className="text-muted-foreground hover:text-primary transition-colors">~/tpok</Link>
-            </nav>
-
-            <div className="flex md:hidden">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="outline" size="icon">
-                    <Menu className="h-6 w-6" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right">
-                  <nav className="flex flex-col gap-4 pt-8">
-                    <Link to="/" className="text-lg font-semibold hover:text-primary transition-colors">~/home</Link>
-                    <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors">~/about</Link>
-                    <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors">~/connect</Link>
-                    <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors">~/easydevs</Link>
-                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
-                    <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
-                    <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors">~/tpok</Link>
-                  </nav>
-                </SheetContent>
-              </Sheet>
-            </div>
-          </div>
-        </div>
-      </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-6 py-20">
+      <section className="container mx-auto px-6 py-12">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <div className="flex flex-col items-center justify-center gap-2 text-muted-foreground text-sm mb-4 font-mono">
             <div className="flex items-center gap-2">
@@ -490,33 +426,29 @@ const TimeForce = () => {
                   <ArrowRight className="h-4 w-4 text-primary mt-1" />
                   <span>POS & Crowdfunding Pages</span>
                 </li>
-                
-                {/* Promo Box with Billboard Flicker */}
-                <li className="w-full mt-2">
-                  <div className="animate-billboard border-2 border-primary/50 rounded-lg p-3 bg-black/40 backdrop-blur-sm shadow-[0_0_15px_rgba(var(--primary),0.3)] flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div className="flex items-center gap-2">
-                        <ArrowRight className="h-4 w-4 text-primary shrink-0" />
-                        <span className="font-bold text-sm sm:text-base">{trialText}</span>
-                    </div>
-                    
-                    <div className="h-px w-full sm:h-8 sm:w-px bg-primary/30 shrink-0"></div>
-                    
-                    <div className="shrink-0">
-                        <BossCountdown 
-                        targetDate={targetDate} 
-                        label="PROMO ENDS" 
-                        expiredMessage="ACTIVE" 
-                        />
-                    </div>
-                  </div>
-                </li>
 
                 <li className="flex items-start gap-2">
                   <ArrowRight className="h-4 w-4 text-primary mt-1" />
                   <span>Addition to BTCMaps for global visibility</span>
                 </li>
+
+                {/* Trial Promo Box */}
+                <li className="w-full mt-2">
+                  <div className="animate-billboard border-2 border-primary/50 rounded-lg p-3 bg-black/40 backdrop-blur-sm shadow-[0_0_15px_rgba(var(--primary),0.3)] flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div className="flex items-center gap-2">
+                      <ArrowRight className="h-4 w-4 text-primary shrink-0" />
+                      <span className="font-bold text-sm sm:text-base">7-day FREE trial</span>
+                    </div>
+
+                    <div className="h-px w-full sm:h-8 sm:w-px bg-primary/30 shrink-0"></div>
+
+                    <div className="shrink-0">
+                      <span className="text-green-400 font-bold text-sm uppercase tracking-wider">● ACTIVE</span>
+                    </div>
+                  </div>
+                </li>
               </ul>
-              
+
               <style>{`
                   @keyframes billboard-flicker {
                       0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
@@ -536,7 +468,7 @@ const TimeForce = () => {
 
             <div className="bg-primary/5 border border-primary/20 rounded-lg p-8 backdrop-blur-sm relative overflow-hidden group flex flex-col justify-between min-h-[300px]">
               <div className="absolute top-0 right-0 p-1 bg-primary text-[8px] font-bold text-black transform rotate-45 translate-x-4 -translate-y-2 w-20 text-center">ALPHA</div>
-              
+
               <div>
                 <h3 className="text-2xl font-semibold mb-6 text-primary flex items-center gap-2">
                   <Briefcase className="h-6 w-6" />
@@ -606,7 +538,7 @@ const TimeForce = () => {
                 </Button>
               </div>
               <p className="text-xs text-muted-foreground font-mono mt-8">
-                &gt; Secure_Channel: Active | Trial_Period: Valid_Until_DEC_31
+                &gt; Secure_Channel: Active | Trial_Period: Free_7_Day_Trial
               </p>
             </div>
           </div>

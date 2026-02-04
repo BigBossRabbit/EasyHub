@@ -90,7 +90,7 @@ export const Classifieds = () => {
     return (
         <Card className="w-full bg-card border-2 border-border p-6 mb-8">
             <CardHeader className="px-0 pt-0 pb-4 border-b-2 border-border mb-4">
-                <CardTitle className="text-2xl font-serif font-bold uppercase tracking-wider flex items-center justify-between">
+                <CardTitle className="text-2xl font-bold uppercase tracking-wider flex items-center justify-between">
                     <span>Classifieds</span>
                     <span className="text-sm font-sans font-normal text-muted-foreground normal-case tracking-normal">
                         Services & Opportunities
@@ -117,7 +117,7 @@ export const Classifieds = () => {
                                         <div className="text-primary group-hover:scale-110 transition-transform">
                                             {service.icon}
                                         </div>
-                                        <h3 className="font-serif font-bold text-sm group-hover:underline decoration-primary underline-offset-2">
+                                        <h3 className="font-bold text-sm group-hover:underline decoration-primary underline-offset-2">
                                             {service.title}
                                         </h3>
                                         <ExternalLink className="h-3 w-3 text-muted-foreground ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -132,7 +132,7 @@ export const Classifieds = () => {
                                         <div className="text-primary group-hover:scale-110 transition-transform">
                                             {service.icon}
                                         </div>
-                                        <h3 className="font-serif font-bold text-sm group-hover:underline decoration-primary underline-offset-2">
+                                        <h3 className="font-bold text-sm group-hover:underline decoration-primary underline-offset-2">
                                             {service.title}
                                         </h3>
                                     </div>

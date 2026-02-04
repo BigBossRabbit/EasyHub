@@ -49,28 +49,28 @@ const STATIC_TOUR_DATA = [
 ];
 
 const TOUR_SCHEMA = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "itemListElement": STATIC_TOUR_DATA.filter(t => !t.isComingSoon).map((tour, index) => ({
-    "@type": "ListItem",
-    "position": index + 1,
-    "item": {
-      "@type": "TouristTrip",
-      "name": tour.title,
-      "description": tour.description,
-      "url": `https://bitcoin.okinent.org${tour.link}`,
-      "image": `https://bitcoin.okinent.org${tour.image}`,
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "EUR",
-        "price": tour.basePriceEur
-      },
-      "itinerary": {
-        "@type": "ItemList",
-        "numberOfItems": parseInt(tour.duration)
-      }
-    }
-  }))
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": STATIC_TOUR_DATA.filter(t => !t.isComingSoon).map((tour, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+            "@type": "TouristTrip",
+            "name": tour.title,
+            "description": tour.description,
+            "url": `https://bitcoin.okinent.org${tour.link}`,
+            "image": `https://bitcoin.okinent.org${tour.image}`,
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "price": tour.basePriceEur
+            },
+            "itinerary": {
+                "@type": "ItemList",
+                "numberOfItems": parseInt(tour.duration)
+            }
+        }
+    }))
 });
 
 const EasyTours = () => {
@@ -109,64 +109,15 @@ const EasyTours = () => {
 
     return (
         <div className="min-h-screen text-foreground bg-background">
-            <Seo 
-                title="EasyTours — Experience Namibia with Bitcoin" 
-                description="Authentic Namibian tours and experiences, payable entirely in Bitcoin." 
+            <Seo
+                title="EasyTours — Experience Namibia with Bitcoin"
+                description="Authentic Namibian tours and experiences, payable entirely in Bitcoin."
                 canonical="/easytours"
                 image="/assets/namibia-hero.png"
                 schema={TOUR_SCHEMA}
             />
 
             {/* Navigation - Consistent with other pages */}
-            <header className="border-b border-border bg-card/80 backdrop-blur-md sticky top-0 z-50">
-                <div className="container mx-auto px-6 py-4">
-                    <div className="flex items-center justify-between">
-                        <Link to="/" className="flex items-center gap-3 group">
-                            <img src="/easysats-logo.png" alt="EasySats" className="h-10 w-10 group-hover:scale-110 transition-transform" />
-                            <div className="flex items-center gap-2">
-                                <Globe className="h-4 w-4 text-primary" />
-                                <span className="text-xl font-bold">
-                                    <span className="text-primary">easy</span>
-                                    <span className="text-foreground">tours</span>
-                                </span>
-                            </div>
-                        </Link>
-
-                        {/* Desktop Navigation */}
-                        <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
-                            <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
-                            <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">~/about</Link>
-                            <Link to="/connect" className="text-muted-foreground hover:text-primary transition-colors">~/connect</Link>
-                            <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
-                            <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
-                            <Link to="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</Link>
-                            <Link to="/tpok" className="text-muted-foreground hover:text-primary transition-colors">~/tpok</Link>
-                        </nav>
-
-                        {/* Mobile Navigation */}
-                        <div className="flex md:hidden">
-                            <Sheet>
-                                <SheetTrigger asChild>
-                                    <Button variant="outline" size="icon">
-                                        <Menu className="h-6 w-6" />
-                                    </Button>
-                                </SheetTrigger>
-                                <SheetContent side="right">
-                                    <nav className="flex flex-col gap-4 pt-8">
-                                        <Link to="/" className="text-lg font-semibold hover:text-primary transition-colors">~/home</Link>
-                                        <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors">~/about</Link>
-                                        <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors">~/connect</Link>
-                                        <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors">~/easydevs</Link>
-                                        <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
-                                        <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
-                                        <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors">~/tpok</Link>
-                                    </nav>
-                                </SheetContent>
-                            </Sheet>
-                        </div>
-                    </div>
-                </div>
-            </header>
 
             {/* Hero Section */}
             <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
@@ -210,7 +161,7 @@ const EasyTours = () => {
             </section>
 
             {/* Features Section */}
-            <section className="py-20 bg-card/50">
+            <section className="py-12 bg-card/50">
                 <div className="container mx-auto px-6">
                     <div className="grid md:grid-cols-3 gap-8">
                         <div className="p-8 rounded-2xl bg-background border border-border hover:border-primary/50 transition-all hover:shadow-lg group">
@@ -247,7 +198,7 @@ const EasyTours = () => {
             </section>
 
             {/* Tours Grid */}
-            <section className="py-20 container mx-auto px-6">
+            <section className="py-12 container mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold mb-4">Curated Adventures</h2>
                     <p className="text-muted-foreground text-lg">Select your journey. All prices in Bitcoin.</p>
@@ -319,7 +270,7 @@ const EasyTours = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 bg-primary/5 border-y border-primary/10">
+            <section className="py-12 bg-primary/5 border-y border-primary/10">
                 <div className="container mx-auto px-6 text-center">
                     <h2 className="text-4xl font-bold mb-6">Ready for the Adventure of a Lifetime?</h2>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">

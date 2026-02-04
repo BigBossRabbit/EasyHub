@@ -184,3 +184,30 @@
 -   **Goal**: Build a personal, admin-only dashboard to view site statistics.
 -   **Data Source**: Reuse the `usePageVisits` hook and other metric hooks (`useBitcoinNetworkStats`, `useBitcoinPrice`).
 -   **Implementation**: Create a protected route or a local-only page that displays these metrics in a comprehensive interface.
+
+---
+
+## Session: Website Redesign 2026 - Implementation (Jan 16, 2026)
+
+### Key Accomplishments
+1.  **Centralized Layout & Navigation**:
+    -   Implemented a global `Layout` component in `src/components/Layout.tsx` that includes the shared `Navbar` and `Footer`.
+    -   Centralized all routing in `src/App.tsx`, wrapping pages in the `Layout` component for consistent structure and padding.
+    -   Removed redundant local headers and navigation implementations from all individual pages (`About`, `Connect`, `EasyJobs`, `EasyDevs`, `TimeForce`, `TPOK`, `Insights`, `EasyTours`, `Terms`, `Privacy`, `Contact`).
+2.  **Global Aesthetic Overhaul**:
+    -   Removed all instances of `font-serif` across the entire codebase to achieve a clean, modern sans-serif aesthetic.
+    -   Standardized text colors using Tailwind's `text-foreground` and `text-muted-foreground` for better dark mode compatibility.
+    -   Updated the `Footer` to use a more muted, modern color scheme (moving away from legacy green to standard foreground/muted colors).
+3.  **Modern Hero Section**:
+    -   Redesigned the `EasySatsHub` hero section with a bold new headline: "Don't Just Buy Bitcoin. Earn It."
+    -   Added a secondary neon blue glow effect and a animated shimmer gradient transition on the main CTA text.
+    -   Implemented the `shimmer` animation and `300%` background size in `tailwind.config.ts`.
+4.  **Code Leaner & Functional Integrity**:
+    -   Consolidated all design tokens and animations into global configurations.
+    -   Ensured all existing navigation links and SEO schemas are preserved.
+    -   Cleaned up unused imports and local components to keep the codebase lean.
+
+### Technical Details
+-   **CSS**: Modern dark mode foundation with neon accents (`primary` orange, `secondary` blue).
+-   **Architecture**: Shared `Layout` pattern for better maintainability and reduced redundancy.
+-   **Animation**: Custom `shimmer` keyframes added to Tailwind config for interactive text effects.

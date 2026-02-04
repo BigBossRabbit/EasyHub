@@ -137,56 +137,6 @@ const TPOK = () => {
 
   return (
     <div className="min-h-screen text-foreground font-mono pb-24">
-      <header className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <a href="/" className="flex items-center gap-3">
-              <img src="/easysats-logo.png" alt="EasySats" className="h-10 w-10" />
-              <div className="flex items-center gap-2">
-                <Terminal className="h-4 w-4 text-primary" />
-                <span className="text-xl font-bold">
-                  <span className="text-primary">easy</span>
-                  <span className="text-foreground">sats</span>
-                  <span className="text-muted-foreground animate-pulse">_</span>
-                </span>
-              </div>
-            </a>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-6 text-sm">
-              <a href="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</a>
-              <a href="/about" className="text-muted-foreground hover:text-primary transition-colors">~/about</a>
-              <a href="/connect" className="text-muted-foreground hover:text-primary transition-colors">~/connect</a>
-              <a href="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</a>
-              <a href="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</a>
-              <a href="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</a>
-              <a href="/tpok" className="text-primary">~/tpok</a>
-            </nav>
-
-            {/* Mobile Navigation (Hamburger Menu) */}
-            <div className="flex md:hidden">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="outline" size="icon" className="bg-background border-border">
-                    <Menu className="h-6 w-6" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right" className="bg-background border-border">
-                  <nav className="flex flex-col gap-4 pt-8 font-mono">
-                    <Link to="/" className="text-lg font-semibold hover:text-primary transition-colors">~/home</Link>
-                    <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors">~/about</Link>
-                    <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors">~/connect</Link>
-                    <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors">~/easydevs</Link>
-                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
-                    <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
-                    <Link to="/tpok" className="text-lg font-semibold text-primary">~/tpok</Link>
-                  </nav>
-                </SheetContent>
-              </Sheet>
-            </div>
-          </div>
-        </div>
-      </header>
 
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto mb-16 mt-8 px-4 md:px-8">

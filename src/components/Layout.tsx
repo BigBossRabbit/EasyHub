@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import Footer from './Footer';
 import BackToTop from './BackToTop';
+import Navbar from './Navbar';
 
 interface LayoutProps {
     children: ReactNode;
@@ -10,7 +11,10 @@ interface LayoutProps {
 const Layout = ({ children, showFooter = true }: LayoutProps) => {
     return (
         <>
-            {children}
+            <Navbar />
+            <main className="pt-20">
+                {children}
+            </main>
             <BackToTop />
             {showFooter && <Footer />}
         </>

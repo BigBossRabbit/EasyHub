@@ -27,66 +27,14 @@ const ABOUT_SCHEMA = JSON.stringify({
 const About = () => {
   return (
     <div className="min-h-screen text-foreground">
-      <Seo 
-        title="About OKIN.EnT" 
+      <Seo
+        title="About OKIN.EnT"
         description="Learn about Nikolai 'OKIN' Tjongarero and the mission of OKIN.EnT."
         image="/assets/okin-profile.jpg"
         type="profile"
         schema={ABOUT_SCHEMA}
       />
 
-      <header className="border-b border-border bg-card">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-3">
-              <img src="/easysats-logo.png" alt="EasySats" className="h-10 w-10" />
-              <div className="flex items-center gap-2">
-                <User className="h-4 w-4 text-primary" />
-                <span className="text-xl font-bold">
-                  <span className="text-primary">easy</span>
-                  <span className="text-foreground">sats</span>
-                  <span className="text-muted-foreground animate-pulse">_</span>
-                </span>
-              </div>
-            </Link>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-6 text-sm">
-              <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
-              <Link to="/about" className="text-primary">~/about</Link>
-              <Link to="/connect" className="text-muted-foreground hover:text-primary transition-colors">~/connect</Link>
-              <Link to="/easydevs" className="text-muted-foreground hover:text-primary transition-colors">~/easydevs</Link>
-              <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
-              <Link to="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</Link>
-              <Link to="/tpok" className="text-muted-foreground hover:text-primary transition-colors">~/tpok</Link>
-
-            </nav>
-
-            {/* Mobile Navigation (Hamburger Menu) */}
-            <div className="flex md:hidden">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="outline" size="icon">
-                    <Menu className="h-6 w-6" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right">
-                  <nav className="flex flex-col gap-4 pt-8">
-                    <Link to="/" className="text-lg font-semibold hover:text-primary transition-colors">~/home</Link>
-                    <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors">~/about</Link>
-                    <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors">~/connect</Link>
-                    <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors">~/easydevs</Link>
-                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
-                    <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
-                    <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors">~/tpok</Link>
-
-                  </nav>
-                </SheetContent>
-              </Sheet>
-            </div>
-          </div>
-        </div>
-      </header>
 
       <div className="container mx-auto px-6 py-12">
 
@@ -106,16 +54,14 @@ const About = () => {
             </div>
 
             <div className="text-center md:text-left">
-              <h1 className="text-3xl font-serif font-bold mb-2">Nikolai 'OKIN' Tjongarero</h1>
+              <h1 className="text-3xl font-bold mb-2">Nikolai 'OKIN' Tjongarero</h1>
               <p className="text-primary font-medium mb-4">Digital Disrupter | FreedomTech Enabler</p>
 
               <div className="flex justify-center md:justify-start gap-3 flex-wrap">
                 <a href="https://x.com/okin_17" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-muted hover:bg-primary/20 hover:text-primary transition-colors" title="Twitter/X">
                   <Twitter className="h-5 w-5" />
                 </a>
-                <a href="https://instagram.com/easysats" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-muted hover:bg-primary/20 hover:text-primary transition-colors" title="Instagram">
-                  <Instagram className="h-5 w-5" />
-                </a>
+
                 <a href="https://www.linkedin.com/in/okin/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-muted hover:bg-primary/20 hover:text-primary transition-colors" title="LinkedIn">
                   <Linkedin className="h-5 w-5" />
                 </a>
@@ -127,14 +73,14 @@ const About = () => {
           </div>
 
           {/* Bio Section */}
-          <div className="md:col-span-2 space-y-8 font-serif leading-relaxed">
+          <div className="md:col-span-2 space-y-8 leading-relaxed">
             <div>
               <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
                 <span className="h-px w-8 bg-primary"></span>
                 The Mission
               </h2>
               <p className="text-lg text-muted-foreground mb-4">
-                OKIN.EnT (OKIN Trading Enterprises) is at the forefront of the Bitcoin revolution in Namibia.
+                OKIN.EnT (OKIN Trading Enterprises) is at the forefront of the Bitcoin and FreedomTech revolution in Namibia via vehicles like EasySats and the entire EasyHub suite of offerings.
                 Founded by Nikolai 'OKIN' Tjongarero, a passionate advocate and educator, our mission is to bridge the gap
                 between complex technology and everyday accessibility.
               </p>

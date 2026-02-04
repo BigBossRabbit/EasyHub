@@ -143,60 +143,8 @@ const EasyDevs = () => {
   return (
     <div className="min-h-screen text-foreground font-mono">
       <Seo title="EasyDevs — Open Source Opportunities" description="Explore open source projects & opportunities in the Bitcoin & freedom technology space." canonical="/easydevs" />
-      <header className="border-b border-border bg-card">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center gap-3">
-              <img src="/easysats-logo.png" alt="EasySats" className="h-10 w-10" />
-              <div className="flex items-center gap-2">
-                <Terminal className="h-4 w-4 text-primary" />
-                <span className="text-xl font-bold">
-                  <span className="text-primary">easy</span>
-                  <span className="text-foreground">sats</span>
-                  <span className="text-muted-foreground animate-pulse">_</span>
-                </span>
-              </div>
-            </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-6 text-sm">
-              <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">~/home</Link>
-              <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">~/about</Link>
-              <Link to="/connect" className="text-muted-foreground hover:text-primary transition-colors">~/connect</Link>
-              <Link to="/easydevs" className="text-primary">~/easydevs</Link>
-              <Link to="/easyjobs" className="text-muted-foreground hover:text-primary transition-colors">~/easyjobs</Link>
-              <Link to="/timeforce" className="text-muted-foreground hover:text-primary transition-colors">~/timeforce</Link>
-              <Link to="/tpok" className="text-muted-foreground hover:text-primary transition-colors">~/tpok</Link>
-
-            </nav>
-
-            {/* Mobile Navigation (Hamburger Menu) */}
-            <div className="flex md:hidden">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="outline" size="icon">
-                    <Menu className="h-6 w-6" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right">
-                  <nav className="flex flex-col gap-4 pt-8">
-                    <Link to="/" className="text-lg font-semibold hover:text-primary transition-colors">~/home</Link>
-                    <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors">~/about</Link>
-                    <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors">~/connect</Link>
-                    <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors">~/easydevs</Link>
-                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors">~/easyjobs</Link>
-                    <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors">~/timeforce</Link>
-                    <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors">~/tpok</Link>
-
-                  </nav>
-                </SheetContent>
-              </Sheet>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <section className="container mx-auto px-6 py-20">
+      <section className="container mx-auto px-6 py-12">
         <div className="max-w-4xl">
           <div className="mb-8 space-y-4">
             <div className="flex items-center gap-2 text-muted-foreground text-sm">

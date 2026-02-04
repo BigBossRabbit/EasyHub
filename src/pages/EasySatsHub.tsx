@@ -1,11 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Newspaper, Menu, FileText, Scale, Shield } from "lucide-react";
+import { Newspaper, FileText, Scale, Shield, ArrowRight, Zap, Briefcase, Code } from "lucide-react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { useState } from "react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { StackerNewsFeed } from "@/components/StackerNewsFeed";
-import { Classifieds } from "@/components/Classifieds";
 
 const ORGANIZATION_SCHEMA = JSON.stringify({
   "@context": "https://schema.org",
@@ -13,7 +9,7 @@ const ORGANIZATION_SCHEMA = JSON.stringify({
   "name": "EasySats",
   "url": "https://bitcoin.okinent.org",
   "logo": "https://bitcoin.okinent.org/easysats-logo.png",
-  "description": "Namibia's First Bitcoin Revolution: Easy, Accessible & Unstoppable. We provide tools for earning, buying, accepting, and storing Bitcoin.",
+  "description": "Namibia's First Bitcoin Revolution: Don't Just Buy Bitcoin. Earn It. We provide tools for earning, buying, accepting, and storing Bitcoin.",
   "foundingDate": "2022",
   "address": {
     "@type": "PostalAddress",
@@ -27,159 +23,161 @@ const ORGANIZATION_SCHEMA = JSON.stringify({
 
 const EasySatsHub = () => {
   return (
-    <div className="min-h-screen text-foreground">
-      <Seo 
-        title="EasySats Chronicle" 
-        description="Namibia's First Bitcoin Revolution: Easy, Accessible & Unstoppable" 
+    <div className="min-h-screen selection:bg-primary selection:text-primary-foreground">
+      <Seo
+        title="EasySats | Don't Just Buy Bitcoin. Earn It."
+        description="Namibia's First Bitcoin Revolution. Join TimeForce, find Bitcoin careers on EasyJobs, or freelance on EasyDevs."
         image="/easysats-logo.png"
         type="website"
         schema={ORGANIZATION_SCHEMA}
       />
-      <header className="border-b-4 border-primary bg-card">
-        <div className="container mx-auto px-6 py-8">
-          <div className="flex items-center justify-between">
-            <div className="text-center space-y-2 w-full">
-              <div className="flex items-center justify-center gap-3 mb-2">
-                <div className="h-px flex-1 bg-primary md:hidden"></div>
-                <img src="/easysats-logo.png" alt="EasySats" className="h-12 w-12" />
-                <div className="h-px flex-1 bg-primary md:hidden"></div>
+
+      <main className="pt-4 pb-12">
+        {/* Hero Section */}
+        <section className="container mx-auto px-6 py-10 md:py-16 text-center relative overflow-hidden">
+          {/* Animated Background Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 blur-[120px] rounded-full -z-10 animate-pulse" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-secondary/20 blur-[100px] rounded-full -z-10 animate-pulse delay-700" />
+
+          <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
+              <Zap className="h-4 w-4 fill-primary" />
+              <span>Namibia's First Bitcoin Revolution</span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] text-foreground">
+              Don't Just Buy Bitcoin. <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary bg-300% animate-shimmer">Earn It.</span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
+              We provide the tools and platforms to help you stack sats through your skills, time, and dedication.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Button size="lg" className="h-14 px-8 text-lg font-bold rounded-full group" asChild>
+                <a href="https://btcpay870642.lndyn.com/plan-checkout/plancheckout_53FmPndnVZaHfVhde6" target="_blank" rel="noopener noreferrer">
+                  Get Started
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </Button>
+              <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-bold rounded-full border-white/10 hover:bg-white/5" asChild>
+                <Link to="/insights">
+                  Read Chronicle
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Earn Section */}
+        <section className="container mx-auto px-6 py-12 bg-black/40 border-y border-white/5">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-4">
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Earning Opportunities</h2>
+                <p className="text-muted-foreground text-lg">Choose your path to financial sovereignty.</p>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-wider">
-                THE EASYSATS CHRONICLE
-              </h1>
-              <p className="text-xs sm:text-sm text-muted-foreground tracking-widest">
-                BUILDING TOMORROW, TODAY • EST. BLOCKHEIGHT 736,253 • NAMIBIA
-              </p>
+              <div className="h-1 bg-primary w-24 rounded-full" />
             </div>
 
-            {/* Mobile Navigation (Hamburger Menu) */}
-            <div className="flex md:hidden">
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button variant="outline" size="icon">
-                    <Menu className="h-6 w-6" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent side="right">
-                  <nav className="flex flex-col gap-4 pt-8">
-                    <Link to="/about" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">About</Link>
-                    <Link to="/connect" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">Connect</Link>
-                    <Link to="/easydevs" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
-                    <Link to="/easyjobs" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
-                    <Link to="/timeforce" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
-                    <Link to="/tpok" className="text-lg font-semibold hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* TimeForce */}
+              <Link to="/timeforce" className="group">
+                <div className="h-full p-8 rounded-3xl bg-card border border-white/10 hover:border-primary/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+                  <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                    <Zap className="h-24 w-24" />
+                  </div>
+                  <div>
+                    <div className="h-12 w-12 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 border border-primary/20">
+                      <Zap className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3">TimeForce</h3>
+                    <p className="text-muted-foreground group-hover:text-foreground transition-colors leading-relaxed">
+                      Exchange time and skills for Sats. Join our lightning-fast gig economy.
+                    </p>
+                  </div>
+                  <div className="mt-8 flex items-center text-primary font-bold">
+                    Join Network <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Link>
 
-                  </nav>
-                </SheetContent>
-              </Sheet>
+              {/* EasyJobs */}
+              <Link to="/easyjobs" className="group">
+                <div className="h-full p-8 rounded-3xl bg-card border border-white/10 hover:border-secondary/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+                  <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                    <Briefcase className="h-24 w-24" />
+                  </div>
+                  <div>
+                    <div className="h-12 w-12 rounded-2xl bg-secondary/20 flex items-center justify-center mb-6 border border-secondary/20">
+                      <Briefcase className="h-6 w-6 text-secondary" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3">EasyJobs</h3>
+                    <p className="text-muted-foreground group-hover:text-foreground transition-colors leading-relaxed">
+                      Find Bitcoin-only careers. Connect with companies paying in sound money.
+                    </p>
+                  </div>
+                  <div className="mt-8 flex items-center text-secondary font-bold">
+                    View Careers <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Link>
+
+              {/* EasyDevs */}
+              <Link to="/easydevs" className="group">
+                <div className="h-full p-8 rounded-3xl bg-card border border-white/10 hover:border-primary/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
+                  <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                    <Code className="h-24 w-24" />
+                  </div>
+                  <div>
+                    <div className="h-12 w-12 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 border border-primary/20">
+                      <Code className="h-6 w-6 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-3">EasyDevs</h3>
+                    <p className="text-muted-foreground group-hover:text-foreground transition-colors leading-relaxed">
+                      Freelance developer marketplace. Build the tools of freedom for Bitcoin.
+                    </p>
+                  </div>
+                  <div className="mt-8 flex items-center text-primary font-bold">
+                    Start Bounties <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Link>
             </div>
           </div>
+        </section>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex flex-wrap justify-between items-center gap-x-4 gap-y-2 text-sm font-serif border-t border-b border-border py-4 mt-8 w-full">
-            <Link to="/about" className="hover:text-primary transition-colors uppercase tracking-wide">About</Link>
-            <Link to="/connect" className="hover:text-primary transition-colors uppercase tracking-wide">Connect</Link>
-            <Link to="/easydevs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyDevs</Link>
-            <Link to="/easyjobs" className="hover:text-primary transition-colors uppercase tracking-wide">EasyJobs</Link>
-            <Link to="/timeforce" className="hover:text-primary transition-colors uppercase tracking-wide">TimeForce</Link>
-            <Link to="/tpok" className="hover:text-primary transition-colors uppercase tracking-wide">TPOK</Link>
-
-          </nav>
-        </div>
-      </header>
-
-      <section className="container mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-2 space-y-6">
-            <div className="border-l-4 border-primary pl-4">
-              <p className="text-xs text-primary uppercase tracking-widest mb-2">Featured Story</p>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-4">
-                Namibia's First Bitcoin Revolution: Easy, Accessible & Unstoppable
-              </h2>
-            </div>
-
-            <div className="columns-1 md:columns-2 gap-8 text-sm leading-relaxed font-serif space-y-4">
-              <p className="text-lg first-letter:text-5xl first-letter:font-bold first-letter:text-primary first-letter:float-left first-letter:mr-2">
-                At EasySats, it is our mission to find ways that allow users to easily purchase Bitcoin,
-                while using our accumulated expertise & technical knowledge to ensure that not only can
-                people purchase it, but they are made aware of how they can earn & accept it for their goods &
-                services as well as securely store it themselves.
-              </p>
-
-              <p>
-                We are accessible to people of all income levels, to purposefully be inclusive of those
-                who are always excluded. Anyone can earn, purchase, accept & store Bitcoin using tailored
-                solutions from us, regardless of their financial status or level of experience.
-              </p>
-            </div>
+        {/* Link Footer Action */}
+        <section className="container mx-auto px-6 py-12 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <Button variant="ghost" className="h-16 border border-white/5 hover:bg-white/5 rounded-2xl" asChild>
+              <a href="/bitcoin-whitepaper.html" target="_blank" rel="noopener noreferrer">
+                <FileText className="mr-2 h-5 w-5 opacity-50" />
+                Whitepaper
+              </a>
+            </Button>
+            <Button variant="ghost" className="h-16 border border-white/5 hover:bg-white/5 rounded-2xl" asChild>
+              <Link to="/insights">
+                <Newspaper className="mr-2 h-5 w-5 opacity-50" />
+                Chronicle
+              </Link>
+            </Button>
+            <Button variant="ghost" className="h-16 border border-white/5 hover:bg-white/5 rounded-2xl" asChild>
+              <Link to="/terms">
+                <Scale className="mr-2 h-5 w-5 opacity-50" />
+                Terms
+              </Link>
+            </Button>
+            <Button variant="ghost" className="h-16 border border-white/5 hover:bg-white/5 rounded-2xl" asChild>
+              <Link to="/privacy">
+                <Shield className="mr-2 h-5 w-5 opacity-50" />
+                Privacy
+              </Link>
+            </Button>
           </div>
-
-          <div className="space-y-6">
-            <div className="bg-card border-2 border-border p-6">
-              <h3 className="text-xl font-serif font-bold mb-4 border-b border-border pb-2">Quick Facts</h3>
-              <ul className="space-y-3 text-sm">
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">■</span>
-                  <span>First Bitcoin voucher system in Namibia</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">■</span>
-                  <span>First Self-Custodial Bitcoin Payment Server in Namibia</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">■</span>
-                  <span>Instant payment confirmation via Lightning Network</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-primary">■</span>
-                  <span>No bank account or permission required</span>
-                </li>
-              </ul>
-            </div>
-
-            <Link to="/easyjobs" className="bg-primary/10 border border-primary p-6 block hover:bg-primary/20 transition-colors group">
-              <Newspaper className="h-8 w-8 text-primary mb-3 group-hover:scale-110 transition-transform" />
-              <h3 className="text-lg font-serif font-bold mb-2 group-hover:text-primary transition-colors">Why Buy Bitcoin when you can Earn It?</h3>
-              <p className="text-sm text-muted-foreground">Your first Bitcoin paycheck could be one click away... So why are you still reading this instead of clicking on me?→</p>
-            </Link>
-          </div>
-        </div>
-
-        {/* Classifieds Section */}
-        <div className="mt-12">
-          <Classifieds />
-        </div>
-
-        {/* Stacker News Section - Full Width */}
-        <div className="pt-8 border-t border-border/50">
-          <div className="h-[450px] w-full">
-            <StackerNewsFeed />
-          </div>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex flex-wrap gap-4 justify-center mt-12">
-          <Button size="lg" className="font-serif" asChild>
-            <a href="/bitcoin-whitepaper.html" target="_blank" rel="noopener noreferrer">
-              <FileText className="mr-2 h-4 w-4" />
-              Bitcoin Whitepaper
-            </a>
-          </Button>
-
-          <Button size="lg" className="font-serif bg-neutral-900 hover:bg-neutral-800 text-white" asChild>
-            <Link to="/terms">
-              <Scale className="mr-2 h-4 w-4" />
-              Terms & Conditions
-            </Link>
-          </Button>
-          <Button size="lg" className="font-serif bg-neutral-900 hover:bg-neutral-800 text-white" asChild>
-            <Link to="/privacy">
-              <Shield className="mr-2 h-4 w-4" />
-              Privacy Policy
-            </Link>
-          </Button>
-        </div>
-      </section>
+        </section>
+      </main>
     </div>
   );
 };

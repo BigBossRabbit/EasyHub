@@ -55,11 +55,11 @@ const Footer = () => {
                         href="https://mempool.space"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-foreground transition-colors"
                     >
                         <Activity className="h-4 w-4" />
                         <span className="font-bold">BLOCK HEIGHT:</span>
-                        <span className="text-green-400">
+                        <span className="text-foreground">
                             {loading ? '[LOADING...]' : stats.blockHeight ? stats.blockHeight.toLocaleString() : '[N/A]'}
                         </span>
                     </a>
@@ -69,11 +69,11 @@ const Footer = () => {
                         href="https://mempool.space"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-foreground transition-colors"
                     >
                         <Zap className="h-4 w-4" />
                         <span className="font-bold">AVG FEES:</span>
-                        <span className="text-green-400">
+                        <span className="text-foreground">
                             {loading ? '[LOADING...]' : stats.fees ? `~${stats.fees.halfHourFee} sat/vB` : '[N/A]'}
                         </span>
                     </a>
@@ -81,11 +81,11 @@ const Footer = () => {
                     {/* Price USD - Links to Dashboard */}
                     <Link
                         to="/easystats"
-                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-foreground transition-colors"
                     >
                         <TrendingUp className="h-4 w-4" />
                         <span className="font-bold">BTC/USD:</span>
-                        <span className="text-green-400">
+                        <span className="text-foreground">
                             {loading ? '[LOADING...]' : rates.usd ? `$${rates.usd.toLocaleString()}` : '[N/A]'}
                         </span>
                     </Link>
@@ -93,11 +93,11 @@ const Footer = () => {
                     {/* Price NAD - Links to Dashboard */}
                     <Link
                         to="/easystats"
-                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-foreground transition-colors"
                     >
                         <TrendingUp className="h-4 w-4" />
                         <span className="font-bold">BTC/NAD:</span>
-                        <span className="text-green-400">
+                        <span className="text-foreground">
                             {loading ? '[LOADING...]' : rates.nad ? `N$${rates.nad.toLocaleString()}` : '[N/A]'}
                         </span>
                     </Link>
@@ -105,11 +105,11 @@ const Footer = () => {
                     {/* Moscow Time - Links to Dashboard */}
                     <Link
                         to="/easystats"
-                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-foreground transition-colors"
                     >
                         <Clock className="h-4 w-4" />
                         <span className="font-bold">MOSCOW TIME (NAD):</span>
-                        <span className="text-green-400">
+                        <span className="text-foreground">
                             {loading ? '[LOADING...]' : formattedMoscowTime || '[N/A]'}
                         </span>
                     </Link>
@@ -118,7 +118,7 @@ const Footer = () => {
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
                         <Eye className="h-4 w-4" />
                         <span className="font-bold">PAGE VISITS:</span>
-                        <span className="text-green-400">
+                        <span className="text-foreground">
                             {visitsLoading ? '[LOADING...]' : visits.toLocaleString()}
                         </span>
                     </div>
@@ -130,11 +130,11 @@ const Footer = () => {
                         href="https://mempool.space"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-foreground transition-colors"
                     >
                         <Activity className="h-4 w-4" />
                         <span className="font-bold">BLOCK HEIGHT:</span>
-                        <span className="text-green-400">
+                        <span className="text-foreground">
                             {loading ? '[LOADING...]' : stats.blockHeight ? stats.blockHeight.toLocaleString() : '[N/A]'}
                         </span>
                     </a>
@@ -144,11 +144,11 @@ const Footer = () => {
                         href="https://mempool.space"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-foreground transition-colors"
                     >
                         <Zap className="h-4 w-4" />
                         <span className="font-bold">AVG FEES:</span>
-                        <span className="text-green-400">
+                        <span className="text-foreground">
                             {loading ? '[LOADING...]' : stats.fees ? `~${stats.fees.halfHourFee} sat/vB` : '[N/A]'}
                         </span>
                     </a>
@@ -156,11 +156,11 @@ const Footer = () => {
                     {/* Price USD - Links to Dashboard */}
                     <Link
                         to="/easystats"
-                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-foreground transition-colors"
                     >
                         <TrendingUp className="h-4 w-4" />
                         <span className="font-bold">BTC/USD:</span>
-                        <span className="text-green-400">
+                        <span className="text-foreground">
                             {loading ? '[LOADING...]' : rates.usd ? `$${rates.usd.toLocaleString()}` : '[N/A]'}
                         </span>
                     </Link>
@@ -168,11 +168,11 @@ const Footer = () => {
                     {/* Price NAD - Links to Dashboard */}
                     <Link
                         to="/easystats"
-                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-foreground transition-colors"
                     >
                         <TrendingUp className="h-4 w-4" />
                         <span className="font-bold">BTC/NAD:</span>
-                        <span className="text-green-400">
+                        <span className="text-foreground">
                             {loading ? '[LOADING...]' : rates.nad ? `N$${rates.nad.toLocaleString()}` : '[N/A]'}
                         </span>
                     </Link>
@@ -180,11 +180,11 @@ const Footer = () => {
                     {/* Moscow Time - Links to Dashboard */}
                     <Link
                         to="/easystats"
-                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-green-400 transition-colors"
+                        className="flex items-center gap-2 text-primary text-sm px-4 hover:text-foreground transition-colors"
                     >
                         <Clock className="h-4 w-4" />
                         <span className="font-bold">MOSCOW TIME (NAD):</span>
-                        <span className="text-green-400">
+                        <span className="text-foreground">
                             {loading ? '[LOADING...]' : formattedMoscowTime || '[N/A]'}
                         </span>
                     </Link>
@@ -193,7 +193,7 @@ const Footer = () => {
                     <div className="flex items-center gap-2 text-primary text-sm px-4">
                         <Eye className="h-4 w-4" />
                         <span className="font-bold">PAGE VISITS:</span>
-                        <span className="text-green-400">
+                        <span className="text-foreground">
                             {visitsLoading ? '[LOADING...]' : visits.toLocaleString()}
                         </span>
                     </div>
@@ -209,24 +209,22 @@ const Footer = () => {
                             <img src="/easysats-logo.png" alt="EasySats" className="h-8 w-8" />
                             <span className="text-xl font-bold">
                                 <span className="text-primary">easy</span>
-                                <span className="text-green-400">sats</span>
+                                <span className="text-foreground">sats</span>
                                 <span className="text-primary animate-pulse">_</span>
                             </span>
                         </div>
-                        <p className="text-green-400/80 mb-6 max-w-sm text-sm">
+                        <p className="text-muted-foreground mb-6 max-w-sm text-sm">
                             {'> '} Namibia's First Bitcoin Revolution. Making Bitcoin easy, accessible, and unstoppable for everyone.
                         </p>
                         <div className="flex gap-4">
-                            <a href="https://x.com/easysats_" target="_blank" rel="noopener noreferrer" className="text-green-400/60 hover:text-primary transition-colors">
+                            <a href="https://x.com/easysats_" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                                 <Twitter className="h-5 w-5" />
                             </a>
-                            <a href="https://instagram.com/easysats" target="_blank" rel="noopener noreferrer" className="text-green-400/60 hover:text-primary transition-colors">
-                                <Instagram className="h-5 w-5" />
-                            </a>
-                            <a href="https://www.linkedin.com/company/easysats/" target="_blank" rel="noopener noreferrer" className="text-green-400/60 hover:text-primary transition-colors">
+
+                            <a href="https://www.linkedin.com/company/easysats/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                                 <Linkedin className="h-5 w-5" />
                             </a>
-                            <a href="https://www.github.com/bigbossrabbit" target="_blank" rel="noopener noreferrer" className="text-green-400/60 hover:text-primary transition-colors">
+                            <a href="https://www.github.com/bigbossrabbit" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                                 <Github className="h-5 w-5" />
                             </a>
                         </div>
@@ -234,32 +232,30 @@ const Footer = () => {
 
                     <div>
                         <h3 className="font-bold mb-4 text-primary">{'> '}EXPLORE</h3>
-                        <ul className="space-y-2 text-sm text-green-400/80">
+                        <ul className="space-y-2 text-sm text-muted-foreground">
                             <li><Link to="/" className="hover:text-primary transition-colors">{'> '}home</Link></li>
                             <li><Link to="/about" className="hover:text-primary transition-colors">{'> '}about</Link></li>
                             <li><Link to="/connect" className="hover:text-primary transition-colors">{'> '}connect</Link></li>
                             <li><Link to="/easyjobs" className="hover:text-primary transition-colors">{'> '}easyjobs</Link></li>
                             <li><Link to="/easydevs" className="hover:text-primary transition-colors">{'> '}easydevs</Link></li>
-                            <li><Link to="/contact" className="hover:text-primary transition-colors">{'> '}contact us</Link></li>
+                            <li><Link to="/insights" className="hover:text-primary transition-colors">{'> '}insights</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <h3 className="font-bold mb-4 text-primary">{'> '}LEGAL & RESOURCES</h3>
-                        <ul className="space-y-2 text-sm text-green-400/80">
+                        <ul className="space-y-2 text-sm text-muted-foreground">
                             <li><Link to="/terms" className="hover:text-primary transition-colors">{'> '}terms & conditions</Link></li>
                             <li><Link to="/privacy" className="hover:text-primary transition-colors">{'> '}privacy policy</Link></li>
+                            <li><Link to="/contact" className="hover:text-primary transition-colors">{'> '}contact us</Link></li>
                             <li>
                                 <a href="/bitcoin-whitepaper.html" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{'> '}white paper</a>
-                            </li>
-                            <li>
-                                <a href="https://www.bon.com.na/CMSTemplates/Bon/Files/bon.com.na/90/90d8c518-f9a2-4e6d-98a4-b192c1a93253.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">{'> '}Namibian Virtual Assets Act</a>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <div className="border-t border-primary/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-green-400/80">
+                <div className="border-t border-primary/30 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
                     <p>{'> '}© {currentYear} OKIN.EnT. All rights reserved.</p>
                     <p>{'> '}Built with ⚡️ by <Link to="/easydevs" className="hover:text-primary transition-colors">EasyDevs</Link></p>
                 </div>

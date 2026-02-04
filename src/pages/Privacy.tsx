@@ -12,20 +12,6 @@ const Privacy = () => {
                 canonical="/privacy"
             />
 
-            <header className="border-b border-border bg-card">
-                <div className="container mx-auto px-6 py-4">
-                    <div className="flex items-center justify-between">
-                        <Link to="/" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
-                            <ArrowLeft className="h-4 w-4" />
-                            <span>Back to Home</span>
-                        </Link>
-                        <div className="flex items-center gap-2">
-                            <Lock className="h-5 w-5 text-primary" />
-                            <span className="font-bold">Privacy</span>
-                        </div>
-                    </div>
-                </div>
-            </header>
 
             <main className="container mx-auto px-6 py-12 max-w-4xl">
                 <div className="mb-12">
