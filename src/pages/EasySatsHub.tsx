@@ -56,7 +56,7 @@ const EasySatsHub = () => {
 
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" className="h-14 px-8 text-lg font-bold rounded-full group" asChild>
-                <a href="https://btcpay870642.lndyn.com/plan-checkout/plancheckout_53FmPndnVZaHfVhde6" target="_blank" rel="noopener noreferrer">
+                <a href="https://btcpay870642.lndyn.com/plan-checkout/plancheckout_5KQeCHrCeRv61A2gM7" target="_blank" rel="noopener noreferrer">
                   Get Started
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </a>
