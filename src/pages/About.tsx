@@ -2,8 +2,7 @@ import Seo from "@/components/Seo";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Twitter, Instagram, Linkedin, Github, User, Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Twitter, Linkedin, Github } from "lucide-react";
 
 const ABOUT_SCHEMA = JSON.stringify({
   "@context": "https://schema.org",
@@ -95,7 +94,7 @@ const About = () => {
                   <CardContent className="pt-6">
                     <h3 className="font-bold text-xl mb-2 text-primary">TPOK</h3>
                     <p className="text-sm text-muted-foreground">
-                      The Persuit Of Knowledge - Educational initiative and certification program.
+                      The Pursuit Of Knowledge - Educational initiative and certification program.
                     </p>
                   </CardContent>
                 </Card>
@@ -118,7 +117,7 @@ const About = () => {
               </h2>
               <p className="text-muted-foreground mb-4">
                 As the host of the <strong>#FromTheJump</strong> podcast, OKIN has pioneered the integration of Bitcoin into the creative industry.
-                It was the first podcast across the entire Arican continent to accept payments and gifts in Bitcoin, setting a standard for value-for-value content creation.
+                It was the first podcast across the entire African continent to accept payments and gifts in Bitcoin, setting a standard for value-for-value content creation.
               </p>
               <p className="text-muted-foreground">
                 Through engaging discussions with the public and open dialogues with key Regulatory and Development Stakeholders in Namibia,
