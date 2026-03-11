@@ -11,7 +11,6 @@ import {
   Zap,
   Globe,
   Briefcase,
-  Menu,
   Send,
   Mail,
   User,

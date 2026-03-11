@@ -7,12 +7,10 @@ import {
   Zap,
   Users,
   Globe,
-  ArrowRight,
-  Menu
+  ArrowRight
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import HrfJobs from '@/components/HrfJobs'; // Import HrfJobs component
 

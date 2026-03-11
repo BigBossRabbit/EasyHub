@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { MapPin, Calendar, Users, Bitcoin, ArrowRight, Menu, Globe, Camera, Sun } from "lucide-react";
+import { MapPin, Users, Bitcoin, ArrowRight, Sun } from "lucide-react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useBitcoinPrice } from "@/hooks/useBitcoinPrice";
 import { useState, useEffect, useMemo } from "react";
 

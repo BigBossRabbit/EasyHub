@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Terminal, Code2, GitBranch, ExternalLink, Menu } from "lucide-react";
+import { Terminal, Code2, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { BountyBoard, BOUNTY_PLATFORMS, BOUNTY_DATA } from "@/components/BountyBoard";
 import { SovereignKey } from "@/components/SovereignKey";
 import BossCountdown from "@/components/BossCountdown";
