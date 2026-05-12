@@ -15,6 +15,7 @@ const Navbar = () => {
         { name: "timeforce", path: "/timeforce" },
         { name: "tpok", path: "/tpok" },
         { name: "chronicle", path: "/insights" },
+        { name: "altsports", path: "/altsports" },
     ];
 
     const isActive = (path: string) => location.pathname === path;
@@ -24,7 +25,7 @@ const Navbar = () => {
             <div className="container mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
                     <Link to="/" className="flex items-center gap-3 group">
-                        <img src="/easysats-logo.png" alt="EasySats" className="h-10 w-10 group-hover:scale-110 transition-transform" />
+                        <img src="/easysats-logo.png" alt="EasySats" width={40} height={40} className="h-10 w-10 group-hover:scale-110 transition-transform" />
                         <div className="flex items-center gap-2">
                             <span className="text-xl font-bold tracking-tight">
                                 <span className="text-primary">easy</span>
@@ -54,7 +55,7 @@ const Navbar = () => {
                     <div className="flex md:hidden">
                         <Sheet>
                             <SheetTrigger asChild>
-                                <Button variant="ghost" size="icon" className="hover:bg-primary/10">
+                                <Button variant="ghost" size="icon" className="hover:bg-primary/10" aria-label="Open menu">
                                     <Menu className="h-6 w-6 text-primary" />
                                 </Button>
                             </SheetTrigger>
