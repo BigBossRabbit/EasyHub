@@ -19,6 +19,7 @@ import Dashboard from "./pages/Dashboard";
 import TPOK from "./pages/TPOK";
 import Contact from "./pages/Contact";
 import EasyTours from "./pages/EasyTours";
+import Altsports from "./pages/Altsports";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "@/components/ScrollToTop";
 
@@ -49,6 +50,7 @@ const App = () => (
             <Route path="/tpok" element={<Layout><TPOK /></Layout>} />
             <Route path="/contact" element={<Layout><Contact /></Layout>} />
             <Route path="/easytours" element={<Layout><EasyTours /></Layout>} />
+            <Route path="/altsports" element={<Layout><Altsports /></Layout>} />
             <Route path="/easytours/ultimate-namibia" element={<Layout><UltimateNamibiaAdventureItinerary /></Layout>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<Layout><NotFound /></Layout>} />
