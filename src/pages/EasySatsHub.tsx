@@ -21,6 +21,26 @@ const ORGANIZATION_SCHEMA = JSON.stringify({
   ]
 });
 
+const WEBSITE_SCHEMA = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "EasySats",
+  "url": "https://bitcoin.okinent.org",
+  "description": "Namibia's First Bitcoin Revolution: Don't Just Buy Bitcoin. Earn It.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "EasySats"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://bitcoin.okinent.org/easyjobs?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+});
+
 const EasySatsHub = () => {
   return (
     <div className="min-h-screen selection:bg-primary selection:text-primary-foreground">
@@ -29,7 +49,7 @@ const EasySatsHub = () => {
         description="Namibia's First Bitcoin Revolution. Join TimeForce, find Bitcoin careers on EasyJobs, or freelance on EasyDevs."
         image="/easysats-logo.png"
         type="website"
-        schema={ORGANIZATION_SCHEMA}
+        schemas={[ORGANIZATION_SCHEMA, WEBSITE_SCHEMA]}
       />
 
       <main className="pt-4 pb-12">
@@ -56,7 +76,7 @@ const EasySatsHub = () => {
 
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" className="h-14 px-8 text-lg font-bold rounded-full group" asChild>
-                <a href="https://btcpay870642.lndyn.com/plan-checkout/plancheckout_5KQeCHrCeRv61A2gM7" target="_blank" rel="noopener noreferrer">
+                <a href="https://btcpay870642.lndyn.com/plan-checkout/plancheckout_A8LsbjPHiwcDQ1Y3cz" target="_blank" rel="noopener noreferrer">
                   Get Started
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </a>
