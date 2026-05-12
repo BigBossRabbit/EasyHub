@@ -113,7 +113,7 @@ const EasyTours = () => {
                 description="Authentic Namibian tours and experiences, payable entirely in Bitcoin."
                 canonical="/easytours"
                 image="/assets/namibia-hero.png"
-                schema={TOUR_SCHEMA}
+                schemas={[TOUR_SCHEMA]}
             />
 
             {/* Navigation - Consistent with other pages */}
@@ -121,11 +121,13 @@ const EasyTours = () => {
             {/* Hero Section */}
             <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <img
+<img
                         src="/assets/namibia-hero.png"
                         alt="Namibian Desert"
+                        width={1920}
+                        height={1080}
                         className="w-full h-full object-cover"
-                        loading="eager" // Hero image should load eagerly
+                        loading="eager"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/20 to-background/90" />
                 </div>

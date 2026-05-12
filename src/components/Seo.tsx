@@ -6,16 +6,16 @@ interface SeoProps {
   canonical?: string;
   image?: string;
   type?: 'website' | 'article' | 'profile';
-  schema?: string; // JSON-LD string
+  schemas?: string[]; // Array of JSON-LD strings for multiple schemas
 }
 
 export default function Seo({ 
   title, 
   description, 
   canonical = "/", 
-  image = "/easysats-logo.png", // Default image
+  image = "/easysats-logo.png", 
   type = "website",
-  schema
+  schemas = []
 }: SeoProps) {
   const siteUrl = "https://bitcoin.okinent.org";
   const fullImageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
@@ -41,11 +41,11 @@ export default function Seo({
       <meta name="twitter:image" content={fullImageUrl} />
 
       {/* Structured Data */}
-      {schema && (
-        <script type="application/ld+json">
+      {schemas.map((schema, index) => (
+        <script key={index} type="application/ld+json">
           {schema}
         </script>
-      )}
+      ))}
     </Helmet>
   );
 }

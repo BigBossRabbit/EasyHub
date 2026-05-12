@@ -22,6 +22,10 @@ import EasyTours from "./pages/EasyTours";
 import Altsports from "./pages/Altsports";
 import NotFound from "./pages/NotFound";
 import ScrollToTop from "@/components/ScrollToTop";
+import { lazy, Suspense } from "react";
+
+// Lazy-load admin so Supabase import doesn't crash the main bundle
+const AltsportsAdmin = lazy(() => import("./pages/AltsportsAdmin"));
 
 const queryClient = new QueryClient();
 
@@ -51,6 +55,7 @@ const App = () => (
             <Route path="/contact" element={<Layout><Contact /></Layout>} />
             <Route path="/easytours" element={<Layout><EasyTours /></Layout>} />
             <Route path="/altsports" element={<Layout><Altsports /></Layout>} />
+            <Route path="/altsports/admin" element={<Suspense fallback={<div className="min-h-screen flex items-center justify-center text-primary font-mono animate-pulse">Loading admin...</div>}><AltsportsAdmin /></Suspense>} />
             <Route path="/easytours/ultimate-namibia" element={<Layout><UltimateNamibiaAdventureItinerary /></Layout>} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<Layout><NotFound /></Layout>} />

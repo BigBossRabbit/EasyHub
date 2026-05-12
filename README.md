@@ -1,6 +1,6 @@
 # EasyHub
 
-This project is a Progressive Web App built with Vite, React, TypeScript, and shadcn-ui.
+This project is a Progressive Web App built with Vite 6, React 19, TypeScript, and shadcn-ui.
 
 ## How to run the project
 
@@ -26,8 +26,24 @@ npm run dev
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Vite 6** - Next generation frontend tooling
+- **React 19** - The library for web and native user interfaces
+- **TypeScript** - JavaScript with syntax for types
+- **shadcn/ui** - Reusable components built with Radix UI and Tailwind
+- **Tailwind CSS v4** - A utility-first CSS framework
+
+## Available Scripts
+
+- `npm run dev` - Start the development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build locally
+- `npm run lint` - Run ESLint
+- `npm run deploy` - Deploy to GitHub Pages
+
+## Features
+
+- Progressive Web App (PWA) with offline support
+- Server-side SEO optimization with structured data
+- Dark mode with neon-inspired theme
+- Responsive design for all devices
+- Lightning-fast performance with Vite 6

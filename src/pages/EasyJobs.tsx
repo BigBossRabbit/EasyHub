@@ -56,7 +56,7 @@ const EasyJobs = () => {
         canonical="/easyjobs"
         image="/2.png"
         type="website"
-        schema={JOB_POSTING_SCHEMA}
+        schemas={[JOB_POSTING_SCHEMA]}
       />
 
       {/* Hero Section */}
