@@ -1,7 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-const FROM_EMAIL = Deno.env.get("FROM_EMAIL") || "tournament@easysats.com";
+const FROM_EMAIL = Deno.env.get("FROM_EMAIL") || "tournament@resend.dev";
 
 interface RequestBody {
   name: string;
@@ -132,8 +132,8 @@ serve(async (req: Request) => {
 
     if (!resendResponse.ok) {
       const errorText = await resendResponse.text();
-      console.error("Resend API error:", errorText);
-      return new Response(JSON.stringify({ error: "Failed to send email" }), {
+      console.error("Resend API error:", resendResponse.status, errorText);
+      return new Response(JSON.stringify({ error: "Failed to send email", resendStatus: resendResponse.status, resendError: errorText }), {
         status: 500,
         headers: { "Content-Type": "application/json" },
       });
