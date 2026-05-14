@@ -529,17 +529,28 @@ const Altsports = () => {
                         <Phone className="h-4 w-4" />
                         Namibian Phone Number <span className="text-[10px] normal-case tracking-normal text-muted-500">(required for tournament contact)</span>
                       </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        required
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full bg-background/50 border border-border/50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 font-mono placeholder:text-muted-foreground/30 transition-all duration-300 hover:border-border"
-                        placeholder="+264812345678"
-                      />
-                      <p className="text-[10px] text-muted-500 font-mono">Format: +2648xxxxxxxx — Namibian numbers only</p>
+                      <div className="flex items-center gap-0">
+                        <div className="bg-muted/30 border border-border/50 rounded-l-xl px-4 py-3 text-sm font-mono text-muted-foreground select-none shrink-0">
+                          +2648
+                        </div>
+                        <input
+                          type="tel"
+                          id="phone"
+                          name="phone"
+                          required
+                          maxLength={8}
+                          pattern="[0-9]{8}"
+                          value={formData.phone.replace(/^\+2648/, '')}
+                          onChange={(e) => {
+                            const digits = e.target.value.replace(/[^0-9]/g, '').slice(0, 8);
+                            setFormData((prev) => ({ ...prev, phone: `+2648${digits}` }));
+                            setError("");
+                          }}
+                          className="flex-1 bg-background/50 border border-border/50 border-l-0 rounded-r-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 font-mono placeholder:text-muted-foreground/30 transition-all duration-300 hover:border-border"
+                          placeholder="12345678"
+                        />
+                      </div>
+                      <p className="text-[10px] text-muted-500 font-mono">Enter your 8-digit Namibian number after +2648</p>
                     </div>
 
                     {error && (
