@@ -6,7 +6,7 @@ import { Users, Trophy, Clock, Trash2, RefreshCw, Database, Shield, AlertTriangl
 
 const AdminDashboard = () => {
   const [signups, setSignups] = useState<TournamentSignup[]>([]);
-  const [stats, setStats] = useState({ totalSignups: 0, confirmedSpots: 0, waitingList: 0, paidCount: 0, spotsRemaining: 63 });
+  const [stats, setStats] = useState({ totalSignups: 0, confirmedSpots: 0, waitingList: 0, paidCount: 0, spotsRemaining: 64 });
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState<"all" | "confirmed" | "waiting" | "paid">("all");
@@ -109,8 +109,8 @@ const AdminDashboard = () => {
       const statsResult = await getTournamentStats();
       addResult(true, `Stats API working: ${statsResult.totalSignups} total, ${statsResult.spotsRemaining} spots remaining`);
 
-      // Test 9: The 63-slot limit logic
-      addResult(statsResult.spotsRemaining >= 0 && statsResult.spotsRemaining <= 63, `Slot math correct: ${statsResult.spotsRemaining}/63 remaining`);
+      // Test 9: The 64-slot limit logic
+      addResult(statsResult.spotsRemaining >= 0 && statsResult.spotsRemaining <= 64, `Slot math correct: ${statsResult.spotsRemaining}/64 remaining`);
 
       // Test 10: Confirmed vs waiting list split
       addResult(
@@ -367,10 +367,10 @@ const AdminDashboard = () => {
         <div className="text-center text-xs text-muted-500 font-mono pb-8">
           <p className="flex items-center justify-center gap-2">
             <AlertTriangle className="h-3 w-3" />
-            Database: vitajzwlukcmmjezpbzu.supabase.co — Table: tournament_signups
+            Database: kfvgdegoxtnxhgclujut.supabase.co — Table: tournament_signups
           </p>
           <p className="mt-1">
-            Access your database at: <a href="https://supabase.com/dashboard/project/vitajzwlukcmmjezpbzu" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">supabase.com/dashboard</a>
+            Access your database at: <a href="https://supabase.com/dashboard/project/kfvgdegoxtnxhgclujut" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">supabase.com/dashboard</a>
           </p>
         </div>
       </div>

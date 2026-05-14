@@ -38,7 +38,7 @@ export async function submitTournamentSignup(
     .select('*', { count: 'exact', head: true });
 
   const signupNumber = (count || 0) + 1;
-  const isWaitingList = signupNumber > 63;
+  const isWaitingList = signupNumber > 64;
 
   const { data, error } = await supabase
     .from('tournament_signups')
@@ -69,7 +69,7 @@ export async function getTournamentSignups(): Promise<TournamentSignup[]> {
 
 export async function getTournamentStats() {
   if (!supabase) {
-    return { totalSignups: 0, confirmedSpots: 0, waitingList: 0, paidCount: 0, spotsRemaining: 63 };
+    return { totalSignups: 0, confirmedSpots: 0, waitingList: 0, paidCount: 0, spotsRemaining: 64 };
   }
 
   const { count: totalSignups } = await supabase
@@ -96,7 +96,7 @@ export async function getTournamentStats() {
     confirmedSpots: confirmedSpots || 0,
     waitingList: waitingList || 0,
     paidCount: paidCount || 0,
-    spotsRemaining: Math.max(0, 63 - (confirmedSpots || 0)),
+    spotsRemaining: Math.max(0, 64 - (confirmedSpots || 0)),
   };
 }
 

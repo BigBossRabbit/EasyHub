@@ -3,34 +3,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Trophy, Calendar, Clock, Users, AlertTriangle, CheckCircle2, Phone, Mail, User, Sparkles, Timer, Zap, Star, Crown, Shield, Crosshair } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
+import { submitTournamentSignup, getTournamentStats, isSupabaseAvailable } from "@/lib/supabase";
 
-// --- localStorage-based signup system (works without any backend) ---
-
-interface SignupEntry {
-  name: string;
-  email: string;
-  phone: string;
-  timestamp: string;
-  signupNumber: number;
-}
-
-const STORAGE_KEY = "africa-bitcoin-day-2026-signups";
-const MAX_SPOTS = 63;
-
-function getLocalSignups(): SignupEntry[] {
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    return stored ? JSON.parse(stored) : [];
-  } catch {
-    return [];
-  }
-}
-
-function saveLocalSignup(entry: SignupEntry) {
-  const entries = getLocalSignups();
-  entries.push(entry);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
-}
+const MAX_SPOTS = 64;
 
 // Confetti particle component
 const Confetti = ({ active }: { active: boolean }) => {
@@ -100,9 +75,9 @@ const Altsports = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [recentSignups, setRecentSignups] = useState<SignupEntry[]>([]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [synced, setSynced] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
+  const [supabaseActive, setSupabaseActive] = useState(false);
 
   // Parallax mouse effect
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
@@ -113,12 +88,18 @@ const Altsports = () => {
     });
   }, []);
 
-  // Load stats from localStorage
-  const loadStats = useCallback(() => {
-    const entries = getLocalSignups();
-    setTotalSignups(entries.length);
-    setSpotsRemaining(Math.max(0, MAX_SPOTS - entries.length));
-    setRecentSignups(entries.slice(-5).reverse());
+  // Load stats from Supabase
+  const loadStats = useCallback(async () => {
+    try {
+      if (isSupabaseAvailable()) {
+        const stats = await getTournamentStats();
+        setTotalSignups(stats.totalSignups);
+        setSpotsRemaining(stats.spotsRemaining);
+        setSupabaseActive(true);
+      }
+    } catch {
+      // Supabase not ready yet, use defaults
+    }
   }, []);
 
   useEffect(() => {
@@ -137,30 +118,58 @@ const Altsports = () => {
     e.preventDefault();
     setLoading(true);
     setError("");
+    setEmailSent(false);
 
     try {
-      const entries = getLocalSignups();
-      const nextNumber = entries.length + 1;
-      const newEntry: SignupEntry = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        timestamp: new Date().toISOString(),
-        signupNumber: nextNumber,
-      };
+      if (!isSupabaseAvailable()) {
+        throw new Error("Database is not connected. Please try again later.");
+      }
 
-      // Always save to localStorage first
-      saveLocalSignup(newEntry);
-      setSignupNumber(nextNumber);
-      setIsWaitingList(nextNumber > MAX_SPOTS);
+      // Validate Namibian phone number format: +2648xxxxxxxx
+      const phoneRegex = /^\+2648\d{8}$/;
+      if (!phoneRegex.test(formData.phone.trim())) {
+        throw new Error("Phone number must be in the format +2648xxxxxxxx (e.g. +264812345678)");
+      }
+
+      // Submit to Supabase — the DB assigns the signup number
+      const result = await submitTournamentSignup(formData.name, formData.email, formData.phone);
+
+      setSignupNumber(result.signup_number);
+      setIsWaitingList(result.is_waiting_list);
       setSubmitted(true);
 
-      if (nextNumber <= MAX_SPOTS) {
+      if (!result.is_waiting_list) {
         setShowConfetti(true);
         setTimeout(() => setShowConfetti(false), 4000);
       }
 
-      loadStats();
+      // Send confirmation email via edge function
+      try {
+        const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+        const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+        const emailResponse = await fetch(`${SUPABASE_URL}/functions/v1/send-tournament-confirmation`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            signupNumber: result.signup_number,
+            isWaitingList: result.is_waiting_list,
+          }),
+        });
+        if (emailResponse.ok) {
+          setEmailSent(true);
+        }
+      } catch {
+        // Email failure shouldn't block the signup — already saved to DB
+        console.warn("Confirmation email could not be sent, but signup was saved.");
+      }
+
+      // Refresh stats
+      await loadStats();
     } catch (err: any) {
       setError(err.message || "Submission failed. Please try again.");
     } finally {
@@ -173,6 +182,7 @@ const Altsports = () => {
     setSignupNumber(null);
     setIsWaitingList(false);
     setFormData({ name: "", email: "", phone: "" });
+    setEmailSent(false);
   };
 
   const progressPercent = Math.min(100, ((MAX_SPOTS - spotsRemaining) / MAX_SPOTS) * 100);
@@ -199,7 +209,7 @@ const Altsports = () => {
 
       <Seo
         title="Africa Bitcoin Day 2026 — Pool Tournament Entry | EasySats"
-        description="Sign up for the Africa Bitcoin Day 2026 Pool Tournament. First 63 sign-ups only. 23 May 2026."
+        description={`Sign up for the Africa Bitcoin Day 2026 Pool Tournament. First ${MAX_SPOTS} sign-ups only. 23 May 2026.`}
         canonical="/altsports"
       />
 
@@ -251,7 +261,7 @@ const Altsports = () => {
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
               The most anticipated pool tournament of the year.
               <br />
-              <span className="text-primary font-bold">Sign up now</span> — only the first <span className="text-yellow-400 font-bold">63 entries</span> are guaranteed a spot!
+              <span className="text-primary font-bold">Sign up now</span> — only the first <span className="text-yellow-400 font-bold">{MAX_SPOTS} entries</span> are guaranteed a spot!
             </p>
 
             <div className="flex items-center justify-center gap-3 pt-2">
@@ -350,8 +360,8 @@ const Altsports = () => {
                 {[
                   { icon: Calendar, label: "Date", value: "Saturday, 23 May 2026", color: "text-primary" },
                   { icon: Clock, label: "Payment Deadline", value: "1:00 PM — 23 May 2026", color: "text-yellow-400" },
-                  { icon: Trophy, label: "Format", value: "Pool Tournament — 63 Players", color: "text-primary" },
-                  { icon: Crosshair, label: "Entry Rule", value: "First 63 sign-ups only", color: "text-red-400" },
+                  { icon: Trophy, label: "Format", value: `Pool Tournament — ${MAX_SPOTS} Players`, color: "text-primary" },
+                  { icon: Crosshair, label: "Entry Rule", value: `First ${MAX_SPOTS} sign-ups only`, color: "text-red-400" },
                 ].map((item) => (
                   <div key={item.label} className="group flex items-start gap-3 bg-muted/5 rounded-xl p-4 border border-border/30 hover:border-primary/30 transition-all duration-300 hover:bg-muted/10">
                     <div className={`p-2 rounded-lg bg-muted/20 ${item.color} group-hover:scale-110 transition-transform`}>
@@ -436,6 +446,15 @@ const Altsports = () => {
                     </>
                   )}
 
+                  {/* Email confirmation notice */}
+                  {emailSent && (
+                    <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 max-w-md mx-auto">
+                      <p className="text-sm text-green-300 leading-relaxed">
+                        <strong>📧 Confirmation email sent!</strong> Check your inbox for your sign-up details.
+                      </p>
+                    </div>
+                  )}
+
                   <div className="pt-4">
                     <Button onClick={resetForm} variant="outline" className="border-border hover:bg-muted font-mono text-sm px-8 py-2">
                       ← Submit Another Entry
@@ -508,7 +527,7 @@ const Altsports = () => {
                     <div className="space-y-2 group">
                       <label htmlFor="phone" className="text-xs font-black flex items-center gap-2 uppercase tracking-wider text-muted-foreground group-focus-within:text-primary transition-colors">
                         <Phone className="h-4 w-4" />
-                        Phone Number
+                        Namibian Phone Number <span className="text-[10px] normal-case tracking-normal text-muted-500">(required for tournament contact)</span>
                       </label>
                       <input
                         type="tel"
@@ -518,8 +537,9 @@ const Altsports = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full bg-background/50 border border-border/50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary/50 font-mono placeholder:text-muted-foreground/30 transition-all duration-300 hover:border-border"
-                        placeholder="+264 81 234 5678"
+                        placeholder="+264812345678"
                       />
+                      <p className="text-[10px] text-muted-500 font-mono">Format: +2648xxxxxxxx — Namibian numbers only</p>
                     </div>
 
                     {error && (
@@ -555,41 +575,6 @@ const Altsports = () => {
             </div>
           )}
 
-          {/* Recent Signups Ticker */}
-          {recentSignups.length > 0 && (
-            <Card className="border border-border/30 bg-card/50 backdrop-blur-sm mb-8 overflow-hidden">
-              <CardContent className="p-4">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
-                  </div>
-                  <p className="text-[10px] uppercase font-black tracking-[0.2em] text-muted-foreground">Live Sign-Ups</p>
-                </div>
-                <div className="space-y-2">
-                  {recentSignups.map((signup, i) => (
-                    <div key={`${signup.signupNumber}-${i}`} className="flex items-center gap-3 bg-muted/5 rounded-lg px-3 py-2 border border-border/20 animate-fade-in" style={{ animationDelay: `${i * 100}ms` }}>
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary/20 to-yellow-500/20 border border-primary/20 flex items-center justify-center shrink-0">
-                        <span className="text-xs font-black font-mono text-primary">#{signup.signupNumber}</span>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-bold truncate">{signup.name}</p>
-                        <p className="text-[10px] text-muted-500 font-mono truncate">{signup.email}</p>
-                      </div>
-                      <div className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full shrink-0 ${
-                        signup.signupNumber > MAX_SPOTS
-                          ? "bg-yellow-500/10 text-yellow-400 border border-yellow-500/20"
-                          : "bg-green-500/10 text-green-400 border border-green-500/20"
-                      }`}>
-                        {signup.signupNumber > MAX_SPOTS ? "Waiting" : "Confirmed"}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          )}
-
           {/* Rules Section */}
           <Card className="border border-border/30 bg-card/50 backdrop-blur-sm mb-8">
             <CardContent className="p-5 sm:p-6">
@@ -599,11 +584,12 @@ const Altsports = () => {
               </div>
               <div className="space-y-3">
                 {[
-                  { text: "Only the first 63 sign-ups are guaranteed a spot.", highlight: "first 63" },
+                  { text: `Only the first ${MAX_SPOTS} sign-ups are guaranteed a spot.`, highlight: `first ${MAX_SPOTS}` },
                   { text: "Payment must be completed by 1:00 PM on 23 May 2026.", highlight: "1:00 PM on 23 May 2026" },
                   { text: "Unpaid spots go to waiting list players present with a valid sign-up number.", highlight: "waiting list" },
-                  { text: "Unlimited sign-ups accepted — entries beyond #63 go to waiting list.", highlight: "#63" },
+                  { text: `Unlimited sign-ups accepted — entries beyond #${MAX_SPOTS} go to waiting list.`, highlight: `#${MAX_SPOTS}` },
                   { text: "Your sign-up number is your unique identifier — save it!", highlight: "sign-up number" },
+                  { text: "A confirmation email will be sent with your sign-up details.", highlight: "confirmation email" },
                 ].map((rule, i) => (
                   <div key={i} className="flex items-start gap-3 group">
                     <div className="mt-0.5 p-1 rounded-full bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
