@@ -1,7 +1,7 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-const FROM_EMAIL = Deno.env.get("FROM_EMAIL") || "tournament@resend.dev";
+const FROM_EMAIL = Deno.env.get("FROM_EMAIL") || "tournament@okinent.org";
 
 interface RequestBody {
   name: string;
@@ -107,7 +107,7 @@ serve(async (req: Request) => {
           </p>
           <div style="border-top:1px solid #333;padding-top:20px;text-align:center;">
             <p style="margin:0 0 4px;font-size:13px;color:#888;">Powered by <strong style="color:#FF7000;">EasySats</strong> - Africa Bitcoin Day 2026</p>
-            <p style="margin:0;font-size:11px;color:#555;">In partnership with ABC Hub, Jokers & EasySats</p>
+            <p style="margin:0;font-size:11px;color:#555;">In partnership with ABC Hub, Joker's Pizzeria & ConnectUs</p>
           </div>
         </div>
       </td>

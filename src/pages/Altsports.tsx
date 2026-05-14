@@ -590,6 +590,7 @@ const Altsports = () => {
                   { text: `Unlimited sign-ups accepted — entries beyond #${MAX_SPOTS} go to waiting list.`, highlight: `#${MAX_SPOTS}` },
                   { text: "Your sign-up number is your unique identifier — save it!", highlight: "sign-up number" },
                   { text: "A confirmation email will be sent with your sign-up details.", highlight: "confirmation email" },
+                  { text: "Pool rules will be Old School Rules as Per Joker's Pizzeria — no compromise on that.", highlight: "Old School Rules as Per Joker's Pizzeria" },
                 ].map((rule, i) => (
                   <div key={i} className="flex items-start gap-3 group">
                     <div className="mt-0.5 p-1 rounded-full bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
@@ -619,7 +620,7 @@ const Altsports = () => {
               <span className="text-primary text-lg">₿</span>
             </div>
             <p className="text-xs text-muted-foreground/50">
-              Presented in partnership with ABC Hub, Jokers & EasySats
+              Presented in partnership with ABC Hub, Joker's Pizzeria & ConnectUs
             </p>
           </div>
         </div>
