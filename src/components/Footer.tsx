@@ -32,8 +32,8 @@ const Footer = () => {
 
             <div className="container mx-auto px-6 py-12 relative z-10">
                 <div className="grid md:grid-cols-4 gap-8 mb-8">
-                    <div className="col-span-1 md:col-span-2 text-center md:text-center">
-                        <div className="flex items-center justify-center gap-2 mb-4">
+                    <div className="col-span-1 md:col-span-2">
+                        <div className="flex items-center gap-2 mb-4">
                             <span className="text-primary text-xl">{'>'}</span>
                             <img src="/easysats-logo.png" alt="EasySats" className="h-8 w-8" />
                             <span className="text-xl font-bold">
@@ -42,10 +42,10 @@ const Footer = () => {
                                 <span className="text-primary animate-pulse">_</span>
                             </span>
                         </div>
-                        <p className="text-muted-foreground mb-6 max-w-sm mx-auto text-sm">
+                        <p className="text-muted-foreground mb-6 max-w-sm text-sm">
                             {'> '} Namibia's First Bitcoin Revolution. Making Bitcoin easy, accessible, and unstoppable for everyone.
                         </p>
-                        <div className="flex justify-center gap-4">
+                        <div className="flex gap-4">
                             <a href="https://x.com/easysats_" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
                                 <Twitter className="h-5 w-5" />
                             </a>
@@ -59,7 +59,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className="text-center">
+                    <div>
                         <h3 className="font-bold mb-4 text-primary">{'> '}EXPLORE</h3>
                         <ul className="space-y-2 text-sm text-muted-foreground">
                             <li><Link to="/" className="hover:text-primary transition-colors">{'> '}home</Link></li>
@@ -72,7 +72,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    <div className="text-center">
+                    <div>
                         <h3 className="font-bold mb-4 text-primary">{'> '}LEGAL & RESOURCES</h3>
                         <ul className="space-y-2 text-sm text-muted-foreground">
                             <li><Link to="/terms" className="hover:text-primary transition-colors">{'> '}terms & conditions</Link></li>
