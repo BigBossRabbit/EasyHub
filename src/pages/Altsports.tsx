@@ -360,6 +360,7 @@ const Altsports = () => {
                 {[
                   { icon: Calendar, label: "Date", value: "Saturday, 23 May 2026", color: "text-primary" },
                   { icon: Clock, label: "Payment Deadline", value: "1:00 PM — 23 May 2026", color: "text-yellow-400" },
+                  { icon: Zap, label: "Entry Fee", value: "N$100 – pay in‑venue with EasyMerchant or use the Primal App.", color: "text-primary" },
                   { icon: Trophy, label: "Format", value: `Pool Tournament — ${MAX_SPOTS} Players`, color: "text-primary" },
                   { icon: Crosshair, label: "Entry Rule", value: `First ${MAX_SPOTS} sign-ups only`, color: "text-red-400" },
                 ].map((item) => (
