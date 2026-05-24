@@ -78,6 +78,7 @@ const Altsports = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [emailSent, setEmailSent] = useState(false);
   const [supabaseActive, setSupabaseActive] = useState(false);
+  const [eventCompleted, setEventCompleted] = useState(true); // Event is now completed
 
   // Parallax mouse effect
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
@@ -237,12 +238,12 @@ const Altsports = () => {
 
           {/* Hero Section */}
           <div className="text-center mb-8 sm:mb-12 space-y-5 relative">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 via-yellow-500/20 to-primary/20 border border-primary/30 rounded-full px-5 py-2 text-sm font-mono text-primary backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500/20 via-yellow-500/20 to-red-500/20 border border-yellow-500/30 rounded-full px-5 py-2 text-sm font-mono text-yellow-400 backdrop-blur-sm">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow-400" />
               </span>
-              <span className="font-bold tracking-wider">TOURNAMENT ENTRY OPEN</span>
+              <span className="font-bold tracking-wider">EVENT COMPLETED</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-black leading-tight tracking-tight">
@@ -259,9 +260,9 @@ const Altsports = () => {
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl mx-auto leading-relaxed">
-              The most anticipated pool tournament of the year.
+              The Africa Bitcoin Day 2026 Pool Tournament has been successfully completed!
               <br />
-              <span className="text-primary font-bold">Sign up now</span> — only the first <span className="text-yellow-400 font-bold">{MAX_SPOTS} entries</span> are guaranteed a spot!
+              <span className="text-yellow-400 font-bold">Thank you</span> to all participants, sponsors, and winners for making this event amazing!
             </p>
 
             <div className="flex items-center justify-center gap-3 pt-2">
@@ -271,204 +272,76 @@ const Altsports = () => {
             </div>
           </div>
 
-          {/* Live Spots Counter */}
+          {/* Event Completed Message */}
           <div className="relative mb-8 sm:mb-10">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-yellow-500/10 to-primary/20 rounded-2xl blur-xl" />
-            <Card className="relative border-2 border-primary/30 bg-gradient-to-br from-card/90 via-card to-card/90 backdrop-blur-sm overflow-hidden">
-              {/* Animated scan line */}
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute w-full h-[2px] bg-gradient-to-r from-transparent via-primary/30 to-transparent animate-scan-line" />
-              </div>
-
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 via-orange-500/20 to-yellow-500/20 rounded-2xl blur-xl" />
+            <Card className="relative border-2 border-yellow-500/30 bg-card/90 backdrop-blur-sm overflow-hidden">
               <CardContent className="p-6 sm:p-8 text-center relative">
                 <div className="flex items-center justify-center gap-3 mb-4">
-                  <Users className="h-6 w-6 text-yellow-400" />
+                  <Trophy className="h-6 w-6 text-yellow-400" />
                   <span className="text-xs sm:text-sm font-black uppercase tracking-[0.2em] text-yellow-400">
-                    Live Tournament Spots
+                    TOURNAMENT COMPLETED
                   </span>
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
-                  </span>
+                  <Star className="h-6 w-6 text-yellow-400 fill-yellow-400" />
                 </div>
 
-                <div className="flex items-baseline justify-center gap-2 mb-3">
-                  <AnimatedNumber
-                    value={spotsRemaining}
-                    className={`text-6xl sm:text-7xl md:text-8xl font-black font-mono tabular-nums ${
-                      spotsRemaining > 10
-                        ? "text-primary"
-                        : spotsRemaining > 0
-                        ? "text-yellow-400 animate-pulse"
-                        : "text-red-500"
-                    }`}
-                  />
-                  <span className="text-2xl sm:text-3xl md:text-4xl text-muted-foreground font-mono font-bold">/ {MAX_SPOTS}</span>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
+                  🎉 Tournament Successfully Completed! 🎉
+                </h2>
+
+                <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-6 max-w-2xl mx-auto backdrop-blur-sm">
+                  <p className="text-lg text-yellow-200 leading-relaxed mb-4">
+                    <strong>A huge thank you</strong> to everyone who participated in the Africa Bitcoin Day 2026 Pool Tournament! 
+                    This event was a tremendous success thanks to our amazing participants, generous sponsors, and skilled winners.
+                  </p>
+                  
+                  <div className="grid sm:grid-cols-3 gap-4 mt-6">
+                    <div className="bg-yellow-500/5 rounded-lg p-4 border border-yellow-500/10">
+                      <p className="text-2xl font-black text-yellow-400 mb-1">{totalSignups}</p>
+                      <p className="text-xs text-yellow-300 uppercase font-bold tracking-wider">Participants</p>
+                    </div>
+                    <div className="bg-orange-500/5 rounded-lg p-4 border border-orange-500/10">
+                      <p className="text-2xl font-black text-orange-400 mb-1">3</p>
+                      <p className="text-xs text-orange-300 uppercase font-bold tracking-wider">Winners</p>
+                    </div>
+                    <div className="bg-red-500/5 rounded-lg p-4 border border-red-500/10">
+                      <p className="text-2xl font-black text-red-400 mb-1">5+</p>
+                      <p className="text-xs text-red-300 uppercase font-bold tracking-wider">Sponsors</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 space-y-2">
+                    <p className="text-sm text-yellow-200 font-semibold">
+                      🏆 Congratulations to all our winners and participants!
+                    </p>
+                    <p className="text-sm text-yellow-200 font-semibold">
+                      🙏 Special thanks to our amazing sponsors for making this event possible!
+                    </p>
+                    <p className="text-sm text-yellow-200 font-semibold">
+                      💰 All entry fees were converted to Bitcoin and used for tournament prizes!
+                    </p>
+                  </div>
                 </div>
 
-                <p className={`text-sm font-mono font-bold mb-5 ${spotsRemaining > 0 ? "text-muted-foreground" : "text-red-400"}`}>
-                  {spotsRemaining > 0
-                    ? `⚡ ${spotsRemaining} spot${spotsRemaining !== 1 ? "s" : ""} remaining — don't miss out!`
-                    : "🔥 ALL SPOTS FILLED — join the waiting list"}
-                </p>
-
-                {/* Progress bar */}
-                <div className="relative w-full bg-muted/20 rounded-full h-4 overflow-hidden backdrop-blur-sm border border-border/30">
-                  <div
-                    className="h-full rounded-full transition-all duration-1000 ease-out relative overflow-hidden"
-                    style={{
-                      width: `${progressPercent}%`,
-                      background: progressPercent < 60
-                        ? "linear-gradient(90deg, #FF7000, #FFD700)"
-                        : progressPercent < 85
-                        ? "linear-gradient(90deg, #FFD700, #FFA500)"
-                        : "linear-gradient(90deg, #FFA500, #FF4500)",
-                    }}
+                {/* Thank you note link */}
+                <div className="mt-6">
+                  <a 
+                    href="/abd2026_pool_tournament_thank_you.txt" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold py-3 px-6 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg shadow-yellow-500/30"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 animate-shimmer" />
-                  </div>
-                </div>
-
-                {/* Stats row */}
-                <div className="grid grid-cols-3 gap-3 mt-5">
-                  <div className="bg-muted/10 rounded-lg p-3 border border-border/20">
-                    <p className="text-[10px] text-muted-500 uppercase font-bold tracking-wider">Confirmed</p>
-                    <p className="text-xl font-black font-mono text-primary">{Math.min(totalSignups, MAX_SPOTS)}</p>
-                  </div>
-                  <div className="bg-muted/10 rounded-lg p-3 border border-border/20">
-                    <p className="text-[10px] text-muted-500 uppercase font-bold tracking-wider">Waiting</p>
-                    <p className="text-xl font-black font-mono text-yellow-400">{Math.max(0, totalSignups - MAX_SPOTS)}</p>
-                  </div>
-                  <div className="bg-muted/10 rounded-lg p-3 border border-border/20">
-                    <p className="text-[10px] text-muted-500 uppercase font-bold tracking-wider">Total</p>
-                    <p className="text-xl font-black font-mono text-foreground">{totalSignups}</p>
-                  </div>
+                    <Star className="h-5 w-5" />
+                    Read Full Thank You Note
+                    <Sparkles className="h-5 w-5" />
+                  </a>
                 </div>
               </CardContent>
             </Card>
           </div>
 
-  {/* Event Details */}
-  <Card className="border border-border/50 bg-card/80 backdrop-blur-sm mb-8 overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-            <CardContent className="p-5 sm:p-6">
-              <div className="flex items-center gap-2 mb-5">
-                <Calendar className="h-5 w-5 text-primary" />
-                <h3 className="text-lg font-bold">Event Details</h3>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {[
-                  { icon: Calendar, label: "Date", value: "Saturday, 23 May 2026", color: "text-primary" },
-                  { icon: Clock, label: "Payment Deadline", value: "1:00 PM — 23 May 2026", color: "text-yellow-400" },
-                  { icon: Zap, label: "Entry Fee", value: <span>N$100 cash will be converted into Bitcoin for you to pay in‑venue with the <a href="https://primal.net/downloads" target="_blank" rel="noopener noreferrer" className="text-yellow-400 underline hover:text-yellow-400/80 transition-colors">Primal App</a></span>, color: "text-primary" },
-                  { icon: Zap, label: "Wallet Options", value: <span><a href="https://www.blink.sv/" target="_blank" rel="noopener noreferrer" className="text-yellow-400 underline hover:text-yellow-400/80 transition-colors">Blink Wallet</a> or <a href="https://aqua.net/" target="_blank" rel="noopener noreferrer" className="text-yellow-400 underline hover:text-yellow-400/80 transition-colors">Aqua Wallet</a>. We recommend downloading all.</span>, color: "text-primary" },
-                  { icon: Trophy, label: "Format", value: `Pool Tournament — ${MAX_SPOTS} Players`, color: "text-primary" },
-                  { icon: Crosshair, label: "Entry Rule", value: `First ${MAX_SPOTS} sign-ups only`, color: "text-red-400" },
-                ].map((item) => (
-                  <div key={item.label} className="group flex items-start gap-3 bg-muted/5 rounded-xl p-4 border border-border/30 hover:border-primary/30 transition-all duration-300 hover:bg-muted/10">
-                    <div className={`p-2 rounded-lg bg-muted/20 ${item.color} group-hover:scale-110 transition-transform`}>
-                      <item.icon className="h-4 w-4" />
-                    </div>
-                    <div>
-                      <p className="font-bold text-xs uppercase tracking-wider text-muted-500">{item.label}</p>
-                      <p className={`text-sm font-semibold ${item.color}`}>{item.value}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* After Submission: Sign-Up Number Display */}
-          {submitted && signupNumber !== null && (
-            <div className="relative mb-8">
-              <div className={`absolute inset-0 rounded-2xl blur-xl ${isWaitingList ? "bg-yellow-500/10" : "bg-primary/10"}`} />
-              <Card className={`relative border-2 ${isWaitingList ? "border-yellow-500/40" : "border-primary/40"} bg-card/90 backdrop-blur-sm overflow-hidden`}>
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent" />
-                <CardContent className="p-6 sm:p-10 text-center space-y-5">
-                  {isWaitingList ? (
-                    <>
-                      <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-yellow-500/20 to-orange-500/20 border-2 border-yellow-500/30">
-                        <Timer className="h-12 w-12 text-yellow-400 animate-pulse" />
-                      </div>
-                      <h2 className="text-3xl sm:text-4xl font-black text-yellow-400">Waiting List</h2>
-                      <div className="py-4">
-                        <div className="relative inline-block">
-                          <p className="text-7xl sm:text-8xl md:text-9xl font-black font-mono text-yellow-400 tabular-nums">
-                            #{signupNumber}
-                          </p>
-                          <div className="absolute -top-3 -right-6">
-                            <Crown className="h-8 w-8 text-yellow-400 rotate-12" />
-                          </div>
-                        </div>
-                        <p className="text-sm text-muted-foreground mt-2 font-mono font-bold">Your Sign-Up Number</p>
-                      </div>
-                      <div className="bg-yellow-500/10 border border-yellow-500/20 rounded-xl p-4 max-w-md mx-auto backdrop-blur-sm">
-                        <p className="text-sm text-yellow-200 leading-relaxed">
-                          All <strong>{MAX_SPOTS}</strong> tournament spots are currently claimed. You're on the <strong className="text-yellow-400">waiting list</strong>.
-                          Open spots go to waitlisted players who show up!
-                        </p>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-gradient-to-br from-primary/20 to-yellow-500/20 border-2 border-primary/30 relative">
-                        <Sparkles className="h-12 w-12 text-primary" />
-                        <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-ping" style={{ animationDuration: "3s" }} />
-                      </div>
-                      <h2 className="text-3xl sm:text-4xl font-black">
-                        <span className="bg-gradient-to-r from-primary via-yellow-400 to-primary bg-clip-text text-transparent">
-                          You're In! 🎉
-                        </span>
-                      </h2>
-                      <div className="py-4">
-                        <div className="relative inline-block">
-                          <p className="text-8xl sm:text-9xl font-black font-mono text-primary tabular-nums">
-                            #{signupNumber}
-                          </p>
-                          <div className="absolute -top-4 -right-8 animate-bounce" style={{ animationDuration: "1.5s" }}>
-                            <Star className="h-10 w-10 text-yellow-400 fill-yellow-400" />
-                          </div>
-                        </div>
-                        <p className="text-sm text-muted-foreground mt-2 font-mono font-bold">
-                          Your Sign-Up Number — <span className="text-yellow-400">of {MAX_SPOTS}</span>
-                        </p>
-                      </div>
-                      <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 max-w-md mx-auto backdrop-blur-sm">
-                        <p className="text-sm text-primary-foreground/80 leading-relaxed">
-                          <strong>🔐 Save your sign-up number!</strong> You'll need it on tournament day.
-                          Payment deadline: <strong className="text-red-400">1:00 PM, 23 May 2026</strong>
-                        </p>
-                      </div>
-                      <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 max-w-md mx-auto">
-                        <p className="text-sm text-red-300 leading-relaxed">
-                          <strong>⚠️ Important:</strong> If you haven't paid by the deadline, your spot goes to the waiting list.
-                        </p>
-                      </div>
-                    </>
-                  )}
-
-                  {/* Email confirmation notice */}
-                  {emailSent && (
-                    <div className="bg-green-500/10 border border-green-500/20 rounded-xl p-4 max-w-md mx-auto">
-                      <p className="text-sm text-green-300 leading-relaxed">
-                        <strong>📧 Confirmation email sent!</strong> Check your inbox for your sign-up details.
-                      </p>
-                    </div>
-                  )}
-
-                  <div className="pt-4">
-                    <Button onClick={resetForm} variant="outline" className="border-border hover:bg-muted font-mono text-sm px-8 py-2">
-                      ← Submit Another Entry
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          )}
-
-          {/* Entry Form */}
-          {!submitted && (
+          {/* Entry Form - Hidden since event is completed */}
+          {!submitted && !eventCompleted && (
             <div className="relative mb-8">
               <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent rounded-2xl blur-xl" />
               <Card className="relative border-2 border-border/50 bg-card/80 backdrop-blur-sm shadow-2xl shadow-primary/5 overflow-hidden">
