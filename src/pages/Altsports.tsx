@@ -20,50 +20,47 @@ const Confetti = ({ active }: { active: boolean }) => {
     rotation: Math.random() * 360,
   }));
 
-  return (
-    {!eventCompleted ? (
-      <>
-    <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
-      {particles.map((p) => (
-        <div
-          key={p.id}
-          className="absolute animate-confetti-fall"
-          style={{
-            left: `${p.left}%`,
-            top: "-10px",
-            width: `${p.size}px`,
-            height: `${p.size}px`,
-            backgroundColor: p.color,
-            borderRadius: Math.random() > 0.5 ? "50%" : "2px",
-            transform: `rotate(${p.rotation}deg)`,
-            animationDelay: `${p.delay}s`,
-            animationDuration: `${p.duration}s`,
-          }}
-        />
-      ))}
-    </div>
-      </>
-    ) : (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-primary to-black/50 text-center py-12">
-        <div className="space-y-8">
-          <h1 className="text-4xl font-bold text-yellow-300">🏆 EVENT COMPLETED 🏆</h1>
-          <p className="text-xl text-muted-foreground">
-            The Africa Bitcoin Day 2026 Pool Tournament has successfully concluded.
-          </p>
-          <div className="space-y-4">
-            <a
-              href="/abd2026_pool_tournament_thank_you.txt"
-              className="btn btn-primary w-fit"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Thank You Note
-            </a>
-          </div>
+  return !eventCompleted ? (
+    <>
+      <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+        {particles.map((p) => (
+          <div
+            key={p.id}
+            className="absolute animate-confetti-fall"
+            style={{
+              left: `${p.left}%`,
+              top: "-10px",
+              width: `${p.size}px`,
+              height: `${p.size}px`,
+              backgroundColor: p.color,
+              borderRadius: Math.random() > 0.5 ? "50%" : "2px",
+              transform: `rotate(${p.rotation}deg)`,
+              animationDelay: `${p.delay}s`,
+              animationDuration: `${p.duration}s`,
+            }}
+          />
+        ))}
+      </div>
+    </>
+  ) : (
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-primary to-black/50 text-center py-12">
+      <div className="space-y-8">
+        <h1 className="text-4xl font-bold text-yellow-300">🏆 EVENT COMPLETED 🏆</h1>
+        <p className="text-xl text-muted-foreground">
+          The Africa Bitcoin Day 2026 Pool Tournament has successfully concluded.
+        </p>
+        <div className="space-y-4">
+          <a
+            href="/abd2026_pool_tournament_thank_you.txt"
+            className="btn btn-primary w-fit"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Thank You Note
+          </a>
         </div>
       </div>
     </div>
-  )
   );
 };
 
