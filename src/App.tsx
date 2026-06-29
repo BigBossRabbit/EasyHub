@@ -12,9 +12,9 @@ import TimeForce from "./pages/TimeForce";
 import EasyJobs from "./pages/EasyJobs";
 import Insights from "./pages/Insights";
 import About from "./pages/About";
-import ConnectExplore from "@/pages/ConnectExplore";
+import ConsultationForm from "./pages/ConsultationForm";
 import Terms from "@/pages/Terms";
-import Privacy from "./pages/Privacy";
+import Privacy from "@/pages/Privacy";
 import Dashboard from "./pages/Dashboard";
 import TPOK from "./pages/TPOK";
 import Contact from "./pages/Contact";
@@ -47,7 +47,7 @@ const App = () => (
             <Route path="/easyjobs" element={<Layout><EasyJobs /></Layout>} />
             <Route path="/insights" element={<Layout><Insights /></Layout>} />
             <Route path="/about" element={<Layout><About /></Layout>} />
-            <Route path="/connect" element={<Layout><ConnectExplore /></Layout>} />
+            <Route path="/connect" element={<Layout><ConsultationForm /></Layout>} />
             <Route path="/terms" element={<Layout><Terms /></Layout>} />
             <Route path="/privacy" element={<Layout><Privacy /></Layout>} />
             <Route path="/easystats" element={<Dashboard />} />
