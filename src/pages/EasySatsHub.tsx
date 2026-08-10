@@ -76,7 +76,7 @@ const EasySatsHub = () => {
 
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Button size="lg" className="h-14 px-8 text-lg font-bold rounded-full group" disabled>
-                Get Started
+                Returning Soon
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-bold rounded-full border-white/10 hover:bg-white/5" asChild>

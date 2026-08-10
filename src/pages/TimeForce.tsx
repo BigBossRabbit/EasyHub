@@ -225,7 +225,7 @@ const TimeForce = () => {
             </Button>
             <Button size="lg" className="gap-2 shadow-[0_0_20px_rgba(var(--primary),0.2)]" disabled>
                 <Globe className="h-4 w-4" />
-                Merchant Registration
+                Returning Soon
               </Button>
             <Button size="lg" variant="outline" className="gap-2" asChild>
               <Link to="/easyjobs">
@@ -529,7 +529,7 @@ const TimeForce = () => {
                   Access TimeForce Registration Form
                 </Button>
                 <Button size="lg" variant="outline" className="h-14 px-10 text-lg backdrop-blur-sm" disabled>
-                  Direct Merchant Server Link
+                  Returning Soon
                 </Button>
               </div>
               <p className="text-xs text-muted-foreground font-mono mt-8">
