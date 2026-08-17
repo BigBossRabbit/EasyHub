@@ -34,3 +34,15 @@ supabase/
 .gemini/
 dev-dist/
 
+# Built Expo PWA bundle — generated in CI/deploy, never committed
+public/easypass/
+
+# Editor backup artifacts
+*.backup
+*.backup[0-9]
+*.bak
+*.bak[0-9]
+
+# Personal agent prompt logs
+GEMINI.md
+
