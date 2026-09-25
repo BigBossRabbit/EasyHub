@@ -1,3 +1,5 @@
+![EasyHub Banner](assets/EasyHub-banner.svg)
+
 # EasyHub
 
 This project is a Progressive Web App built with Vite 6, React 19, TypeScript, and shadcn-ui.
