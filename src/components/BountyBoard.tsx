@@ -1,85 +1,68 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Target, Bitcoin, Terminal, Loader2 } from 'lucide-react';
-import { Button } from "@/components/ui/button";
+import { ExternalLink, Target, Bitcoin, Terminal, RefreshCw } from 'lucide-react';
 
-export interface BountyPlatform {
-    name: string;
+interface Bounty {
+    id: number;
+    title: string;
     url: string;
-    description: string;
-    tags: string[];
-    topBounty: {
-        title: string;
-        amount: string;
-        tags?: string[];
-    };
+    repo: string;
+    labels: string[];
+    amount: string | null;
+    createdAt: string;
 }
 
-export const BOUNTY_DATA = {
-    "Lightning Bounties": [
-        { title: "M3Y Scanner works not properly", amount: "201,621 sats", tags: ["Hardware", "Bug"] },
-        { title: "Improve Relay Handling & Resilient Client-Side Strategy", amount: "112,320 sats", tags: ["Protocol", "Dev"] },
-        { title: "Display Full Engagement Metrics", amount: "30,000 sats", tags: ["Feature", "UI"] },
-        { title: "Implement Followers in Audience Tab", amount: "10,080 sats", tags: ["Feature", "Social"] },
-        { title: "Add Yourself to Contributors Page", amount: "7,500 sats", tags: ["Documentation", "Easy"] }
-    ],
-    "Geyser Fund": [
-        { title: "Bitcoin Education & Culture", amount: "Up to 1 BTC", tags: ["Education", "Grants"] },
-        { title: "Circular Economy Projects", amount: "Variable", tags: ["Community", "Adoption"] },
-        { title: "Open Source Development", amount: "Variable", tags: ["Dev", "FOSS"] }
-    ],
-    "Kraken Exchange": [
-        { title: "Critical Security Vulnerability", amount: "Variable BTC", tags: ["Security", "Critical"] },
-        { title: "Trading Engine Exploit", amount: "Variable BTC", tags: ["Exchange", "High"] },
-        { title: "API Security Issues", amount: "Variable BTC", tags: ["API", "Medium"] }
-    ]
-};
+interface FeedData {
+    generatedAt: string;
+    bounties: Bounty[];
+}
 
-export const BOUNTY_PLATFORMS: BountyPlatform[] = [
+const PLATFORMS = [
     {
         name: "Lightning Bounties",
         url: "https://app.lightningbounties.com/feed",
-        description: "Earn sats by solving GitHub issues - Real bounties cycling every 60 seconds.",
-        tags: ["Lightning", "GitHub", "Sats"],
-        topBounty: {
-            title: "M3Y Scanner works not properly",
-            amount: "201,621 sats"
-        }
+        description: "Sats paid over Lightning for closed GitHub issues.",
     },
     {
-        name: "Geyser Grants",
-        url: "https://geyser.fund/grants",
-        description: "Apply for grants to build Bitcoin projects, education, and circular economies.",
-        tags: ["Grants", "Education", "Builders"],
-        topBounty: {
-            title: "Bitcoin Education & Culture",
-            amount: "Up to 1 BTC"
-        }
+        name: "Stacker News ~jobs",
+        url: "https://stacker.news/~jobs",
+        description: "Bounties and paid gigs posted by the SN community.",
     },
     {
-        name: "Kraken Exchange",
+        name: "Kraken Bug Bounty",
         url: "https://www.kraken.com/features/security/bug-bounty",
-        description: "Report security vulnerabilities - Rewards paid in BTC to verified accounts.",
-        tags: ["Security", "Exchange", "BTC Rewards"],
-        topBounty: {
-            title: "Critical Security Vulnerability",
-            amount: "Variable BTC"
-        }
-    }
+        description: "Security reports paid in BTC to verified accounts.",
+    },
 ];
 
-interface BountyBoardProps {
-    platforms: BountyPlatform[];
-    checkingIndex: number | null;
-    lastChecked: Date;
-}
+const STALE_MS = 72 * 60 * 60 * 1000;
 
-export const BountyBoard = ({ platforms, checkingIndex, lastChecked }: BountyBoardProps) => {
+export const BountyBoard = () => {
+    const [bounties, setBounties] = useState<Bounty[]>([]);
+    const [generatedAt, setGeneratedAt] = useState<string | null>(null);
+    const [state, setState] = useState<'loading' | 'ready' | 'empty' | 'stale'>('loading');
 
+    const load = async () => {
+        setState('loading');
+        try {
+            const res = await fetch('/feeds.json');
+            if (!res.ok) throw new Error(`feeds.json ${res.status}`);
+            const data: FeedData = await res.json();
+            setBounties(data.bounties || []);
+            setGeneratedAt(data.generatedAt ? new Date(data.generatedAt).toLocaleString() : null);
+            const age = Date.now() - new Date(data.generatedAt).getTime();
+            if (age > STALE_MS) setState('stale');
+            else if ((data.bounties || []).length > 0) setState('ready');
+            else setState('empty');
+        } catch {
+            setState('stale');
+        }
+    };
+
+    useEffect(() => { load(); }, []);
 
     return (
         <div className="bg-card border border-border rounded-lg p-6 hover:border-orange-500 transition-colors relative overflow-hidden h-full flex flex-col">
-            {/* Techy Background Pattern */}
             <div className="absolute inset-0 opacity-5 pointer-events-none">
                 <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-orange-500/20 to-transparent"></div>
                 <div className="absolute top-6 left-6 w-12 h-12 border border-orange-500/20 rounded-full"></div>
@@ -92,92 +75,116 @@ export const BountyBoard = ({ platforms, checkingIndex, lastChecked }: BountyBoa
                     <div className="flex items-center gap-3">
                         <div className="relative">
                             <Target className="h-8 w-8 text-orange-500" />
-                            <div className="absolute -top-1 -right-1 w-3 h-3 bg-orange-500 rounded-full animate-pulse"></div>
+                            <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                         </div>
                         <div>
                             <span className="text-xs text-muted-foreground font-mono">OPPORTUNITIES</span>
-                            <div className="flex items-center gap-1 text-xs text-orange-500 font-mono">
-                                <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
-                                <span>LIVE FEED</span>
+                            <div className="flex items-center gap-1 text-xs text-green-500 font-mono">
+                                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                <span>LIVE BOUNTIES</span>
                             </div>
                         </div>
                     </div>
                     <div className="text-right">
-                        <span className="text-xs text-muted-foreground font-mono block">LAST SCAN</span>
-                        <span className="text-xs text-orange-500 font-mono">{lastChecked.toLocaleTimeString()}</span>
+                        <span className="text-xs text-muted-foreground font-mono block">SYNCED</span>
+                        <span className="text-xs text-orange-500 font-mono">{generatedAt || '—'}</span>
                     </div>
                 </div>
 
-                <h3 className="text-lg font-semibold mb-2 font-mono">Bitcoin Bounties & Grants</h3>
+                <h3 className="text-lg font-semibold mb-2 font-mono">Open Source Bounties — Live</h3>
                 <p className="text-sm text-muted-foreground mb-6">
-                    Earn Bitcoin by contributing to open source projects, finding bugs, or securing grants for your own ideas.
+                    Real, open GitHub issues with a bounty label, across Bitcoin and Lightning repos. Claim one, ship the fix, get paid.
                 </p>
 
-                <div className="grid md:grid-cols-3 gap-4 flex-grow">
-                    {platforms.map((platform, index) => (
-                        <div key={index} className="group border border-orange-500/10 rounded-lg p-3 relative hover:border-orange-500/30 transition-colors bg-black/20">
-                            {/* Scanning effect overlay */}
-                            {checkingIndex === index && (
-                                <div className="absolute inset-0 bg-orange-500/5 animate-pulse rounded-lg z-0"></div>
-                            )}
+                {state === 'loading' && (
+                    <div className="p-2 bg-black/50 rounded font-mono text-xs text-orange-400 flex items-center gap-2">
+                        <RefreshCw className="h-3 w-3 animate-spin" /> fetching bounties...
+                    </div>
+                )}
 
+                {(state === 'ready') && (
+                    <div className="space-y-2 mb-6 max-h-[420px] overflow-y-auto custom-scrollbar pr-1">
+                        {bounties.map((b) => (
                             <a
-                                href={platform.url}
+                                key={b.id}
+                                href={b.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block space-y-2 relative z-10 h-full flex flex-col"
+                                className="group block border border-orange-500/10 rounded-lg p-3 hover:border-orange-500/40 transition-colors bg-black/20"
                             >
-                                <div className="flex items-center justify-between mb-1">
-                                    <h3 className="font-bold text-foreground group-hover:text-orange-400 transition-colors font-mono text-sm flex items-center gap-2 truncate">
-                                        {platform.name}
-                                        {checkingIndex === index && (
-                                            <Loader2 className="h-3 w-3 animate-spin text-orange-500" />
+                                <div className="flex items-start justify-between gap-3">
+                                    <div className="min-w-0">
+                                        <div className="text-sm font-mono text-foreground group-hover:text-orange-400 transition-colors line-clamp-2">
+                                            {b.title}
+                                        </div>
+                                        <div className="text-[10px] text-muted-foreground font-mono mt-1">
+                                            {b.repo} · {new Date(b.createdAt).toLocaleDateString()}
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col items-end gap-1 flex-shrink-0">
+                                        {b.amount && (
+                                            <span className="text-xs font-bold text-orange-400 font-mono whitespace-nowrap">{b.amount}</span>
                                         )}
-                                    </h3>
-                                    <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-orange-400 flex-shrink-0" />
-                                </div>
-
-                                <p className="text-[10px] text-muted-foreground line-clamp-2 mb-2 flex-grow">
-                                    {platform.description}
-                                </p>
-
-                                {/* Highest Bounty Display */}
-                                <div className="bg-black/40 border border-orange-500/20 rounded p-2 mt-auto flex items-center justify-between">
-                                    <div className="flex items-center gap-2">
-                                        <Terminal className="h-3 w-3 text-orange-500/70" />
-                                        <span className="text-[10px] text-orange-500/70 font-mono">TOP:</span>
-                                    </div>
-                                    <div className="text-right overflow-hidden">
-                                        <div className="text-[10px] text-gray-300 font-mono truncate max-w-[80px]">{platform.topBounty.title}</div>
-                                        <div className="text-xs font-bold text-orange-400 font-mono">{platform.topBounty.amount}</div>
+                                        <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-orange-400" />
                                     </div>
                                 </div>
-
-                                <div className="flex flex-wrap gap-1 mt-2">
-                                    {(platform.topBounty.tags || platform.tags).slice(0, 2).map((tag, i) => (
-                                        <Badge key={i} variant="outline" className="text-[9px] px-1 py-0 h-4 border-orange-500/30 text-orange-400 bg-orange-500/5 font-mono">
-                                            {tag}
-                                        </Badge>
-                                    ))}
-                                    {(platform.topBounty.tags || platform.tags).length > 2 && (
-                                        <Badge variant="outline" className="text-[9px] px-1 py-0 h-4 border-orange-500/30 text-orange-400 bg-orange-500/5 font-mono">
-                                            +{(platform.topBounty.tags || platform.tags).length - 2}
-                                        </Badge>
-                                    )}
-                                </div>
+                                {b.labels.length > 0 && (
+                                    <div className="flex flex-wrap gap-1 mt-2">
+                                        {b.labels.slice(0, 3).map((l, i) => (
+                                            <Badge key={i} variant="outline" className="text-[9px] px-1 py-0 h-4 border-orange-500/30 text-orange-400 bg-orange-500/5 font-mono">
+                                                {l}
+                                            </Badge>
+                                        ))}
+                                    </div>
+                                )}
                             </a>
-                        </div>
+                        ))}
+                    </div>
+                )}
+
+                {state === 'empty' && (
+                    <div className="p-3 bg-black/40 border border-orange-500/20 rounded font-mono text-xs text-muted-foreground mb-6">
+                        No open bounty-labelled issues matched right now. The boards below always carry live work:
+                    </div>
+                )}
+
+                {state === 'stale' && (
+                    <div className="p-3 bg-black/40 border border-yellow-500/30 rounded font-mono text-xs text-yellow-400/80 mb-6">
+                        Bounty feed is temporarily unavailable. The boards below always carry live work:
+                    </div>
+                )}
+
+                <div className="grid md:grid-cols-3 gap-4 mt-auto">
+                    {PLATFORMS.map((platform) => (
+                        <a
+                            key={platform.name}
+                            href={platform.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group border border-orange-500/10 rounded-lg p-3 hover:border-orange-500/30 transition-colors bg-black/20 block"
+                        >
+                            <div className="flex items-center justify-between mb-1">
+                                <h4 className="font-bold text-foreground group-hover:text-orange-400 transition-colors font-mono text-sm flex items-center gap-2 truncate">
+                                    {platform.name}
+                                </h4>
+                                <ExternalLink className="h-3 w-3 text-muted-foreground group-hover:text-orange-400 flex-shrink-0" />
+                            </div>
+                            <p className="text-[10px] text-muted-foreground line-clamp-2">{platform.description}</p>
+                        </a>
                     ))}
                 </div>
 
-                {/* Terminal Status */}
                 <div className="mt-6 p-2 bg-black/50 rounded font-mono text-xs">
                     <div className="text-orange-400 mb-1">
                         <span className="text-primary">$</span> bounties --monitor --active
                     </div>
                     <div className="text-orange-400 flex items-center gap-2">
                         <Bitcoin className="h-3 w-3" />
-                        <span>Rewards payable in BTC/Sats</span>
+                        <span>Rewards payable in BTC/Sats · feed refreshes every 6h</span>
+                    </div>
+                    <div className="text-orange-400/60 mt-1 flex items-center gap-2">
+                        <Terminal className="h-3 w-3" />
+                        <span>source: GitHub bounty-labelled issues · bitcoin · lightning · nostr</span>
                     </div>
                 </div>
             </div>

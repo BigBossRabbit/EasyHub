@@ -2,7 +2,7 @@ import Seo from "@/components/Seo";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Globe, Menu, Rocket } from "lucide-react";
+import { ArrowRight, ExternalLink, Globe, Menu, Rocket } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const CONNECT_SCHEMA = JSON.stringify({
@@ -15,7 +15,7 @@ const CONNECT_SCHEMA = JSON.stringify({
             "@type": "ListItem",
             "position": 1,
             "name": "EasySats Merchant Platform",
-            "url": "https://easysats.okinent.org/register?returnurl=%2F"
+            "url": "https://bitcoin.okinent.org/connect"
         },
         {
             "@type": "ListItem",
@@ -27,7 +27,7 @@ const CONNECT_SCHEMA = JSON.stringify({
             "@type": "ListItem",
             "position": 3,
             "name": "SovereignKey",
-            "url": "https://sovereignkey.carrd.co/"
+            "url": "https://bitcoin.okinent.org/connect"
         },
         {
             "@type": "ListItem",
@@ -66,19 +66,19 @@ const ConnectExplore = () => {
 
                     <div className="grid md:grid-cols-2 gap-6">
                         {/* EasySats Merchant Platform */}
-                        <a href="https://easysats.okinent.org/register?returnurl=%2F" target="_blank" rel="noopener noreferrer" className="group">
+                        <Link to="/connect" className="group">
                             <Card className="bg-card/50 border-primary/20 hover:border-primary/40 transition-all duration-300 h-full hover:shadow-lg hover:shadow-primary/10">
                                 <CardContent className="pt-8 pb-6">
                                     <div className="flex items-start justify-between mb-3">
                                         <h2 className="font-bold text-2xl text-primary">EasySats Merchant Platform</h2>
-                                        <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors mt-1" />
+                                        <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors mt-1" />
                                     </div>
                                     <p className="text-muted-foreground leading-relaxed">
-                                        Bitcoin payment solutions for merchants in Namibia. Accept Bitcoin payments seamlessly and join the financial revolution.
+                                        Bitcoin payment solutions for merchants in Namibia. Onboarding is currently by consultation — get in touch and we'll set you up.
                                     </p>
                                 </CardContent>
                             </Card>
-                        </a>
+                        </Link>
 
                         {/* EasySats Crowdfunding */}
                         <a href="https://geyser.fund/project/easysats" target="_blank" rel="noopener noreferrer" className="group">
@@ -96,19 +96,19 @@ const ConnectExplore = () => {
                         </a>
 
                         {/* SovereignKey */}
-                        <a href="https://sovereignkey.carrd.co/" target="_blank" rel="noopener noreferrer" className="group">
+                        <Link to="/connect" className="group">
                             <Card className="bg-card/50 border-primary/20 hover:border-primary/40 transition-all duration-300 h-full hover:shadow-lg hover:shadow-primary/10">
                                 <CardContent className="pt-8 pb-6">
                                     <div className="flex items-start justify-between mb-3">
                                         <h2 className="font-bold text-2xl text-primary">SovereignKey</h2>
-                                        <ExternalLink className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors mt-1" />
+                                        <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors mt-1" />
                                     </div>
                                     <p className="text-muted-foreground leading-relaxed">
-                                        Bitcoin education and sovereignty resources. Learn how to take control of your financial future with a self-custodial "Swiss-Army Knife solution.
+                                        A self-custodial "Swiss-Army Knife" for Bitcoin sovereignty — currently in private development. Contact us for early access.
                                     </p>
                                 </CardContent>
                             </Card>
-                        </a>
+                        </Link>
 
                         {/* Trezor Academy */}
                         <a href="https://www.youtube.com/watch?v=w3hnFCfCo84" target="_blank" rel="noopener noreferrer" className="group">

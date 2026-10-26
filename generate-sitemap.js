@@ -14,6 +14,7 @@ const routes = [
   '/easyjobs',
   '/easytours',
   '/easytours/ultimate-namibia',
+  '/altsports',
   '/timeforce',
   '/tpok',
   '/contact',

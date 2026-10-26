@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Newspaper, FileText, Scale, Shield, ArrowRight, Zap, Briefcase, Code } from "lucide-react";
+import { FileText, Scale, Shield, ArrowRight, Zap, Briefcase, Code } from "lucide-react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 
@@ -17,7 +17,7 @@ const ORGANIZATION_SCHEMA = JSON.stringify({
   },
   "sameAs": [
     "https://github.com/BigBossRabbit",
-    "https://twitter.com/EasySats_NA"
+    "https://x.com/easysats_"
   ]
 });
 
@@ -80,8 +80,8 @@ const EasySatsHub = () => {
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-bold rounded-full border-white/10 hover:bg-white/5" asChild>
-                <Link to="/insights">
-                  Read Chronicle
+                <Link to="/easyjobs">
+                  Earn Sats
                 </Link>
               </Button>
             </div>
@@ -176,9 +176,9 @@ const EasySatsHub = () => {
               </a>
             </Button>
             <Button variant="ghost" className="h-16 border border-white/5 hover:bg-white/5 rounded-2xl" asChild>
-              <Link to="/insights">
-                <Newspaper className="mr-2 h-5 w-5 opacity-50" />
-                Chronicle
+              <Link to="/easydevs">
+                <Code className="mr-2 h-5 w-5 opacity-50" />
+                Bounties
               </Link>
             </Button>
             <Button variant="ghost" className="h-16 border border-white/5 hover:bg-white/5 rounded-2xl" asChild>

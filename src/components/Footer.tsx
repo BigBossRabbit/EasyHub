@@ -64,10 +64,9 @@ const Footer = () => {
                         <ul className="space-y-2 text-sm text-muted-foreground">
                             <li><Link to="/" className="hover:text-primary transition-colors">{'> '}home</Link></li>
                             <li><Link to="/about" className="hover:text-primary transition-colors">{'> '}about</Link></li>
-                            <li><Link to="/connect" className="hover:text-primary transition-colors">{'> '}connect</Link></li>
+                            <li><Link to="/timeforce" className="hover:text-primary transition-colors">{'> '}timeforce</Link></li>
                             <li><Link to="/easyjobs" className="hover:text-primary transition-colors">{'> '}easyjobs</Link></li>
                             <li><Link to="/easydevs" className="hover:text-primary transition-colors">{'> '}easydevs</Link></li>
-                            <li><Link to="/insights" className="hover:text-primary transition-colors">{'> '}insights</Link></li>
                             <li><Link to="/altsports" className="hover:text-primary transition-colors">{'> '}altsports</Link></li>
                         </ul>
                     </div>

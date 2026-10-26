@@ -1,147 +1,53 @@
 import { Button } from "@/components/ui/button";
-import { Terminal, Code2, ExternalLink } from "lucide-react";
+import { Terminal, Code2, Link as LinkIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
-import { BountyBoard, BOUNTY_PLATFORMS, BOUNTY_DATA } from "@/components/BountyBoard";
+import { BountyBoard } from "@/components/BountyBoard";
 import { SovereignKey } from "@/components/SovereignKey";
-import BossCountdown from "@/components/BossCountdown";
-import { useEffect, useState } from "react";
 
-interface TimedProject {
-  id: string;
-  title: string;
-  description: string;
-  deadline: Date;
-  link: string;
-  details: {
-    program?: string[];
-    expectations?: { label: string; value: string }[];
-    timeline?: { label: string; value: string }[];
-  };
-  stack: string[];
-  status: string;
-}
-
-const TIMED_PROJECTS: TimedProject[] = [
+const RESOURCES = [
   {
-    id: 'boss-2026',
-    title: '2026 BOSS Challenge by Btrust Builders & Chaincode Labs',
-    description: 'Join the Bitcoin Open Source Software (BOSS) Challenge to kickstart your career in Bitcoin development. A 3-month program to guide you into contributing to open-source Bitcoin projects.',
-    deadline: new Date('2025-12-31T23:59:59Z'),
-    link: 'https://bosschallenge.xyz/',
-    details: {
-      program: [
-        '3-month structured program',
-        'Mentorship from ₿OSS contributors',
-        'Work on real-world Open-Source projects',
-        'Networking with partner organizations'
-      ],
-      expectations: [
-        { label: 'Proactive Spirit', value: 'Self-starter attitude is key.' },
-        { label: 'Time Commitment', value: 'Minimum 10 hours/week for prep.' },
-        { label: 'Engagement', value: 'Participate in async chat discussions.' },
-        { label: 'Passion', value: 'A drive to contribute to Bitcoin.' }
-      ],
-      timeline: [
-        { label: 'Registration', value: 'Coming Soon' },
-        { label: 'Challenge Begins', value: 'Q1 2026 (TBA)' }
-      ]
-    },
-    stack: ['Bitcoin Core', 'Lightning', 'Rust', 'Cryptography', 'PayJoin', 'LDK'],
-    status: '✓ Program active • ✓ Remote positions available • ✓ Bitcoin focus'
+    name: "Bitcoin Core",
+    url: "https://github.com/bitcoin/bitcoin",
+    blurb: "The reference implementation. Good first issues labelled on GitHub.",
+    tags: ["C++", "Consensus"]
+  },
+  {
+    name: "Lightning (BOLTs)",
+    url: "https://github.com/lightning/bolts",
+    blurb: "The Lightning Network protocol specification. Propose, review, implement.",
+    tags: ["Spec", "Protocol"]
+  },
+  {
+    name: " developer.bitcoin.org",
+    url: "https://developer.bitcoin.org/",
+    blurb: "Official Bitcoin developer documentation and reference.",
+    tags: ["Docs", "Reference"]
+  },
+  {
+    name: "Btrust",
+    url: "https://btrust.tech/",
+    blurb: "Funding Bitcoin open-source development and developer education in the Global South.",
+    tags: ["Career", "Mentorship"]
+  },
+  {
+    name: "Chaincode Labs",
+    url: "https://chaincode.com/",
+    blurb: "Residency programs and free open-source curriculum for Bitcoin devs.",
+    tags: ["Residency", "Learning"]
+  },
+  {
+    name: "Bitcoin Design Guide",
+    url: "https://bitcoin.design/guide/",
+    blurb: "Open-source guide for designing Bitcoin products. Designers welcome.",
+    tags: ["Design", "UX"]
   }
 ];
 
 const EasyDevs = () => {
-  const [checkingIndex, setCheckingIndex] = useState<number | null>(null);
-  const [lastChecked, setLastChecked] = useState<Date>(new Date());
-  const [platforms, setPlatforms] = useState(BOUNTY_PLATFORMS);
-  const [activeProjects, setActiveProjects] = useState<TimedProject[]>([]);
-
-  useEffect(() => {
-    const checkProjects = () => {
-      const now = new Date();
-      const filtered = TIMED_PROJECTS.filter(project => {
-        // 48 hours buffer logic
-        // If deadline is T, removal is T + 48h.
-        // Keep if now < T + 48h.
-        const removalTime = new Date(project.deadline.getTime() + 48 * 60 * 60 * 1000);
-        return now < removalTime;
-      });
-      setActiveProjects(filtered);
-    };
-
-    checkProjects();
-    const interval = setInterval(checkProjects, 60000); // Check every minute
-    return () => clearInterval(interval);
-  }, []);
-
-  // Simulate real-time checking effect (lifted from BountyBoard)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      // Randomly "check" one of the platforms
-      const randomIndex = Math.floor(Math.random() * platforms.length);
-      setCheckingIndex(randomIndex);
-
-      setTimeout(() => {
-        setCheckingIndex(null);
-        setLastChecked(new Date());
-
-        // Update the top bounty for this platform
-        setPlatforms(currentPlatforms => {
-          const newPlatforms = [...currentPlatforms];
-          const platformName = newPlatforms[randomIndex].name;
-          const platformBounties = BOUNTY_DATA[platformName as keyof typeof BOUNTY_DATA];
-          if (platformBounties) {
-            const randomBounty = platformBounties[Math.floor(Math.random() * platformBounties.length)];
-            newPlatforms[randomIndex] = {
-              ...newPlatforms[randomIndex],
-              topBounty: randomBounty
-            };
-          }
-          return newPlatforms;
-        });
-      }, 2000); // "Check" takes 2 seconds
-    }, 60 * 1000); // Run every 60 seconds
-
-    return () => clearInterval(interval);
-  }, [platforms.length]);
-
-  // Helper to find the "highest" bounty
-  const getHighestBounty = () => {
-    let highest = platforms[0];
-    let highestValue = 0;
-
-    platforms.forEach(p => {
-      let value = 0;
-      if (p.topBounty.amount.includes("BTC")) {
-        value = parseFloat(p.topBounty.amount.replace(" BTC", "")) * 100000; // Weight BTC heavily
-      } else if (p.topBounty.amount.includes("$")) {
-        value = parseFloat(p.topBounty.amount.replace(/[^0-9.]/g, ""));
-      }
-
-      if (value > highestValue) {
-        highestValue = value;
-        highest = p;
-      }
-    });
-
-    return {
-      title: highest.topBounty.title,
-      platform: highest.name,
-      reward: highest.topBounty.amount,
-      type: (highest.topBounty.tags || highest.tags).join(" / "),
-      color: highest.name === "Bitcoin Bounties" ? "text-orange-500" :
-        highest.name === "HackenProof" ? "text-green-500" :
-          highest.name === "Bitaps" ? "text-red-500" : "text-purple-500"
-    };
-  };
-
-  const currentBounty = getHighestBounty();
-
   return (
     <div className="min-h-screen text-foreground font-mono">
-      <Seo title="EasyDevs — Open Source Opportunities" description="Explore open source projects & opportunities in the Bitcoin & freedom technology space." canonical="/easydevs" />
+      <Seo title="EasyDevs — Open Source Opportunities" description="Live open-source bounties, grants and learning paths in the Bitcoin & freedom technology space." canonical="/easydevs" />
 
       <section className="container mx-auto px-6 py-12">
         <div className="max-w-4xl">
@@ -165,167 +71,56 @@ const EasyDevs = () => {
               <span className="font-semibold">// About EasyDevs</span>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Explore open source projects & opportunities in the Bitcoin & freedom technology space.
-              Contribute to building a more sovereign future through code, design, and innovation.
+              Bitcoin is built in the open — and it pays. This page tracks <span className="text-foreground font-semibold">live, claimable bounties</span> on
+              real GitHub issues across Bitcoin, Lightning and Nostr repos, plus the platforms, grants and learning paths that
+              turn contributors into maintainers. No registrations, no gatekeeping: read the issue, ship the fix, post the PR.
             </p>
-          </div>
-
-          {/* Highest Bounty Terminal Display */}
-          <div className="bg-black/80 border border-green-500/30 rounded-lg p-4 font-mono text-sm shadow-lg shadow-green-500/5 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-2 opacity-50 group-hover:opacity-100 transition-opacity">
-              <div className="flex gap-1">
-                <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                <div className="w-2 h-2 rounded-full bg-yellow-500"></div>
-                <div className="w-2 h-2 rounded-full bg-green-500"></div>
-              </div>
-            </div>
-            <div className="text-green-400 mb-2 flex items-center gap-2">
-              <span className="text-primary">$</span>
-              <span className="animate-pulse">fetch_highest_bounty.sh</span>
-            </div>
-            <div className="space-y-1">
-              <div className="text-gray-400">Searching available platforms...</div>
-              <div className="text-gray-400">Analyzing reward pools...</div>
-              <div className={`mt-2 ${currentBounty.color}`}>FOUND: {currentBounty.title}</div>
-              <div className="pl-4 text-gray-300">
-                <span className="text-purple-400">Platform:</span> {currentBounty.platform}<br />
-                <span className="text-purple-400">Reward:</span> <span className="text-yellow-400 font-bold">{currentBounty.reward}</span><br />
-                <span className="text-purple-400">Type:</span> {currentBounty.type}
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      <section className="container mx-auto px-6 py-16">
+      <section className="container mx-auto px-6 pb-8">
+        {/* Live Bounties — full width */}
+        <BountyBoard />
+      </section>
+
+      <section className="container mx-auto px-6 py-8">
         <div className="mb-8">
           <div className="flex items-center gap-2 text-primary text-sm mb-2">
             <Terminal className="h-4 w-4" />
-            <span>cat opportunities.json</span>
+            <span>cat resources.json</span>
           </div>
-          <h2 className="text-3xl font-bold">Available Projects</h2>
+          <h2 className="text-3xl font-bold">Start Contributing</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Mapped Projects */}
-          {activeProjects.map((project) => (
-            <div key={project.id} className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-colors relative overflow-hidden">
-              {/* Techy Background Pattern */}
-              <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary/20 to-transparent"></div>
-                <div className="absolute top-4 right-4 w-16 h-16 border border-primary/20 rounded-full"></div>
-                <div className="absolute bottom-4 left-4 w-8 h-8 border border-primary/20 rounded-full"></div>
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 border border-primary/10 rounded-full"></div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {RESOURCES.map((r) => (
+            <a
+              key={r.name}
+              href={r.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-card border border-border rounded-lg p-5 hover:border-primary transition-colors block"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="font-semibold font-mono text-sm group-hover:text-primary transition-colors">{r.name}</h3>
+                <LinkIcon className="h-3 w-3 text-muted-foreground group-hover:text-primary flex-shrink-0" />
               </div>
-
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="relative">
-                      <Terminal className="h-8 w-8 text-primary" />
-                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                    </div>
-                    <BossCountdown targetDate={project.deadline} label="DEADLINE" />
-                  </div>
-                  <span className="text-xs text-muted-foreground font-mono">REMOTE</span>
-                </div>
-
-                <h3 className="text-lg font-semibold mb-2 font-mono">{project.title}</h3>
-                <p className="text-sm text-muted-foreground mb-4">
-                  {project.description}
-                </p>
-
-                {/* Additional Details */}
-                <div className="mb-4 p-3 bg-primary/5 border border-primary/20 rounded space-y-3">
-                  {project.details.program && (
-                    <div>
-                      <div className="text-xs text-primary font-mono mb-1">PROGRAM DETAILS:</div>
-                      <ul className="text-xs text-muted-foreground space-y-1">
-                        {project.details.program.map((item, i) => (
-                          <li key={i}>• {item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {project.details.expectations && (
-                    <div>
-                      <div className="text-xs text-primary font-mono mb-1">PARTICIPANT EXPECTATIONS:</div>
-                      <ul className="text-xs text-muted-foreground space-y-1">
-                        {project.details.expectations.map((item, i) => (
-                          <li key={i}>• <span className="text-foreground">{item.label}:</span> {item.value}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {project.details.timeline && (
-                    <div>
-                      <div className="text-xs text-primary font-mono mb-1">TIMELINE:</div>
-                      <div className="grid grid-cols-2 gap-2 text-xs text-muted-foreground">
-                        {project.details.timeline.map((item, i) => (
-                          <div key={i}>
-                            <span className="text-foreground block">{item.label}:</span>
-                            {item.value}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Tech Stack Visualization */}
-                <div className="mb-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-xs text-muted-foreground font-mono">STACK:</span>
-                    <div className="flex gap-1">
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                      <div className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                      <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap gap-1">
-                    {project.stack.map((tech) => (
-                      <span key={tech} className="px-2 py-1 text-xs bg-primary/10 text-primary rounded font-mono">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Terminal Status */}
-                <div className="mb-4 p-2 bg-black/50 rounded font-mono text-xs">
-                  <div className="text-green-400 mb-1">
-                    <span className="text-primary">$</span> project --status
-                  </div>
-                  <div className="text-green-400">
-                    {project.status}
-                  </div>
-                </div>
-
-                <div className="flex gap-2">
-                  <Button variant="outline" size="sm" className="gap-2" asChild>
-                    <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      <Code2 className="h-3 w-3" />
-                      Learn More & Get Ready
-                    </a>
-                  </Button>
-                </div>
+              <p className="text-xs text-muted-foreground leading-relaxed">{r.blurb}</p>
+              <div className="flex flex-wrap gap-1 mt-3">
+                {r.tags.map((t) => (
+                  <span key={t} className="px-2 py-0.5 text-[10px] bg-primary/10 text-primary rounded font-mono">{t}</span>
+                ))}
               </div>
-            </div>
+            </a>
           ))}
+        </div>
+      </section>
 
+      <section className="container mx-auto px-6 py-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {/* SovereignKey Project */}
           <SovereignKey />
-
-          {/* Bounty Board - Full Width */}
-          <div className="md:col-span-2">
-            <BountyBoard
-              platforms={platforms}
-              checkingIndex={checkingIndex}
-              lastChecked={lastChecked}
-            />
-          </div>
         </div>
 
         <div className="mt-8 bg-card border border-primary/50 rounded-lg p-6">
@@ -334,11 +129,13 @@ const EasyDevs = () => {
             <span className="font-semibold">// Want to submit a project?</span>
           </div>
           <p className="text-sm text-muted-foreground mb-4">
-            Have an open source Bitcoin or freedom tech project? We'd love to feature it here.
+            Building an open source Bitcoin or freedom tech project? Reach us directly — we feature selected projects here.
           </p>
-          <Button className="gap-2">
-            <Code2 className="h-4 w-4" />
-            Submit Project
+          <Button className="gap-2" asChild>
+            <Link to="/connect">
+              <Code2 className="h-4 w-4" />
+              Submit Project
+            </Link>
           </Button>
         </div>
       </section>

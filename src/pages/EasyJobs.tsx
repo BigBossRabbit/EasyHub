@@ -81,9 +81,11 @@ const EasyJobs = () => {
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button size="lg" className="gap-2">
-              <Briefcase className="h-4 w-4" />
-              Browse EasyJobs
+            <Button size="lg" className="gap-2" asChild>
+              <a href="#jobboard">
+                <Briefcase className="h-4 w-4" />
+                Browse EasyJobs
+              </a>
             </Button>
             <Button size="lg" variant="outline" className="gap-2" asChild>
               <a href="https://bitcoinerjobs.com/" target="_blank" rel="noopener noreferrer">
@@ -190,7 +192,7 @@ const EasyJobs = () => {
       </section>
 
       {/* Job Board Section */}
-      <section className="container mx-auto px-6 py-16 bg-card">
+      <section id="jobboard" className="container mx-auto px-6 py-16 bg-card scroll-mt-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4">
@@ -315,7 +317,7 @@ const EasyJobs = () => {
                   </a>
                 </Button>
                 <Button variant="outline" size="sm" className="w-full justify-start gap-2" asChild>
-                  <a href="https://bitcoin.org/en/developer-documentation" target="_blank" rel="noopener noreferrer">
+                  <a href="https://developer.bitcoin.org/" target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="h-3 w-3" />
                     Bitcoin Developer Resources
                   </a>

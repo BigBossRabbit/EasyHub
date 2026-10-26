@@ -7,34 +7,26 @@ interface NewsItem {
   title: string;
   link: string;
   pubDate: string;
-  creator: string;
   description: string;
-  category: string;
-  itemId: string;
   sourceDomain: string;
-  discussionLink: string;
+  itemId: string;
 }
 
-interface RSSItem {
-  title: string;
-  link: string;
-  pubDate: string;
-  author: string;
-  description: string;
-  categories: string[];
-  guid: string;
+interface FeedData {
+  generatedAt: string;
+  news: { title: string; link: string; pubDate: string; description: string }[];
 }
 
 export const StackerNewsFeed = () => {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [lastUpdated, setLastUpdated] = useState<Date>(new Date());
+  const [lastUpdated, setDate] = useState<Date | null>(null);
 
   const getFirstTwoSentences = (text: string) => {
     if (!text) return '';
     // Remove markdown and HTML
-    const cleanText = text.replace(/[#*_`[\]()]/g, '').replace(/<[^>]*>?/gm, '');
+    const cleanText = text.replace(/[#*_`[\\]()]/g, '').replace(/<[^>]*>?/gm, '');
     // Split by sentence endings
     const sentences = cleanText.match(/[^.!?]+[.!?]+/g) || [cleanText];
     // Take first 2 and join
@@ -47,29 +39,19 @@ export const StackerNewsFeed = () => {
     if (!isAutoRefresh) setError(null);
 
     try {
-      // Use RSS feed with rss2json (GraphQL has CORS issues)
-      const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://stacker.news/rss');
-
+      // Same-origin file generated every 6h by .github/workflows/feeds.yml
+      const response = await fetch('/feeds.json');
       if (!response.ok) throw new Error('Network response was not ok');
+      const data: FeedData = await response.json();
 
-      const data = await response.json();
+      const newsItems: NewsItem[] = (data.news || []).slice(0, 5).map((item) => {
+        const description = item.description
+          ? getFirstTwoSentences(item.description.replace(/<[^>]*>/g, '').replace('Comments', ''))
+          : '';
 
-      if (data.status !== 'ok') throw new Error('Feed fetch failed');
+        // Extract item ID from link (e.g., "https://stacker.news/items/1286449" -> "1286449")
+        const itemId = item.link.split('/').pop() || '';
 
-      const newsItems: NewsItem[] = data.items.slice(0, 5).map((item: RSSItem) => {
-        // Extract description from the content or use a fallback
-        const description = item.description ?
-          getFirstTwoSentences(item.description.replace(/<[^>]*>/g, '').replace('Comments', '')) :
-          '';
-
-        // Extract category from categories array
-        const category = item.categories && item.categories.length > 0 ?
-          item.categories[0] : 'bitcoin';
-
-        // Extract item ID from GUID (e.g., "https://stacker.news/items/1286449" -> "1286449")
-        const itemId = item.guid ? item.guid.split('/').pop() : '';
-
-        // Extract source domain from link (e.g., "https://github.com/path" -> "github.com")
         let sourceDomain = 'stacker.news';
         try {
           const url = new URL(item.link);
@@ -82,23 +64,20 @@ export const StackerNewsFeed = () => {
           title: item.title,
           link: item.link,
           pubDate: item.pubDate,
-          creator: item.author || 'anon',
           description: description || '',
-          category: category,
-          itemId: itemId,
-          sourceDomain: sourceDomain,
-          discussionLink: `https://stacker.news/items/${itemId}`
+          sourceDomain,
+          itemId,
         };
       });
 
       setNews(newsItems);
-      setLastUpdated(new Date());
+      setDate(new Date(data.generatedAt));
       setError(null); // Clear error on success
     } catch (err) {
       console.error("Error fetching Stacker News:", err);
       // Only show visible error if it's a manual fetch or initial load
       if (!isAutoRefresh) {
-        setError("Failed to load news feed. Retrying automatically...");
+        setError("News feed is temporarily unavailable. Retrying automatically...");
       }
     } finally {
       setLoading(false);
@@ -204,23 +183,18 @@ export const StackerNewsFeed = () => {
                       <span className="text-gray-600">•</span>
                       <span className="text-gray-500 group-hover:text-gray-400 transition-colors">#{item.itemId}</span>
                       <span className="text-gray-600">•</span>
-                      <span className="text-yellow-500/60 group-hover:text-yellow-500 transition-colors">@{item.creator}</span>
-                      <span className="text-gray-600">•</span>
                       <span className="text-gray-400 group-hover:text-gray-300 transition-colors">{getTimeAgo(item.pubDate)}</span>
-                      <span className="text-gray-600">•</span>
-                      <span className="text-orange-400 group-hover:text-orange-300 transition-colors">{item.category}</span>
                       <span className="text-gray-600 mx-1">•</span>
-                      <span
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          window.open(item.discussionLink, '_blank');
-                        }}
+                      <a
+                        href={`https://stacker.news/items/${item.itemId}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
                         className="text-yellow-400/70 hover:text-yellow-400 transition-colors inline-flex items-center gap-1 group/discuss cursor-pointer"
                       >
                         <span className="group-hover/discuss:underline">discuss</span>
                         <ExternalLink className="h-3 w-3 group-hover/discuss:translate-x-0.5 transition-transform" />
-                      </span>
+                      </a>
                       <span className="text-gray-600 ml-auto hidden sm:inline">
                         {new Date(item.pubDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' })}
                       </span>

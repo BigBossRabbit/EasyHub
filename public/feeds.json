@@ -1,0 +1,228 @@
+{
+  "generatedAt": "2026-10-26T16:12:31.476Z",
+  "jobs": {
+    "stackerNews": [
+      {
+        "id": "1018315",
+        "title": "Bitcoin Multi-Sig Wallet Engineer (Freelance, PSBT/Descriptor Focus)",
+        "url": "https://stacker.news/items/1018315",
+        "date": "2025-06-29T07:31:26.941Z"
+      },
+      {
+        "id": "1297364",
+        "title": "🧑‍🎤👨‍💼👨‍🏭 Cofounder, Community organizer and Creator positions !",
+        "url": "https://stacker.news/items/1297364",
+        "date": "2025-12-01T16:26:28.010Z"
+      },
+      {
+        "id": "1276883",
+        "title": "Marketing Lead",
+        "url": "https://stacker.news/items/1276883",
+        "date": "2025-11-07T11:46:15.514Z"
+      },
+      {
+        "id": "1222704",
+        "title": "Software Engineer",
+        "url": "https://stacker.news/items/1222704",
+        "date": "2025-09-15T14:59:01.122Z"
+      },
+      {
+        "id": "1214339",
+        "title": "Rust Senior Engineer",
+        "url": "https://stacker.news/items/1214339",
+        "date": "2025-09-09T15:05:44.808Z"
+      },
+      {
+        "id": "1203483",
+        "title": "Founding Infrastructure Engineer / Cofounder",
+        "url": "https://stacker.news/items/1203483",
+        "date": "2025-09-02T05:48:10.813Z"
+      },
+      {
+        "id": "1203239",
+        "title": "Bitcoin Builders Workaway 🌴",
+        "url": "https://stacker.news/items/1203239",
+        "date": "2025-09-02T00:05:48.313Z"
+      },
+      {
+        "id": "1203190",
+        "title": "Frontend Engineer",
+        "url": "https://stacker.news/items/1203190",
+        "date": "2025-09-01T23:03:07.187Z"
+      },
+      {
+        "id": "1202024",
+        "title": "React / NextJS Senior Engineer",
+        "url": "https://stacker.news/items/1202024",
+        "date": "2025-09-01T08:10:09.478Z"
+      },
+      {
+        "id": "1071370",
+        "title": "Pubky Developer Advocate",
+        "url": "https://stacker.news/items/1071370",
+        "date": "2025-08-07T16:47:01.797Z"
+      },
+      {
+        "id": "996651",
+        "title": "Full Stack Developer (Vue/Nuxt + Nest.js) at Predyx [New postion] August 18,2025",
+        "url": "https://stacker.news/items/996651",
+        "date": "2025-06-04T01:07:44.115Z"
+      },
+      {
+        "id": "984879",
+        "title": "Meme Content Creator (part-time, 1 hr per day)",
+        "url": "https://stacker.news/items/984879",
+        "date": "2025-05-20T18:40:07.572Z"
+      }
+    ],
+    "hrf": {
+      "ok": true,
+      "jobs": [
+        {
+          "title": "Senior Designer",
+          "url": "https://hrf.org/career/senior-designer/"
+        },
+        {
+          "title": "Senior Director Of Development",
+          "url": "https://hrf.org/career/senior-director-of-development/"
+        },
+        {
+          "title": "Oslo Freedom Forum Norway Producer",
+          "url": "https://hrf.org/career/oslo-freedom-forum-norway-producer/"
+        },
+        {
+          "title": "Digital Producer",
+          "url": "https://hrf.org/career/digital-producer/"
+        },
+        {
+          "title": "Editorial Manager",
+          "url": "https://hrf.org/career/editorial-manager/"
+        },
+        {
+          "title": "Design Director",
+          "url": "https://hrf.org/career/design-director/"
+        },
+        {
+          "title": "Legal Policy Officer MENA Region",
+          "url": "https://hrf.org/career/legal-policy-officer-mena-region/"
+        }
+      ]
+    }
+  },
+  "bounties": [
+    {
+      "id": 6039972215,
+      "title": "[radar] SN open bounty 2026-10-26T12:48",
+      "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1339",
+      "repo": "relayhop/sn-monetization-runtime",
+      "labels": [
+        "radar",
+        "sn",
+        "bounty"
+      ],
+      "amount": null,
+      "createdAt": "2026-10-26T12:48:58Z"
+    },
+    {
+      "id": 6039962974,
+      "title": "[radar] SN open bounty 2026-10-26T12:48",
+      "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1338",
+      "repo": "relayhop/sn-monetization-runtime",
+      "labels": [
+        "radar",
+        "sn",
+        "bounty"
+      ],
+      "amount": null,
+      "createdAt": "2026-10-26T12:48:24Z"
+    },
+    {
+      "id": 6034255604,
+      "title": "[radar] SN open bounty 2026-10-26T06:01",
+      "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1337",
+      "repo": "relayhop/sn-monetization-runtime",
+      "labels": [
+        "radar",
+        "sn",
+        "bounty"
+      ],
+      "amount": null,
+      "createdAt": "2026-10-26T06:01:13Z"
+    },
+    {
+      "id": 6026417530,
+      "title": "[radar] SN open bounty 2026-10-25T16:02",
+      "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1329",
+      "repo": "relayhop/sn-monetization-runtime",
+      "labels": [
+        "radar",
+        "sn",
+        "bounty"
+      ],
+      "amount": null,
+      "createdAt": "2026-10-25T16:02:35Z"
+    }
+  ],
+  "news": [
+    {
+      "title": "Should Economists Stay in Their Lane?",
+      "link": "https://stacker.news/items/1602574",
+      "pubDate": "Mon, 26 Oct 2026 14:25:06 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "When “Nothing Ever Happens” Become the Pennies-Before-Steamroller Trade",
+      "link": "https://stacker.news/items/1602534",
+      "pubDate": "Mon, 26 Oct 2026 13:28:25 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Christianity territory help",
+      "link": "https://stacker.news/items/1601896",
+      "pubDate": "Sun, 25 Oct 2026 13:00:05 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "The Chainsaw Economics Britain Needs (FT, Tej Parikh)",
+      "link": "https://www.ft.com/content/46955baa-a3c0-487c-bf3e-d89430a84516",
+      "pubDate": "Mon, 26 Oct 2026 12:23:52 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Edition One pre-sale drops on Oct. 29th, newsletter subs get 21% OFF for 48hrs!",
+      "link": "https://stacker.news/items/1602292",
+      "pubDate": "Mon, 26 Oct 2026 02:56:33 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Foundation Devices website and emails compromised -- Ongoing Phishing Attack",
+      "link": "https://x.com/utxoclub/status/2114554934230396957",
+      "pubDate": "Mon, 26 Oct 2026 03:20:37 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Statement from Toronto Crime Stoppers on the P3 data breach",
+      "link": "https://www.222tips.com/pdf/TCS-Statement-October212026.pdf",
+      "pubDate": "Mon, 26 Oct 2026 07:36:07 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "USA vs The World Update",
+      "link": "https://stacker.news/items/1602562",
+      "pubDate": "Mon, 26 Oct 2026 14:13:29 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "bitcoin-pisa demo: payjoin wiht cross-input signature aggregation",
+      "link": "https://github.com/bitcoin-pisa",
+      "pubDate": "Mon, 26 Oct 2026 14:09:03 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "See Inside Cells Like Never Before in These Vivid Microscopic Images",
+      "link": "https://www.quantamagazine.org/see-inside-cells-like-never-before-in-these-vivid-microscopic-images-20261021/",
+      "pubDate": "Mon, 26 Oct 2026 04:03:33 GMT",
+      "description": "Comments"
+    }
+  ]
+}

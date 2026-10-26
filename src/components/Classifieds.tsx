@@ -47,10 +47,10 @@ export const Classifieds = () => {
         },
         {
             title: "Merchant Platform",
-            description: "Accept Bitcoin payments seamlessly & non-custodially. No bank account required.",
+            description: "Accept Bitcoin payments seamlessly & non-custodially. Onboarding by consultation.",
             icon: <ShoppingBag className="h-5 w-5" />,
-            link: "https://easysats.okinent.org/register?returnurl=%2F",
-            isExternal: true,
+            link: "/connect",
+            isExternal: false,
             tag: "BUSINESS"
         },
         {
@@ -63,10 +63,10 @@ export const Classifieds = () => {
         },
         {
             title: "SovereignKey",
-            description: "Take control of your privacy & financial future with self-custody solutions.",
+            description: "Self-custody solutions for privacy & financial sovereignty. In private development.",
             icon: <Key className="h-5 w-5" />,
-            link: "https://sovereignkey.carrd.co/",
-            isExternal: true,
+            link: "/connect",
+            isExternal: false,
             tag: "SECURITY"
         },
         {

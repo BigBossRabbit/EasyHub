@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Terminal, ExternalLink, Shield, Lock, Cpu, Usb } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const SovereignKey = () => {
     return (
@@ -93,10 +94,10 @@ export const SovereignKey = () => {
 
             <div className="flex gap-2 mt-auto">
                 <Button variant="outline" size="sm" className="gap-2 w-full" asChild>
-                    <a href="https://github.com/BigBossRabbit/SovereignKey" target="_blank" rel="noopener noreferrer">
+                    <Link to="/connect">
                         <ExternalLink className="h-3 w-3" />
-                        View on GitHub
-                    </a>
+                        Ask about SovereignKey
+                    </Link>
                 </Button>
             </div>
         </div>
