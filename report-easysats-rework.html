@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EasySats Rework — Delivered</title>
+<style>
+  :root { --fg:#e8e6e3; --mut:#9a978f; --acc:#f7931a; --bg:#0d0d0f; --card:#151517; --bd:#26262a; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--fg); font:16px/1.65 system-ui,-apple-system,sans-serif; }
+  .topbar { text-align:left; padding:14px 20px; border-bottom:1px solid var(--bd); font-size:13px; color:var(--mut); letter-spacing:.08em; text-transform:uppercase; }
+  main { max-width:680px; margin:0 auto; padding:48px 20px 80px; }
+  h1 { font-size:30px; line-height:1.2; margin-bottom:8px; text-align:center; font-weight:800; }
+  .sub { color:var(--mut); text-align:center; margin-bottom:40px; font-size:14px; }
+  h2 { font-size:19px; margin:36px 0 14px; color:var(--acc); text-align:center; }
+  p { margin-bottom:14px; }
+  .card { background:var(--card); border:1px solid var(--bd); border-radius:10px; padding:16px 18px; margin-bottom:12px; text-align:center; }
+  .card b { color:var(--acc); }
+  ul { list-style:none; margin:0 0 14px; }
+  li { padding:7px 0; border-bottom:1px dashed var(--bd); font-size:15px; }
+  li:last-child { border-bottom:none; }
+  .ok { color:#3fb950; font-weight:700; }
+  .dead { color:#f85149; font-weight:700; }
+  .fix { color:var(--mut); }
+  .stat { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:20px 0; }
+  .stat div { background:var(--card); border:1px solid var(--bd); border-radius:10px; padding:12px 20px; text-align:center; min-width:110px; }
+  .stat b { display:block; font-size:24px; color:var(--acc); }
+  .stat span { font-size:12px; color:var(--mut); }
+  footer { text-align:left; padding:16px 20px; border-top:1px solid var(--bd); font-size:12px; color:var(--mut); }
+  code { background:var(--card); border:1px solid var(--bd); border-radius:5px; padding:1px 6px; font-size:13px; }
+  @media (max-width:480px){ h1{font-size:24px;} main{padding:32px 16px 60px;} }
+</style>
+</head>
+<body>
+<div class="topbar">EasyHub · bitcoin.okinent.org · rework report</div>
+<main>
+  <h1>EasySats rework: shipped &amp; live</h1>
+  <p class="sub">Deployed to bitcoin.okinent.org — verified on the production site, not just the build.</p>
+
+  <div class="stat">
+    <div><b class="ok">12</b><span>StackerNews jobs</span></div>
+    <div><b class="ok">7</b><span>HRF jobs</span></div>
+    <div><b class="ok">4</b><span>Live bounties</span></div>
+    <div><b class="ok">10</b><span>News items</span></div>
+  </div>
+
+  <h2>What was breaking, and why</h2>
+  <div class="card"><b>Every feed died the same death.</b> The site pulled RSS/GraphQL through browser-side CORS proxies (allorigins, codetabs, corsproxy, rss2json). Those are all dead: 522s, 401s, silent hangs. That's why the Chronicle showed nothing, HRF jobs spun forever, and bounties never loaded.</div>
+  <div class="card"><b>The Chronicle was fake.</b> The "Africa Bitcoin news" hook rendered fabricated placeholder content, not real news. Rather than fake it better, it's gone.</div>
+
+  <h2>The fix: one same-origin data file</h2>
+  <p>A deploy-time script (<code>scripts/build_feeds.mjs</code>) now fetches everything server-side — StackerNews jobs, HRF careers, bounty-labelled GitHub issues, StackerNews news — and bakes it into <code>public/feeds.json</code>. The browser reads one local file. No proxies, no CORS, no 522s, nothing to break at runtime. A GitHub Action re-syncs it every 6&nbsp;hours and redeploys.</p>
+
+  <h2>What changed</h2>
+  <ul>
+    <li><span class="ok">✓</span> <b>Easy Devs</b> — real bounty board: live GitHub issues tagged <code>bounty</code> across bitcoin/lightning/nostr repos, each linking to the actual issue. Plus verified external platforms. Yes — bounties still work in the age of AI.</li>
+    <li><span class="ok">✓</span> <b>Easy Jobs</b> — HRF listings render real jobs (Senior Designer, Senior Director of Development…) with Apply links, plus the Bitcoiner Jobs live embed.</li>
+    <li><span class="ok">✓</span> <b>Chronicle removed</b> — /insights, its fake news hook, nav links, footer links, hub cards: all gone. Real "On This Day in History" (hardcoded facts, no feed) stays on the /easystats dashboard.</li>
+    <li><span class="dead">✕</span> <b>Dead links fixed</b> — <span class="fix">easysats.okinent.org (host down → /connect), sovereignkey.carrd.co + private GitHub repo (→ /contact cards), btrustbuilders.io (NXDOMAIN → btrust.tech), twitter.com/EasySats_NA (404 → x.com/easysats_), dead "Browse EasyJobs" button (now anchors to the board), orphaned ConnectExplore page deleted.</span></li>
+    <li><span class="ok">✓</span> <b>Deploy fixed</b> — deploys now fire on every push to main (was cron-only, so pushes sat waiting up to 6h), and <code>npm ci</code> passes in CI (peer-dep conflict fixed via <code>.npmrc</code>).</li>
+  </ul>
+
+  <h2>Verified on production</h2>
+  <ul>
+    <li><span class="ok">✓</span> All routes smoke-tested in a real browser against the live domain.</li>
+    <li><span class="ok">✓</span> /easystats: live BTC price, sentiment, timechain status, 288-point chart.</li>
+    <li><span class="ok">✓</span> feeds.json live with fresh sync stamps; gh-pages deployed from the rework commit.</li>
+    <li><span class="ok">✓</span> Sitemap clean (no /insights, /altsports added); whitepaper, connect form, all pages 200.</li>
+  </ul>
+
+  <h2>Commits</h2>
+  <p><code>e677cac</code> rework · <code>52aeebf</code> deploy-on-push · <code>42182f2</code> npmrc fix — all pushed to <b>BigBossRabbit/EasyHub</b> main, Actions run green.</p>
+</main>
+<footer>Spawn · for Nikolai · OKIN Enterprises · 26 Oct 2026</footer>
+</body>
+</html>

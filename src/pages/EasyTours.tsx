@@ -151,10 +151,10 @@ const EasyTours = () => {
                     </p>
 
                     <div className="flex flex-wrap gap-4 justify-center animate-fade-in-up delay-300">
-                        <Button size="lg" className="text-lg px-8 h-14 bg-primary hover:bg-primary/90 text-primary-foreground">
+                        <Button size="lg" className="text-lg px-8 h-14 bg-primary hover:bg-primary/90 text-primary-foreground" onClick={() => document.getElementById('tours')?.scrollIntoView({ behavior: 'smooth' })}>
                             Explore Tours
                         </Button>
-                        <Button size="lg" variant="outline" className="text-lg px-8 h-14 bg-white/10 hover:bg-white/20 border-white/30 text-white backdrop-blur-sm">
+                        <Button size="lg" variant="outline" className="text-lg px-8 h-14 bg-white/10 hover:bg-white/20 border-white/30 text-white backdrop-blur-sm" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>
                             How it Works
                         </Button>
                     </div>
@@ -162,7 +162,7 @@ const EasyTours = () => {
             </section>
 
             {/* Features Section */}
-            <section className="py-12 bg-card/50">
+            <section id="about" className="py-12 bg-card/50">
                 <div className="container mx-auto px-6">
                     <div className="grid md:grid-cols-3 gap-8">
                         <div className="p-8 rounded-2xl bg-background border border-border hover:border-primary/50 transition-all hover:shadow-lg group">
@@ -199,7 +199,7 @@ const EasyTours = () => {
             </section>
 
             {/* Tours Grid */}
-            <section className="py-12 container mx-auto px-6">
+            <section id="tours" className="py-12 container mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold mb-4">Curated Adventures</h2>
                     <p className="text-muted-foreground text-lg">Select your journey. All prices in Bitcoin.</p>
