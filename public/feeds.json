@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T17:42:11.338Z",
+  "generatedAt": "2026-10-26T18:01:02.162Z",
   "jobs": {
     "stackerNews": [
       {
@@ -219,9 +219,9 @@
       "description": "Comments"
     },
     {
-      "title": "Payjoin &lt;&gt; CISA — Last Week in Bitcoin (Oct 19 - 25)",
-      "link": "https://open.substack.com/pub/btcpp/p/payjoin-cisa-last-week-in-bitcoin",
-      "pubDate": "Mon, 26 Oct 2026 15:46:38 GMT",
+      "title": "bitcoin-pisa demo: payjoin wiht cross-input signature aggregation",
+      "link": "https://github.com/bitcoin-pisa",
+      "pubDate": "Mon, 26 Oct 2026 14:09:03 GMT",
       "description": "Comments"
     }
   ]
