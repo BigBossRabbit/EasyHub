@@ -148,7 +148,7 @@ const TPOK = () => {
               <span className="text-sm tracking-wider">ROOT_ACCESS_GRANTED</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight">
-              The Persuit Of <span className="text-primary">Knowledge</span>
+              The Pursuit Of <span className="text-primary">Knowledge</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl leading-relaxed">
               Empowering communities through Bitcoin education. From grassroots workshops in Namibia to global stages,

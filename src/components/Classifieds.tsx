@@ -39,7 +39,7 @@ export const Classifieds = () => {
         },
         {
             title: "TPOK",
-            description: "The Persuit Of Knowledge. Educational resources to master Bitcoin.",
+            description: "The Pursuit Of Knowledge. Educational resources to master Bitcoin.",
             icon: <BookOpen className="h-5 w-5" />,
             link: "/tpok",
             isExternal: false,
