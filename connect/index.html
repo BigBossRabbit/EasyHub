@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script>
+    // Immediately apply dark mode to prevent FOUC
+    document.documentElement.classList.add('dark');
+  </script>
+  <title>Bitcoin Consultation Request | EasySats</title>
+  <meta name="description" content="Request a Bitcoin consultation with EasySats." />
+  <style>
+    body { 
+      margin: 0; 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #000;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      width: 90%;
+      max-width: 500px;
+      padding: 2rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    h1 { 
+      color: #f97316; 
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #e0e0e0;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+    }
+    input::placeholder, textarea::placeholder {
+      color: rgba(255,255,255,0.5);
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #f97316;
+      box-shadow: 0 0 0 2px rgba(249,115,22,0.2);
+    }
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    button {
+      width: 100%;
+      padding: 1rem;
+      background: #f97316;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #ea580c;
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .status {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 500;
+    }
+    .success { background: rgba(16,185,129,0.2); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
+    .error { background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
+    .footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bitcoin Consultation Request</h1>
+    <p>Please fill out the form below to request a consultation. We will respond within 24 hours.</p>
+    <form id="consultationForm" action="https://formspree.io/f/xjgqrplq" method="POST">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number (Optional)</label>
+        <input type="tel" id="phone" name="phone" />
+      </div>
+      <div class="form-group">
+        <label for="message">Describe your inquiry</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+      </div>
+      <button type="submit">Transmit Inquiry</button>
+    </form>
+    <div id="formStatus" class="status" style="display: none;"></div>
+    <div class="footer">
+      SECURE CONNECTION ESTABLISHED. Response time: ~24 hours.
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('consultationForm');
+    const statusDiv = document.getElementById('formStatus');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      
+      fetch('https://formspree.io/f/xjgqrplq', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Network response was not ok.');
+      })
+      .then(data => {
+        statusDiv.textContent = 'Your inquiry has been sent! We will respond within 24 hours.';
+        statusDiv.className = 'status success';
+        statusDiv.style.display = 'block';
+        form.reset();
+      })
+      .catch(error => {
+        statusDiv.textContent = 'Failed to send. Please try again.';
+        statusDiv.className = 'status error';
+        statusDiv.style.display = 'block';
+        console.error('Error:', error);
+      });
+    });
+  </script>
+</body>
+</html>
