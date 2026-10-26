@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T16:12:31.476Z",
+  "generatedAt": "2026-10-26T17:42:11.338Z",
   "jobs": {
     "stackerNews": [
       {
@@ -189,6 +189,12 @@
       "description": "Comments"
     },
     {
+      "title": "Would Spark be better if the Spark operator couldn&apos;t see your transactions?",
+      "link": "https://x.com/lxdev_/status/2114728667595051096",
+      "pubDate": "Mon, 26 Oct 2026 16:55:11 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "Edition One pre-sale drops on Oct. 29th, newsletter subs get 21% OFF for 48hrs!",
       "link": "https://stacker.news/items/1602292",
       "pubDate": "Mon, 26 Oct 2026 02:56:33 GMT",
@@ -201,27 +207,21 @@
       "description": "Comments"
     },
     {
-      "title": "Statement from Toronto Crime Stoppers on the P3 data breach",
-      "link": "https://www.222tips.com/pdf/TCS-Statement-October212026.pdf",
-      "pubDate": "Mon, 26 Oct 2026 07:36:07 GMT",
-      "description": "Comments"
-    },
-    {
       "title": "USA vs The World Update",
       "link": "https://stacker.news/items/1602562",
       "pubDate": "Mon, 26 Oct 2026 14:13:29 GMT",
       "description": "Comments"
     },
     {
-      "title": "bitcoin-pisa demo: payjoin wiht cross-input signature aggregation",
-      "link": "https://github.com/bitcoin-pisa",
-      "pubDate": "Mon, 26 Oct 2026 14:09:03 GMT",
+      "title": "Anthropic officially files to go public",
+      "link": "https://www.cnbc.com/amp/2026/10/26/anthropic-ipo-live-updates-ai-s-1-filing.html",
+      "pubDate": "Mon, 26 Oct 2026 13:21:48 GMT",
       "description": "Comments"
     },
     {
-      "title": "See Inside Cells Like Never Before in These Vivid Microscopic Images",
-      "link": "https://www.quantamagazine.org/see-inside-cells-like-never-before-in-these-vivid-microscopic-images-20261021/",
-      "pubDate": "Mon, 26 Oct 2026 04:03:33 GMT",
+      "title": "Payjoin &lt;&gt; CISA — Last Week in Bitcoin (Oct 19 - 25)",
+      "link": "https://open.substack.com/pub/btcpp/p/payjoin-cisa-last-week-in-bitcoin",
+      "pubDate": "Mon, 26 Oct 2026 15:46:38 GMT",
       "description": "Comments"
     }
   ]
