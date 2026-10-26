@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T18:01:02.162Z",
+  "generatedAt": "2026-10-26T22:42:38.968Z",
   "jobs": {
     "stackerNews": [
       {
@@ -171,6 +171,18 @@
       "description": "Comments"
     },
     {
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Musings on Reading and Its Decline, Once More",
+      "link": "https://stacker.news/items/1602887",
+      "pubDate": "Mon, 26 Oct 2026 20:31:23 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "When “Nothing Ever Happens” Become the Pennies-Before-Steamroller Trade",
       "link": "https://stacker.news/items/1602534",
       "pubDate": "Mon, 26 Oct 2026 13:28:25 GMT",
@@ -195,33 +207,21 @@
       "description": "Comments"
     },
     {
-      "title": "Edition One pre-sale drops on Oct. 29th, newsletter subs get 21% OFF for 48hrs!",
-      "link": "https://stacker.news/items/1602292",
-      "pubDate": "Mon, 26 Oct 2026 02:56:33 GMT",
+      "title": "Books Everlasting: The New Age of Reading (The New Yorker, Nathan Heller)",
+      "link": "https://www.newyorker.com/magazine/2026/10/26/james-daunt-profile",
+      "pubDate": "Mon, 26 Oct 2026 19:53:10 GMT",
       "description": "Comments"
     },
     {
-      "title": "Foundation Devices website and emails compromised -- Ongoing Phishing Attack",
-      "link": "https://x.com/utxoclub/status/2114554934230396957",
-      "pubDate": "Mon, 26 Oct 2026 03:20:37 GMT",
+      "title": "The Anthropic IPO Looks Scary (Money Stuff, Matt Levine)",
+      "link": "https://www.bloomberg.com/opinion/newsletters/2026-10-26/anthropic-raises-concerns",
+      "pubDate": "Mon, 26 Oct 2026 22:16:25 GMT",
       "description": "Comments"
     },
     {
-      "title": "USA vs The World Update",
-      "link": "https://stacker.news/items/1602562",
-      "pubDate": "Mon, 26 Oct 2026 14:13:29 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Anthropic officially files to go public",
-      "link": "https://www.cnbc.com/amp/2026/10/26/anthropic-ipo-live-updates-ai-s-1-filing.html",
-      "pubDate": "Mon, 26 Oct 2026 13:21:48 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "bitcoin-pisa demo: payjoin wiht cross-input signature aggregation",
-      "link": "https://github.com/bitcoin-pisa",
-      "pubDate": "Mon, 26 Oct 2026 14:09:03 GMT",
+      "title": "My Chemical Romance Face Legal Action From Dallas Cowboys Cheerleaders Costumes",
+      "link": "https://stacker.news/items/1602842",
+      "pubDate": "Mon, 26 Oct 2026 19:31:32 GMT",
       "description": "Comments"
     }
   ]
