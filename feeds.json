@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T22:42:38.968Z",
+  "generatedAt": "2026-10-27T06:09:34.746Z",
   "jobs": {
     "stackerNews": [
       {
@@ -111,6 +111,19 @@
   },
   "bounties": [
     {
+      "id": 6050183860,
+      "title": "[radar] SN open bounty 2026-10-26T23:46",
+      "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1341",
+      "repo": "relayhop/sn-monetization-runtime",
+      "labels": [
+        "radar",
+        "sn",
+        "bounty"
+      ],
+      "amount": null,
+      "createdAt": "2026-10-26T23:46:22Z"
+    },
+    {
       "id": 6039972215,
       "title": "[radar] SN open bounty 2026-10-26T12:48",
       "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1339",
@@ -165,15 +178,27 @@
   ],
   "news": [
     {
-      "title": "Should Economists Stay in Their Lane?",
-      "link": "https://stacker.news/items/1602574",
-      "pubDate": "Mon, 26 Oct 2026 14:25:06 GMT",
+      "title": "Austin trip day one: Bitcoin all around",
+      "link": "https://stacker.news/items/1602995",
+      "pubDate": "Tue, 27 Oct 2026 01:31:54 GMT",
       "description": "Comments"
     },
     {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "title": "Wasabi Wallet v2.8.5 released",
+      "link": "https://github.com/WalletWasabi/WalletWasabi/releases/tag/v2.8.5",
+      "pubDate": "Tue, 27 Oct 2026 00:39:26 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "📣AMA Announcement: AMA with a Municipal Bond Advisor! - FRIDAY - 10AM",
+      "link": "https://stacker.news/items/1603010",
+      "pubDate": "Tue, 27 Oct 2026 02:31:59 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Should Economists Stay in Their Lane?",
+      "link": "https://stacker.news/items/1602574",
+      "pubDate": "Mon, 26 Oct 2026 14:25:06 GMT",
       "description": "Comments"
     },
     {
@@ -183,21 +208,9 @@
       "description": "Comments"
     },
     {
-      "title": "When “Nothing Ever Happens” Become the Pennies-Before-Steamroller Trade",
-      "link": "https://stacker.news/items/1602534",
-      "pubDate": "Mon, 26 Oct 2026 13:28:25 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Christianity territory help",
-      "link": "https://stacker.news/items/1601896",
-      "pubDate": "Sun, 25 Oct 2026 13:00:05 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "The Chainsaw Economics Britain Needs (FT, Tej Parikh)",
-      "link": "https://www.ft.com/content/46955baa-a3c0-487c-bf3e-d89430a84516",
-      "pubDate": "Mon, 26 Oct 2026 12:23:52 GMT",
+      "title": "The Anthropic IPO Looks Scary (Money Stuff, Matt Levine)",
+      "link": "https://www.bloomberg.com/opinion/newsletters/2026-10-26/anthropic-raises-concerns",
+      "pubDate": "Mon, 26 Oct 2026 22:16:25 GMT",
       "description": "Comments"
     },
     {
@@ -207,21 +220,21 @@
       "description": "Comments"
     },
     {
-      "title": "Books Everlasting: The New Age of Reading (The New Yorker, Nathan Heller)",
-      "link": "https://www.newyorker.com/magazine/2026/10/26/james-daunt-profile",
-      "pubDate": "Mon, 26 Oct 2026 19:53:10 GMT",
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
       "description": "Comments"
     },
     {
-      "title": "The Anthropic IPO Looks Scary (Money Stuff, Matt Levine)",
-      "link": "https://www.bloomberg.com/opinion/newsletters/2026-10-26/anthropic-raises-concerns",
-      "pubDate": "Mon, 26 Oct 2026 22:16:25 GMT",
+      "title": "bitcoin-pisa demo: payjoin wiht cross-input signature aggregation",
+      "link": "https://github.com/bitcoin-pisa",
+      "pubDate": "Mon, 26 Oct 2026 14:09:03 GMT",
       "description": "Comments"
     },
     {
-      "title": "My Chemical Romance Face Legal Action From Dallas Cowboys Cheerleaders Costumes",
-      "link": "https://stacker.news/items/1602842",
-      "pubDate": "Mon, 26 Oct 2026 19:31:32 GMT",
+      "title": "I made a fairly complete YouTube desktop client called Cathode",
+      "link": "https://github.com/andunieee/cathode",
+      "pubDate": "Mon, 26 Oct 2026 19:47:45 GMT",
       "description": "Comments"
     }
   ]
