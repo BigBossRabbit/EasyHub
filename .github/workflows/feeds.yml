@@ -34,7 +34,13 @@ jobs:
             echo "no changes"
           else
             git commit -m "feeds: refresh $(date -u +%FT%TZ)"
-            git pull --rebase --autostash origin main
+            git fetch origin main
+            # conflict-tolerant rebase: this run's build is the freshest, so it wins
+            if ! git rebase --autostash origin/main; then
+              git checkout --theirs public/feeds.json
+              git add public/feeds.json
+              GIT_EDITOR=true git rebase --continue
+            fi
             git push origin main
           fi
       - name: Deploy to gh-pages
