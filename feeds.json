@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T12:16:34.633Z",
+  "generatedAt": "2026-10-27T18:05:51.986Z",
   "jobs": {
     "stackerNews": [
       {
@@ -165,51 +165,39 @@
   ],
   "news": [
     {
+      "title": "The long road to bitcoin payments...",
+      "link": "https://stacker.news/items/1603307",
+      "pubDate": "Tue, 27 Oct 2026 16:00:55 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Anthropic&apos;s 240k-word IPO Filing: &quot;For the Long-Term Benefit of Humanity&quot; (FT)",
+      "link": "https://www.ft.com/content/a6c43402-719e-4295-ae5f-541edb0aeb29",
+      "pubDate": "Tue, 27 Oct 2026 17:32:38 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "Austin trip day one: Bitcoin all around",
       "link": "https://stacker.news/items/1602995",
       "pubDate": "Tue, 27 Oct 2026 01:31:54 GMT",
       "description": "Comments"
     },
     {
-      "title": "How Voting Is Like a Klein Bottle",
-      "link": "https://www.quantamagazine.org/how-voting-is-like-a-klein-bottle-20261026/",
-      "pubDate": "Tue, 27 Oct 2026 11:31:01 GMT",
+      "title": "&quot;How many things can you agree with libertarians on before becoming one?&quot;",
+      "link": "https://stacker.news/items/1582272",
+      "pubDate": "Sat, 26 Sep 2026 10:01:53 GMT",
       "description": "Comments"
     },
     {
-      "title": "Biggest Channel Opened Today (2.7 BTC) + New Node Spotlight (0267e12aa485456bd…)",
-      "link": "https://stacker.news/items/1602824",
-      "pubDate": "Mon, 26 Oct 2026 19:02:08 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Daily Discussion Thread ~Music Saloon!",
-      "link": "https://stacker.news/items/1603068",
-      "pubDate": "Tue, 27 Oct 2026 07:30:49 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "30C3: The Exploration and Exploitation of an SD Memory Card - YouTube",
-      "link": "https://www.youtube.com/watch?v=ruEn7TE4YMM",
-      "pubDate": "Mon, 26 Oct 2026 14:35:12 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "📣AMA Announcement: AMA with a Municipal Bond Advisor! - FRIDAY - 10AM",
-      "link": "https://stacker.news/items/1603010",
-      "pubDate": "Tue, 27 Oct 2026 02:31:59 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Silent Upgrade • Haleen",
-      "link": "https://wavlake.com/track/1ae2deef-4ae1-4910-b587-1c895061aa7c",
-      "pubDate": "Thu, 17 Sep 2026 08:12:57 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "The Ultimate Prepper: Tether (The Blind Spot, Izabella Kaminska)",
-      "link": "https://mindtheblindspot.substack.com/p/ddl-tether-owns-210000-cows-and-just",
-      "pubDate": "Tue, 27 Oct 2026 12:11:04 GMT",
+      "title": "Show Me the Incentive, and I&apos;ll Show You the Outcome - Obi",
+      "link": "https://x.com/obi/status/2115092296702025826",
+      "pubDate": "Tue, 27 Oct 2026 16:09:34 GMT",
       "description": "Comments"
     },
     {
@@ -219,9 +207,21 @@
       "description": "Comments"
     },
     {
-      "title": "The SN Daily Putt #168: Play, Putt, Score, ZAP!⚡️⛳️",
-      "link": "https://stacker.news/items/1603091",
-      "pubDate": "Tue, 27 Oct 2026 09:32:25 GMT",
+      "title": "Oct 25th, 2026 - LOOP Traffic Spike",
+      "link": "https://authenticitybtc.com/articles/2026-10-27-loop-traffic-spike",
+      "pubDate": "Tue, 27 Oct 2026 09:54:57 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "mempool.space expands cluster mempool view",
+      "link": "http://mempool.space",
+      "pubDate": "Tue, 27 Oct 2026 15:33:08 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "30C3: The Exploration and Exploitation of an SD Memory Card - YouTube",
+      "link": "https://www.youtube.com/watch?v=ruEn7TE4YMM",
+      "pubDate": "Mon, 26 Oct 2026 14:35:12 GMT",
       "description": "Comments"
     }
   ]
