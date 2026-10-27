@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T06:12:09.091Z",
+  "generatedAt": "2026-10-27T12:16:34.633Z",
   "jobs": {
     "stackerNews": [
       {
@@ -161,19 +161,6 @@
       ],
       "amount": null,
       "createdAt": "2026-10-26T06:01:13Z"
-    },
-    {
-      "id": 6026417530,
-      "title": "[radar] SN open bounty 2026-10-25T16:02",
-      "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1329",
-      "repo": "relayhop/sn-monetization-runtime",
-      "labels": [
-        "radar",
-        "sn",
-        "bounty"
-      ],
-      "amount": null,
-      "createdAt": "2026-10-25T16:02:35Z"
     }
   ],
   "news": [
@@ -184,9 +171,27 @@
       "description": "Comments"
     },
     {
-      "title": "Wasabi Wallet v2.8.5 released",
-      "link": "https://github.com/WalletWasabi/WalletWasabi/releases/tag/v2.8.5",
-      "pubDate": "Tue, 27 Oct 2026 00:39:26 GMT",
+      "title": "How Voting Is Like a Klein Bottle",
+      "link": "https://www.quantamagazine.org/how-voting-is-like-a-klein-bottle-20261026/",
+      "pubDate": "Tue, 27 Oct 2026 11:31:01 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Biggest Channel Opened Today (2.7 BTC) + New Node Spotlight (0267e12aa485456bd…)",
+      "link": "https://stacker.news/items/1602824",
+      "pubDate": "Mon, 26 Oct 2026 19:02:08 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Daily Discussion Thread ~Music Saloon!",
+      "link": "https://stacker.news/items/1603068",
+      "pubDate": "Tue, 27 Oct 2026 07:30:49 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "30C3: The Exploration and Exploitation of an SD Memory Card - YouTube",
+      "link": "https://www.youtube.com/watch?v=ruEn7TE4YMM",
+      "pubDate": "Mon, 26 Oct 2026 14:35:12 GMT",
       "description": "Comments"
     },
     {
@@ -196,45 +201,27 @@
       "description": "Comments"
     },
     {
-      "title": "Should Economists Stay in Their Lane?",
-      "link": "https://stacker.news/items/1602574",
-      "pubDate": "Mon, 26 Oct 2026 14:25:06 GMT",
+      "title": "Silent Upgrade • Haleen",
+      "link": "https://wavlake.com/track/1ae2deef-4ae1-4910-b587-1c895061aa7c",
+      "pubDate": "Thu, 17 Sep 2026 08:12:57 GMT",
       "description": "Comments"
     },
     {
-      "title": "Musings on Reading and Its Decline, Once More",
-      "link": "https://stacker.news/items/1602887",
-      "pubDate": "Mon, 26 Oct 2026 20:31:23 GMT",
+      "title": "The Ultimate Prepper: Tether (The Blind Spot, Izabella Kaminska)",
+      "link": "https://mindtheblindspot.substack.com/p/ddl-tether-owns-210000-cows-and-just",
+      "pubDate": "Tue, 27 Oct 2026 12:11:04 GMT",
       "description": "Comments"
     },
     {
-      "title": "The Anthropic IPO Looks Scary (Money Stuff, Matt Levine)",
-      "link": "https://www.bloomberg.com/opinion/newsletters/2026-10-26/anthropic-raises-concerns",
-      "pubDate": "Mon, 26 Oct 2026 22:16:25 GMT",
+      "title": "Wasabi Wallet v2.8.5 released",
+      "link": "https://github.com/WalletWasabi/WalletWasabi/releases/tag/v2.8.5",
+      "pubDate": "Tue, 27 Oct 2026 00:39:26 GMT",
       "description": "Comments"
     },
     {
-      "title": "Would Spark be better if the Spark operator couldn&apos;t see your transactions?",
-      "link": "https://x.com/lxdev_/status/2114728667595051096",
-      "pubDate": "Mon, 26 Oct 2026 16:55:11 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "bitcoin-pisa demo: payjoin wiht cross-input signature aggregation",
-      "link": "https://github.com/bitcoin-pisa",
-      "pubDate": "Mon, 26 Oct 2026 14:09:03 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "I made a fairly complete YouTube desktop client called Cathode",
-      "link": "https://github.com/andunieee/cathode",
-      "pubDate": "Mon, 26 Oct 2026 19:47:45 GMT",
+      "title": "The SN Daily Putt #168: Play, Putt, Score, ZAP!⚡️⛳️",
+      "link": "https://stacker.news/items/1603091",
+      "pubDate": "Tue, 27 Oct 2026 09:32:25 GMT",
       "description": "Comments"
     }
   ]
