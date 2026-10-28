@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T12:59:11.365Z",
+  "generatedAt": "2026-10-28T22:38:01.972Z",
   "jobs": {
     "stackerNews": [
       {
@@ -147,80 +147,67 @@
       ],
       "amount": null,
       "createdAt": "2026-10-26T12:48:58Z"
-    },
-    {
-      "id": 6039962974,
-      "title": "[radar] SN open bounty 2026-10-26T12:48",
-      "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1338",
-      "repo": "relayhop/sn-monetization-runtime",
-      "labels": [
-        "radar",
-        "sn",
-        "bounty"
-      ],
-      "amount": null,
-      "createdAt": "2026-10-26T12:48:24Z"
     }
   ],
   "news": [
     {
-      "title": "Austin trip day two: I ask to pay with bitcoin and someone tried to choke me",
-      "link": "https://stacker.news/items/1603699",
-      "pubDate": "Wed, 28 Oct 2026 02:12:36 GMT",
+      "title": "Bitcoin Core 32.1 released",
+      "link": "https://bitcoincore.org/en/2026/10/27/release-32.1/",
+      "pubDate": "Wed, 28 Oct 2026 15:13:28 GMT",
       "description": "Comments"
     },
     {
-      "title": "Wasabi Wallet v2.8.5 released",
-      "link": "https://github.com/WalletWasabi/WalletWasabi/releases/tag/v2.8.5",
-      "pubDate": "Tue, 27 Oct 2026 00:39:26 GMT",
+      "title": "waxwing , Vincenzo Palazzo, jaonoctus - Bitcoin Optech Newsletter #428 Podcast",
+      "link": "https://bitcoinops.org/en/podcast/2026/10/27/",
+      "pubDate": "Wed, 28 Oct 2026 18:24:07 GMT",
       "description": "Comments"
     },
     {
-      "title": "The long road to bitcoin payments...",
-      "link": "https://stacker.news/items/1603307",
-      "pubDate": "Tue, 27 Oct 2026 16:00:55 GMT",
+      "title": "&quot;RoundParallelization&quot;: 2 activated",
+      "link": "https://stacker.news/items/1603904",
+      "pubDate": "Wed, 28 Oct 2026 13:03:54 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "I mapped every Satoshi statue, and you can stamp a passport at each one",
+      "link": "https://stacker.news/items/1604104",
+      "pubDate": "Wed, 28 Oct 2026 17:02:43 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "BOB Gateway - noncustodial until they decide you can&apos;t have your Bitcoin back",
+      "link": "https://stacker.news/items/1604242",
+      "pubDate": "Wed, 28 Oct 2026 21:57:55 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Who wore it better? - Political Propaganda in the Buckeye State",
+      "link": "https://stacker.news/items/1604047",
+      "pubDate": "Wed, 28 Oct 2026 16:07:09 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "[Review 1/21] 21 Futures: The Last Mugging",
+      "link": "https://stacker.news/items/1604089",
+      "pubDate": "Wed, 28 Oct 2026 16:45:24 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Not Your Keys, Not Your Treasury Company (Money Stuff, Matt Levine)",
+      "link": "https://www.bloomberg.com/opinion/newsletters/2026-10-28/not-your-keys-not-your-dat",
+      "pubDate": "Wed, 28 Oct 2026 21:52:32 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Reading the Western Classics in the Age of AI. At Harvard No Less (WSJ, Paul)",
+      "link": "https://www.wsj.com/lifestyle/harvard-class-humanities-32e06366",
+      "pubDate": "Wed, 28 Oct 2026 20:18:13 GMT",
       "description": "Comments"
     },
     {
       "title": "One of the peace-of-mind ways to Spend from a Cold Wallet: PSBT",
       "link": "https://stacker.news/items/1603862",
       "pubDate": "Wed, 28 Oct 2026 11:53:00 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Making my daughter’s day",
-      "link": "https://stacker.news/items/1603782",
-      "pubDate": "Wed, 28 Oct 2026 09:25:08 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Daily Discussion Thread ~Music Saloon!",
-      "link": "https://stacker.news/items/1603757",
-      "pubDate": "Wed, 28 Oct 2026 07:37:43 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Silent Upgrade • Haleen",
-      "link": "https://wavlake.com/track/1ae2deef-4ae1-4910-b587-1c895061aa7c",
-      "pubDate": "Thu, 17 Sep 2026 08:12:57 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Neptune&apos;s Brood is the first fiction to mention bitcoin...and first to remove it",
-      "link": "https://stacker.news/items/1603603",
-      "pubDate": "Tue, 27 Oct 2026 22:33:56 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "The Last Untracked Generation",
-      "link": "https://blog.lopp.net/the-last-untracked-generation/",
-      "pubDate": "Wed, 28 Oct 2026 12:20:09 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Daily Stock Discussion ~Stacker_Stocks",
-      "link": "https://stacker.news/items/1603092",
-      "pubDate": "Tue, 27 Oct 2026 09:39:57 GMT",
       "description": "Comments"
     }
   ]
