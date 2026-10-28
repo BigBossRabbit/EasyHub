@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T22:17:06.772Z",
+  "generatedAt": "2026-10-28T05:45:38.319Z",
   "jobs": {
     "stackerNews": [
       {
@@ -165,9 +165,21 @@
   ],
   "news": [
     {
+      "title": "Austin trip day two: I ask to pay with bitcoin and someone tried to choke me",
+      "link": "https://stacker.news/items/1603699",
+      "pubDate": "Wed, 28 Oct 2026 02:12:36 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "The long road to bitcoin payments...",
       "link": "https://stacker.news/items/1603307",
       "pubDate": "Tue, 27 Oct 2026 16:00:55 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Neptune&apos;s Brood is the first fiction to mention bitcoin...and first to remove it",
+      "link": "https://stacker.news/items/1603603",
+      "pubDate": "Tue, 27 Oct 2026 22:33:56 GMT",
       "description": "Comments"
     },
     {
@@ -183,15 +195,21 @@
       "description": "Comments"
     },
     {
-      "title": "&quot;The best way to predict the future is to create it.&quot;",
-      "link": "https://stacker.news/items/1603286",
-      "pubDate": "Tue, 27 Oct 2026 15:44:38 GMT",
-      "description": "Comments"
-    },
-    {
       "title": "Looks like Apple is botching their foldable rollout",
       "link": "https://www.wsj.com/tech/personal-tech/iphone-duo-broken-hinge-screen-31b2b28a?st=kHy5MT&amp;reflink=desktopwebshare_permalink",
       "pubDate": "Tue, 27 Oct 2026 21:41:28 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Libertarian Senate Candidate Arrested After Armed Standoff With Police",
+      "link": "https://www.zerohedge.com/political/north-carolina-libertarian-senate-candidate-arrested-after-live-blogging-armed-standoff",
+      "pubDate": "Tue, 27 Oct 2026 23:22:20 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "&quot;The best way to predict the future is to create it.&quot;",
+      "link": "https://stacker.news/items/1603286",
+      "pubDate": "Tue, 27 Oct 2026 15:44:38 GMT",
       "description": "Comments"
     },
     {
@@ -201,27 +219,9 @@
       "description": "Comments"
     },
     {
-      "title": "Anthropic&apos;s 240k-word IPO Filing: &quot;For the Long-Term Benefit of Humanity&quot; (FT)",
-      "link": "https://www.ft.com/content/a6c43402-719e-4295-ae5f-541edb0aeb29",
-      "pubDate": "Tue, 27 Oct 2026 17:32:38 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Austin trip day one: Bitcoin all around",
-      "link": "https://stacker.news/items/1602995",
-      "pubDate": "Tue, 27 Oct 2026 01:31:54 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "49ers Trade for DeForest Buckner",
-      "link": "https://stacker.news/items/1603558",
-      "pubDate": "Tue, 27 Oct 2026 21:00:49 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "&quot;How many things can you agree with libertarians on before becoming one?&quot;",
-      "link": "https://stacker.news/items/1582272",
-      "pubDate": "Sat, 26 Sep 2026 10:01:53 GMT",
+      "title": "I would like to know your opinion on which AI is best for coding.",
+      "link": "https://stacker.news/items/1603641",
+      "pubDate": "Tue, 27 Oct 2026 23:47:02 GMT",
       "description": "Comments"
     }
   ]
