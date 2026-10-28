@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T05:45:38.319Z",
+  "generatedAt": "2026-10-28T12:59:11.365Z",
   "jobs": {
     "stackerNews": [
       {
@@ -111,6 +111,18 @@
   },
   "bounties": [
     {
+      "id": 6074432983,
+      "title": "[Bounty] 💰 Bounty Seguro ($$250): [Bounty] Preserve RFC 7239 `Forwarded` host author",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4152",
+      "repo": "zhangjiayang6835-cyber/bounty-plaza",
+      "labels": [
+        "bounty",
+        "real"
+      ],
+      "amount": null,
+      "createdAt": "2026-10-28T07:17:25Z"
+    },
+    {
       "id": 6050183860,
       "title": "[radar] SN open bounty 2026-10-26T23:46",
       "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1341",
@@ -148,19 +160,6 @@
       ],
       "amount": null,
       "createdAt": "2026-10-26T12:48:24Z"
-    },
-    {
-      "id": 6034255604,
-      "title": "[radar] SN open bounty 2026-10-26T06:01",
-      "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1337",
-      "repo": "relayhop/sn-monetization-runtime",
-      "labels": [
-        "radar",
-        "sn",
-        "bounty"
-      ],
-      "amount": null,
-      "createdAt": "2026-10-26T06:01:13Z"
     }
   ],
   "news": [
@@ -171,9 +170,39 @@
       "description": "Comments"
     },
     {
+      "title": "Wasabi Wallet v2.8.5 released",
+      "link": "https://github.com/WalletWasabi/WalletWasabi/releases/tag/v2.8.5",
+      "pubDate": "Tue, 27 Oct 2026 00:39:26 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "The long road to bitcoin payments...",
       "link": "https://stacker.news/items/1603307",
       "pubDate": "Tue, 27 Oct 2026 16:00:55 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "One of the peace-of-mind ways to Spend from a Cold Wallet: PSBT",
+      "link": "https://stacker.news/items/1603862",
+      "pubDate": "Wed, 28 Oct 2026 11:53:00 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Making my daughter’s day",
+      "link": "https://stacker.news/items/1603782",
+      "pubDate": "Wed, 28 Oct 2026 09:25:08 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Daily Discussion Thread ~Music Saloon!",
+      "link": "https://stacker.news/items/1603757",
+      "pubDate": "Wed, 28 Oct 2026 07:37:43 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Silent Upgrade • Haleen",
+      "link": "https://wavlake.com/track/1ae2deef-4ae1-4910-b587-1c895061aa7c",
+      "pubDate": "Thu, 17 Sep 2026 08:12:57 GMT",
       "description": "Comments"
     },
     {
@@ -183,45 +212,15 @@
       "description": "Comments"
     },
     {
-      "title": "Cognitive Mercantilism - Why you don&apos;t have to be a farmer - Venkatesh Rao",
-      "link": "https://contraptions.venkateshrao.com/p/cognitive-mercantilism",
-      "pubDate": "Tue, 27 Oct 2026 19:58:57 GMT",
+      "title": "The Last Untracked Generation",
+      "link": "https://blog.lopp.net/the-last-untracked-generation/",
+      "pubDate": "Wed, 28 Oct 2026 12:20:09 GMT",
       "description": "Comments"
     },
     {
-      "title": "Wasabi Wallet v2.8.5 released",
-      "link": "https://github.com/WalletWasabi/WalletWasabi/releases/tag/v2.8.5",
-      "pubDate": "Tue, 27 Oct 2026 00:39:26 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Looks like Apple is botching their foldable rollout",
-      "link": "https://www.wsj.com/tech/personal-tech/iphone-duo-broken-hinge-screen-31b2b28a?st=kHy5MT&amp;reflink=desktopwebshare_permalink",
-      "pubDate": "Tue, 27 Oct 2026 21:41:28 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Libertarian Senate Candidate Arrested After Armed Standoff With Police",
-      "link": "https://www.zerohedge.com/political/north-carolina-libertarian-senate-candidate-arrested-after-live-blogging-armed-standoff",
-      "pubDate": "Tue, 27 Oct 2026 23:22:20 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "&quot;The best way to predict the future is to create it.&quot;",
-      "link": "https://stacker.news/items/1603286",
-      "pubDate": "Tue, 27 Oct 2026 15:44:38 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "I would like to know your opinion on which AI is best for coding.",
-      "link": "https://stacker.news/items/1603641",
-      "pubDate": "Tue, 27 Oct 2026 23:47:02 GMT",
+      "title": "Daily Stock Discussion ~Stacker_Stocks",
+      "link": "https://stacker.news/items/1603092",
+      "pubDate": "Tue, 27 Oct 2026 09:39:57 GMT",
       "description": "Comments"
     }
   ]
