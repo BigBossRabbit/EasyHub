@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T22:38:01.972Z",
+  "generatedAt": "2026-10-29T05:52:05.832Z",
   "jobs": {
     "stackerNews": [
       {
@@ -111,6 +111,30 @@
   },
   "bounties": [
     {
+      "id": 6091672069,
+      "title": "[Bounty] 💰 Bounty Seguro ($$250): [Bounty] 💰 Bounty Seguro ($$250): 💰 Bounty Seguro ",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4171",
+      "repo": "zhangjiayang6835-cyber/bounty-plaza",
+      "labels": [
+        "bounty",
+        "real"
+      ],
+      "amount": null,
+      "createdAt": "2026-10-29T02:48:01Z"
+    },
+    {
+      "id": 6089460910,
+      "title": "[Bounty] 💰 Bounty Seguro ($$250): 💰 Bounty Seguro ($$250): [Bounty] 💰 Bounty Seguro ",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4168",
+      "repo": "zhangjiayang6835-cyber/bounty-plaza",
+      "labels": [
+        "bounty",
+        "real"
+      ],
+      "amount": null,
+      "createdAt": "2026-10-28T23:31:12Z"
+    },
+    {
       "id": 6074432983,
       "title": "[Bounty] 💰 Bounty Seguro ($$250): [Bounty] Preserve RFC 7239 `Forwarded` host author",
       "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4152",
@@ -134,22 +158,45 @@
       ],
       "amount": null,
       "createdAt": "2026-10-26T23:46:22Z"
-    },
-    {
-      "id": 6039972215,
-      "title": "[radar] SN open bounty 2026-10-26T12:48",
-      "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1339",
-      "repo": "relayhop/sn-monetization-runtime",
-      "labels": [
-        "radar",
-        "sn",
-        "bounty"
-      ],
-      "amount": null,
-      "createdAt": "2026-10-26T12:48:58Z"
     }
   ],
   "news": [
+    {
+      "title": "Austin trip day three: Robotaxi day. Coffee, tacos, and haircuts paid in sats.",
+      "link": "https://stacker.news/items/1604324",
+      "pubDate": "Thu, 29 Oct 2026 00:41:53 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Mobile Maia Chess app is now available as a PWA (so even iOS users can try it)",
+      "link": "https://mobilemaia.org/play/",
+      "pubDate": "Thu, 29 Oct 2026 02:31:13 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Bitcoin: A Peer-to-Peer Electronic Cash System (interactive edition)",
+      "link": "https://bitcoinwhitepaper.art/",
+      "pubDate": "Sat, 24 Oct 2026 22:53:35 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "I mapped every Satoshi statue, and you can stamp a passport at each one",
+      "link": "https://stacker.news/items/1604104",
+      "pubDate": "Wed, 28 Oct 2026 17:02:43 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "BOB Gateway - noncustodial until they decide you can&apos;t have your Bitcoin back",
+      "link": "https://stacker.news/items/1604242",
+      "pubDate": "Wed, 28 Oct 2026 21:57:55 GMT",
+      "description": "Comments"
+    },
     {
       "title": "Bitcoin Core 32.1 released",
       "link": "https://bitcoincore.org/en/2026/10/27/release-32.1/",
@@ -169,45 +216,9 @@
       "description": "Comments"
     },
     {
-      "title": "I mapped every Satoshi statue, and you can stamp a passport at each one",
-      "link": "https://stacker.news/items/1604104",
-      "pubDate": "Wed, 28 Oct 2026 17:02:43 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "BOB Gateway - noncustodial until they decide you can&apos;t have your Bitcoin back",
-      "link": "https://stacker.news/items/1604242",
-      "pubDate": "Wed, 28 Oct 2026 21:57:55 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Who wore it better? - Political Propaganda in the Buckeye State",
-      "link": "https://stacker.news/items/1604047",
-      "pubDate": "Wed, 28 Oct 2026 16:07:09 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "[Review 1/21] 21 Futures: The Last Mugging",
-      "link": "https://stacker.news/items/1604089",
-      "pubDate": "Wed, 28 Oct 2026 16:45:24 GMT",
-      "description": "Comments"
-    },
-    {
       "title": "Not Your Keys, Not Your Treasury Company (Money Stuff, Matt Levine)",
       "link": "https://www.bloomberg.com/opinion/newsletters/2026-10-28/not-your-keys-not-your-dat",
       "pubDate": "Wed, 28 Oct 2026 21:52:32 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Reading the Western Classics in the Age of AI. At Harvard No Less (WSJ, Paul)",
-      "link": "https://www.wsj.com/lifestyle/harvard-class-humanities-32e06366",
-      "pubDate": "Wed, 28 Oct 2026 20:18:13 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "One of the peace-of-mind ways to Spend from a Cold Wallet: PSBT",
-      "link": "https://stacker.news/items/1603862",
-      "pubDate": "Wed, 28 Oct 2026 11:53:00 GMT",
       "description": "Comments"
     }
   ]
