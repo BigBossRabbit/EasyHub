@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T05:52:05.832Z",
+  "generatedAt": "2026-10-29T13:06:28.910Z",
   "jobs": {
     "stackerNews": [
       {
@@ -145,22 +145,15 @@
       ],
       "amount": null,
       "createdAt": "2026-10-28T07:17:25Z"
-    },
-    {
-      "id": 6050183860,
-      "title": "[radar] SN open bounty 2026-10-26T23:46",
-      "url": "https://github.com/relayhop/sn-monetization-runtime/issues/1341",
-      "repo": "relayhop/sn-monetization-runtime",
-      "labels": [
-        "radar",
-        "sn",
-        "bounty"
-      ],
-      "amount": null,
-      "createdAt": "2026-10-26T23:46:22Z"
     }
   ],
   "news": [
+    {
+      "title": "BTC vote: Which party do you prefer to control the U.S. Congress?",
+      "link": "https://koinvote.com/event/01M612JCRY7SK2TVVWKR483DX5",
+      "pubDate": "Thu, 29 Oct 2026 06:05:58 GMT",
+      "description": "Comments"
+    },
     {
       "title": "Austin trip day three: Robotaxi day. Coffee, tacos, and haircuts paid in sats.",
       "link": "https://stacker.news/items/1604324",
@@ -168,9 +161,27 @@
       "description": "Comments"
     },
     {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "title": "Daily Discussion Thread ~Music Saloon!",
+      "link": "https://stacker.news/items/1604452",
+      "pubDate": "Thu, 29 Oct 2026 07:42:17 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Anyone else having issue with Tor and Start9 today",
+      "link": "https://stacker.news/items/1604507",
+      "pubDate": "Thu, 29 Oct 2026 10:47:06 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "ECB President Christine Lagarde to Step Down February 7, 2027",
+      "link": "https://bsc.news/news/lagarde-ecb-exit-crypto-digital-euro-mica",
+      "pubDate": "Thu, 29 Oct 2026 11:25:26 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "A “Token Tax” Could Kill the Promise of AI",
+      "link": "https://www.city-journal.org/article/ai-token-tax-chatgpt-claude-data-centers",
+      "pubDate": "Thu, 29 Oct 2026 10:40:16 GMT",
       "description": "Comments"
     },
     {
@@ -180,33 +191,9 @@
       "description": "Comments"
     },
     {
-      "title": "Bitcoin: A Peer-to-Peer Electronic Cash System (interactive edition)",
-      "link": "https://bitcoinwhitepaper.art/",
-      "pubDate": "Sat, 24 Oct 2026 22:53:35 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "I mapped every Satoshi statue, and you can stamp a passport at each one",
-      "link": "https://stacker.news/items/1604104",
-      "pubDate": "Wed, 28 Oct 2026 17:02:43 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "BOB Gateway - noncustodial until they decide you can&apos;t have your Bitcoin back",
-      "link": "https://stacker.news/items/1604242",
-      "pubDate": "Wed, 28 Oct 2026 21:57:55 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Bitcoin Core 32.1 released",
-      "link": "https://bitcoincore.org/en/2026/10/27/release-32.1/",
-      "pubDate": "Wed, 28 Oct 2026 15:13:28 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "waxwing , Vincenzo Palazzo, jaonoctus - Bitcoin Optech Newsletter #428 Podcast",
-      "link": "https://bitcoinops.org/en/podcast/2026/10/27/",
-      "pubDate": "Wed, 28 Oct 2026 18:24:07 GMT",
+      "title": "Samurai-themed whisky",
+      "link": "https://stacker.news/items/1604516",
+      "pubDate": "Thu, 29 Oct 2026 11:09:58 GMT",
       "description": "Comments"
     },
     {
@@ -216,9 +203,9 @@
       "description": "Comments"
     },
     {
-      "title": "Not Your Keys, Not Your Treasury Company (Money Stuff, Matt Levine)",
-      "link": "https://www.bloomberg.com/opinion/newsletters/2026-10-28/not-your-keys-not-your-dat",
-      "pubDate": "Wed, 28 Oct 2026 21:52:32 GMT",
+      "title": "Milwaukee Brewers win their first ever World Series",
+      "link": "https://stacker.news/items/1604390",
+      "pubDate": "Thu, 29 Oct 2026 03:17:02 GMT",
       "description": "Comments"
     }
   ]
