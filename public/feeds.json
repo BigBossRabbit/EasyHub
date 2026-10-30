@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T12:59:19.932Z",
+  "generatedAt": "2026-10-30T22:23:45.111Z",
   "jobs": {
     "stackerNews": [
       {
@@ -133,21 +133,21 @@
       ],
       "amount": null,
       "createdAt": "2026-10-28T23:31:12Z"
-    },
-    {
-      "id": 6074432983,
-      "title": "[Bounty] 💰 Bounty Seguro ($$250): [Bounty] Preserve RFC 7239 `Forwarded` host author",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4152",
-      "repo": "zhangjiayang6835-cyber/bounty-plaza",
-      "labels": [
-        "bounty",
-        "real"
-      ],
-      "amount": null,
-      "createdAt": "2026-10-28T07:17:25Z"
     }
   ],
   "news": [
+    {
+      "title": "I&apos;m Blevin Blevins, Municipal Finance - AMA",
+      "link": "https://stacker.news/items/1605337",
+      "pubDate": "Fri, 30 Oct 2026 14:52:12 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "New mandatory requirement for hardware wallets",
+      "link": "https://stacker.news/items/1605541",
+      "pubDate": "Fri, 30 Oct 2026 18:32:46 GMT",
+      "description": "Comments"
+    },
     {
       "title": "If you&apos;re running LND, you may be vulnerable to a Linux kernel exploit",
       "link": "https://stacker.news/items/1605171",
@@ -161,51 +161,39 @@
       "description": "Comments"
     },
     {
-      "title": "Trunk or Treat 2026 - This post has free free ecash.",
-      "link": "https://stacker.news/items/1604674",
-      "pubDate": "Thu, 29 Oct 2026 15:45:58 GMT",
+      "title": "SHOW SN: I made a contact page that lets you send me nostr DMs (if you zap)",
+      "link": "https://bitcoinscoresby.com/contact/",
+      "pubDate": "Fri, 30 Oct 2026 19:49:39 GMT",
       "description": "Comments"
     },
     {
-      "title": "Kanyuk followup: we got him new gear, and he&apos;s back in the fight",
-      "link": "https://stacker.news/items/1605077",
-      "pubDate": "Fri, 30 Oct 2026 00:20:21 GMT",
+      "title": "What do Stackers think of the Red Baron employee prank incident?",
+      "link": "https://www.youtube.com/watch?v=FtEDwx-1Sek",
+      "pubDate": "Fri, 30 Oct 2026 17:53:14 GMT",
       "description": "Comments"
     },
     {
-      "title": "October Ends, but Samhain Arrives 🎃",
-      "link": "https://stacker.news/items/1605229",
-      "pubDate": "Fri, 30 Oct 2026 11:01:15 GMT",
+      "title": "Lack of good lightning wallets...",
+      "link": "https://stacker.news/items/1605537",
+      "pubDate": "Fri, 30 Oct 2026 18:27:09 GMT",
       "description": "Comments"
     },
     {
-      "title": "Trip Report: Hong Kong",
-      "link": "https://stacker.news/items/1604808",
-      "pubDate": "Thu, 29 Oct 2026 17:52:12 GMT",
+      "title": "The Investors &quot;Lived a Little&quot;: A Tragic Private Credit Story (WSJ, Gillers)",
+      "link": "https://www.wsj.com/finance/investing/a-michigan-pension-funds-failed-coffee-farm-bet-highlights-private-market-risks-a76f79bf",
+      "pubDate": "Fri, 30 Oct 2026 18:42:35 GMT",
       "description": "Comments"
     },
     {
-      "title": "Dogs at the park",
-      "link": "https://stacker.news/items/1601234",
-      "pubDate": "Sat, 24 Oct 2026 01:40:57 GMT",
+      "title": "How Bureaucracy Stifles the Economy and Constrains Our Freedom",
+      "link": "https://www.econlib.org/econlog/the-invisible-shackle-how-bureaucracy-stifles-the-economy-and-constrains-our-freedom",
+      "pubDate": "Fri, 30 Oct 2026 19:39:45 GMT",
       "description": "Comments"
     },
     {
-      "title": "The Chainsaw Economics Britain Needs (FT, Tej Parikh)",
-      "link": "https://www.ft.com/content/46955baa-a3c0-487c-bf3e-d89430a84516",
-      "pubDate": "Mon, 26 Oct 2026 12:23:52 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Bitcoin Core 32.1, multi-party SP, CLN Dos - Bitcoin Optech Newsletter #429",
-      "link": "https://bitcoinops.org/en/newsletters/2026/10/30/",
-      "pubDate": "Fri, 30 Oct 2026 10:50:57 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "[Trezor Incident Update] Implant reported in a Trezor sold by CryptoBilis",
-      "link": "https://trezor.io/blog/news/implant-reported-in-a-trezor-sold-by-cryptobilis",
-      "pubDate": "Fri, 30 Oct 2026 08:37:39 GMT",
+      "title": "Monetary Truth and Monetary Lies (The Cost of Lies Manifesto, Bull Bitcoin)",
+      "link": "https://x.com/BULLBITCOIN_/article/2115127990531330413",
+      "pubDate": "Fri, 30 Oct 2026 19:37:47 GMT",
       "description": "Comments"
     }
   ]
