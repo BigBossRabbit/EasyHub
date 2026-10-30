@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T22:47:25.787Z",
+  "generatedAt": "2026-10-30T05:53:03.817Z",
   "jobs": {
     "stackerNews": [
       {
@@ -155,15 +155,21 @@
       "description": "Comments"
     },
     {
+      "title": "Kanyuk followup: we got him new gear, and he&apos;s back in the fight",
+      "link": "https://stacker.news/items/1605077",
+      "pubDate": "Fri, 30 Oct 2026 00:20:21 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "Edition One | Timechain Art Magazine | Pre-Order Is Now Live ⚡",
       "link": "https://stacker.news/items/1604664",
       "pubDate": "Thu, 29 Oct 2026 15:37:02 GMT",
       "description": "Comments"
     },
     {
-      "title": "BTC vote: Which party do you prefer to control the U.S. Congress?",
-      "link": "https://koinvote.com/event/01M612JCRY7SK2TVVWKR483DX5",
-      "pubDate": "Thu, 29 Oct 2026 06:05:58 GMT",
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
       "description": "Comments"
     },
     {
@@ -179,33 +185,27 @@
       "description": "Comments"
     },
     {
-      "title": "Paul Sztorc&apos;s ecash hardfork went live at block 973728",
-      "link": "https://explorer.ecash.com/",
-      "pubDate": "Thu, 29 Oct 2026 19:25:33 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "JoinMarket stats dashboard",
-      "link": "https://m0wer.github.io/joinmarket-stats/",
-      "pubDate": "Thu, 29 Oct 2026 14:30:07 GMT",
-      "description": "Comments"
-    },
-    {
       "title": "BINANCE HOT WALLET APPEARS TO BE DRAINED FOR ~$2.53B!",
       "link": "https://x.com/crypto_banter/status/2115907468689559643",
       "pubDate": "Thu, 29 Oct 2026 21:44:56 GMT",
       "description": "Comments"
     },
     {
-      "title": "BOOK on BOOKS: &quot;Going Infinite,&quot; by Michael Lewis",
-      "link": "https://stacker.news/items/1604939",
-      "pubDate": "Thu, 29 Oct 2026 20:37:01 GMT",
+      "title": "Paul Sztorc&apos;s ecash hardfork went live at block 973728",
+      "link": "https://explorer.ecash.com/",
+      "pubDate": "Thu, 29 Oct 2026 19:25:33 GMT",
       "description": "Comments"
     },
     {
-      "title": "Austin trip day three: Robotaxi day. Coffee, tacos, and haircuts paid in sats.",
-      "link": "https://stacker.news/items/1604324",
-      "pubDate": "Thu, 29 Oct 2026 00:41:53 GMT",
+      "title": "Ocean Moving On Up",
+      "link": "https://stacker.news/items/1605078",
+      "pubDate": "Fri, 30 Oct 2026 00:20:33 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "JoinMarket stats dashboard",
+      "link": "https://m0wer.github.io/joinmarket-stats/",
+      "pubDate": "Thu, 29 Oct 2026 14:30:07 GMT",
       "description": "Comments"
     }
   ]
