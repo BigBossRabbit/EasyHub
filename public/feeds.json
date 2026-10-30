@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T05:53:03.817Z",
+  "generatedAt": "2026-10-30T12:59:19.932Z",
   "jobs": {
     "stackerNews": [
       {
@@ -149,21 +149,9 @@
   ],
   "news": [
     {
-      "title": "Trip Report: Hong Kong",
-      "link": "https://stacker.news/items/1604808",
-      "pubDate": "Thu, 29 Oct 2026 17:52:12 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Kanyuk followup: we got him new gear, and he&apos;s back in the fight",
-      "link": "https://stacker.news/items/1605077",
-      "pubDate": "Fri, 30 Oct 2026 00:20:21 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Edition One | Timechain Art Magazine | Pre-Order Is Now Live ⚡",
-      "link": "https://stacker.news/items/1604664",
-      "pubDate": "Thu, 29 Oct 2026 15:37:02 GMT",
+      "title": "If you&apos;re running LND, you may be vulnerable to a Linux kernel exploit",
+      "link": "https://stacker.news/items/1605171",
+      "pubDate": "Fri, 30 Oct 2026 05:37:56 GMT",
       "description": "Comments"
     },
     {
@@ -179,33 +167,45 @@
       "description": "Comments"
     },
     {
-      "title": "TABCONF 8 x SNIRL #2 Wrap-up!",
-      "link": "https://stacker.news/items/1604601",
-      "pubDate": "Thu, 29 Oct 2026 14:09:39 GMT",
+      "title": "Kanyuk followup: we got him new gear, and he&apos;s back in the fight",
+      "link": "https://stacker.news/items/1605077",
+      "pubDate": "Fri, 30 Oct 2026 00:20:21 GMT",
       "description": "Comments"
     },
     {
-      "title": "BINANCE HOT WALLET APPEARS TO BE DRAINED FOR ~$2.53B!",
-      "link": "https://x.com/crypto_banter/status/2115907468689559643",
-      "pubDate": "Thu, 29 Oct 2026 21:44:56 GMT",
+      "title": "October Ends, but Samhain Arrives 🎃",
+      "link": "https://stacker.news/items/1605229",
+      "pubDate": "Fri, 30 Oct 2026 11:01:15 GMT",
       "description": "Comments"
     },
     {
-      "title": "Paul Sztorc&apos;s ecash hardfork went live at block 973728",
-      "link": "https://explorer.ecash.com/",
-      "pubDate": "Thu, 29 Oct 2026 19:25:33 GMT",
+      "title": "Trip Report: Hong Kong",
+      "link": "https://stacker.news/items/1604808",
+      "pubDate": "Thu, 29 Oct 2026 17:52:12 GMT",
       "description": "Comments"
     },
     {
-      "title": "Ocean Moving On Up",
-      "link": "https://stacker.news/items/1605078",
-      "pubDate": "Fri, 30 Oct 2026 00:20:33 GMT",
+      "title": "Dogs at the park",
+      "link": "https://stacker.news/items/1601234",
+      "pubDate": "Sat, 24 Oct 2026 01:40:57 GMT",
       "description": "Comments"
     },
     {
-      "title": "JoinMarket stats dashboard",
-      "link": "https://m0wer.github.io/joinmarket-stats/",
-      "pubDate": "Thu, 29 Oct 2026 14:30:07 GMT",
+      "title": "The Chainsaw Economics Britain Needs (FT, Tej Parikh)",
+      "link": "https://www.ft.com/content/46955baa-a3c0-487c-bf3e-d89430a84516",
+      "pubDate": "Mon, 26 Oct 2026 12:23:52 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Bitcoin Core 32.1, multi-party SP, CLN Dos - Bitcoin Optech Newsletter #429",
+      "link": "https://bitcoinops.org/en/newsletters/2026/10/30/",
+      "pubDate": "Fri, 30 Oct 2026 10:50:57 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "[Trezor Incident Update] Implant reported in a Trezor sold by CryptoBilis",
+      "link": "https://trezor.io/blog/news/implant-reported-in-a-trezor-sold-by-cryptobilis",
+      "pubDate": "Fri, 30 Oct 2026 08:37:39 GMT",
       "description": "Comments"
     }
   ]
