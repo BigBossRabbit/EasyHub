@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T22:23:45.111Z",
+  "generatedAt": "2026-10-31T05:46:50.652Z",
   "jobs": {
     "stackerNews": [
       {
@@ -111,6 +111,18 @@
   },
   "bounties": [
     {
+      "id": 6128167043,
+      "title": "[Bounty] 💰 Bounty Seguro ($$750): [Bounty] [Bounty $750] Improve Qwen3-TTS Code Pred",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4188",
+      "repo": "zhangjiayang6835-cyber/bounty-plaza",
+      "labels": [
+        "bounty",
+        "real"
+      ],
+      "amount": null,
+      "createdAt": "2026-10-30T22:49:56Z"
+    },
+    {
       "id": 6091672069,
       "title": "[Bounty] 💰 Bounty Seguro ($$250): [Bounty] 💰 Bounty Seguro ($$250): 💰 Bounty Seguro ",
       "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4171",
@@ -121,25 +133,37 @@
       ],
       "amount": null,
       "createdAt": "2026-10-29T02:48:01Z"
-    },
-    {
-      "id": 6089460910,
-      "title": "[Bounty] 💰 Bounty Seguro ($$250): 💰 Bounty Seguro ($$250): [Bounty] 💰 Bounty Seguro ",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4168",
-      "repo": "zhangjiayang6835-cyber/bounty-plaza",
-      "labels": [
-        "bounty",
-        "real"
-      ],
-      "amount": null,
-      "createdAt": "2026-10-28T23:31:12Z"
     }
   ],
   "news": [
     {
+      "title": "Austin trip day four and five: We don’t accept bitcoin currently",
+      "link": "https://stacker.news/items/1605873",
+      "pubDate": "Sat, 31 Oct 2026 03:25:08 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Accept Lightning tips into your Lexe wallet from any static site",
+      "link": "https://docs.lexe.tech/platforms/static-sites/#embeddable-payment-widget",
+      "pubDate": "Sat, 31 Oct 2026 02:00:31 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "I&apos;m Blevin Blevins, Municipal Finance - AMA",
       "link": "https://stacker.news/items/1605337",
       "pubDate": "Fri, 30 Oct 2026 14:52:12 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "When “Nothing Ever Happens” Become the Pennies-Before-Steamroller Trade",
+      "link": "https://stacker.news/items/1602534",
+      "pubDate": "Mon, 26 Oct 2026 13:28:25 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "How to Waste a Life: Karl Bushby&apos;s Walk, Chile to England (NYT, Jonathan Wolfe)",
+      "link": "https://www.nytimes.com/2026/10/29/world/europe/karl-bushby-walking-globe-uk.html",
+      "pubDate": "Sat, 31 Oct 2026 01:02:50 GMT",
       "description": "Comments"
     },
     {
@@ -149,51 +173,27 @@
       "description": "Comments"
     },
     {
-      "title": "If you&apos;re running LND, you may be vulnerable to a Linux kernel exploit",
-      "link": "https://stacker.news/items/1605171",
-      "pubDate": "Fri, 30 Oct 2026 05:37:56 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "SHOW SN: I made a contact page that lets you send me nostr DMs (if you zap)",
-      "link": "https://bitcoinscoresby.com/contact/",
-      "pubDate": "Fri, 30 Oct 2026 19:49:39 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "What do Stackers think of the Red Baron employee prank incident?",
-      "link": "https://www.youtube.com/watch?v=FtEDwx-1Sek",
-      "pubDate": "Fri, 30 Oct 2026 17:53:14 GMT",
-      "description": "Comments"
-    },
-    {
       "title": "Lack of good lightning wallets...",
       "link": "https://stacker.news/items/1605537",
       "pubDate": "Fri, 30 Oct 2026 18:27:09 GMT",
       "description": "Comments"
     },
     {
-      "title": "The Investors &quot;Lived a Little&quot;: A Tragic Private Credit Story (WSJ, Gillers)",
-      "link": "https://www.wsj.com/finance/investing/a-michigan-pension-funds-failed-coffee-farm-bet-highlights-private-market-risks-a76f79bf",
-      "pubDate": "Fri, 30 Oct 2026 18:42:35 GMT",
+      "title": "Urgent Patch - CVE-2026-98432 - LND 0.21.6-beta",
+      "link": "https://stacker.news/items/1605779",
+      "pubDate": "Sat, 31 Oct 2026 01:32:37 GMT",
       "description": "Comments"
     },
     {
-      "title": "How Bureaucracy Stifles the Economy and Constrains Our Freedom",
-      "link": "https://www.econlib.org/econlog/the-invisible-shackle-how-bureaucracy-stifles-the-economy-and-constrains-our-freedom",
-      "pubDate": "Fri, 30 Oct 2026 19:39:45 GMT",
+      "title": "NBA Cup Night One Discussion Thread",
+      "link": "https://stacker.news/items/1605691",
+      "pubDate": "Fri, 30 Oct 2026 23:27:19 GMT",
       "description": "Comments"
     },
     {
-      "title": "Monetary Truth and Monetary Lies (The Cost of Lies Manifesto, Bull Bitcoin)",
-      "link": "https://x.com/BULLBITCOIN_/article/2115127990531330413",
-      "pubDate": "Fri, 30 Oct 2026 19:37:47 GMT",
+      "title": "SHOW SN: I made a contact page that lets you send me nostr DMs (if you zap)",
+      "link": "https://bitcoinscoresby.com/contact/",
+      "pubDate": "Fri, 30 Oct 2026 19:49:39 GMT",
       "description": "Comments"
     }
   ]
