@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T13:28:49.342Z",
+  "generatedAt": "2026-11-01T22:04:44.088Z",
   "jobs": {
     "stackerNews": [
       {
@@ -111,6 +111,18 @@
   },
   "bounties": [
     {
+      "id": 6148017193,
+      "title": "[Bounty] 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4198",
+      "repo": "zhangjiayang6835-cyber/bounty-plaza",
+      "labels": [
+        "bounty",
+        "real"
+      ],
+      "amount": null,
+      "createdAt": "2026-11-01T14:24:16Z"
+    },
+    {
       "id": 6144409872,
       "title": "[Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ",
       "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4197",
@@ -161,6 +173,24 @@
   ],
   "news": [
     {
+      "title": "Anduril Lands $2.9 billion Navy Submarine Shipyard Contract",
+      "link": "https://www.cnbc.com/2026/10/06/anduril-navy-submarine-shipyard-contract.html",
+      "pubDate": "Tue, 06 Oct 2026 13:10:27 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Bitcoin Arena: decentralized game &amp; prediction market platform live on testnet4",
+      "link": "https://stacker.news/items/1606521",
+      "pubDate": "Sun, 01 Nov 2026 15:59:59 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Austin trip day six: lakes, hikes, final bitcoin meal.",
+      "link": "https://stacker.news/items/1606467",
+      "pubDate": "Sun, 01 Nov 2026 14:10:54 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
       "link": "https://stacker.news/items/1551074",
       "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
@@ -173,51 +203,33 @@
       "description": "Comments"
     },
     {
-      "title": "Anduril Lands $2.9 billion Navy Submarine Shipyard Contract",
-      "link": "https://www.cnbc.com/2026/10/06/anduril-navy-submarine-shipyard-contract.html",
-      "pubDate": "Tue, 06 Oct 2026 13:10:27 GMT",
+      "title": "Bills Buckshot the Ravens 36- 10: My Three Takeaways!",
+      "link": "https://stacker.news/items/1606678",
+      "pubDate": "Sun, 01 Nov 2026 21:34:10 GMT",
       "description": "Comments"
     },
     {
-      "title": "Hashrate Hearth: How many home miners does it take to screw in a freedom-bulb?",
-      "link": "https://stacker.news/items/1600205",
-      "pubDate": "Thu, 22 Oct 2026 15:40:08 GMT",
+      "title": "STRC Payout #10: Cje95 Takes the Crown! 👑",
+      "link": "https://stacker.news/items/1606591",
+      "pubDate": "Sun, 01 Nov 2026 18:28:43 GMT",
       "description": "Comments"
     },
     {
-      "title": "Bitcoin: A Peer-to-Peer Electronic Cash System (interactive edition)",
-      "link": "https://bitcoinwhitepaper.art/",
-      "pubDate": "Sat, 24 Oct 2026 22:53:35 GMT",
+      "title": "Western Civilization, an Intellectual and Academic Celebration (WSJ, Tunkuv)",
+      "link": "https://www.wsj.com/opinion/the-navy-seals-of-western-civilization-2db992f2",
+      "pubDate": "Sun, 01 Nov 2026 17:20:41 GMT",
       "description": "Comments"
     },
     {
-      "title": "I made a little monster that eats every Bitcoin block. Its rank is PoW luck.",
-      "link": "https://stacker.news/items/1606319",
-      "pubDate": "Sun, 01 Nov 2026 05:53:04 GMT",
+      "title": "NFL Sunday- Discussion Thread",
+      "link": "https://stacker.news/items/1606564",
+      "pubDate": "Sun, 01 Nov 2026 18:00:03 GMT",
       "description": "Comments"
     },
     {
-      "title": "The Evolution of The Bitcoin Whitepapers - There Were Four Versions By Satoshi",
-      "link": "https://stacker.news/items/1605927",
-      "pubDate": "Sat, 31 Oct 2026 10:22:01 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Health Index 2026: Taiwan, South Korea, and Japan top the ranking",
-      "link": "https://es.numbeo.com/sanidad/clasificaciones-por-pa%C3%ADs",
-      "pubDate": "Sun, 01 Nov 2026 13:16:03 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Why I haven&apos;t seen very many horror movies",
-      "link": "https://stacker.news/items/1606208",
-      "pubDate": "Sat, 31 Oct 2026 22:09:30 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "No CBDC, no digital ID. No KYC",
-      "link": "https://blog.rottenwheel.com/posts/no-kyc-only/",
-      "pubDate": "Sun, 01 Nov 2026 13:06:23 GMT",
+      "title": "Sign-up Sunday on PREDYX",
+      "link": "https://x.com/predyx_markets/status/2116965869305938117",
+      "pubDate": "Sun, 01 Nov 2026 19:03:27 GMT",
       "description": "Comments"
     }
   ]
