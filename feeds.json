@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T06:11:02.160Z",
+  "generatedAt": "2026-11-01T13:28:49.342Z",
   "jobs": {
     "stackerNews": [
       {
@@ -111,6 +111,18 @@
   },
   "bounties": [
     {
+      "id": 6144409872,
+      "title": "[Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4197",
+      "repo": "zhangjiayang6835-cyber/bounty-plaza",
+      "labels": [
+        "bounty",
+        "real"
+      ],
+      "amount": null,
+      "createdAt": "2026-11-01T07:21:49Z"
+    },
+    {
       "id": 6138471754,
       "title": "[Bounty] 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ",
       "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4191",
@@ -149,9 +161,27 @@
   ],
   "news": [
     {
-      "title": "The Evolution of The Bitcoin Whitepapers - There Were Four Versions By Satoshi",
-      "link": "https://stacker.news/items/1605927",
-      "pubDate": "Sat, 31 Oct 2026 10:22:01 GMT",
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Pleb Economist #14: The Secretary Problem",
+      "link": "https://stacker.news/items/1599572",
+      "pubDate": "Wed, 21 Oct 2026 16:11:21 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Anduril Lands $2.9 billion Navy Submarine Shipyard Contract",
+      "link": "https://www.cnbc.com/2026/10/06/anduril-navy-submarine-shipyard-contract.html",
+      "pubDate": "Tue, 06 Oct 2026 13:10:27 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Hashrate Hearth: How many home miners does it take to screw in a freedom-bulb?",
+      "link": "https://stacker.news/items/1600205",
+      "pubDate": "Thu, 22 Oct 2026 15:40:08 GMT",
       "description": "Comments"
     },
     {
@@ -161,9 +191,21 @@
       "description": "Comments"
     },
     {
-      "title": "The Kelly Criterion and the Risk of Ruin",
-      "link": "https://stacker.news/items/1606098",
-      "pubDate": "Sat, 31 Oct 2026 17:57:46 GMT",
+      "title": "I made a little monster that eats every Bitcoin block. Its rank is PoW luck.",
+      "link": "https://stacker.news/items/1606319",
+      "pubDate": "Sun, 01 Nov 2026 05:53:04 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "The Evolution of The Bitcoin Whitepapers - There Were Four Versions By Satoshi",
+      "link": "https://stacker.news/items/1605927",
+      "pubDate": "Sat, 31 Oct 2026 10:22:01 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Health Index 2026: Taiwan, South Korea, and Japan top the ranking",
+      "link": "https://es.numbeo.com/sanidad/clasificaciones-por-pa%C3%ADs",
+      "pubDate": "Sun, 01 Nov 2026 13:16:03 GMT",
       "description": "Comments"
     },
     {
@@ -173,39 +215,9 @@
       "description": "Comments"
     },
     {
-      "title": "Biggest Channel Opened Today (2.5 BTC) + New Node Spotlight (03c196046c78e205d…)",
-      "link": "https://stacker.news/items/1606092",
-      "pubDate": "Sat, 31 Oct 2026 17:31:45 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Is this the first clear evidence of AI’s impact on the labour market?",
-      "link": "http://www.ft.com/content/7f27aa5f-5994-4f82-aed8-1cade18fb487?syn-25a6b1a6=1",
-      "pubDate": "Sat, 31 Oct 2026 18:46:37 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Umbrel Users Can Update To lnd v0.21.6-beta",
-      "link": "https://stacker.news/items/1606281",
-      "pubDate": "Sun, 01 Nov 2026 02:50:00 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "North Korea Responsible for the $6 Billion+ Binance Attack | FBI",
-      "link": "https://www.fbi.gov/investigate/cyber/alerts/2026/north-korea-responsible-for-6-billion-binance-attack",
-      "pubDate": "Sun, 01 Nov 2026 03:30:46 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "I Can&apos;t Figure It Out.... How To Use Linux and Put Alby Hub On A Raspberry Pi 5",
-      "link": "https://stacker.news/items/1606227",
-      "pubDate": "Sat, 31 Oct 2026 23:44:28 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Austin trip day four and five: We don’t accept bitcoin currently",
-      "link": "https://stacker.news/items/1605873",
-      "pubDate": "Sat, 31 Oct 2026 03:25:08 GMT",
+      "title": "No CBDC, no digital ID. No KYC",
+      "link": "https://blog.rottenwheel.com/posts/no-kyc-only/",
+      "pubDate": "Sun, 01 Nov 2026 13:06:23 GMT",
       "description": "Comments"
     }
   ]
