@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T22:04:44.088Z",
+  "generatedAt": "2026-11-02T06:10:57.640Z",
   "jobs": {
     "stackerNews": [
       {
@@ -111,6 +111,18 @@
   },
   "bounties": [
     {
+      "id": 6154738932,
+      "title": "[Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4199",
+      "repo": "zhangjiayang6835-cyber/bounty-plaza",
+      "labels": [
+        "bounty",
+        "real"
+      ],
+      "amount": null,
+      "createdAt": "2026-11-02T01:54:36Z"
+    },
+    {
       "id": 6148017193,
       "title": "[Bounty] 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ",
       "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4198",
@@ -157,18 +169,6 @@
       ],
       "amount": null,
       "createdAt": "2026-10-31T14:36:54Z"
-    },
-    {
-      "id": 6128167043,
-      "title": "[Bounty] 💰 Bounty Seguro ($$750): [Bounty] [Bounty $750] Improve Qwen3-TTS Code Pred",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4188",
-      "repo": "zhangjiayang6835-cyber/bounty-plaza",
-      "labels": [
-        "bounty",
-        "real"
-      ],
-      "amount": null,
-      "createdAt": "2026-10-30T22:49:56Z"
     }
   ],
   "news": [
@@ -179,9 +179,21 @@
       "description": "Comments"
     },
     {
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "Bitcoin Arena: decentralized game &amp; prediction market platform live on testnet4",
       "link": "https://stacker.news/items/1606521",
       "pubDate": "Sun, 01 Nov 2026 15:59:59 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Owners pull plug on proposed 12,749 BTC  natural gas plant in north Wisconsin",
+      "link": "https://www.wpr.org/news/owners-pull-plug-proposed-natural-gas-plant-in-northern-wisconsin",
+      "pubDate": "Mon, 02 Nov 2026 03:28:15 GMT",
       "description": "Comments"
     },
     {
@@ -191,33 +203,21 @@
       "description": "Comments"
     },
     {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "title": "BTCPay Server Urges Shutdown After Reports of Hot-Wallet Sweeps | The Defiant",
+      "link": "https://thedefiant.io/news/hacks/btcpay-server-urges-shutdown-after-reports-of-hot-wallet-sweeps",
+      "pubDate": "Sun, 01 Nov 2026 23:43:25 GMT",
       "description": "Comments"
     },
     {
-      "title": "Pleb Economist #14: The Secretary Problem",
-      "link": "https://stacker.news/items/1599572",
-      "pubDate": "Wed, 21 Oct 2026 16:11:21 GMT",
+      "title": "Alabama is Sued Over App Store Age Verification Law",
+      "link": "https://reclaimthenet.org/alabama-is-sued-over-app-store-age-verification-law",
+      "pubDate": "Mon, 02 Nov 2026 01:49:50 GMT",
       "description": "Comments"
     },
     {
-      "title": "Bills Buckshot the Ravens 36- 10: My Three Takeaways!",
-      "link": "https://stacker.news/items/1606678",
-      "pubDate": "Sun, 01 Nov 2026 21:34:10 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "STRC Payout #10: Cje95 Takes the Crown! 👑",
-      "link": "https://stacker.news/items/1606591",
-      "pubDate": "Sun, 01 Nov 2026 18:28:43 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Western Civilization, an Intellectual and Academic Celebration (WSJ, Tunkuv)",
-      "link": "https://www.wsj.com/opinion/the-navy-seals-of-western-civilization-2db992f2",
-      "pubDate": "Sun, 01 Nov 2026 17:20:41 GMT",
+      "title": "No Matter Who Wins the Midterms, Economics Will Lose (TFP, Tyler Cowen)",
+      "link": "https://www.thefp.com/p/tyler-cowen-economics-populism-midterms",
+      "pubDate": "Sun, 01 Nov 2026 22:47:34 GMT",
       "description": "Comments"
     },
     {
@@ -227,9 +227,9 @@
       "description": "Comments"
     },
     {
-      "title": "Sign-up Sunday on PREDYX",
-      "link": "https://x.com/predyx_markets/status/2116965869305938117",
-      "pubDate": "Sun, 01 Nov 2026 19:03:27 GMT",
+      "title": "Western Civilization, an Intellectual and Academic Celebration (WSJ, Tunkuv)",
+      "link": "https://www.wsj.com/opinion/the-navy-seals-of-western-civilization-2db992f2",
+      "pubDate": "Sun, 01 Nov 2026 17:20:41 GMT",
       "description": "Comments"
     }
   ]
