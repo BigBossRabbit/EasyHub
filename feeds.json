@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T15:59:35.913Z",
+  "generatedAt": "2026-11-03T01:00:34.348Z",
   "jobs": {
     "stackerNews": [
       {
@@ -111,6 +111,18 @@
   },
   "bounties": [
     {
+      "id": 6169462628,
+      "title": "[Bounty] 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ",
+      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4201",
+      "repo": "zhangjiayang6835-cyber/bounty-plaza",
+      "labels": [
+        "bounty",
+        "real"
+      ],
+      "amount": null,
+      "createdAt": "2026-11-02T19:27:42Z"
+    },
+    {
       "id": 6154738932,
       "title": "[Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ",
       "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4199",
@@ -157,18 +169,6 @@
       ],
       "amount": null,
       "createdAt": "2026-10-31T18:45:12Z"
-    },
-    {
-      "id": 6136033448,
-      "title": "[Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4190",
-      "repo": "zhangjiayang6835-cyber/bounty-plaza",
-      "labels": [
-        "bounty",
-        "real"
-      ],
-      "amount": null,
-      "createdAt": "2026-10-31T14:36:54Z"
     }
   ],
   "news": [
@@ -176,6 +176,18 @@
       "title": "In Search of Freedom: Life, Death, and Sovereignty in the Himalaya",
       "link": "https://stacker.news/items/1607015",
       "pubDate": "Mon, 02 Nov 2026 13:49:02 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Reddit is moving to “a logged-in-only experience,” CEO says",
+      "link": "https://arstechnica.com/gadgets/2026/10/reddit-will-require-you-to-log-in-eventually-ceo-confirms/",
+      "pubDate": "Mon, 02 Nov 2026 17:05:44 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "[Parent Corner] Finding the right activity",
+      "link": "https://stacker.news/items/1607264",
+      "pubDate": "Mon, 02 Nov 2026 19:24:16 GMT",
       "description": "Comments"
     },
     {
@@ -191,15 +203,15 @@
       "description": "Comments"
     },
     {
-      "title": "AI, Interest Rates, and Financial Bubbles (FT, Ruchir Sharma)",
-      "link": "https://www.ft.com/content/6e99dc59-8bd0-4c5c-8186-f6ceed04233a",
-      "pubDate": "Mon, 02 Nov 2026 11:26:21 GMT",
+      "title": "Blockstream sends 300BTC to liquid federation wallet",
+      "link": "https://mempool.space/tx/2701150a160219c13c5a580bc7c93aeaee69bf5810b24cfffdc065d879fa4ed5",
+      "pubDate": "Mon, 02 Nov 2026 21:28:43 GMT",
       "description": "Comments"
     },
     {
-      "title": "The AI Infrastructure Backlash: NIMBY Gets a New Flavor (FT, Toby Nangle)",
-      "link": "https://www.ft.com/content/824fcec4-bded-44f3-9e42-565ba0d2cfa8",
-      "pubDate": "Mon, 02 Nov 2026 12:25:41 GMT",
+      "title": "2026 NFL Survivor Pool- We have a Winner!",
+      "link": "https://stacker.news/items/1607205",
+      "pubDate": "Mon, 02 Nov 2026 17:24:33 GMT",
       "description": "Comments"
     },
     {
@@ -209,27 +221,15 @@
       "description": "Comments"
     },
     {
-      "title": "lichen: new layer 2 ledger idea - AdamISZ",
-      "link": "https://github.com/AdamISZ/lichen/blob/master/docs/1000-ft-view.md",
-      "pubDate": "Mon, 02 Nov 2026 15:22:11 GMT",
+      "title": "The AI Infrastructure Backlash: NIMBY Gets a New Flavor (FT, Toby Nangle)",
+      "link": "https://www.ft.com/content/824fcec4-bded-44f3-9e42-565ba0d2cfa8",
+      "pubDate": "Mon, 02 Nov 2026 12:25:41 GMT",
       "description": "Comments"
     },
     {
-      "title": "I made an rclone-powered GUI/CLI for backing up personal files &amp; family pictures",
-      "link": "https://github.com/andunieee/my-beloved-rubble",
-      "pubDate": "Mon, 02 Nov 2026 13:07:11 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "- YouTube - How to Create Bitcoin Handles (Easiest Way in 2026)",
-      "link": "https://youtu.be/iq_jD0J8UCk",
-      "pubDate": "Mon, 02 Nov 2026 13:25:54 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Some Vintage Mining Equipment For Sale At Satwize",
-      "link": "https://stacker.news/items/1606989",
-      "pubDate": "Mon, 02 Nov 2026 13:23:27 GMT",
+      "title": "AI, Interest Rates, and Financial Bubbles (FT, Ruchir Sharma)",
+      "link": "https://www.ft.com/content/6e99dc59-8bd0-4c5c-8186-f6ceed04233a",
+      "pubDate": "Mon, 02 Nov 2026 11:26:21 GMT",
       "description": "Comments"
     }
   ]
