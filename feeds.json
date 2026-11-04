@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T23:26:05.175Z",
+  "generatedAt": "2026-11-04T06:28:34.671Z",
   "jobs": {
     "stackerNews": [
       {
@@ -169,6 +169,18 @@
   ],
   "news": [
     {
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "An Englishman Goes to London: Satattack and Den Fight it Out on Chess.Com",
+      "link": "https://stacker.news/items/1608022",
+      "pubDate": "Tue, 03 Nov 2026 21:31:18 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "Pleb Economist #15: Aleatoric vs. Epistemic Uncertainty",
       "link": "https://stacker.news/items/1607746",
       "pubDate": "Tue, 03 Nov 2026 15:00:35 GMT",
@@ -181,9 +193,21 @@
       "description": "Comments"
     },
     {
-      "title": "An Englishman Goes to London: Satattack and Den Fight it Out on Chess.Com",
-      "link": "https://stacker.news/items/1608022",
-      "pubDate": "Tue, 03 Nov 2026 21:31:18 GMT",
+      "title": "🎬 [ #BackPage ] Last week on sports #31",
+      "link": "https://stacker.news/items/1607697",
+      "pubDate": "Tue, 03 Nov 2026 14:21:59 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Cash protects Bitcoin",
+      "link": "https://stacker.news/items/1608084",
+      "pubDate": "Tue, 03 Nov 2026 23:54:56 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "This transaction includes the whitepaper in its taproot annex",
+      "link": "https://mempool.space/tx/52bc40e5123f7ca2351a14adaa26d05f9a85a9f4185a0667359c317fa33eadb8?showDetails=true",
+      "pubDate": "Wed, 04 Nov 2026 02:51:41 GMT",
       "description": "Comments"
     },
     {
@@ -193,39 +217,15 @@
       "description": "Comments"
     },
     {
-      "title": "I&apos;m not voting today.",
-      "link": "https://stacker.news/items/1607823",
-      "pubDate": "Tue, 03 Nov 2026 16:47:58 GMT",
+      "title": "A Captain&apos;s Legacy: Celebrating Sir Patrick Stewart",
+      "link": "https://www.youtube.com/watch?v=sF7HxngbWLM",
+      "pubDate": "Wed, 04 Nov 2026 00:12:51 GMT",
       "description": "Comments"
     },
     {
-      "title": "The US Treasuries’ Path to 6% Yields (Bloomberg/The Everything Risk, Harrison)",
-      "link": "https://www.bloomberg.com/news/newsletters/2026-10-29/us-treasuries-remain-on-path-to-6-yields-as-inflationary-expectations-rise",
-      "pubDate": "Tue, 03 Nov 2026 15:43:54 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "cheap solo yolo red teaming - Talip",
-      "link": "https://x.com/otaliptus/status/2117658931732340818",
-      "pubDate": "Tue, 03 Nov 2026 20:57:09 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Nicholas Dorier: &quot;Does BTCPay Server Still Serve a Purpose?&quot;",
-      "link": "https://blog.nicolas-dorier.com/posts/does-btcpay-server-still-serve-a-purpose/",
-      "pubDate": "Tue, 03 Nov 2026 17:40:41 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "What is the feminine version of Stacker News?",
-      "link": "https://stacker.news/items/1607989",
-      "pubDate": "Tue, 03 Nov 2026 20:25:45 GMT",
+      "title": "Why you shouldn&apos;t vote, dev edition.",
+      "link": "https://stacker.news/items/1608090",
+      "pubDate": "Tue, 03 Nov 2026 23:59:19 GMT",
       "description": "Comments"
     }
   ]
