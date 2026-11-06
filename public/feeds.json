@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T14:38:05.573Z",
+  "generatedAt": "2026-11-06T15:21:04.247Z",
   "jobs": {
     "stackerNews": [
       {
@@ -250,6 +250,18 @@
       "description": "Comments"
     },
     {
+      "title": "Holepunching, Changing Consensus - Bitcoin Optech Newsletter #430",
+      "link": "https://bitcoinops.org/en/newsletters/2026/11/06/",
+      "pubDate": "Fri, 06 Nov 2026 13:31:10 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "BlackIce: Distributed Frost Silent Payments · Hackathon · bitcoin++ seoul winner",
+      "link": "https://btcpp.dev/seoul/hackathon/projects/33249dbf-181b-4cc6-9074-1a742f71cb60",
+      "pubDate": "Fri, 06 Nov 2026 15:14:25 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "I do not want these community leaders to miss this opportunity",
       "link": "https://stacker.news/items/1609388",
       "pubDate": "Fri, 06 Nov 2026 09:43:21 GMT",
@@ -262,15 +274,15 @@
       "description": "Comments"
     },
     {
-      "title": "Silent Upgrade • Haleen",
-      "link": "https://wavlake.com/track/1ae2deef-4ae1-4910-b587-1c895061aa7c",
-      "pubDate": "Thu, 17 Sep 2026 08:12:57 GMT",
-      "description": "Comments"
-    },
-    {
       "title": "November is Chess-vember (The Guardian, Leonard Barden)",
       "link": "https://www.theguardian.com/sport/2026/nov/06/chess-magnus-carlsen-returns-for-budapest-battle-before-sindarov-targets-classical-crown",
       "pubDate": "Fri, 06 Nov 2026 13:30:43 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Descent into the Computational Sublime",
+      "link": "https://contraptions.venkateshrao.com/p/descent-into-the-computational-sublime",
+      "pubDate": "Fri, 06 Nov 2026 11:36:09 GMT",
       "description": "Comments"
     },
     {
@@ -283,18 +295,6 @@
       "title": "A Congressional Staffers Thoughts On What Happened and What&apos;s Next",
       "link": "https://stacker.news/items/1608617",
       "pubDate": "Wed, 04 Nov 2026 21:15:05 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Sharing and Transferring Bitcoin UTXOs Offchain - Vinteum Deep Dive",
-      "link": "https://www.vinteum.org/blog/inside-a-vinteum-deep-dive-sharing-and-transferring-bitcoin-utxos-offchain",
-      "pubDate": "Mon, 02 Nov 2026 17:41:20 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Descent into the Computational Sublime",
-      "link": "https://contraptions.venkateshrao.com/p/descent-into-the-computational-sublime",
-      "pubDate": "Fri, 06 Nov 2026 11:36:09 GMT",
       "description": "Comments"
     }
   ]
