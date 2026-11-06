@@ -3,166 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <script>
-    // Immediately apply dark mode to prevent FOUC
-    document.documentElement.classList.add('dark');
-  </script>
-  <title>Bitcoin Consultation Request | EasySats</title>
-  <meta name="description" content="Request a Bitcoin consultation with EasySats." />
+  <title>Talk to us | EasySats</title>
+  <meta name="description" content="Ask EasySats anything about Bitcoin — for yourself or your business. A person reads every message." />
+  <meta name="theme-color" content="#0E0C0A">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
   <style>
-    body { 
-      margin: 0; 
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #000;
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    :root {
+      --bg: #0E0C0A; --surface: #16130F; --lift: #1A1611; --line: #2A241C;
+      --ink: #EDE7DA; --dim: #9C8F7A; --ember: #e8862d; --gold: #d4af37;
+      --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Inter', system-ui, sans-serif; --mono: 'JetBrains Mono', monospace;
     }
-    .container {
-      width: 90%;
-      max-width: 500px;
-      padding: 2rem;
-      background: rgba(255,255,255,0.05);
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.1);
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center;
+      background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased;
+      background-image: radial-gradient(60% 45% at 75% 8%, rgba(232,134,45,.08), transparent 65%),
+                        radial-gradient(50% 40% at 15% 70%, rgba(212,175,55,.05), transparent 60%);
+      background-attachment: fixed;
     }
-    h1 { 
-      color: #f97316; 
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: #e0e0e0;
-    }
+    ::selection { background: var(--ember); color: var(--bg); }
+    .top { width: 100%; max-width: 1100px; display: flex; justify-content: space-between; align-items: center; padding: 18px 24px; }
+    .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; font-family: var(--serif); font-size: 1.35rem; font-weight: 600; }
+    .brand img { width: 32px; height: 32px; }
+    .brand em { color: var(--ember); font-weight: 500; }
+    .back { color: var(--dim); text-decoration: none; font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; }
+    .back:hover { color: var(--ember); }
+    main { width: 92%; max-width: 560px; padding: 40px 0 80px; animation: rise .9s cubic-bezier(.16,1,.3,1) both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+    .kicker { font-family: var(--mono); font-size: .7rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); text-align: center; }
+    h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(2.4rem, 7vw, 3.4rem); line-height: 1.05; letter-spacing: -.015em; text-align: center; margin: 18px 0 14px; }
+    h1 em { color: var(--ember); font-weight: 500; }
+    .lede { color: var(--dim); text-align: center; font-size: 1.05rem; line-height: 1.6; margin: 0 auto 36px; max-width: 440px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 32px 28px; }
+    .form-group { margin-bottom: 20px; }
+    label { display: block; margin-bottom: 8px; font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
     input, textarea {
-      width: 100%;
-      padding: 0.75rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 8px;
-      color: #fff;
-      font-size: 1rem;
+      width: 100%; padding: 13px 14px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px;
+      color: var(--ink); font: 1rem/1.5 var(--sans); transition: border-color .2s, box-shadow .2s;
     }
-    input::placeholder, textarea::placeholder {
-      color: rgba(255,255,255,0.5);
-    }
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #f97316;
-      box-shadow: 0 0 0 2px rgba(249,115,22,0.2);
-    }
-    textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
+    input::placeholder, textarea::placeholder { color: rgba(237,231,218,.32); }
+    input:focus, textarea:focus { outline: none; border-color: var(--ember); box-shadow: 0 0 0 3px rgba(232,134,45,.15); }
+    textarea { min-height: 140px; resize: vertical; }
     button {
-      width: 100%;
-      padding: 1rem;
-      background: #f97316;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
+      width: 100%; margin-top: 6px; padding: 16px; background: var(--ember); color: var(--bg); border: 0; border-radius: 999px;
+      font: 600 .82rem var(--sans); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; transition: transform .25s, box-shadow .25s;
     }
-    button:hover {
-      background: #ea580c;
-    }
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-    .status {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: center;
-      font-weight: 500;
-    }
-    .success { background: rgba(16,185,129,0.2); color: #10b981; border: 1px solid rgba(16,185,129,0.3); }
-    .error { background: rgba(239,68,68,0.2); color: #ef4444; border: 1px solid rgba(239,68,68,0.3); }
-    .footer {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
-    }
+    button:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(232,134,45,.35); }
+    button:disabled { opacity: .6; cursor: progress; transform: none; box-shadow: none; }
+    .status { margin-top: 18px; padding: 14px; border-radius: 10px; text-align: center; font-size: .95rem; }
+    .success { background: rgba(232,134,45,.10); color: var(--ink); border: 1px solid rgba(232,134,45,.35); }
+    .error { background: rgba(194,65,12,.12); color: #f3b98a; border: 1px solid rgba(194,65,12,.4); }
+    .note { margin-top: 22px; text-align: center; font-size: .85rem; color: var(--dim); }
+    .note a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line); }
+    .note a:hover { color: var(--ember); border-color: var(--ember); }
+    @media (prefers-reduced-motion: reduce) { main { animation: none; } button { transition: none; } }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Bitcoin Consultation Request</h1>
-    <p>Please fill out the form below to request a consultation. We will respond within 24 hours.</p>
-    <form id="consultationForm" action="https://formspree.io/f/xjgqrplq" method="POST">
-      <div class="form-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required />
-      </div>
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required />
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone Number (Optional)</label>
-        <input type="tel" id="phone" name="phone" />
-      </div>
-      <div class="form-group">
-        <label for="message">Describe your inquiry</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-      </div>
-      <button type="submit">Transmit Inquiry</button>
-    </form>
-    <div id="formStatus" class="status" style="display: none;"></div>
-    <div class="footer">
-      SECURE CONNECTION ESTABLISHED. Response time: ~24 hours.
+  <header class="top">
+    <a class="brand" href="/"><img src="/easysats-logo.png" alt=""> Easy<em>Sats</em></a>
+    <a class="back" href="/">← Back</a>
+  </header>
+  <main>
+    <div class="kicker">Talk to us</div>
+    <h1>Ask us anything <em>about Bitcoin.</em></h1>
+    <p class="lede">For yourself, your shop or your team. A real person reads every message and replies within a day.</p>
+    <div class="card">
+      <form id="consultationForm" action="https://formspree.io/f/xjgqrplq" method="POST">
+        <div class="form-group">
+          <label for="name">Your name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="you@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone or WhatsApp (optional)</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" />
+        </div>
+        <div class="form-group">
+          <label for="message">What can we help with?</label>
+          <textarea id="message" name="message" rows="6" placeholder="e.g. I run a shop in Windhoek and want to start taking Bitcoin." required></textarea>
+        </div>
+        <button type="submit">Send message</button>
+      </form>
+      <div id="formStatus" class="status" style="display: none;" role="status" aria-live="polite"></div>
     </div>
-  </div>
+    <p class="note">Prefer email? Write to <a href="mailto:okin@okinent.org">okin@okinent.org</a>.</p>
+  </main>
 
   <script>
     const form = document.getElementById('consultationForm');
     const statusDiv = document.getElementById('formStatus');
+    const btn = form.querySelector('button');
 
-    form.addEventListener('submit', function(e) {
+    form.addEventListener('submit', function (e) {
       e.preventDefault();
-      
-      const formData = new FormData(form);
-      
+      btn.disabled = true; btn.textContent = 'Sending…';
       fetch('https://formspree.io/f/xjgqrplq', {
         method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
       })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error('Network response was not ok.');
-      })
-      .then(data => {
-        statusDiv.textContent = 'Your inquiry has been sent! We will respond within 24 hours.';
-        statusDiv.className = 'status success';
-        statusDiv.style.display = 'block';
-        form.reset();
-      })
-      .catch(error => {
-        statusDiv.textContent = 'Failed to send. Please try again.';
-        statusDiv.className = 'status error';
-        statusDiv.style.display = 'block';
-        console.error('Error:', error);
-      });
+        .then(function (response) {
+          if (response.ok) return response.json();
+          throw new Error('Network response was not ok.');
+        })
+        .then(function () {
+          statusDiv.textContent = 'Sent. We will reply within a day.';
+          statusDiv.className = 'status success';
+          statusDiv.style.display = 'block';
+          form.reset();
+        })
+        .catch(function (error) {
+          statusDiv.innerHTML = 'That didn\u2019t go through. Try again, or email <a href="mailto:okin@okinent.org" style="color:inherit">okin@okinent.org</a>.';
+          statusDiv.className = 'status error';
+          statusDiv.style.display = 'block';
+          console.error('Error:', error);
+        })
+        .finally(function () { btn.disabled = false; btn.textContent = 'Send message'; });
     });
   </script>
 </body>
