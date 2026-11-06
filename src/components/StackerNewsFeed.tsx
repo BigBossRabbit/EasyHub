@@ -110,14 +110,14 @@ export const StackerNewsFeed = () => {
   };
 
   return (
-    <Card className="w-full h-full bg-black/40 border-yellow-500/20 backdrop-blur-sm flex flex-col">
+    <Card className="w-full h-full bg-black/40 border-gold/20 backdrop-blur-sm flex flex-col">
       <CardHeader className="flex flex-row items-center justify-between pb-2 flex-shrink-0">
-        <CardTitle className="text-xl font-bold text-yellow-500 flex items-center gap-2">
-          <Zap className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+        <CardTitle className="text-xl font-bold text-gold flex items-center gap-2">
+          <Zap className="h-5 w-5 text-gold fill-gold" />
           Stacker News
         </CardTitle>
         <div className="flex items-center gap-2">
-          <span className="text-[10px] text-yellow-500/50 font-mono hidden sm:inline-block">
+          <span className="text-[10px] text-gold/50 font-mono hidden sm:inline-block">
             UPDATED: {lastUpdated.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
           </span>
           <Button
@@ -125,7 +125,7 @@ export const StackerNewsFeed = () => {
             size="icon"
             onClick={() => fetchNews(false)}
             disabled={loading}
-            className="text-yellow-500/70 hover:text-yellow-400 hover:bg-yellow-500/10 h-8 w-8"
+            className="text-gold/70 hover:text-gold hover:bg-gold/10 h-8 w-8"
           >
             <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
           </Button>
@@ -150,24 +150,24 @@ export const StackerNewsFeed = () => {
               // Skeleton loading - only show if no data
               Array.from({ length: 5 }).map((_, i) => (
                 <div key={i} className="animate-pulse space-y-2">
-                  <div className="h-4 bg-yellow-500/10 rounded w-3/4"></div>
-                  <div className="h-3 bg-yellow-500/5 rounded w-1/2"></div>
-                  <div className="h-3 bg-yellow-500/5 rounded w-full"></div>
+                  <div className="h-4 bg-gold/10 rounded w-3/4"></div>
+                  <div className="h-3 bg-gold/5 rounded w-1/2"></div>
+                  <div className="h-3 bg-gold/5 rounded w-full"></div>
                 </div>
               ))
             ) : (
               news.map((item, index) => (
-                <div key={index} className="group border-b border-yellow-500/10 last:border-0 pb-3 last:pb-0">
+                <div key={index} className="group border-b border-gold/10 last:border-0 pb-3 last:pb-0">
                   <a
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block hover:bg-yellow-500/5 p-3 rounded-lg transition-all duration-300 -mx-3 hover:scale-[1.02] hover:border-yellow-500/30 border border-transparent"
+                    className="block hover:bg-gold/5 p-3 rounded-lg transition-all duration-300 -mx-3 hover:scale-[1.02] hover:border-gold/30 border border-transparent"
                   >
                     {/* Animated accent bar */}
-                    <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-yellow-400 to-orange-400 transition-all duration-500 mb-2"></div>
+                    <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-gold to-orange-400 transition-all duration-500 mb-2"></div>
 
-                    <h3 className="font-medium text-gray-200 group-hover:text-yellow-400 transition-colors line-clamp-2 text-sm leading-snug mb-2">
+                    <h3 className="font-medium text-gray-200 group-hover:text-gold transition-colors line-clamp-2 text-sm leading-snug mb-2">
                       {item.title}
                     </h3>
 
@@ -179,7 +179,7 @@ export const StackerNewsFeed = () => {
 
                     {/* Single consolidated metadata line */}
                     <div className="flex items-center flex-wrap gap-1.5 text-xs font-mono">
-                      <span className="text-blue-400/70 group-hover:text-blue-400 transition-colors">{item.sourceDomain}</span>
+                      <span className="text-primary/70 group-hover:text-primary transition-colors">{item.sourceDomain}</span>
                       <span className="text-gray-600">•</span>
                       <span className="text-gray-500 group-hover:text-gray-400 transition-colors">#{item.itemId}</span>
                       <span className="text-gray-600">•</span>
@@ -190,7 +190,7 @@ export const StackerNewsFeed = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="text-yellow-400/70 hover:text-yellow-400 transition-colors inline-flex items-center gap-1 group/discuss cursor-pointer"
+                        className="text-gold/70 hover:text-gold transition-colors inline-flex items-center gap-1 group/discuss cursor-pointer"
                       >
                         <span className="group-hover/discuss:underline">discuss</span>
                         <ExternalLink className="h-3 w-3 group-hover/discuss:translate-x-0.5 transition-transform" />

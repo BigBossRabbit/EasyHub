@@ -15,7 +15,7 @@ const Terms = () => {
 
             <main className="container mx-auto px-6 py-12 max-w-4xl">
                 <div className="mb-12">
-                    <h1 className="text-4xl font-bold mb-4">Terms & Conditions</h1>
+                    <h1 className="text-4xl font-semibold mb-4">Terms & Conditions</h1>
                     <p className="text-muted-foreground">Last Updated: November 2025</p>
                 </div>
 

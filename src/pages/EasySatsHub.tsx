@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { FileText, Scale, Shield, ArrowRight, Zap, Briefcase, Code } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 
@@ -41,163 +41,104 @@ const WEBSITE_SCHEMA = JSON.stringify({
   }
 });
 
+const paths = [
+  {
+    n: "01", to: "/timeforce", name: "TimeForce", line: "Have time? Get paid in sats.",
+    copy: "Help local shops start taking Bitcoin. We train you, you onboard them, you earn on every one.",
+    cta: "Join TimeForce",
+  },
+  {
+    n: "02", to: "/easyjobs", name: "EasyJobs", line: "Have a skill? Get hired in sats.",
+    copy: "Remote roles at companies that pay in Bitcoin, plus open careers at the Human Rights Foundation.",
+    cta: "See open roles",
+  },
+  {
+    n: "03", to: "/easydevs", name: "EasyDevs", line: "Can you build? Ship real code.",
+    copy: "Live open issues on real Bitcoin projects — BTCPay, Cashu, BDK, Lightning. Your first PR starts here.",
+    cta: "Find your first issue",
+  },
+];
+
 const EasySatsHub = () => {
   return (
-    <div className="min-h-screen selection:bg-primary selection:text-primary-foreground">
+    <div className="min-h-screen">
       <Seo
         title="EasySats | Don't Just Buy Bitcoin. Earn It."
-        description="Namibia's First Bitcoin Revolution. Join TimeForce, find Bitcoin careers on EasyJobs, or freelance on EasyDevs."
+        description="Namibia's first Bitcoin earning layer. Join TimeForce, find Bitcoin careers on EasyJobs, or ship open-source code on EasyDevs."
         image="/easysats-logo.png"
         type="website"
         schemas={[ORGANIZATION_SCHEMA, WEBSITE_SCHEMA]}
       />
 
-      <main className="pt-4 pb-12">
-        {/* Hero Section */}
-        <section className="container mx-auto px-6 py-10 md:py-16 text-center relative overflow-hidden">
-          {/* Animated Background Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 blur-[120px] rounded-full -z-10 animate-pulse" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-secondary/20 blur-[100px] rounded-full -z-10 animate-pulse delay-700" />
-
-          <div className="max-w-4xl mx-auto space-y-8 animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium">
-              <Zap className="h-4 w-4 fill-primary" />
-              <span>Namibia's First Bitcoin Revolution</span>
-            </div>
-
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.1] text-foreground">
-              Don't Just Buy Bitcoin. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary bg-300% animate-shimmer">Earn It.</span>
-            </h1>
-
-            <p className="text-xl md:text-2xl text-muted-foreground font-medium max-w-2xl mx-auto leading-relaxed">
-              We provide the tools and platforms to help you stack sats through your skills, time, and dedication.
-            </p>
-
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Button size="lg" className="h-14 px-8 text-lg font-bold rounded-full group" asChild>
-                <Link to="/timeforce">
-                  Start Earning
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-bold rounded-full border-white/10 hover:bg-white/5" asChild>
-                <Link to="/tpok">
-                  Learn First
-                </Link>
-              </Button>
-            </div>
+      {/* ---------- HERO ---------- */}
+      <section data-no-reveal className="relative overflow-hidden">
+        <div className="container mx-auto px-6 min-h-[calc(100svh-7rem)] flex flex-col items-center justify-center text-center py-16">
+          <div className="leaf-kicker mb-8 animate-fade-in-up">EasySats · Windhoek · Namibia</div>
+          <h1 className="text-[clamp(2.9rem,9vw,7rem)] max-w-5xl animate-fade-in-up">
+            Don't just buy Bitcoin.<br /><em>Earn it.</em>
+          </h1>
+          <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed animate-fade-in-up">
+            Three ways to stack sats with what you already have — your time, your skills, your code.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4 animate-fade-in-up">
+            <Link to="/timeforce" className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-8 py-4 text-[0.82rem] font-semibold uppercase tracking-[0.12em] transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_34px_rgba(232,134,45,.35)]">
+              Start earning <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link to="/tpok" className="inline-flex items-center rounded-full border border-border px-8 py-4 text-[0.82rem] font-semibold uppercase tracking-[0.12em] text-foreground transition-colors hover:border-gold hover:text-gold">
+              Learn first
+            </Link>
           </div>
-        </section>
+          <a href="#paths" className="mt-16 text-[0.68rem] uppercase tracking-[0.3em] text-muted-foreground/70 hover:text-primary transition-colors">
+            Scroll<span className="block mx-auto mt-3 h-10 w-px bg-gradient-to-b from-gold/70 to-transparent animate-pulse" />
+          </a>
+        </div>
+      </section>
 
-        {/* Earn Section */}
-        <section className="container mx-auto px-6 py-12 bg-black/40 border-y border-white/5">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-4">
-              <div className="space-y-4">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Earning Opportunities</h2>
-                <p className="text-muted-foreground text-lg">Choose your path to financial sovereignty.</p>
-              </div>
-              <div className="h-1 bg-primary w-24 rounded-full" />
-            </div>
+      {/* ---------- THREE PATHS ---------- */}
+      <section id="paths" className="container mx-auto px-6 py-24 scroll-mt-28">
+        <div className="text-center mb-16">
+          <div className="leaf-kicker mb-4">Pick your door</div>
+          <h2 className="text-4xl md:text-5xl">One stack. <em>Three ways in.</em></h2>
+        </div>
+        <div className="grid md:grid-cols-3 gap-px bg-border border border-border rounded-2xl overflow-hidden max-w-6xl mx-auto">
+          {paths.map((p) => (
+            <Link key={p.to} to={p.to} className="leaf-card group bg-card p-9 md:p-10 flex flex-col transition-colors duration-500 hover:bg-[#1A1611]">
+              <span className="font-serif italic text-gold/80 text-2xl">{p.n}</span>
+              <h3 className="mt-6 text-3xl">{p.name}</h3>
+              <p className="mt-2 font-serif italic text-primary text-lg">{p.line}</p>
+              <p className="mt-5 text-muted-foreground leading-relaxed flex-1">{p.copy}</p>
+              <span className="mt-8 inline-flex items-center gap-2 text-[0.75rem] uppercase tracking-[0.16em] text-foreground group-hover:text-primary transition-colors">
+                {p.cta} <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* TimeForce */}
-              <Link to="/timeforce" className="group">
-                <div className="h-full p-8 rounded-3xl bg-card border border-white/10 hover:border-primary/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
-                  <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                    <Zap className="h-24 w-24" />
-                  </div>
-                  <div>
-                    <div className="h-12 w-12 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 border border-primary/20">
-                      <Zap className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-3">TimeForce</h3>
-                    <p className="text-muted-foreground group-hover:text-foreground transition-colors leading-relaxed">
-                      Exchange time and skills for Sats. Join our lightning-fast gig economy.
-                    </p>
-                  </div>
-                  <div className="mt-8 flex items-center text-primary font-bold">
-                    Join Network <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
+      {/* ---------- WHY ---------- */}
+      <section className="container mx-auto px-6 py-24">
+        <blockquote className="max-w-3xl mx-auto text-center">
+          <div className="leaf-kicker mb-6">Why earn instead of buy</div>
+          <p className="font-serif text-3xl md:text-[2.6rem] leading-[1.2]">
+            Buying Bitcoin moves money you already had. <em>Earning it</em> means you learned something, built something, and nobody can take that part back.
+          </p>
+        </blockquote>
+      </section>
 
-              {/* EasyJobs */}
-              <Link to="/easyjobs" className="group">
-                <div className="h-full p-8 rounded-3xl bg-card border border-white/10 hover:border-secondary/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
-                  <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                    <Briefcase className="h-24 w-24" />
-                  </div>
-                  <div>
-                    <div className="h-12 w-12 rounded-2xl bg-secondary/20 flex items-center justify-center mb-6 border border-secondary/20">
-                      <Briefcase className="h-6 w-6 text-secondary" />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-3">EasyJobs</h3>
-                    <p className="text-muted-foreground group-hover:text-foreground transition-colors leading-relaxed">
-                      Find Bitcoin-only careers. Connect with companies paying in sound money.
-                    </p>
-                  </div>
-                  <div className="mt-8 flex items-center text-secondary font-bold">
-                    View Careers <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-
-              {/* EasyDevs */}
-              <Link to="/easydevs" className="group">
-                <div className="h-full p-8 rounded-3xl bg-card border border-white/10 hover:border-primary/50 transition-all duration-300 relative overflow-hidden flex flex-col justify-between">
-                  <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                    <Code className="h-24 w-24" />
-                  </div>
-                  <div>
-                    <div className="h-12 w-12 rounded-2xl bg-primary/20 flex items-center justify-center mb-6 border border-primary/20">
-                      <Code className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-bold mb-3">EasyDevs</h3>
-                    <p className="text-muted-foreground group-hover:text-foreground transition-colors leading-relaxed">
-                      Freelance developer marketplace. Build the tools of freedom for Bitcoin.
-                    </p>
-                  </div>
-                  <div className="mt-8 flex items-center text-primary font-bold">
-                    Start Bounties <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Link>
-            </div>
+      {/* ---------- LEARN BAND ---------- */}
+      <section className="container mx-auto px-6 pb-8">
+        <div className="max-w-6xl mx-auto rounded-2xl border border-border bg-gradient-to-br from-card to-[#1A1611] p-10 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+          <div>
+            <div className="leaf-kicker mb-3">New to all of this?</div>
+            <h2 className="text-3xl md:text-4xl">Start with <em>The Pursuit of Knowledge.</em></h2>
+            <p className="text-muted-foreground mt-3 max-w-lg">Free Trezor Academy sessions, talks from Windhoek, and the courses we'd hand a friend.</p>
           </div>
-        </section>
-
-        {/* Link Footer Action */}
-        <section className="container mx-auto px-6 py-12 text-center">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            <Button variant="ghost" className="h-16 border border-white/5 hover:bg-white/5 rounded-2xl" asChild>
-              <a href="/bitcoin-whitepaper.html" target="_blank" rel="noopener noreferrer">
-                <FileText className="mr-2 h-5 w-5 opacity-50" />
-                Whitepaper
-              </a>
-            </Button>
-            <Button variant="ghost" className="h-16 border border-white/5 hover:bg-white/5 rounded-2xl" asChild>
-              <Link to="/easydevs">
-                <Code className="mr-2 h-5 w-5 opacity-50" />
-                Bounties
-              </Link>
-            </Button>
-            <Button variant="ghost" className="h-16 border border-white/5 hover:bg-white/5 rounded-2xl" asChild>
-              <Link to="/terms">
-                <Scale className="mr-2 h-5 w-5 opacity-50" />
-                Terms
-              </Link>
-            </Button>
-            <Button variant="ghost" className="h-16 border border-white/5 hover:bg-white/5 rounded-2xl" asChild>
-              <Link to="/privacy">
-                <Shield className="mr-2 h-5 w-5 opacity-50" />
-                Privacy
-              </Link>
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <Link to="/tpok" className="inline-flex justify-center rounded-full bg-primary text-primary-foreground px-7 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.12em] hover:-translate-y-0.5 transition-transform">Start learning</Link>
+            <a href="/bitcoin-whitepaper.html" target="_blank" rel="noopener noreferrer" className="inline-flex justify-center rounded-full border border-border px-7 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.12em] hover:border-gold hover:text-gold transition-colors">Read the whitepaper</a>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
     </div>
   );
 };

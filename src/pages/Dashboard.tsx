@@ -162,8 +162,8 @@ const Dashboard = () => {
                             <ArrowLeft className="h-6 w-6" />
                         </Link>
                         <div>
-                            <h1 className="text-2xl md:text-3xl font-bold text-primary tracking-tighter">
-                                SYSTEM_DASHBOARD
+                            <h1 className="text-2xl md:text-3xl font-semibold text-primary tracking-tighter">
+                                Bitcoin dashboard
                             </h1>
                             <p className="text-xs text-green-400/60 mt-1 flex items-center gap-2">
                                 <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
@@ -183,13 +183,13 @@ const Dashboard = () => {
                         <div className="flex bg-primary/10 rounded-lg p-1 border border-primary/30">
                             <button
                                 onClick={() => setCurrency('USD')}
-                                className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all ${currency === 'USD' ? 'bg-primary text-black shadow-[0_0_15px_rgba(247,147,26,0.4)]' : 'text-green-400 hover:text-primary'}`}
+                                className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all ${currency === 'USD' ? 'bg-primary text-black shadow-[0_0_15px_rgba(232,134,45,0.4)]' : 'text-green-400 hover:text-primary'}`}
                             >
                                 USD
                             </button>
                             <button
                                 onClick={() => setCurrency('NAD')}
-                                className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all ${currency === 'NAD' ? 'bg-primary text-black shadow-[0_0_15px_rgba(247,147,26,0.4)]' : 'text-green-400 hover:text-primary'}`}
+                                className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all ${currency === 'NAD' ? 'bg-primary text-black shadow-[0_0_15px_rgba(232,134,45,0.4)]' : 'text-green-400 hover:text-primary'}`}
                             >
                                 NAD
                             </button>
@@ -197,7 +197,7 @@ const Dashboard = () => {
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <button
-                                        className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all flex items-center gap-1 ${currency === 'OTHER' ? 'bg-primary text-black shadow-[0_0_15px_rgba(247,147,26,0.4)]' : 'text-green-400 hover:text-primary'}`}
+                                        className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all flex items-center gap-1 ${currency === 'OTHER' ? 'bg-primary text-black shadow-[0_0_15px_rgba(232,134,45,0.4)]' : 'text-green-400 hover:text-primary'}`}
                                     >
                                         {currency === 'OTHER' ? otherCurrency.code : 'OTHER'} <ChevronDown className="h-3 w-3" />
                                     </button>
@@ -229,11 +229,11 @@ const Dashboard = () => {
                     {/* Left Column: Stats & Dials */}
                     <div className="space-y-8">
                         {/* Current Price Card */}
-                        <div className="bg-black/50 border border-primary/30 p-6 rounded-lg relative overflow-hidden group hover:border-primary transition-all duration-300 shadow-[0_0_20px_rgba(34,197,94,0.1)] hover:shadow-[0_0_30px_rgba(247,147,26,0.2)]">
+                        <div className="bg-black/50 border border-primary/30 p-6 rounded-lg relative overflow-hidden group hover:border-primary transition-all duration-300 shadow-[0_0_20px_rgba(34,197,94,0.1)] hover:shadow-[0_0_30px_rgba(232,134,45,0.2)]">
                             <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-40 transition-opacity">
                                 <DollarSign className="h-24 w-24 text-primary animate-pulse" style={{ animationDuration: '3s' }} />
                             </div>
-                            <h2 className="text-xs text-green-400/60 mb-2 flex items-center gap-2 font-bold tracking-widest">
+                            <h2 className="text-xs text-green-400/60 mb-2 flex items-center gap-2 font-semibold tracking-widest">
                                 CURRENT PRICE
                             </h2>
                             <div className="text-4xl lg:text-5xl font-bold text-white mb-2 tracking-tighter">
@@ -247,7 +247,7 @@ const Dashboard = () => {
 
                         {/* Fear & Greed Gauge */}
                         <div className="bg-black/50 border border-primary/30 p-6 rounded-lg relative">
-                            <h2 className="text-xs text-green-400/60 mb-6 flex items-center gap-2 font-bold tracking-widest">
+                            <h2 className="text-xs text-green-400/60 mb-6 flex items-center gap-2 font-semibold tracking-widest">
                                 MARKET SENTIMENT
                             </h2>
                             {fearGreedLoading ? (
@@ -289,7 +289,7 @@ const Dashboard = () => {
 
                         {/* Network Stats with Progress Bars */}
                         <div className="bg-black/50 border border-primary/30 p-6 rounded-lg space-y-6">
-                            <h2 className="text-xs text-green-400/60 mb-4 flex items-center gap-2 font-bold tracking-widest">
+                            <h2 className="text-xs text-green-400/60 mb-4 flex items-center gap-2 font-semibold tracking-widest">
                                 TIMECHAIN STATUS
                             </h2>
                             {statsLoading ? (
@@ -303,7 +303,7 @@ const Dashboard = () => {
                                             <span className="text-primary font-bold">88.4%</span>
                                         </div>
                                         <div className="h-2 bg-gray-900 rounded-full overflow-hidden">
-                                            <div className="h-full bg-gradient-to-r from-primary/50 to-primary w-[88.4%] shadow-[0_0_10px_rgba(247,147,26,0.5)]"></div>
+                                            <div className="h-full bg-gradient-to-r from-primary/50 to-primary w-[88.4%] shadow-[0_0_10px_rgba(232,134,45,0.5)]"></div>
                                         </div>
                                         <div className="text-right text-[10px] text-green-400/60">
                                             ETA: {stats.nextHalving?.daysRemaining || 'N/A'} Days
@@ -339,7 +339,7 @@ const Dashboard = () => {
                         <div className="bg-black/50 border border-primary/30 p-6 rounded-lg h-[600px] relative flex flex-col">
                             <div className="flex flex-wrap items-center justify-between mb-6 gap-4">
                                 <div>
-                                    <h2 className="text-lg font-bold text-white flex items-center gap-2">
+                                    <h2 className="text-lg font-semibold text-white flex items-center gap-2">
                                         {chartType === 'price' ? 'BTC Price Action' :
                                             chartType === 'fuel' ? 'Fuel vs Bitcoin' :
                                                 `${selectedCommodity.charAt(0).toUpperCase() + selectedCommodity.slice(1)} vs Bitcoin`}
@@ -387,7 +387,7 @@ const Dashboard = () => {
                                     <div className="absolute inset-0 flex items-center justify-center bg-black/80 z-20 backdrop-blur-sm">
                                         <div className="flex flex-col items-center gap-2">
                                             <Activity className="h-8 w-8 text-primary animate-spin" />
-                                            <span className="text-primary text-xs font-mono animate-pulse">FETCHING_ON_CHAIN_DATA...</span>
+                                            <span className="text-primary text-xs font-mono animate-pulse">Loading on-chain data…</span>
                                         </div>
                                     </div>
                                 )}
@@ -428,7 +428,7 @@ const Dashboard = () => {
                                                 border: '1px solid #f7931a',
                                                 color: '#fff',
                                                 borderRadius: '8px',
-                                                boxShadow: '0 0 20px rgba(247,147,26,0.1)'
+                                                boxShadow: '0 0 20px rgba(232,134,45,0.1)'
                                             }}
                                             itemStyle={{ color: '#f7931a' }}
                                             labelStyle={{ color: '#aaa', marginBottom: '0.5rem', fontSize: '12px' }}

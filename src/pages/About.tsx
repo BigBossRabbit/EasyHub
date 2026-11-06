@@ -31,7 +31,7 @@ const About = () => {
         description="Learn about Nikolai 'OKIN' Tjongarero and the mission of OKIN.EnT."
         image="/assets/okin-profile.jpg"
         type="profile"
-        schema={ABOUT_SCHEMA}
+        schemas={[ABOUT_SCHEMA]}
       />
 
 
@@ -53,7 +53,7 @@ const About = () => {
             </div>
 
             <div className="text-center md:text-left">
-              <h1 className="text-3xl font-bold mb-2">Nikolai 'OKIN' Tjongarero</h1>
+              <h1 className="text-3xl font-semibold mb-2">Nikolai 'OKIN' Tjongarero</h1>
               <p className="text-primary font-medium mb-4">Digital Disrupter | FreedomTech Enabler</p>
 
               <div className="flex justify-center md:justify-start gap-3 flex-wrap">
@@ -74,7 +74,7 @@ const About = () => {
           {/* Bio Section */}
           <div className="md:col-span-2 space-y-8 leading-relaxed">
             <div>
-              <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
+              <h2 className="text-2xl font-semibold mb-4 flex items-center gap-3">
                 <span className="h-px w-8 bg-primary"></span>
                 The Mission
               </h2>
@@ -111,7 +111,7 @@ const About = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl font-bold mb-4 flex items-center gap-3">
+              <h2 className="text-2xl font-semibold mb-4 flex items-center gap-3">
                 <span className="h-px w-8 bg-primary"></span>
                 #FromTheJump
               </h2>

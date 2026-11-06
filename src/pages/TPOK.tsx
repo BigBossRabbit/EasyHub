@@ -136,7 +136,7 @@ const TPOK = () => {
   }, []);
 
   return (
-    <div className="min-h-screen text-foreground font-mono pb-24">
+    <div className="min-h-screen text-foreground pb-24">
 
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto mb-16 mt-8 px-4 md:px-8">
@@ -145,9 +145,9 @@ const TPOK = () => {
           <div className="relative z-10">
             <div className="flex items-center gap-3 text-primary mb-4">
               <Terminal className="w-6 h-6" />
-              <span className="text-sm tracking-wider">ROOT_ACCESS_GRANTED</span>
+              <span className="text-sm tracking-wider">The Pursuit of Knowledge</span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-semibold mb-6 text-white tracking-tight">
               The Pursuit Of <span className="text-primary">Knowledge</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl leading-relaxed">
@@ -166,7 +166,7 @@ const TPOK = () => {
       <section className="max-w-7xl mx-auto mb-20 px-4 md:px-8">
         <div className="flex items-center gap-4 mb-8 border-b border-border pb-4">
           <GraduationCap className="w-8 h-8 text-primary" />
-          <h2 className="text-3xl font-bold">Trezor Academy Series</h2>
+          <h2 className="text-3xl font-semibold">Trezor Academy Series</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -176,7 +176,7 @@ const TPOK = () => {
               href={`https://www.youtube.com/watch?v=${video.id}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-card/50 border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(247,147,26,0.1)]"
+              className="group bg-card/50 border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(232,134,45,0.1)]"
             >
               <div className="aspect-video relative overflow-hidden">
                 <img
@@ -186,7 +186,7 @@ const TPOK = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-green-500/90 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <div className="w-12 h-12 rounded-full bg-primary/90 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
                     <Play className="w-5 h-5 text-black fill-current ml-1" />
                   </div>
                 </div>
@@ -208,7 +208,7 @@ const TPOK = () => {
       <section className="max-w-7xl mx-auto mb-20 px-4 md:px-8">
         <div className="flex items-center gap-4 mb-8 border-b border-border pb-4">
           <Youtube className="w-8 h-8 text-primary" />
-          <h2 className="text-3xl font-bold">Interviews & Talks</h2>
+          <h2 className="text-3xl font-semibold">Interviews & Talks</h2>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -247,7 +247,7 @@ const TPOK = () => {
           <div className="w-8 h-8 rounded bg-primary/10 flex items-center justify-center">
             <div className="w-3 h-3 bg-primary rounded-full animate-pulse" />
           </div>
-          <h2 className="text-3xl font-bold">On The Ground</h2>
+          <h2 className="text-3xl font-semibold">On The Ground</h2>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -279,7 +279,7 @@ const TPOK = () => {
                   <BookOpen className="w-6 h-6 text-primary" />
                   <span className="text-primary font-bold tracking-wider">PLAN B NETWORK</span>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-white">
                   Free Bitcoin Education
                 </h2>
                 <p className="text-gray-400 text-lg">
@@ -291,7 +291,7 @@ const TPOK = () => {
                 href="https://planb.academy/en/learn-anytime"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-black px-8 py-4 rounded-lg font-bold transition-all hover:scale-105 shadow-[0_0_20px_rgba(247,147,26,0.3)]"
+                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-black px-8 py-4 rounded-lg font-bold transition-all hover:scale-105 shadow-[0_0_20px_rgba(232,134,45,0.3)]"
               >
                 View All Courses
                 <ExternalLink className="w-5 h-5" />

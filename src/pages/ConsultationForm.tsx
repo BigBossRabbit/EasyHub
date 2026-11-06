@@ -5,7 +5,7 @@ const ConsultationForm = () => {
     <div className="min-h-screen bg-background text-foreground">
       <section className="container mx-auto px-6 py-12">
         <div className="max-w-2xl mx-auto">
-          <h1 className="text-4xl font-bold mb-6">Bitcoin Consultation Request</h1>
+          <h1 className="text-4xl font-semibold mb-6">Bitcoin Consultation Request</h1>
           <p className="mb-6 text-muted-foreground">
             Please fill out the form below to request a consultation. We will respond within 24 hours.
           </p>
@@ -56,7 +56,7 @@ const ConsultationForm = () => {
               <textarea
                 id="message"
                 name="message"
-                rows="6"
+                rows={6}
                 required
                 className="w-full px-4 py-2 border border-input bg-background/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
               ></textarea>
@@ -66,12 +66,12 @@ const ConsultationForm = () => {
                 type="submit"
                 className="w-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-lg hover:bg-primary/90 transition-colors disabled:opacity-50"
               >
-                Transmit Inquiry
+                Send message
               </button>
             </div>
           </form>
           <p className="mt-6 text-sm text-muted-foreground">
-            SECURE CONNECTION ESTABLISHED. Response time: ~24 hours.
+            A real person reads every message. Response time: ~24 hours.
           </p>
         </div>
       </section>

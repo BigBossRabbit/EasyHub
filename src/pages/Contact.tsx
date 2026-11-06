@@ -44,8 +44,8 @@ const Contact = () => {
 
                     {/* Hero Text */}
                     <div className="text-center mb-12 space-y-4">
-                        <h1 className="text-4xl md:text-5xl font-bold">
-                            <span className="text-primary">&gt;</span> Contact Us
+                        <h1 className="text-4xl md:text-5xl font-semibold">
+                            Contact Us
                         </h1>
                         <p className="text-xl text-muted-foreground">
                             EasySats Business & Bitcoin Consultations
@@ -153,7 +153,7 @@ const Contact = () => {
                                 <div className="flex justify-center">
                                     <Button type="submit" className="w-full md:w-auto gap-2 font-bold uppercase tracking-wider">
                                         <Send className="h-4 w-4" />
-                                        Transmit Inquiry
+                                        Send message
                                     </Button>
                                 </div>
 
@@ -163,7 +163,7 @@ const Contact = () => {
 
                     {/* Footer Note */}
                     <div className="mt-8 text-center text-sm text-muted-foreground font-mono">
-                        <p>SECURE CONNECTION ESTABLISHED.</p>
+                        <p>A real person reads every message.</p>
                         <p>Response time: ~24 hours.</p>
                     </div>
 

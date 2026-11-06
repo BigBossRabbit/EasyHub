@@ -204,7 +204,7 @@ const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) =
                 <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
                         <Calendar className="h-6 w-6 text-primary" />
-                        <h2 className="text-sm text-green-400/60 font-bold">ON THIS DAY IN HISTORY</h2>
+                        <h2 className="text-sm text-green-400/60 font-semibold">ON THIS DAY IN HISTORY</h2>
                     </div>
                     <div className="flex items-center gap-2">
                         <button
@@ -313,7 +313,7 @@ const OnThisDayCarousel = ({ currency, currentPrice }: OnThisDayCarouselProps) =
 
                 <div className="flex-1 pr-24"> {/* Added padding right to avoid overlap with nav */}
                     <div className="flex items-center gap-3 mb-2">
-                        <h2 className="text-xs text-green-400/60 font-bold">
+                        <h2 className="text-xs text-green-400/60 font-semibold">
                             {event.category === 'finance' ? 'ON THIS DAY IN FINANCIAL HISTORY' : 'ON THIS DAY IN BITCOIN HISTORY'}
                         </h2>
                         {event.significance === 'high' && (

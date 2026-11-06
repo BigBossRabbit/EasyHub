@@ -34,68 +34,51 @@ export const useBitcoinNetworkStats = () => {
 
     useEffect(() => {
         const fetchStats = async () => {
+            // Each source is independent: one dead endpoint must never blank the others.
+            const get = async <T,>(url: string, parse: (r: Response) => Promise<T>): Promise<T | null> => {
+                try {
+                    const r = await fetch(url, { signal: AbortSignal.timeout(10000) });
+                    return r.ok ? await parse(r) : null;
+                } catch { return null; }
+            };
             try {
-                // Fetch Block Height
-                const heightResponse = await fetch('https://mempool.space/api/blocks/tip/height');
-                const blockHeight = parseInt(await heightResponse.text(), 10);
+                const [heightTxt, feesData, adj, mempoolData, blocksData, hashData] = await Promise.all([
+                    get('https://mempool.space/api/blocks/tip/height', (r) => r.text()),
+                    get('https://mempool.space/api/v1/fees/recommended', (r) => r.json()),
+                    get('https://mempool.space/api/v1/difficulty-adjustment', (r) => r.json()),
+                    get('https://mempool.space/api/mempool', (r) => r.json()),
+                    get('https://mempool.space/api/v1/blocks', (r) => r.json()),
+                    // mempool.space carries difficulty + hashrate too (blockchain.info is unreachable)
+                    get('https://mempool.space/api/v1/mining/hashrate/3d', (r) => r.json()),
+                ]);
 
-                // Fetch Fees
-                const feesResponse = await fetch('https://mempool.space/api/v1/fees/recommended');
-                const feesData = await feesResponse.json();
+                const blockHeight = heightTxt ? parseInt(heightTxt, 10) : null;
+                const difficulty = hashData?.currentDifficulty ?? null;
+                const hashrate = hashData?.currentHashrate ? `${(hashData.currentHashrate / 1e18).toFixed(0)} EH/s` : null;
 
-                // Fetch Difficulty and Hashrate from blockchain.info
-                const difficultyResponse = await fetch('https://blockchain.info/q/getdifficulty');
-                const difficulty = parseFloat(await difficultyResponse.text());
-
-                // Fetch previous difficulty to calculate change
-                // Use mempool.space API for accurate difficulty adjustment estimate
-                const difficultyAdjResponse = await fetch('https://mempool.space/api/v1/difficulty-adjustment');
-                const difficultyAdjData = await difficultyAdjResponse.json();
-                const difficultyChange = difficultyAdjData.difficultyChange;
-
-                // Calculate hashrate from difficulty (approximate)
-                // Hashrate (H/s) = difficulty * 2^32 / 600
-                const hashrateRaw = (difficulty * Math.pow(2, 32)) / 600;
-                const hashrateEH = hashrateRaw / 1e18; // Convert to EH/s
-                const hashrate = `${hashrateEH.toFixed(0)} EH/s`;
-
-                // Calculate next halving
-                const HALVING_INTERVAL = 210000;
-                const currentHalvingEpoch = Math.floor(blockHeight / HALVING_INTERVAL);
-                const nextHalvingBlock = (currentHalvingEpoch + 1) * HALVING_INTERVAL;
-                const blocksRemaining = nextHalvingBlock - blockHeight;
-                const daysRemaining = Math.floor((blocksRemaining * 10) / 60 / 24); // ~10 min per block
-
-                // Fetch mempool size
-                const mempoolResponse = await fetch('https://mempool.space/api/mempool');
-                const mempoolData = await mempoolResponse.json();
-                const mempoolSize = mempoolData.count;
-
-                // Fetch recent blocks to calculate average block time
-                const blocksResponse = await fetch('https://mempool.space/api/v1/blocks');
-                const blocksData = await blocksResponse.json();
-                if (blocksData.length >= 2) {
-                    const timeDiff = blocksData[0].timestamp - blocksData[blocksData.length - 1].timestamp;
-                    const blockTime = Math.floor(timeDiff / (blocksData.length - 1));
-
-                    setStats({
-                        blockHeight,
-                        fees: {
-                            fastestFee: feesData.fastestFee,
-                            halfHourFee: feesData.halfHourFee,
-                            hourFee: feesData.hourFee,
-                        },
-                        difficulty,
-                        difficultyChange,
-                        hashrate,
-                        nextHalving: {
-                            blocksRemaining,
-                            daysRemaining,
-                        },
-                        mempoolSize,
-                        blockTime,
-                    });
+                let nextHalving = null;
+                if (blockHeight) {
+                    const HALVING_INTERVAL = 210000;
+                    const nextHalvingBlock = (Math.floor(blockHeight / HALVING_INTERVAL) + 1) * HALVING_INTERVAL;
+                    const blocksRemaining = nextHalvingBlock - blockHeight;
+                    nextHalving = { blocksRemaining, daysRemaining: Math.floor((blocksRemaining * 10) / 60 / 24) };
                 }
+
+                let blockTime = null;
+                if (Array.isArray(blocksData) && blocksData.length >= 2) {
+                    blockTime = Math.floor((blocksData[0].timestamp - blocksData[blocksData.length - 1].timestamp) / (blocksData.length - 1));
+                }
+
+                setStats({
+                    blockHeight,
+                    fees: feesData ? { fastestFee: feesData.fastestFee, halfHourFee: feesData.halfHourFee, hourFee: feesData.hourFee } : null,
+                    difficulty,
+                    difficultyChange: adj?.difficultyChange ?? null,
+                    hashrate,
+                    nextHalving,
+                    mempoolSize: mempoolData?.count ?? null,
+                    blockTime,
+                });
 
                 setError(null);
             } catch (err) {

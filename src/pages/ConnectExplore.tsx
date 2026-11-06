@@ -50,7 +50,7 @@ const ConnectExplore = () => {
             <Seo
                 title="Connect & Explore"
                 description="Explore OKIN's projects, platforms, and educational resources in the Bitcoin ecosystem."
-                schema={CONNECT_SCHEMA}
+                schemas={[CONNECT_SCHEMA]}
             />
 
 

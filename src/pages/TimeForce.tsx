@@ -94,7 +94,7 @@ const TimeForce = () => {
               required
               value={formData.email}
               onChange={handleChange}
-              placeholder="EMAIL_ADDRESS"
+              placeholder="you@email.com"
               className="w-full bg-background/50 border border-primary/20 rounded px-3 py-2 text-sm font-mono focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none transition-all"
             />
           </div>
@@ -107,7 +107,7 @@ const TimeForce = () => {
               name="telegram"
               value={formData.telegram}
               onChange={handleChange}
-              placeholder="@TELEGRAM_HANDLE"
+              placeholder="@telegram (optional)"
               className="w-full bg-background/50 border border-primary/20 rounded px-3 py-2 text-sm font-mono focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none transition-all"
             />
           </div>
@@ -122,10 +122,10 @@ const TimeForce = () => {
               onChange={handleChange}
               className="w-full bg-background/50 border border-primary/20 rounded px-3 py-2 text-sm font-mono focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none transition-all appearance-none cursor-pointer"
             >
-              <option value="agent" className="bg-card">COMMERCIAL_AGENT</option>
-              <option value="merchant" className="bg-card">BITCOIN_MERCHANT</option>
-              <option value="dev" className="bg-card">TECH_DISRUPTOR</option>
-              <option value="other" className="bg-card">OTHER_ACTOR</option>
+              <option value="agent" className="bg-card">Agent — I want to onboard shops</option>
+              <option value="merchant" className="bg-card">Merchant — I want to accept Bitcoin</option>
+              <option value="dev" className="bg-card">Developer</option>
+              <option value="other" className="bg-card">Something else</option>
             </select>
           </div>
 
@@ -139,14 +139,14 @@ const TimeForce = () => {
               rows={4}
               value={formData.message}
               onChange={handleChange}
-              placeholder="INTENT_DETAILS..."
+              placeholder="Tell us a little about you…"
               className="w-full bg-background/50 border border-primary/20 rounded px-3 py-2 text-sm font-mono focus:border-primary focus:ring-1 focus:ring-primary/30 outline-none transition-all resize-none"
             />
           </div>
 
           <Button type="submit" className="w-full font-mono tracking-tighter hover:scale-[1.02] active:scale-[0.98] transition-transform flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(var(--primary),0.3)]">
             <Send className="h-4 w-4" />
-            INITIATE_HANDSHAKE
+            Send my application
           </Button>
         </form>
       </div>
@@ -159,7 +159,7 @@ const TimeForce = () => {
         title="TimeForce — Bitcoin Onboarding"
         description="A structured approach to onboarding business owners with Bitcoin solutions."
         canonical="/timeforce"
-        schema={TIMEFORCE_SCHEMA}
+        schemas={[TIMEFORCE_SCHEMA]}
       />
 
       <Sheet open={isJoinModalOpen} onOpenChange={setIsJoinModalOpen}>
@@ -169,11 +169,11 @@ const TimeForce = () => {
 
           <SheetHeader className="relative space-y-4 pt-6">
             <div className="flex items-center gap-2 text-primary font-mono text-xs">
-              <span className="animate-pulse">&gt;</span> SYSTEM_READY
+              Ready when you are
             </div>
             <SheetTitle className="text-3xl font-bold tracking-tighter flex items-center gap-3">
               <Clock className="h-8 w-8 text-primary" />
-              JOIN_TIMEFORCE
+              Join TimeForce
             </SheetTitle>
             <SheetDescription className="text-muted-foreground font-mono text-sm leading-relaxed border-l-2 border-primary/30 pl-4">
               Access the future of financial sovereignty. Join the decentralized network of Bitcoin pioneers.
@@ -195,22 +195,10 @@ const TimeForce = () => {
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-12">
         <div className="max-w-4xl mx-auto text-center space-y-6">
-          <div className="flex flex-col items-center justify-center gap-2 text-muted-foreground text-sm mb-4 font-mono">
-            <div className="flex items-center gap-2">
-              <span className="text-primary">$</span>
-              <span className="animate-pulse">loading_timeforce_protocol...</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-primary">&gt;</span> <span className="animate-pulse">TimeForce Protocol v1.0.4 | © 2025 EasySats</span>
-            </div>
-          </div>
+          <div className="leaf-kicker">TimeForce · Bitcoin onboarding</div>
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            <span className="text-primary">&gt;</span> TimeForce
-            <br />
-            <span className="text-primary">&gt;</span> Bitcoin Onboarding
-            <br />
-            <span className="text-primary">&gt;</span> Protocol
+          <h1 className="text-[clamp(2.6rem,7vw,5.5rem)] font-semibold">
+            Help a shop take Bitcoin. <em>Get paid for it.</em>
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -237,7 +225,7 @@ const TimeForce = () => {
       <section className="container mx-auto px-6 py-16">
         <div className="max-w-4xl mx-auto">
           <div className="bg-card border border-border rounded-lg p-8 space-y-6 relative overflow-hidden group hover:border-primary/50 transition-colors">
-            <div className="absolute top-0 right-0 p-2 text-[8px] font-mono text-muted-foreground opacity-30">SEC_BLOCK_PROBLEM</div>
+            <div className="absolute top-0 right-0 p-2 text-[8px] font-mono text-muted-foreground opacity-30"></div>
             <div className="flex items-center gap-2 text-primary">
               <Shield className="h-6 w-6" />
               <span className="text-2xl font-bold">The Problem</span>
@@ -257,15 +245,15 @@ const TimeForce = () => {
                   </h3>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="text-destructive font-mono">[!]</span>
+                      <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" aria-hidden="true" />
                       <span>Monthly banking charges for storing your own money</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-destructive font-mono">[!]</span>
+                      <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" aria-hidden="true" />
                       <span>Additional fees for missed payments, or chargebacks</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-destructive font-mono">[!]</span>
+                      <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" aria-hidden="true" />
                       <span>No warning or arrangement opportunities</span>
                     </li>
                   </ul>
@@ -278,15 +266,15 @@ const TimeForce = () => {
                   </h3>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
-                      <span className="text-destructive font-mono">[!]</span>
+                      <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" aria-hidden="true" />
                       <span>Risk of robbery for cash transactions</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-destructive font-mono">[!]</span>
+                      <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" aria-hidden="true" />
                       <span>Shady bookkeepers & bad actors</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-destructive font-mono">[!]</span>
+                      <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" aria-hidden="true" />
                       <span>System with No Representation, yet continued payments</span>
                     </li>
                   </ul>
@@ -301,8 +289,8 @@ const TimeForce = () => {
       <section className="container mx-auto px-6 py-16">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-primary">&gt;</span> The Solution
+            <h2 className="text-4xl font-semibold mb-4">
+              The Solution
             </h2>
             <p className="text-xl text-muted-foreground">
               Three key Bitcoin solutions that solve the problems above
@@ -392,8 +380,8 @@ const TimeForce = () => {
       <section className="container mx-auto px-6 py-16 bg-card/30">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-primary">&gt;</span> The Opportunity
+            <h2 className="text-4xl font-semibold mb-4">
+              The Opportunity
             </h2>
             <p className="text-xl text-muted-foreground">
               Join the #EasySats Bitcoin Network of Merchants
@@ -436,7 +424,7 @@ const TimeForce = () => {
                     <div className="h-px w-full sm:h-8 sm:w-px bg-primary/30 shrink-0"></div>
 
                     <div className="shrink-0">
-                      <span className="text-green-400 font-bold text-sm uppercase tracking-wider">● ACTIVE</span>
+                      <span className="text-primary font-semibold text-xs uppercase tracking-[0.16em]">Open now</span>
                     </div>
                   </div>
                 </li>
@@ -445,11 +433,11 @@ const TimeForce = () => {
               <style>{`
                   @keyframes billboard-flicker {
                       0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-                          border-color: rgba(247, 147, 26, 0.8);
-                          box-shadow: 0 0 15px rgba(247, 147, 26, 0.4), inset 0 0 10px rgba(247, 147, 26, 0.2);
+                          border-color: rgba(232, 134, 45, 0.8);
+                          box-shadow: 0 0 15px rgba(232, 134, 45, 0.4), inset 0 0 10px rgba(232, 134, 45, 0.2);
                       }
                       20%, 24%, 55% {
-                          border-color: rgba(247, 147, 26, 0.2);
+                          border-color: rgba(232, 134, 45, 0.2);
                           box-shadow: none;
                       }
                   }
@@ -475,7 +463,7 @@ const TimeForce = () => {
               <div className="space-y-4 mt-auto">
                 <div className="flex justify-between items-center p-4 rounded-lg bg-background/50 border border-border/50 hover:border-primary/30 transition-colors">
                   <div className="flex flex-col">
-                    <span className="text-xs font-mono text-muted-foreground mb-1">ENTRY_TIER</span>
+                    <span className="text-xs font-mono text-muted-foreground mb-1">Starter</span>
                     <span className="font-bold text-foreground">0-20 MERCHANTS</span>
                   </div>
                   <div className="text-right">
@@ -487,7 +475,7 @@ const TimeForce = () => {
                 <div className="flex justify-between items-center p-4 rounded-lg bg-primary/10 border border-primary/30 shadow-[0_0_15px_rgba(var(--primary),0.1)] relative overflow-hidden">
                   <div className="absolute inset-0 bg-primary/5 animate-pulse"></div>
                   <div className="flex flex-col relative z-10">
-                    <span className="text-xs font-mono text-primary mb-1">ELITE_TIER</span>
+                    <span className="text-xs font-mono text-primary mb-1">Elite</span>
                     <span className="font-bold text-foreground">20+ MERCHANTS</span>
                   </div>
                   <div className="text-right relative z-10">
@@ -512,24 +500,24 @@ const TimeForce = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                 </span>
-                SQUAD_RECRUITMENT_OPEN
+                Now recruiting
               </div>
-              <h2 className="text-4xl font-bold">
-                Ready to Join <span className="text-primary">TimeForce</span>?
+              <h2 className="text-4xl font-semibold">
+                Ready to <em>join TimeForce?</em>
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Whether you're a Merchant ready to accept Bitcoin or a pioneer ready to expand the network, the TimeForce starts here.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Button size="lg" className="h-14 px-10 text-lg shadow-xl shadow-primary/20" onClick={() => setIsJoinModalOpen(true)}>
-                  Access TimeForce Registration Form
+                  Apply to join
                 </Button>
                 <Button size="lg" variant="outline" className="h-14 px-10 text-lg backdrop-blur-sm" asChild>
                   <Link to="/tpok">Learn the basics first</Link>
                 </Button>
               </div>
               <p className="text-xs text-muted-foreground font-mono mt-8">
-                &gt; Secure_Channel: Active | Trial_Period: Free_7_Day_Trial
+                Free 7-day trial for merchants
               </p>
             </div>
           </div>
@@ -540,8 +528,8 @@ const TimeForce = () => {
       <section className="container mx-auto px-6 py-16 opacity-80 hover:opacity-100 transition-opacity">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 italic">
-              <span className="text-primary">&gt;</span> Further Intel
+            <h2 className="text-4xl font-semibold mb-4 italic">
+              Further reading
             </h2>
             <p className="text-muted-foreground font-mono uppercase text-xs tracking-[0.2em]">
               Knowledge is proof of work
@@ -552,14 +540,14 @@ const TimeForce = () => {
             <div className="bg-card/50 border border-border rounded-lg p-6 backdrop-blur-sm">
               <div className="flex items-center gap-3 mb-4">
                 <BookOpen className="h-6 w-6 text-primary" />
-                <h3 className="text-xl font-semibold font-mono tracking-tight">OPEN_SOURCE_BOOKS</h3>
+                <h3 className="text-xl font-semibold font-mono tracking-tight">Open-source books</h3>
               </div>
               <ul className="space-y-4">
                 <li className="flex flex-col gap-2">
                   <span className="text-sm font-medium">The Bitcoin Whitepaper</span>
                   <Button variant="outline" size="sm" className="w-fit gap-2 border-primary/20 text-xs" asChild>
                     <a href="https://exonumia.africa/" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-3 w-3" /> READ_HANDBOOK
+                      <ExternalLink className="h-3 w-3" /> Read the handbook
                     </a>
                   </Button>
                 </li>
@@ -567,7 +555,7 @@ const TimeForce = () => {
                   <span className="text-sm font-medium italic overflow-hidden whitespace-nowrap text-ellipsis">"The Simplest Bitcoin Book Ever Written"</span>
                   <Button variant="outline" size="sm" className="w-fit gap-2 border-primary/20 text-xs" asChild>
                     <a href="https://thesimplestbitcoinbook.net/#Free-Download" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-3 w-3" /> ACQUIRE_KNOWLEDGE
+                      <ExternalLink className="h-3 w-3" /> Get the free book
                     </a>
                   </Button>
                 </li>
@@ -577,14 +565,14 @@ const TimeForce = () => {
             <div className="bg-card/50 border border-border rounded-lg p-6 backdrop-blur-sm">
               <div className="flex items-center gap-3 mb-4">
                 <Zap className="h-6 w-6 text-primary" />
-                <h3 className="text-xl font-semibold font-mono tracking-tight">ENCRYPTED_INTEL</h3>
+                <h3 className="text-xl font-semibold font-mono tracking-tight">Deeper reading</h3>
               </div>
               <ul className="space-y-4">
                 <li className="flex flex-col gap-2">
                   <span className="text-sm font-medium">Lightning Network Analysis</span>
                   <Button variant="outline" size="sm" className="w-fit gap-2 border-primary/20 text-xs" asChild>
                     <a href="https://www.lynalden.com/lightning-network/" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-3 w-3" /> DECRYPT_DATA
+                      <ExternalLink className="h-3 w-3" /> Read the guide
                     </a>
                   </Button>
                 </li>
@@ -592,7 +580,7 @@ const TimeForce = () => {
                   <span className="text-sm font-medium">Saylor Academy Curriculum</span>
                   <Button variant="outline" size="sm" className="w-fit gap-2 border-primary/20 text-xs" asChild>
                     <a href="https://learn.saylor.org/course/view.php?id=468" target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-3 w-3" /> ENROLL_SYSTEM
+                      <ExternalLink className="h-3 w-3" /> Take the course
                     </a>
                   </Button>
                 </li>

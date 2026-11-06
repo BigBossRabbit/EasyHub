@@ -49,7 +49,7 @@ export const BountyBoard = () => {
             if (!res.ok) throw new Error(`feeds.json ${res.status}`);
             const data: FeedData = await res.json();
             setBounties(data.bounties || []);
-            setGeneratedAt(data.generatedAt ? new Date(data.generatedAt).toLocaleString() : null);
+            setGeneratedAt(data.generatedAt ? new Date(data.generatedAt).toLocaleString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' }) : null);
             const age = Date.now() - new Date(data.generatedAt).getTime();
             if (age > STALE_MS) setState('stale');
             else if ((data.bounties || []).length > 0) setState('ready');
@@ -75,23 +75,23 @@ export const BountyBoard = () => {
                     <div className="flex items-center gap-3">
                         <div className="relative">
                             <Target className="h-8 w-8 text-orange-500" />
-                            <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                            <div className="absolute -top-1 -right-1 w-3 h-3 bg-primary rounded-full animate-pulse"></div>
                         </div>
                         <div>
-                            <span className="text-xs text-muted-foreground font-mono">OPPORTUNITIES</span>
-                            <div className="flex items-center gap-1 text-xs text-green-500 font-mono">
-                                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                                <span>LIVE BOUNTIES</span>
+                            <span className="leaf-kicker">Open work</span>
+                            <div className="flex items-center gap-1 text-xs text-primary font-mono">
+                                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                                <span className="uppercase tracking-[0.14em]">Live</span>
                             </div>
                         </div>
                     </div>
                     <div className="text-right">
-                        <span className="text-xs text-muted-foreground font-mono block">SYNCED</span>
-                        <span className="text-xs text-orange-500 font-mono">{generatedAt || '—'}</span>
+                        <span className="text-[0.68rem] uppercase tracking-[0.14em] text-muted-foreground block">Last updated</span>
+                        <span className="text-xs text-foreground/80">{generatedAt || '—'}</span>
                     </div>
                 </div>
 
-                <h3 className="text-lg font-semibold mb-2 font-mono">Open Source Work — Live</h3>
+                <h3 className="text-2xl md:text-3xl mb-2">Open source work, <em>live</em></h3>
                 <p className="text-sm text-muted-foreground mb-6">
                     Open, unclaimed issues on real Bitcoin and Lightning projects (BTCPay, Alby, Cashu, LNbits, BDK, mempool and more).
                     Paid bounties show first; when none are open, we list starter issues — the fastest way to get noticed by the teams that hire.
@@ -116,10 +116,10 @@ export const BountyBoard = () => {
                                 <div className="flex items-start justify-between gap-3">
                                     <div className="min-w-0">
                                         <div className="text-sm font-mono text-foreground group-hover:text-orange-400 transition-colors line-clamp-2">
-                                            {b.title}
+                                            {b.title.replace(/^\s*\[[^\]]{1,24}\]\s*/, '')}
                                         </div>
                                         <div className="text-[10px] text-muted-foreground font-mono mt-1">
-                                            {b.repo} · {new Date(b.createdAt).toLocaleDateString()}
+                                            {b.repo} · {new Date(b.createdAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}
                                         </div>
                                     </div>
                                     <div className="flex flex-col items-end gap-1 flex-shrink-0">
@@ -150,7 +150,7 @@ export const BountyBoard = () => {
                 )}
 
                 {state === 'stale' && (
-                    <div className="p-3 bg-black/40 border border-yellow-500/30 rounded font-mono text-xs text-yellow-400/80 mb-6">
+                    <div className="p-3 bg-black/40 border border-gold/30 rounded font-mono text-xs text-gold/80 mb-6">
                         Bounty feed is temporarily unavailable. The boards below always carry live work:
                     </div>
                 )}
@@ -177,7 +177,7 @@ export const BountyBoard = () => {
 
                 <div className="mt-6 p-2 bg-black/50 rounded font-mono text-xs">
                     <div className="text-orange-400 mb-1">
-                        <span className="text-primary">$</span> bounties --monitor --active
+                        Updated every 6 hours
                     </div>
                     <div className="text-orange-400 flex items-center gap-2">
                         <Bitcoin className="h-3 w-3" />

@@ -46,51 +46,38 @@ const RESOURCES = [
 
 const EasyDevs = () => {
   return (
-    <div className="min-h-screen text-foreground font-mono">
+    <div className="min-h-screen text-foreground">
       <Seo title="EasyDevs — Open Source Opportunities" description="Live open-source bounties, grants and learning paths in the Bitcoin & freedom technology space." canonical="/easydevs" />
 
       <section className="container mx-auto px-6 py-12">
-        <div className="max-w-4xl">
-          <div className="mb-8 space-y-4">
-            <div className="flex items-center gap-2 text-muted-foreground text-sm">
-              <span className="text-primary">$</span>
-              <span className="animate-pulse">loading_open_source_opportunities...</span>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-              <span className="text-primary">&gt;</span> EasyDevs
-              <br />
-              <span className="text-primary">&gt;</span> Open Source
-              <br />
-              <span className="text-primary">&gt;</span> Opportunities
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="mb-8 space-y-6">
+            <div className="leaf-kicker">EasyDevs · Build in the open</div>
+            <h1 className="text-[clamp(2.6rem,7vw,5.5rem)] font-semibold">
+              Bitcoin is built in the open.<br /><em>So is your résumé.</em>
             </h1>
           </div>
 
-          <div className="bg-card border border-border rounded-lg p-6 space-y-4 mb-6">
-            <div className="flex items-center gap-2 text-primary">
-              <Code2 className="h-5 w-5" />
-              <span className="font-semibold">// About EasyDevs</span>
-            </div>
-            <p className="text-muted-foreground leading-relaxed">
-              Bitcoin is built in the open — and it pays. This page tracks <span className="text-foreground font-semibold">live, unclaimed work</span> — paid bounties and starter issues — on
-              real GitHub issues across Bitcoin, Lightning and Nostr repos, plus the platforms, grants and learning paths that
-              turn contributors into maintainers. No registrations, no gatekeeping: read the issue, ship the fix, post the PR.
-            </p>
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
+            Live, unclaimed issues on real Bitcoin, Lightning and Nostr projects. No sign-up, no gatekeeping:
+            read the issue, ship the fix, open the PR. That's how maintainers find their next hire.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="#open-work" className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-8 py-4 text-[0.82rem] font-semibold uppercase tracking-[0.12em] transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_34px_rgba(232,134,45,.35)]">See open issues</a>
+            <a href="#start" className="inline-flex items-center rounded-full border border-border px-8 py-4 text-[0.82rem] font-semibold uppercase tracking-[0.12em] hover:border-gold hover:text-gold transition-colors">New to open source?</a>
           </div>
         </div>
       </section>
 
-      <section className="container mx-auto px-6 pb-8">
+      <section id="open-work" className="container mx-auto px-6 pb-8 ">
         {/* Live Bounties — full width */}
         <BountyBoard />
       </section>
 
-      <section className="container mx-auto px-6 py-8">
-        <div className="mb-8">
-          <div className="flex items-center gap-2 text-primary text-sm mb-2">
-            <Terminal className="h-4 w-4" />
-            <span>cat resources.json</span>
-          </div>
-          <h2 className="text-3xl font-bold">Start Contributing</h2>
+      <section id="start" className="container mx-auto px-6 py-16 ">
+        <div className="mb-10 text-center">
+          <div className="leaf-kicker mb-3">Where the work lives</div>
+          <h2 className="text-3xl md:text-4xl font-semibold">Start <em>contributing.</em></h2>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">

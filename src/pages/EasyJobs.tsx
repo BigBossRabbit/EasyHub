@@ -62,17 +62,10 @@ const EasyJobs = () => {
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-12">
         <div className="max-w-4xl mx-auto text-center space-y-6">
-          <div className="flex items-center justify-center gap-2 text-muted-foreground text-sm mb-4">
-            <span className="text-primary">$</span>
-            <span className="animate-pulse">loading_easyjobs...</span>
-          </div>
+          <div className="leaf-kicker">EasyJobs · Get paid in sats</div>
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            <span className="text-primary">&gt;</span> EasyJobs
-            <br />
-            <span className="text-primary">&gt;</span> Earn Sats
-            <br />
-            <span className="text-primary">&gt;</span> Build Freedom
+          <h1 className="text-[clamp(2.6rem,7vw,5.5rem)] font-semibold">
+            Your skills, <em>paid in sats.</em>
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -101,8 +94,8 @@ const EasyJobs = () => {
       <section className="container mx-auto px-6 py-16">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-primary">&gt;</span> Why Earn Bitcoin?
+            <h2 className="text-4xl font-semibold mb-4">
+              Why Earn Bitcoin?
             </h2>
             <p className="text-xl text-muted-foreground">
               Your skills deserve the world's hardest money
@@ -195,8 +188,8 @@ const EasyJobs = () => {
       <section id="jobboard" className="container mx-auto px-6 py-16 bg-card scroll-mt-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-primary">&gt;</span> Remote EasyJobs
+            <h2 className="text-4xl font-semibold mb-4">
+              Remote EasyJobs
             </h2>
             <p className="text-xl text-muted-foreground">
               Browse opportunities from Bitcoiner Jobs and Human Rights Foundation
@@ -334,7 +327,7 @@ const EasyJobs = () => {
           <div className="bg-card border border-primary/50 rounded-lg p-8">
             <div className="flex items-center justify-center gap-3 mb-4">
               <img src="/2.png" alt="Bitcoiner Jobs" className="h-12 w-21" />
-              <h2 className="text-3xl font-bold">
+              <h2 className="text-3xl font-semibold">
                 Ready to Start Earning Bitcoin?
               </h2>
             </div>
