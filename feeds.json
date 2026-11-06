@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T19:59:22.900Z",
+  "generatedAt": "2026-11-06T06:51:38.022Z",
   "jobs": {
     "stackerNews": [
       {
@@ -169,15 +169,27 @@
   ],
   "news": [
     {
+      "title": "What do you think of Bitcoin Core&apos;s AI contribution policy?",
+      "link": "https://stacker.news/items/1609310",
+      "pubDate": "Fri, 06 Nov 2026 02:46:54 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Payjoin Trading: A Novel Approach to UTXO Consolidation and Privacy",
+      "link": "https://stacker.news/items/1609152",
+      "pubDate": "Thu, 05 Nov 2026 20:02:25 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "[REVIEW] V for Vendetta by Alan Moore and David Lloyd",
       "link": "https://stacker.news/items/1609133",
       "pubDate": "Thu, 05 Nov 2026 19:28:02 GMT",
       "description": "Comments"
     },
     {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "title": "Difficulty Adjustment Prediction Markets Live on Glimpse",
+      "link": "https://www.glimpse.markets/",
+      "pubDate": "Thu, 05 Nov 2026 16:48:44 GMT",
       "description": "Comments"
     },
     {
@@ -187,9 +199,9 @@
       "description": "Comments"
     },
     {
-      "title": "&quot;Fear of a Black Flag&quot; -- Alan Moore&apos;s 2010 essay on anarchy",
-      "link": "https://stacker.news/items/490704",
-      "pubDate": "Tue, 02 Apr 2024 12:43:59 GMT",
+      "title": "Big tech earnings reports show only a portion of their AI-related obligations.",
+      "link": "https://stacker.news/items/1609240",
+      "pubDate": "Thu, 05 Nov 2026 23:31:54 GMT",
       "description": "Comments"
     },
     {
@@ -199,27 +211,15 @@
       "description": "Comments"
     },
     {
-      "title": "Squatting Amsterdam — Ep. 6: On the Wrong Side of the Barricade",
-      "link": "https://stacker.news/items/1608870",
-      "pubDate": "Thu, 05 Nov 2026 11:40:42 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "I Used to Be a Progress Man. No More (The Daily Economy, Joakim Book)",
-      "link": "https://thedailyeconomy.org/article/ive-lost-faith-in-human-progress-have-we-stalled/",
-      "pubDate": "Thu, 05 Nov 2026 12:00:13 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Guy Fawkes, The Gun Powder Plot &amp; How False Flags Have Shaped History",
-      "link": "https://wearechange.org/guy-fawkes-gun-powder-plot-false-flags-shaped-history/",
-      "pubDate": "Mon, 04 Nov 2024 08:59:19 GMT",
-      "description": "Comments"
-    },
-    {
       "title": "First Graphene Friendly Motorola?",
       "link": "https://motorolanews.com/motorola-signature-27-2/",
       "pubDate": "Thu, 05 Nov 2026 19:16:45 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "TNF- Jaguars vs Ravens Discussion Thread",
+      "link": "https://stacker.news/items/1609264",
+      "pubDate": "Fri, 06 Nov 2026 01:12:45 GMT",
       "description": "Comments"
     },
     {
