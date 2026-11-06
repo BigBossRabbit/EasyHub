@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T14:33:40.093Z",
+  "generatedAt": "2026-11-06T14:38:05.573Z",
   "jobs": {
     "stackerNews": [
       {
@@ -238,6 +238,12 @@
   ],
   "news": [
     {
+      "title": "Microsoft is a Financial Engineer: Cash Flow Questions (FT, Kim &amp; Armstrong)",
+      "link": "https://www.ft.com/content/f16babea-fd38-440b-8278-5871d3a47b17",
+      "pubDate": "Mon, 02 Nov 2026 12:08:31 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "What do you think of Bitcoin Core&apos;s AI contribution policy?",
       "link": "https://stacker.news/items/1609310",
       "pubDate": "Fri, 06 Nov 2026 02:46:54 GMT",
@@ -289,12 +295,6 @@
       "title": "Descent into the Computational Sublime",
       "link": "https://contraptions.venkateshrao.com/p/descent-into-the-computational-sublime",
       "pubDate": "Fri, 06 Nov 2026 11:36:09 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Top Animal World Posts Of The Week #55",
-      "link": "https://stacker.news/items/1609450",
-      "pubDate": "Fri, 06 Nov 2026 12:50:29 GMT",
       "description": "Comments"
     }
   ]
