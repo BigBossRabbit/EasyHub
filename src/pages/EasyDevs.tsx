@@ -71,7 +71,7 @@ const EasyDevs = () => {
               <span className="font-semibold">// About EasyDevs</span>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              Bitcoin is built in the open — and it pays. This page tracks <span className="text-foreground font-semibold">live, claimable bounties</span> on
+              Bitcoin is built in the open — and it pays. This page tracks <span className="text-foreground font-semibold">live, unclaimed work</span> — paid bounties and starter issues — on
               real GitHub issues across Bitcoin, Lightning and Nostr repos, plus the platforms, grants and learning paths that
               turn contributors into maintainers. No registrations, no gatekeeping: read the issue, ship the fix, post the PR.
             </p>

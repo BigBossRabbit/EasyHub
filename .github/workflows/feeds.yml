@@ -22,6 +22,8 @@ jobs:
       - name: Install
         run: npm ci
       - name: Build feeds.json (SN jobs, HRF careers, GitHub bounties, SN news)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: node scripts/build_feeds.mjs
       - name: Build site
         run: npm run build

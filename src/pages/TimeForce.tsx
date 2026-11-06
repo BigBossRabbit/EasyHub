@@ -223,10 +223,6 @@ const TimeForce = () => {
               <Users className="h-4 w-4" />
               Join TimeForce
             </Button>
-            <Button size="lg" className="gap-2 shadow-[0_0_20px_rgba(var(--primary),0.2)]" disabled>
-                <Globe className="h-4 w-4" />
-                Returning Soon
-              </Button>
             <Button size="lg" variant="outline" className="gap-2" asChild>
               <Link to="/easyjobs">
                 <Briefcase className="h-4 w-4" />
@@ -528,8 +524,8 @@ const TimeForce = () => {
                 <Button size="lg" className="h-14 px-10 text-lg shadow-xl shadow-primary/20" onClick={() => setIsJoinModalOpen(true)}>
                   Access TimeForce Registration Form
                 </Button>
-                <Button size="lg" variant="outline" className="h-14 px-10 text-lg backdrop-blur-sm" disabled>
-                  Returning Soon
+                <Button size="lg" variant="outline" className="h-14 px-10 text-lg backdrop-blur-sm" asChild>
+                  <Link to="/tpok">Learn the basics first</Link>
                 </Button>
               </div>
               <p className="text-xs text-muted-foreground font-mono mt-8">

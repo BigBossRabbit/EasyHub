@@ -44,23 +44,34 @@ async function snNews() {
   } catch { return []; }
 }
 
-async function ghBounties() {
-  const q = encodeURIComponent('state:open type:issue label:bounty (bitcoin OR lightning OR nostr)');
-  const r = await fetchOK(`https://api.github.com/search/issues?q=${q}&sort=created&order=desc&per_page=12`);
+// Only real Bitcoin/Lightning/Nostr projects. The open GitHub search for "label:bounty bitcoin"
+// is dominated by bot farms (bounty-plaza, bounty-bot, radar spam) — an allowlist is the only honest feed.
+const BTC_ORGS = ["btcpayserver", "getAlby", "cashubtc", "lnbits", "bitcoindevkit", "lightningdevkit",
+  "mempool", "fedimint", "ElementsProject", "BlueWallet", "breez", "stackernews", "nostr-protocol", "vexl-world"];
+
+async function ghIssues(label, perPage) {
+  const orgs = BTC_ORGS.map((o) => `org:${o}`).join(" ");
+  const q = encodeURIComponent(`state:open type:issue no:assignee label:"${label}" ${orgs}`);
+  const r = await fetchOK(`https://api.github.com/search/issues?q=${q}&sort=updated&order=desc&per_page=${perPage}`,
+    process.env.GITHUB_TOKEN ? { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } } : {});
   if (!r) return [];
-  try {
-    const { items = [] } = await j(r);
-    return items.map((it) => {
-      const amt = it.title.match(/(\d[\d,.]*\s?(?:k\+?\s?)?(?:sats?|sat\b|usd\b|\$[\d,]+))/i);
-      return {
-        id: it.id, title: it.title, url: it.html_url,
-        repo: it.repository_url.split("/").slice(-2).join("/"),
-        labels: (it.labels || []).map((l) => l.name).slice(0, 4),
-        amount: amt ? amt[1].trim() : null,
-        createdAt: it.created_at,
-      };
-    }).filter((b) => !/bounty.?bot|test/i.test(b.repo));
-  } catch { return []; }
+  try { const { items = [] } = await j(r); return items; } catch { return []; }
+}
+
+async function ghBounties() {
+  const paid = await ghIssues("bounty", 12);
+  const starter = paid.length >= 6 ? [] : await ghIssues("good first issue", 60);
+  const seen = {};
+  return [...paid.map((it) => [it, "bounty"]), ...starter.map((it) => [it, "first issue"])].map(([it, kind]) => {
+    const amt = kind === "bounty" ? it.title.match(/(\d[\d,.]*\s?(?:k\+?\s?)?(?:sats?|sat\b|usd\b|\$[\d,]+))/i) : null;
+    return {
+      id: it.id, title: it.title, url: it.html_url, kind,
+      repo: it.repository_url.split("/").slice(-2).join("/"),
+      labels: [kind === "bounty" ? "paid bounty" : "good first issue", ...(it.labels || []).map((l) => l.name).filter((n) => !/good first issue|bounty/i.test(n))].slice(0, 3),
+      amount: amt ? amt[1].trim() : null,
+      createdAt: it.created_at,
+    };
+  }).filter((b) => { const org = b.repo.split("/")[0]; seen[org] = (seen[org] || 0) + 1; return seen[org] <= 2; }).slice(0, 10);
 }
 
 async function hrfJobs() {

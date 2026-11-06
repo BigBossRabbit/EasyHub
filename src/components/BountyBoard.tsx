@@ -91,9 +91,10 @@ export const BountyBoard = () => {
                     </div>
                 </div>
 
-                <h3 className="text-lg font-semibold mb-2 font-mono">Open Source Bounties — Live</h3>
+                <h3 className="text-lg font-semibold mb-2 font-mono">Open Source Work — Live</h3>
                 <p className="text-sm text-muted-foreground mb-6">
-                    Real, open GitHub issues with a bounty label, across Bitcoin and Lightning repos. Claim one, ship the fix, get paid.
+                    Open, unclaimed issues on real Bitcoin and Lightning projects (BTCPay, Alby, Cashu, LNbits, BDK, mempool and more).
+                    Paid bounties show first; when none are open, we list starter issues — the fastest way to get noticed by the teams that hire.
                 </p>
 
                 {state === 'loading' && (

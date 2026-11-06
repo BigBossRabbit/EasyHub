@@ -9,14 +9,9 @@ const Ticker = () => {
     const { stats, loading: statsLoading } = useBitcoinNetworkStats();
     const { visits, loading: visitsLoading } = usePageVisits();
 
-    const moscowTime = rates.nad ? Math.floor(100000000 / rates.nad) : null;
-    const formattedMoscowTime = moscowTime
-        ? moscowTime < 100
-            ? `00:${moscowTime}`
-            : moscowTime < 1000
-                ? `0${Math.floor(moscowTime / 100)}:${moscowTime % 100}`
-                : `${Math.floor(moscowTime / 100)}:${moscowTime % 100}`
-        : null;
+    // sats you get for N$1 (100,000,000 sats per BTC / BTC price in NAD)
+    const satsPerNad = rates.nad ? Math.floor(100000000 / rates.nad) : null;
+    const formattedSatsPerNad = satsPerNad ? satsPerNad.toLocaleString() : null;
     const loading = priceLoading || statsLoading;
 
     return (
@@ -46,11 +41,11 @@ const Ticker = () => {
                     <span className="font-bold">BTC/NAD:</span>
                     <span className="text-foreground">{loading ? '[LOADING...]' : rates.nad ? `N$${rates.nad.toLocaleString()}` : '[N/A]'}</span>
                 </Link>
-                {/* Moscow Time */}
+                {/* Sats per N$1 */}
                 <Link to="/easystats" className="flex items-center gap-2 text-primary text-sm px-4 hover:text-foreground transition-colors">
                     <Clock className="h-4 w-4" />
-                    <span className="font-bold">MOSCOW TIME (NAD):</span>
-                    <span className="text-foreground">{loading ? '[LOADING...]' : formattedMoscowTime || '[N/A]'}</span>
+                    <span className="font-bold">SATS PER N$1:</span>
+                    <span className="text-foreground">{loading ? '[LOADING...]' : formattedSatsPerNad || '[N/A]'}</span>
                 </Link>
 
                 {/* Duplicate for seamless loop */}
@@ -78,11 +73,11 @@ const Ticker = () => {
                     <span className="font-bold">BTC/NAD:</span>
                     <span className="text-foreground">{loading ? '[LOADING...]' : rates.nad ? `N$${rates.nad.toLocaleString()}` : '[N/A]'}</span>
                 </Link>
-                {/* Moscow Time */}
+                {/* Sats per N$1 */}
                 <Link to="/easystats" className="flex items-center gap-2 text-primary text-sm px-4 hover:text-foreground transition-colors">
                     <Clock className="h-4 w-4" />
-                    <span className="font-bold">MOSCOW TIME (NAD):</span>
-                    <span className="text-foreground">{loading ? '[LOADING...]' : formattedMoscowTime || '[N/A]'}</span>
+                    <span className="font-bold">SATS PER N$1:</span>
+                    <span className="text-foreground">{loading ? '[LOADING...]' : formattedSatsPerNad || '[N/A]'}</span>
                 </Link>
             </div>
             <style>{`

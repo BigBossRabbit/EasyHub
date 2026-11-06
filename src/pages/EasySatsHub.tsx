@@ -75,13 +75,15 @@ const EasySatsHub = () => {
             </p>
 
             <div className="flex flex-wrap items-center justify-center gap-4">
-              <Button size="lg" className="h-14 px-8 text-lg font-bold rounded-full group" disabled>
-                Returning Soon
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <Button size="lg" className="h-14 px-8 text-lg font-bold rounded-full group" asChild>
+                <Link to="/timeforce">
+                  Start Earning
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </Button>
               <Button size="lg" variant="outline" className="h-14 px-8 text-lg font-bold rounded-full border-white/10 hover:bg-white/5" asChild>
-                <Link to="/easyjobs">
-                  Earn Sats
+                <Link to="/tpok">
+                  Learn First
                 </Link>
               </Button>
             </div>

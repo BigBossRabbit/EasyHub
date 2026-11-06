@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T06:51:38.022Z",
+  "generatedAt": "2026-11-06T14:33:40.093Z",
   "jobs": {
     "stackerNews": [
       {
@@ -107,64 +107,133 @@
   },
   "bounties": [
     {
-      "id": 6169462628,
-      "title": "[Bounty] 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4201",
-      "repo": "zhangjiayang6835-cyber/bounty-plaza",
+      "id": 2058803979,
+      "title": "Don't show \"connected to\" on connection error",
+      "url": "https://github.com/getAlby/bitcoin-connect/issues/174",
+      "kind": "first issue",
+      "repo": "getAlby/bitcoin-connect",
       "labels": [
-        "bounty",
-        "real"
+        "good first issue"
       ],
       "amount": null,
-      "createdAt": "2026-11-02T19:27:42Z"
+      "createdAt": "2023-12-28T20:38:11Z"
     },
     {
-      "id": 6154738932,
-      "title": "[Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4199",
-      "repo": "zhangjiayang6835-cyber/bounty-plaza",
+      "id": 1528120191,
+      "title": "[Feature] Add success screen confirmation when paying webln invoices",
+      "url": "https://github.com/getAlby/lightning-browser-extension/issues/1960",
+      "kind": "first issue",
+      "repo": "getAlby/lightning-browser-extension",
       "labels": [
-        "bounty",
-        "real"
+        "good first issue",
+        "frontend"
       ],
       "amount": null,
-      "createdAt": "2026-11-02T01:54:36Z"
+      "createdAt": "2023-01-10T22:52:14Z"
     },
     {
-      "id": 6148017193,
-      "title": "[Bounty] 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4198",
-      "repo": "zhangjiayang6835-cyber/bounty-plaza",
+      "id": 5338264924,
+      "title": "Wallet signing may finalize invalid pre-seeded signatures and return Ok(true)",
+      "url": "https://github.com/bitcoindevkit/bdk_wallet/issues/542",
+      "kind": "first issue",
+      "repo": "bitcoindevkit/bdk_wallet",
       "labels": [
-        "bounty",
-        "real"
+        "good first issue",
+        "bug"
       ],
       "amount": null,
-      "createdAt": "2026-11-01T14:24:16Z"
+      "createdAt": "2026-09-03T15:13:40Z"
     },
     {
-      "id": 6144409872,
-      "title": "[Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4197",
-      "repo": "zhangjiayang6835-cyber/bounty-plaza",
+      "id": 2662063381,
+      "title": "Feature request: `WALLET_MAX_FEE_PPK` flag to avoid overpaying fees",
+      "url": "https://github.com/cashubtc/nutshell/issues/671",
+      "kind": "first issue",
+      "repo": "cashubtc/nutshell",
       "labels": [
-        "bounty",
-        "real"
+        "good first issue",
+        "wallet",
+        "feature request"
       ],
       "amount": null,
-      "createdAt": "2026-11-01T07:21:49Z"
+      "createdAt": "2024-11-15T13:58:18Z"
     },
     {
-      "id": 6138471754,
-      "title": "[Bounty] 💰 Bounty Seguro ($$750): [Bounty] 💰 Bounty Seguro ($$750): 💰 Bounty Seguro ",
-      "url": "https://github.com/zhangjiayang6835-cyber/bounty-plaza/issues/4191",
-      "repo": "zhangjiayang6835-cyber/bounty-plaza",
+      "id": 4411489504,
+      "title": "Add Turkish translation for BTCPay server",
+      "url": "https://github.com/btcpayserver/btcpayserver-translator/issues/67",
+      "kind": "first issue",
+      "repo": "btcpayserver/btcpayserver-translator",
       "labels": [
-        "bounty",
-        "real"
+        "good first issue",
+        "recruitment"
       ],
       "amount": null,
-      "createdAt": "2026-10-31T18:45:12Z"
+      "createdAt": "2026-05-09T06:35:43Z"
+    },
+    {
+      "id": 2189888847,
+      "title": "Tests: migration tests with dummy data from old version",
+      "url": "https://github.com/cashubtc/nutshell/issues/476",
+      "kind": "first issue",
+      "repo": "cashubtc/nutshell",
+      "labels": [
+        "good first issue",
+        "wallet",
+        "mint"
+      ],
+      "amount": null,
+      "createdAt": "2024-03-16T09:53:12Z"
+    },
+    {
+      "id": 5503048425,
+      "title": "RFC: Evolving the Android Demo into a Functional Reference Wallet",
+      "url": "https://github.com/fedimint/fedimint-sdk/issues/399",
+      "kind": "first issue",
+      "repo": "fedimint/fedimint-sdk",
+      "labels": [
+        "good first issue"
+      ],
+      "amount": null,
+      "createdAt": "2026-09-18T18:11:26Z"
+    },
+    {
+      "id": 5065262531,
+      "title": "common: json_to_s64 and json_to_double still accept hex, octal and signs",
+      "url": "https://github.com/ElementsProject/lightning/issues/9377",
+      "kind": "first issue",
+      "repo": "ElementsProject/lightning",
+      "labels": [
+        "good first issue"
+      ],
+      "amount": null,
+      "createdAt": "2026-08-04T21:58:42Z"
+    },
+    {
+      "id": 5366964584,
+      "title": "Observer ignores signed guardian endpoint announcements and reports migrated guardians offline",
+      "url": "https://github.com/fedimint/fedimint-observer/issues/122",
+      "kind": "first issue",
+      "repo": "fedimint/fedimint-observer",
+      "labels": [
+        "good first issue",
+        "bug"
+      ],
+      "amount": null,
+      "createdAt": "2026-09-06T18:51:58Z"
+    },
+    {
+      "id": 5338640606,
+      "title": "Missing MAX_STANDARD_TX_WEIGHT check produces unrelayable txs",
+      "url": "https://github.com/bitcoindevkit/bdk_wallet/issues/543",
+      "kind": "first issue",
+      "repo": "bitcoindevkit/bdk_wallet",
+      "labels": [
+        "good first issue",
+        "bug"
+      ],
+      "amount": null,
+      "createdAt": "2026-09-03T15:52:57Z"
     }
   ],
   "news": [
@@ -175,57 +244,57 @@
       "description": "Comments"
     },
     {
-      "title": "Payjoin Trading: A Novel Approach to UTXO Consolidation and Privacy",
-      "link": "https://stacker.news/items/1609152",
-      "pubDate": "Thu, 05 Nov 2026 20:02:25 GMT",
+      "title": "I do not want these community leaders to miss this opportunity",
+      "link": "https://stacker.news/items/1609388",
+      "pubDate": "Fri, 06 Nov 2026 09:43:21 GMT",
       "description": "Comments"
     },
     {
-      "title": "[REVIEW] V for Vendetta by Alan Moore and David Lloyd",
-      "link": "https://stacker.news/items/1609133",
-      "pubDate": "Thu, 05 Nov 2026 19:28:02 GMT",
+      "title": "Bitcoin Beginners Newsletter #123",
+      "link": "https://stacker.news/items/1609467",
+      "pubDate": "Fri, 06 Nov 2026 13:16:23 GMT",
       "description": "Comments"
     },
     {
-      "title": "Difficulty Adjustment Prediction Markets Live on Glimpse",
-      "link": "https://www.glimpse.markets/",
-      "pubDate": "Thu, 05 Nov 2026 16:48:44 GMT",
+      "title": "Silent Upgrade • Haleen",
+      "link": "https://wavlake.com/track/1ae2deef-4ae1-4910-b587-1c895061aa7c",
+      "pubDate": "Thu, 17 Sep 2026 08:12:57 GMT",
       "description": "Comments"
     },
     {
-      "title": "Why isn&apos;t bitcoin used for more gray market things?",
-      "link": "https://spiralxyz.substack.com/p/value-stored-now-what",
-      "pubDate": "Wed, 04 Nov 2026 22:05:50 GMT",
+      "title": "November is Chess-vember (The Guardian, Leonard Barden)",
+      "link": "https://www.theguardian.com/sport/2026/nov/06/chess-magnus-carlsen-returns-for-budapest-battle-before-sindarov-targets-classical-crown",
+      "pubDate": "Fri, 06 Nov 2026 13:30:43 GMT",
       "description": "Comments"
     },
     {
-      "title": "Big tech earnings reports show only a portion of their AI-related obligations.",
-      "link": "https://stacker.news/items/1609240",
-      "pubDate": "Thu, 05 Nov 2026 23:31:54 GMT",
+      "title": "Appreciation video of my cat Paolo",
+      "link": "https://stacker.news/items/1609223",
+      "pubDate": "Thu, 05 Nov 2026 22:40:44 GMT",
       "description": "Comments"
     },
     {
-      "title": "Audiobook launch 🎧📚🚀 21 Futures: Financial Fallout",
-      "link": "https://stacker.news/items/1609143",
-      "pubDate": "Thu, 05 Nov 2026 19:49:45 GMT",
+      "title": "A Congressional Staffers Thoughts On What Happened and What&apos;s Next",
+      "link": "https://stacker.news/items/1608617",
+      "pubDate": "Wed, 04 Nov 2026 21:15:05 GMT",
       "description": "Comments"
     },
     {
-      "title": "First Graphene Friendly Motorola?",
-      "link": "https://motorolanews.com/motorola-signature-27-2/",
-      "pubDate": "Thu, 05 Nov 2026 19:16:45 GMT",
+      "title": "Sharing and Transferring Bitcoin UTXOs Offchain - Vinteum Deep Dive",
+      "link": "https://www.vinteum.org/blog/inside-a-vinteum-deep-dive-sharing-and-transferring-bitcoin-utxos-offchain",
+      "pubDate": "Mon, 02 Nov 2026 17:41:20 GMT",
       "description": "Comments"
     },
     {
-      "title": "TNF- Jaguars vs Ravens Discussion Thread",
-      "link": "https://stacker.news/items/1609264",
-      "pubDate": "Fri, 06 Nov 2026 01:12:45 GMT",
+      "title": "Descent into the Computational Sublime",
+      "link": "https://contraptions.venkateshrao.com/p/descent-into-the-computational-sublime",
+      "pubDate": "Fri, 06 Nov 2026 11:36:09 GMT",
       "description": "Comments"
     },
     {
-      "title": "🗞️ don&apos;t call it a comeback! --- SNZ Issue #75! 👏🏼",
-      "link": "https://pay.zaprite.com/pl_nIPZ1QPinr",
-      "pubDate": "Thu, 05 Nov 2026 17:14:56 GMT",
+      "title": "Top Animal World Posts Of The Week #55",
+      "link": "https://stacker.news/items/1609450",
+      "pubDate": "Fri, 06 Nov 2026 12:50:29 GMT",
       "description": "Comments"
     }
   ]
