@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T06:06:14.188Z",
+  "generatedAt": "2026-11-08T13:28:51.650Z",
   "jobs": {
     "stackerNews": [
       {
@@ -238,21 +238,51 @@
   ],
   "news": [
     {
+      "title": "Why doesn’t modern animation dare to be as clear and cynical as it was in 1943?",
+      "link": "https://stacker.news/items/1609493",
+      "pubDate": "Fri, 06 Nov 2026 13:46:59 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Introducing PREDYX HUB",
+      "link": "https://stacker.news/items/1610489",
+      "pubDate": "Sun, 08 Nov 2026 12:48:25 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "Help me design a reader contest for my Bitcoin novel (puzzle hunt?)",
       "link": "https://stacker.news/items/1610324",
       "pubDate": "Sun, 08 Nov 2026 00:44:20 GMT",
       "description": "Comments"
     },
     {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "title": "French Piracy Blocklist: Expired Domains, a Seized Site, and Hong Kong Servers",
+      "link": "https://torrentfreak.com/inside-a-french-piracy-blocklist-expired-domains-a-seized-site-and-hong-kong-servers/",
+      "pubDate": "Sun, 08 Nov 2026 08:08:02 GMT",
       "description": "Comments"
     },
     {
-      "title": "&quot;We are in the final innings of safe commercial aviation.&quot;",
-      "link": "https://stacker.news/items/1609797",
-      "pubDate": "Fri, 06 Nov 2026 21:17:49 GMT",
+      "title": "I converted some Sats to buy my first 2 Sztorc coins",
+      "link": "https://stacker.news/items/1610250",
+      "pubDate": "Sat, 07 Nov 2026 20:44:18 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "The SN Daily Putt #180: Play, Putt, Score, ZAP!⚡️⛳️",
+      "link": "https://stacker.news/items/1610471",
+      "pubDate": "Sun, 08 Nov 2026 11:42:13 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Proton’s AI manifesto for software engineering",
+      "link": "https://proton.me/blog/ai-manifesto",
+      "pubDate": "Mon, 02 Nov 2026 10:29:51 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
       "description": "Comments"
     },
     {
@@ -265,36 +295,6 @@
       "title": "[Sauna Shorts] 21 Futures (2/21): Hello World",
       "link": "https://stacker.news/items/1610270",
       "pubDate": "Sat, 07 Nov 2026 22:15:31 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "This is my last Christmas as Santa Claus.",
-      "link": "https://stacker.news/items/1610134",
-      "pubDate": "Sat, 07 Nov 2026 16:28:54 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Halvenfall",
-      "link": "https://halvenfall.com/",
-      "pubDate": "Sat, 07 Nov 2026 23:22:34 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "I converted some Sats to buy my first 2 Sztorc coins",
-      "link": "https://stacker.news/items/1610250",
-      "pubDate": "Sat, 07 Nov 2026 20:44:18 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Chess-November Continues: Introducing the Total Chess Championship",
-      "link": "https://beta.predyx.com/market/total-chess-budapest-2026-winner-1794082032?ref=PREDYXTZ0UUNOP",
-      "pubDate": "Sat, 07 Nov 2026 20:23:01 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "My research(1stBitcoinMiner.com) still getting 5.4k visits / months",
-      "link": "https://stacker.news/items/1610071",
-      "pubDate": "Sat, 07 Nov 2026 14:38:15 GMT",
       "description": "Comments"
     }
   ]
