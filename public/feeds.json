@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T22:09:26.891Z",
+  "generatedAt": "2026-11-09T06:37:49.462Z",
   "jobs": {
     "stackerNews": [
       {
@@ -238,15 +238,27 @@
   ],
   "news": [
     {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "title": "60-second Bitcoin Barrier Options",
+      "link": "https://stacker.news/items/1611000",
+      "pubDate": "Mon, 09 Nov 2026 03:41:09 GMT",
       "description": "Comments"
     },
     {
       "title": "Could Rising Prices Force a Return to Closer Family Community Living?",
       "link": "https://stacker.news/items/1610805",
       "pubDate": "Sun, 08 Nov 2026 19:30:05 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "My week-long experiment with carnivore diet",
+      "link": "https://stacker.news/items/1610893",
+      "pubDate": "Sun, 08 Nov 2026 23:11:51 GMT",
       "description": "Comments"
     },
     {
@@ -262,9 +274,9 @@
       "description": "Comments"
     },
     {
-      "title": "Wells Fargo Is Making a Move Into Bitcoin",
-      "link": "https://youtu.be/wdILC-RjpRo",
-      "pubDate": "Sun, 08 Nov 2026 19:49:51 GMT",
+      "title": "NFL Sunday Discussion Thread",
+      "link": "https://stacker.news/items/1610633",
+      "pubDate": "Sun, 08 Nov 2026 16:08:26 GMT",
       "description": "Comments"
     },
     {
@@ -280,21 +292,9 @@
       "description": "Comments"
     },
     {
-      "title": "Introducing PREDYX HUB",
-      "link": "https://stacker.news/items/1610489",
-      "pubDate": "Sun, 08 Nov 2026 12:48:25 GMT",
-      "description": "Comments"
-    },
-    {
       "title": "PizzAxe - Bitcoin mining pizza bag warmer by PizzAndy",
       "link": "https://forum.heatpunks.org/t/pizzaxe-bitcoin-mining-pizza-bag-warmer-by-pizzandy/282",
       "pubDate": "Sun, 08 Nov 2026 18:26:16 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "NFL Sunday Discussion Thread",
-      "link": "https://stacker.news/items/1610633",
-      "pubDate": "Sun, 08 Nov 2026 16:08:26 GMT",
       "description": "Comments"
     }
   ]
