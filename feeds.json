@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09T06:37:49.462Z",
+  "generatedAt": "2026-11-09T22:24:31.501Z",
   "jobs": {
     "stackerNews": [
       {
@@ -107,6 +107,44 @@
   },
   "bounties": [
     {
+      "id": 4094406425,
+      "title": "Refactor walkthrough.md - remove mentions of apps and unify plugins terminology",
+      "url": "https://github.com/btcpayserver/btcpayserver-doc/issues/1559",
+      "kind": "first issue",
+      "repo": "btcpayserver/btcpayserver-doc",
+      "labels": [
+        "good first issue"
+      ],
+      "amount": null,
+      "createdAt": "2026-03-18T11:11:36Z"
+    },
+    {
+      "id": 5338640606,
+      "title": "Missing MAX_STANDARD_TX_WEIGHT check produces unrelayable txs",
+      "url": "https://github.com/bitcoindevkit/bdk_wallet/issues/543",
+      "kind": "first issue",
+      "repo": "bitcoindevkit/bdk_wallet",
+      "labels": [
+        "good first issue",
+        "bug"
+      ],
+      "amount": null,
+      "createdAt": "2026-09-03T15:52:57Z"
+    },
+    {
+      "id": 5338264924,
+      "title": "Wallet signing may finalize invalid pre-seeded signatures and return Ok(true)",
+      "url": "https://github.com/bitcoindevkit/bdk_wallet/issues/542",
+      "kind": "first issue",
+      "repo": "bitcoindevkit/bdk_wallet",
+      "labels": [
+        "good first issue",
+        "bug"
+      ],
+      "amount": null,
+      "createdAt": "2026-09-03T15:13:40Z"
+    },
+    {
       "id": 2058803979,
       "title": "Don't show \"connected to\" on connection error",
       "url": "https://github.com/getAlby/bitcoin-connect/issues/174",
@@ -130,19 +168,6 @@
       ],
       "amount": null,
       "createdAt": "2023-01-10T22:52:14Z"
-    },
-    {
-      "id": 5338264924,
-      "title": "Wallet signing may finalize invalid pre-seeded signatures and return Ok(true)",
-      "url": "https://github.com/bitcoindevkit/bdk_wallet/issues/542",
-      "kind": "first issue",
-      "repo": "bitcoindevkit/bdk_wallet",
-      "labels": [
-        "good first issue",
-        "bug"
-      ],
-      "amount": null,
-      "createdAt": "2026-09-03T15:13:40Z"
     },
     {
       "id": 2662063381,
@@ -208,45 +233,31 @@
       ],
       "amount": null,
       "createdAt": "2026-08-04T21:58:42Z"
-    },
-    {
-      "id": 5366964584,
-      "title": "Observer ignores signed guardian endpoint announcements and reports migrated guardians offline",
-      "url": "https://github.com/fedimint/fedimint-observer/issues/122",
-      "kind": "first issue",
-      "repo": "fedimint/fedimint-observer",
-      "labels": [
-        "good first issue",
-        "bug"
-      ],
-      "amount": null,
-      "createdAt": "2026-09-06T18:51:58Z"
-    },
-    {
-      "id": 5338640606,
-      "title": "Missing MAX_STANDARD_TX_WEIGHT check produces unrelayable txs",
-      "url": "https://github.com/bitcoindevkit/bdk_wallet/issues/543",
-      "kind": "first issue",
-      "repo": "bitcoindevkit/bdk_wallet",
-      "labels": [
-        "good first issue",
-        "bug"
-      ],
-      "amount": null,
-      "createdAt": "2026-09-03T15:52:57Z"
     }
   ],
   "news": [
     {
-      "title": "60-second Bitcoin Barrier Options",
-      "link": "https://stacker.news/items/1611000",
-      "pubDate": "Mon, 09 Nov 2026 03:41:09 GMT",
+      "title": "Slop Tales from Academia: The Quadfecta",
+      "link": "https://stacker.news/items/1611372",
+      "pubDate": "Mon, 09 Nov 2026 17:54:29 GMT",
       "description": "Comments"
     },
     {
-      "title": "Could Rising Prices Force a Return to Closer Family Community Living?",
-      "link": "https://stacker.news/items/1610805",
-      "pubDate": "Sun, 08 Nov 2026 19:30:05 GMT",
+      "title": "The Immense Stupidity of Tourism Taxes (FT, Robert Shrimsley)",
+      "link": "https://www.ft.com/content/70f97a46-a6d0-431a-8299-b144bd87b989",
+      "pubDate": "Mon, 09 Nov 2026 16:24:13 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Mr. Nakamoto, hash through this wall!",
+      "link": "https://stacker.news/items/1611215",
+      "pubDate": "Mon, 09 Nov 2026 14:33:06 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Currencies Are Like Humans: The Live, Prosper... and Die (FT, Toby Nangle)",
+      "link": "https://www.ft.com/content/e5179ed6-6d2a-4eeb-a6e6-268964341763",
+      "pubDate": "Mon, 09 Nov 2026 18:41:06 GMT",
       "description": "Comments"
     },
     {
@@ -256,45 +267,33 @@
       "description": "Comments"
     },
     {
-      "title": "My week-long experiment with carnivore diet",
-      "link": "https://stacker.news/items/1610893",
-      "pubDate": "Sun, 08 Nov 2026 23:11:51 GMT",
+      "title": "Tracey - L0la L33tz made a chain analysis tool",
+      "link": "https://github.com/L0laL33tz/TRACEY.diy",
+      "pubDate": "Mon, 09 Nov 2026 18:09:44 GMT",
       "description": "Comments"
     },
     {
-      "title": "Tesla Full Self Driving Review",
-      "link": "https://stacker.news/items/1610608",
-      "pubDate": "Sun, 08 Nov 2026 15:42:31 GMT",
+      "title": "What the heck are quantum landmines?",
+      "link": "https://stacker.news/items/1611231",
+      "pubDate": "Mon, 09 Nov 2026 15:10:24 GMT",
       "description": "Comments"
     },
     {
-      "title": "All LNbits users should stop their LNbits servers IMMEDIATELY",
-      "link": "https://x.com/lnbits/status/2119428804951048237",
-      "pubDate": "Sun, 08 Nov 2026 13:59:03 GMT",
+      "title": "Why does EVERY Bitcoin book start like this?",
+      "link": "https://stacker.news/items/1611122",
+      "pubDate": "Mon, 09 Nov 2026 11:39:47 GMT",
       "description": "Comments"
     },
     {
-      "title": "NFL Sunday Discussion Thread",
-      "link": "https://stacker.news/items/1610633",
-      "pubDate": "Sun, 08 Nov 2026 16:08:26 GMT",
+      "title": "Testnet 5 launch incoming - AJ Towns",
+      "link": "https://gnusha.org/pi/bitcoindev/avINnoG-1r242rAw@erisian.com.au/T/",
+      "pubDate": "Mon, 09 Nov 2026 22:19:24 GMT",
       "description": "Comments"
     },
     {
-      "title": "My Experience at Lugano Plan B Forum 2026 - Every Bitcoiner Should Attend Once!",
-      "link": "https://stacker.news/items/1610803",
-      "pubDate": "Sun, 08 Nov 2026 19:22:21 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Prediction Markets INSIDE Personal Finance Apps (FT, Stephanie Stacey)",
-      "link": "https://www.ft.com/content/47831fae-3ecd-4fc0-9921-fd1933d75cd4",
-      "pubDate": "Sun, 08 Nov 2026 13:14:16 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "PizzAxe - Bitcoin mining pizza bag warmer by PizzAndy",
-      "link": "https://forum.heatpunks.org/t/pizzaxe-bitcoin-mining-pizza-bag-warmer-by-pizzandy/282",
-      "pubDate": "Sun, 08 Nov 2026 18:26:16 GMT",
+      "title": "Parents&apos; Corner: 2 imaginary hamburgers for 700 sats",
+      "link": "https://stacker.news/items/1611500",
+      "pubDate": "Mon, 09 Nov 2026 20:08:10 GMT",
       "description": "Comments"
     }
   ]
