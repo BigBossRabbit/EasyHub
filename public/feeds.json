@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T19:38:21.719Z",
+  "generatedAt": "2026-11-12T07:14:54.534Z",
   "jobs": {
     "stackerNews": [
       {
@@ -107,6 +107,31 @@
   },
   "bounties": [
     {
+      "id": 2978067364,
+      "title": "Allow bump fee on transactions without RBF sequence",
+      "url": "https://github.com/bitcoindevkit/bdk_wallet/issues/65",
+      "kind": "first issue",
+      "repo": "bitcoindevkit/bdk_wallet",
+      "labels": [
+        "good first issue"
+      ],
+      "amount": null,
+      "createdAt": "2024-10-18T19:08:11Z"
+    },
+    {
+      "id": 2978063966,
+      "title": "Verify network consistency between chain genesis and descriptors",
+      "url": "https://github.com/bitcoindevkit/bdk_wallet/issues/46",
+      "kind": "first issue",
+      "repo": "bitcoindevkit/bdk_wallet",
+      "labels": [
+        "good first issue",
+        "audit"
+      ],
+      "amount": null,
+      "createdAt": "2024-11-14T05:05:22Z"
+    },
+    {
       "id": 4094406425,
       "title": "Refactor walkthrough.md - remove mentions of apps and unify plugins terminology",
       "url": "https://github.com/btcpayserver/btcpayserver-doc/issues/1559",
@@ -117,32 +142,6 @@
       ],
       "amount": null,
       "createdAt": "2026-03-18T11:11:36Z"
-    },
-    {
-      "id": 5338640606,
-      "title": "Missing MAX_STANDARD_TX_WEIGHT check produces unrelayable txs",
-      "url": "https://github.com/bitcoindevkit/bdk_wallet/issues/543",
-      "kind": "first issue",
-      "repo": "bitcoindevkit/bdk_wallet",
-      "labels": [
-        "good first issue",
-        "bug"
-      ],
-      "amount": null,
-      "createdAt": "2026-09-03T15:52:57Z"
-    },
-    {
-      "id": 5338264924,
-      "title": "Wallet signing may finalize invalid pre-seeded signatures and return Ok(true)",
-      "url": "https://github.com/bitcoindevkit/bdk_wallet/issues/542",
-      "kind": "first issue",
-      "repo": "bitcoindevkit/bdk_wallet",
-      "labels": [
-        "good first issue",
-        "bug"
-      ],
-      "amount": null,
-      "createdAt": "2026-09-03T15:13:40Z"
     },
     {
       "id": 2058803979,
@@ -243,9 +242,21 @@
       "description": "Comments"
     },
     {
-      "title": "[Game Review] The Crimson Diamond",
-      "link": "https://stacker.news/items/1612728",
-      "pubDate": "Wed, 11 Nov 2026 18:53:58 GMT",
+      "title": "Freshman Dem Members &amp; Supporters Are Quickly Finding Out The Hill Is Different",
+      "link": "https://stacker.news/items/1612850",
+      "pubDate": "Wed, 11 Nov 2026 22:32:46 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "The only chess books you’ll need.",
+      "link": "https://stacker.news/items/1613006",
+      "pubDate": "Thu, 12 Nov 2026 04:30:06 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "The Luxury of Children (Foreign Affairs, Jesús Fernández-Villaverde)",
+      "link": "https://www.foreignaffairs.com/united-states/luxury-children",
+      "pubDate": "Wed, 11 Nov 2026 22:15:41 GMT",
       "description": "Comments"
     },
     {
@@ -255,45 +266,33 @@
       "description": "Comments"
     },
     {
-      "title": "NBA 2026 Emirates Cup Survivor Pool: Group Stage Round 3 Picks",
-      "link": "https://stacker.news/items/1612694",
-      "pubDate": "Wed, 11 Nov 2026 18:04:47 GMT",
+      "title": "[Game Review] The Crimson Diamond",
+      "link": "https://stacker.news/items/1612728",
+      "pubDate": "Wed, 11 Nov 2026 18:53:58 GMT",
       "description": "Comments"
     },
     {
-      "title": "Ron Paul: Will Republicans Learn Their Lesson from the &apos;Disastrous&apos; Midterms?",
-      "link": "https://ronpaulinstitute.org/will-republicans-learn-their-lesson-from-the-disastrous-midterms/",
-      "pubDate": "Wed, 11 Nov 2026 18:06:20 GMT",
+      "title": "Best way to learn openings (Learn Openings with Chessbrah)",
+      "link": "https://www.youtube.com/@chessbrah/playlists",
+      "pubDate": "Thu, 12 Nov 2026 01:43:13 GMT",
       "description": "Comments"
     },
     {
-      "title": "Do you tell people to &quot;read the whitepaper&quot;?",
-      "link": "https://stacker.news/items/1612551",
-      "pubDate": "Wed, 11 Nov 2026 13:43:59 GMT",
+      "title": "Introducing cheddar.chat Bitcoin Donation Alerts and TTS with Livechat Bot",
+      "link": "https://cheddar.chat",
+      "pubDate": "Wed, 11 Nov 2026 21:33:28 GMT",
       "description": "Comments"
     },
     {
-      "title": "In 2025 thousands of Bitcoin nodes disabled DoS protection -- Antoine Ponsoit",
-      "link": "https://antoinep.com/posts/cve-2025-62860/",
-      "pubDate": "Wed, 11 Nov 2026 13:10:01 GMT",
+      "title": "DO SOMETHING! Michael Easter&apos;s New Book",
+      "link": "https://www.twopct.com/p/my-new-book-do-something",
+      "pubDate": "Wed, 11 Nov 2026 21:27:08 GMT",
       "description": "Comments"
     },
     {
-      "title": "How a Bitcoin seed phrase works: from random bits to twelve words (7 min video)",
-      "link": "https://www.youtube.com/watch?v=yYvmqkVCZE0",
-      "pubDate": "Wed, 11 Nov 2026 17:25:27 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Pick your NFL Week 9 Hot take",
-      "link": "https://stacker.news/items/1612736",
-      "pubDate": "Wed, 11 Nov 2026 19:25:08 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "BitcoinSaving Opens Public Beta For Bitcoin DCA Simulator App",
-      "link": "https://lightning.news/bitcoinsaving-public-beta-bitcoin-dca-simulator-app/",
-      "pubDate": "Wed, 11 Nov 2026 16:38:54 GMT",
+      "title": "United Airlines bans AI agents from booking flights on behalf of travelers",
+      "link": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+      "pubDate": "Wed, 11 Nov 2026 23:16:20 GMT",
       "description": "Comments"
     }
   ]
