@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-14T18:07:38.632Z",
+  "generatedAt": "2026-11-14T22:27:45.069Z",
   "jobs": {
     "stackerNews": [
       {
@@ -236,15 +236,27 @@
   ],
   "news": [
     {
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "[Read-along] The Odyssey, W.H.D. Rouse, Books IV - VI",
       "link": "https://stacker.news/items/1614365",
       "pubDate": "Sat, 14 Nov 2026 14:21:49 GMT",
       "description": "Comments"
     },
     {
-      "title": "A Lodging for Wayfaring Men Book Club: Covetousness and Revaluing the Self",
-      "link": "https://stacker.news/items/1614384",
-      "pubDate": "Sat, 14 Nov 2026 14:46:07 GMT",
+      "title": "[Sauna Shorts] 21 Futures: Behemoth",
+      "link": "https://stacker.news/items/1614579",
+      "pubDate": "Sat, 14 Nov 2026 19:59:25 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "P2Poolv2 - permissionless mining, auditable accounting, self-custodial payouts",
+      "link": "https://p2poolv2.org/",
+      "pubDate": "Sat, 14 Nov 2026 19:37:53 GMT",
       "description": "Comments"
     },
     {
@@ -260,39 +272,27 @@
       "description": "Comments"
     },
     {
-      "title": "Don&apos;t try to change the Bitcoin protocol, make it irrelevant",
-      "link": "https://insider.btcpp.dev/p/responses-to-stagnation-the-reactionary",
-      "pubDate": "Wed, 11 Nov 2026 16:29:09 GMT",
+      "title": "A Lodging for Wayfaring Men Book Club: Covetousness and Revaluing the Self",
+      "link": "https://stacker.news/items/1614384",
+      "pubDate": "Sat, 14 Nov 2026 14:46:07 GMT",
       "description": "Comments"
     },
     {
-      "title": "How many subscriptions do you have?",
-      "link": "https://stacker.news/items/1614341",
-      "pubDate": "Sat, 14 Nov 2026 13:13:58 GMT",
+      "title": "easyJet&apos;s Apollo Mission: Private Equity and British Airlines (Telegraph, Lynn)",
+      "link": "https://www.telegraph.co.uk/business/2026/11/14/passengers-will-pay-price-for-private-equity-easyjet-gamble/",
+      "pubDate": "Sat, 14 Nov 2026 21:40:38 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "[Cantill One – play central banker] First multiplayer world open!",
+      "link": "http://cantill.one",
+      "pubDate": "Sat, 14 Nov 2026 20:50:49 GMT",
       "description": "Comments"
     },
     {
       "title": "[Total Chess Championship]: Anish Bringing the Homecooking, GOAT Almost Out",
       "link": "https://stacker.news/items/1614451",
       "pubDate": "Sat, 14 Nov 2026 17:00:18 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "I just screamed and laughed when I saw this photo of a gruesome crime",
-      "link": "https://www.reddit.com/r/AskElectronics/s/EX3GeocuSA",
-      "pubDate": "Sat, 14 Nov 2026 07:51:37 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Two Days in Dallas - Review",
-      "link": "https://stacker.news/items/1614248",
-      "pubDate": "Sat, 14 Nov 2026 07:25:02 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Stackers&apos; Taste This Week",
-      "link": "https://stacker.news/items/1614411",
-      "pubDate": "Sat, 14 Nov 2026 15:53:27 GMT",
       "description": "Comments"
     }
   ]
