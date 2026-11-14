@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-13T19:45:08.546Z",
+  "generatedAt": "2026-11-14T06:28:28.090Z",
   "jobs": {
     "stackerNews": [
       {
@@ -242,21 +242,45 @@
       "description": "Comments"
     },
     {
-      "title": "SpaceX to attempt 1st Starship spacecraft recovery on land in 15th flight today",
-      "link": "https://www.spacex.com/launches/starship-flight-15",
-      "pubDate": "Fri, 13 Nov 2026 14:53:09 GMT",
+      "title": "Update on Paolo",
+      "link": "https://stacker.news/items/1613926",
+      "pubDate": "Fri, 13 Nov 2026 17:24:09 GMT",
       "description": "Comments"
     },
     {
-      "title": "Dear Citizens of the New Internet",
-      "link": "https://stacker.news/items/1613941",
-      "pubDate": "Fri, 13 Nov 2026 17:44:01 GMT",
+      "title": "Chess improvement -- kill the mid-wit and find the elusive &quot;spirit of chess&quot;",
+      "link": "https://stacker.news/items/1614167",
+      "pubDate": "Sat, 14 Nov 2026 01:00:22 GMT",
       "description": "Comments"
     },
     {
-      "title": "Exfil, testnet5, Bitcoin Core disclosures &amp;more - Bitcoin Optech Newsletter #431",
-      "link": "https://bitcoinops.org/en/newsletters/2026/11/13/",
-      "pubDate": "Fri, 13 Nov 2026 12:29:28 GMT",
+      "title": "Jensen Huang Meme Corner",
+      "link": "https://stacker.news/items/1613483",
+      "pubDate": "Thu, 12 Nov 2026 22:43:48 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Total Chess Championship: Hans and MVL Fry Some Liver",
+      "link": "https://stacker.news/items/1614144",
+      "pubDate": "Fri, 13 Nov 2026 23:50:41 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Financialization Everywhere: Starbucks and SN style (TDE, Jeff Degner)",
+      "link": "https://thedailyeconomy.org/article/your-starbucks-balance-is-working-harder-than-you-think/",
+      "pubDate": "Tue, 10 Nov 2026 19:36:58 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Photo session with my sister",
+      "link": "https://stacker.news/items/1614160",
+      "pubDate": "Sat, 14 Nov 2026 00:46:31 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "NAZA  -  The Documentary on the Gaza Genocide.",
+      "link": "https://stacker.news/items/1614238",
+      "pubDate": "Sat, 14 Nov 2026 05:46:30 GMT",
       "description": "Comments"
     },
     {
@@ -266,33 +290,9 @@
       "description": "Comments"
     },
     {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Weekly Random Sports Pick &apos;em",
-      "link": "https://stacker.news/items/1613890",
-      "pubDate": "Fri, 13 Nov 2026 16:32:20 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Update on Paolo",
-      "link": "https://stacker.news/items/1613926",
-      "pubDate": "Fri, 13 Nov 2026 17:24:09 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "🏈 Sunday Leaders Bounty • 2,100 sats",
-      "link": "https://stacker.news/items/1613778",
-      "pubDate": "Fri, 13 Nov 2026 13:32:28 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "BOOK on BOOKS: 21 Futures, Tales From the Timechain",
-      "link": "https://stacker.news/items/1613448",
-      "pubDate": "Thu, 12 Nov 2026 21:02:43 GMT",
+      "title": "Blockstream Launches Enterprise Custody Solution",
+      "link": "https://blog.blockstream.com/press-releases/blockstream-launches-enterprise-custody-solution-developed-in-collaboration-with-thales",
+      "pubDate": "Fri, 13 Nov 2026 19:52:49 GMT",
       "description": "Comments"
     }
   ]
