@@ -418,7 +418,7 @@ const TimeForce = () => {
                   <div className="animate-billboard border-2 border-primary/50 rounded-lg p-3 bg-black/40 backdrop-blur-sm shadow-[0_0_15px_rgba(var(--primary),0.3)] flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-2">
                       <ArrowRight className="h-4 w-4 text-primary shrink-0" />
-                      <span className="font-bold text-sm sm:text-base">7-day FREE trial</span>
+                      <span className="font-bold text-sm sm:text-base">Merchant platform in development</span>
                     </div>
 
                     <div className="h-px w-full sm:h-8 sm:w-px bg-primary/30 shrink-0"></div>
@@ -517,7 +517,7 @@ const TimeForce = () => {
                 </Button>
               </div>
               <p className="text-xs text-muted-foreground font-mono mt-8">
-                Free 7-day trial for merchants
+                Merchant onboarding resumes once the platform patches land
               </p>
             </div>
           </div>
