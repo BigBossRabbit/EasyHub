@@ -49,7 +49,7 @@ const paths = [
   },
   {
     n: "02", to: "/easyjobs", name: "EasyJobs", line: "Have a skill? Get hired in sats.",
-    copy: "Remote roles at companies that pay in Bitcoin, plus open careers at the Human Rights Foundation.",
+    copy: "Remote roles at companies that pay in Bitcoin.",
     cta: "See open roles",
   },
   {

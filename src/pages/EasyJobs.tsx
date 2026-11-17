@@ -12,7 +12,6 @@ import {
 import { Link } from "react-router-dom";
 import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
-import HrfJobs from '@/components/HrfJobs'; // Import HrfJobs component
 
 const JOB_CATEGORIES = [
   "Software Development",
@@ -192,11 +191,11 @@ const EasyJobs = () => {
               Remote EasyJobs
             </h2>
             <p className="text-xl text-muted-foreground">
-              Browse opportunities from Bitcoiner Jobs and Human Rights Foundation
+              Browse live opportunities from Bitcoiner Jobs
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 xl:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8 max-w-3xl mx-auto">
             {/* Bitcoiner Jobs Column */}
             <div className="bg-background border border-border rounded-lg p-6">
               <div className="mb-6 text-center">
@@ -252,9 +251,6 @@ const EasyJobs = () => {
                 </Button>
               </div>
             </div>
-
-            {/* HRF Work Column */}
-            <HrfJobs />
           </div>
 
           {/* Job Categories & Tips */}
