@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T22:07:53.933Z",
+  "generatedAt": "2026-11-17T07:57:56.917Z",
   "jobs": {
     "stackerNews": [
       {
@@ -236,39 +236,9 @@
   ],
   "news": [
     {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Why Bitcoin was NOT started by a 3-letter-agency.",
-      "link": "https://x.com/raw_avocado/status/2122329592002134065",
-      "pubDate": "Mon, 16 Nov 2026 15:52:01 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Which AI capability growth line are you betting on?",
-      "link": "https://stacker.news/items/1615529",
-      "pubDate": "Mon, 16 Nov 2026 15:55:29 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Will Jensen Sell his Nvidia Stock? (FT, McMorrow/Morris/Bradshaw)",
-      "link": "https://www.ft.com/content/7a1ee00c-ddbd-4ae2-8323-e4dc603d7a41",
-      "pubDate": "Mon, 16 Nov 2026 16:20:29 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Toothfairy on the AI debacle (FT, Katie Martin)",
-      "link": "https://www.ft.com/content/750e4304-7287-432a-8ac1-36db40d0d968",
-      "pubDate": "Mon, 16 Nov 2026 11:01:54 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Pick the final records- Win Sats",
-      "link": "https://stacker.news/items/1615513",
-      "pubDate": "Mon, 16 Nov 2026 15:35:42 GMT",
+      "title": "Bitcoin Arena Bounty Season 2: AI emptied season 1, this one is for players",
+      "link": "https://stacker.news/items/1616002",
+      "pubDate": "Tue, 17 Nov 2026 07:21:29 GMT",
       "description": "Comments"
     },
     {
@@ -278,21 +248,51 @@
       "description": "Comments"
     },
     {
-      "title": "Bank of America, Chase, J.P. Morgan, U.S. Bank, Wells Fargo &amp; Zelle Banking Down",
-      "link": "https://apnews.com/article/bank-outage-chase-wells-fargo-truist-50fee2693c22f597fa6ca51a97ef2cda",
-      "pubDate": "Mon, 16 Nov 2026 19:09:01 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Kazahk Fintech Dude is the New Head of FIDE: Timur Turlov (Bloomberg)",
-      "link": "https://www.bloomberg.com/news/articles/2026-11-16/kazakh-fintech-tycoon-atop-world-chess-seeks-to-outplay-revolut",
-      "pubDate": "Mon, 16 Nov 2026 18:15:51 GMT",
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
       "description": "Comments"
     },
     {
       "title": "Maxine Water&apos;s Pledge To Financial Services Comm. Blows My Mind As A Staffer",
       "link": "https://stacker.news/items/1615670",
       "pubDate": "Mon, 16 Nov 2026 19:36:39 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Update on Paolo II",
+      "link": "https://stacker.news/items/1615736",
+      "pubDate": "Mon, 16 Nov 2026 21:58:20 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "The Camera Matters Again... Just Not for the Reason You Think",
+      "link": "https://stacker.news/items/1615899",
+      "pubDate": "Tue, 17 Nov 2026 02:28:05 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "MNF- Chargers vs Ravens Discussion Thread",
+      "link": "https://stacker.news/items/1615855",
+      "pubDate": "Tue, 17 Nov 2026 01:13:43 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "pensieve: The eternal memory well of Nostr - andotherstuff",
+      "link": "https://github.com/andotherstuff/pensieve",
+      "pubDate": "Tue, 17 Nov 2026 01:40:05 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Midland police warning residents of new scam involving bitcoin kiosks",
+      "link": "https://www.firstalert7.com/2026/11/16/midland-police-warning-residents-new-scam-involving-bitcoin-kiosks/",
+      "pubDate": "Tue, 17 Nov 2026 03:10:24 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Bank of America, Chase, J.P. Morgan, U.S. Bank, Wells Fargo &amp; Zelle Banking Down",
+      "link": "https://apnews.com/article/bank-outage-chase-wells-fargo-truist-50fee2693c22f597fa6ca51a97ef2cda",
+      "pubDate": "Mon, 16 Nov 2026 19:09:01 GMT",
       "description": "Comments"
     }
   ]
