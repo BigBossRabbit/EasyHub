@@ -448,7 +448,7 @@ const TimeForce = () => {
             </div>
 
             <div className="bg-primary/5 border border-primary/20 rounded-lg p-8 backdrop-blur-sm relative overflow-hidden group flex flex-col justify-between min-h-[300px]">
-              <div className="absolute top-0 right-0 p-1 bg-primary text-[8px] font-bold text-black transform rotate-45 translate-x-4 -translate-y-2 w-20 text-center">ALPHA</div>
+              <div className="absolute top-4 right-4 px-2.5 py-1 rounded-full bg-primary/15 border border-primary/40 text-primary text-[9px] font-bold tracking-[0.18em] select-none">ALPHA</div>
 
               <div>
                 <h3 className="text-2xl font-semibold mb-6 text-primary flex items-center gap-2">
