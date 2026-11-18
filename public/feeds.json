@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T07:33:09.761Z",
+  "generatedAt": "2026-11-18T20:35:27.175Z",
   "jobs": {
     "stackerNews": [
       {
@@ -107,6 +107,18 @@
   },
   "bounties": [
     {
+      "id": 1870844341,
+      "title": "Reduce bundle size",
+      "url": "https://github.com/getAlby/bitcoin-connect/issues/45",
+      "kind": "first issue",
+      "repo": "getAlby/bitcoin-connect",
+      "labels": [
+        "good first issue"
+      ],
+      "amount": null,
+      "createdAt": "2023-08-29T04:09:49Z"
+    },
+    {
       "id": 2978067364,
       "title": "Allow bump fee on transactions without RBF sequence",
       "url": "https://github.com/bitcoindevkit/bdk_wallet/issues/65",
@@ -156,33 +168,6 @@
       "createdAt": "2023-12-28T20:38:11Z"
     },
     {
-      "id": 1528120191,
-      "title": "[Feature] Add success screen confirmation when paying webln invoices",
-      "url": "https://github.com/getAlby/lightning-browser-extension/issues/1960",
-      "kind": "first issue",
-      "repo": "getAlby/lightning-browser-extension",
-      "labels": [
-        "good first issue",
-        "frontend"
-      ],
-      "amount": null,
-      "createdAt": "2023-01-10T22:52:14Z"
-    },
-    {
-      "id": 2662063381,
-      "title": "Feature request: `WALLET_MAX_FEE_PPK` flag to avoid overpaying fees",
-      "url": "https://github.com/cashubtc/nutshell/issues/671",
-      "kind": "first issue",
-      "repo": "cashubtc/nutshell",
-      "labels": [
-        "good first issue",
-        "wallet",
-        "feature request"
-      ],
-      "amount": null,
-      "createdAt": "2024-11-15T13:58:18Z"
-    },
-    {
       "id": 4411489504,
       "title": "Add Turkish translation for BTCPay server",
       "url": "https://github.com/btcpayserver/btcpayserver-translator/issues/67",
@@ -196,20 +181,6 @@
       "createdAt": "2026-05-09T06:35:43Z"
     },
     {
-      "id": 2189888847,
-      "title": "Tests: migration tests with dummy data from old version",
-      "url": "https://github.com/cashubtc/nutshell/issues/476",
-      "kind": "first issue",
-      "repo": "cashubtc/nutshell",
-      "labels": [
-        "good first issue",
-        "wallet",
-        "mint"
-      ],
-      "amount": null,
-      "createdAt": "2024-03-16T09:53:12Z"
-    },
-    {
       "id": 5503048425,
       "title": "RFC: Evolving the Android Demo into a Functional Reference Wallet",
       "url": "https://github.com/fedimint/fedimint-sdk/issues/399",
@@ -220,6 +191,32 @@
       ],
       "amount": null,
       "createdAt": "2026-09-18T18:11:26Z"
+    },
+    {
+      "id": 5568702446,
+      "title": "faq.mdx: restore reference should include NUT-09",
+      "url": "https://github.com/cashubtc/docs.cashu.space/issues/44",
+      "kind": "first issue",
+      "repo": "cashubtc/docs.cashu.space",
+      "labels": [
+        "good first issue",
+        "documentation"
+      ],
+      "amount": null,
+      "createdAt": "2026-09-24T13:00:23Z"
+    },
+    {
+      "id": 5568702134,
+      "title": "Update stale README",
+      "url": "https://github.com/cashubtc/docs.cashu.space/issues/43",
+      "kind": "first issue",
+      "repo": "cashubtc/docs.cashu.space",
+      "labels": [
+        "good first issue",
+        "documentation"
+      ],
+      "amount": null,
+      "createdAt": "2026-09-24T13:00:21Z"
     },
     {
       "id": 5065262531,
@@ -236,9 +233,33 @@
   ],
   "news": [
     {
-      "title": "Linklater&apos;s film Slacker (1991): Radical and Mediocre",
-      "link": "https://stacker.news/items/1616535",
-      "pubDate": "Wed, 18 Nov 2026 00:11:51 GMT",
+      "title": "AMA: I&apos;m Robert Warren, Head of Comms at bitcoin miner Elektron Energy",
+      "link": "https://stacker.news/items/1616893",
+      "pubDate": "Wed, 18 Nov 2026 16:04:36 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Review of David Berri&apos;s Sports Economics, Chapter 2",
+      "link": "https://stacker.news/items/1617038",
+      "pubDate": "Wed, 18 Nov 2026 18:30:58 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "lightning.gifts - send a bitcoin gift to someone who doesn&apos;t have a wallet yet",
+      "link": "https://stacker.news/items/1617090",
+      "pubDate": "Wed, 18 Nov 2026 19:52:14 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Las Malvinas Son Argentinas!! (FT, Ciara Nugent)",
+      "link": "https://www.ft.com/content/42715544-237a-47ef-9115-73005614e9cd",
+      "pubDate": "Wed, 18 Nov 2026 18:51:57 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "What did you sacrifice for Bitcoin ?",
+      "link": "https://stacker.news/items/1448727",
+      "pubDate": "Fri, 06 Mar 2026 08:45:05 GMT",
       "description": "Comments"
     },
     {
@@ -248,9 +269,15 @@
       "description": "Comments"
     },
     {
-      "title": "Bitcoin&apos;s Narratives are Being Purged (Eric Yakes)",
-      "link": "https://substack.com/home/post/p-224315465",
-      "pubDate": "Tue, 17 Nov 2026 19:13:18 GMT",
+      "title": "Anthropic IPO: AI Lab Raises Its Valuation Target (CNBC, Capoot and Picker)",
+      "link": "https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html",
+      "pubDate": "Wed, 18 Nov 2026 18:34:45 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "STRC: Don&apos;t Stretch Your Wallet For This One (SA, Marty Popoff)",
+      "link": "https://seekingalpha.com/article/4968945-strc-dont-stretch-your-wallet-for-this-one",
+      "pubDate": "Wed, 18 Nov 2026 18:13:56 GMT",
       "description": "Comments"
     },
     {
@@ -260,39 +287,9 @@
       "description": "Comments"
     },
     {
-      "title": "Antoine Poinsot - Bitcoin Optech Newsletter #431 Recap Podcast",
-      "link": "https://bitcoinops.org/en/podcast/2026/11/17/",
-      "pubDate": "Tue, 17 Nov 2026 21:53:22 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "counterintuitive puzzle of the day",
-      "link": "https://stacker.news/items/1616469",
-      "pubDate": "Tue, 17 Nov 2026 22:41:35 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Flipper One — Open Linux Multi-tool Release - Kickstarter",
-      "link": "https://www.kickstarter.com/projects/flipper-devices/flipper-one",
-      "pubDate": "Tue, 17 Nov 2026 23:49:57 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Wemby signature move?",
-      "link": "https://stacker.news/items/1616567",
-      "pubDate": "Wed, 18 Nov 2026 01:42:57 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "MARA Foundation on X: &quot;Why MARA Is Upgrading to Stratum V2&quot;",
-      "link": "https://x.com/MARAFoundation_/status/2122710678607679823",
-      "pubDate": "Tue, 17 Nov 2026 16:27:27 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "No matter how you ask, more Americans are negative than positive about AI",
-      "link": "https://stacker.news/items/1616144",
-      "pubDate": "Tue, 17 Nov 2026 13:12:11 GMT",
+      "title": "Vibecoded a travel language app on my Zipair flight to Japan (thanks Starlink)",
+      "link": "https://stacker.news/items/1616665",
+      "pubDate": "Wed, 18 Nov 2026 08:56:44 GMT",
       "description": "Comments"
     }
   ]
