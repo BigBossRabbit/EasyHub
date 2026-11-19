@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T20:35:27.175Z",
+  "generatedAt": "2026-11-19T07:29:25.525Z",
   "jobs": {
     "stackerNews": [
       {
@@ -233,6 +233,12 @@
   ],
   "news": [
     {
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "AMA: I&apos;m Robert Warren, Head of Comms at bitcoin miner Elektron Energy",
       "link": "https://stacker.news/items/1616893",
       "pubDate": "Wed, 18 Nov 2026 16:04:36 GMT",
@@ -245,51 +251,45 @@
       "description": "Comments"
     },
     {
-      "title": "lightning.gifts - send a bitcoin gift to someone who doesn&apos;t have a wallet yet",
-      "link": "https://stacker.news/items/1617090",
-      "pubDate": "Wed, 18 Nov 2026 19:52:14 GMT",
+      "title": "Ocean hit 13 blocks today",
+      "link": "https://stacker.news/items/1617169",
+      "pubDate": "Wed, 18 Nov 2026 22:12:37 GMT",
       "description": "Comments"
     },
     {
-      "title": "Las Malvinas Son Argentinas!! (FT, Ciara Nugent)",
-      "link": "https://www.ft.com/content/42715544-237a-47ef-9115-73005614e9cd",
-      "pubDate": "Wed, 18 Nov 2026 18:51:57 GMT",
+      "title": "Tampered Bitcoin Wallets in Berlin as Spy Implant Probe Spreads Beyond Asia",
+      "link": "https://decrypt.co/383586/ledger-confirms-tampered-bitcoin-wallets-berlin-spreads-beyond-asia",
+      "pubDate": "Thu, 19 Nov 2026 03:24:38 GMT",
       "description": "Comments"
     },
     {
-      "title": "What did you sacrifice for Bitcoin ?",
-      "link": "https://stacker.news/items/1448727",
-      "pubDate": "Fri, 06 Mar 2026 08:45:05 GMT",
+      "title": "Pick your NFL Week 10 Hot Take",
+      "link": "https://stacker.news/items/1617226",
+      "pubDate": "Thu, 19 Nov 2026 01:27:17 GMT",
       "description": "Comments"
     },
     {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "title": "Total Chess Championship: Hans Niemann Saccing Pieces in Sunny Spain",
+      "link": "https://stacker.news/items/1617184",
+      "pubDate": "Wed, 18 Nov 2026 22:54:15 GMT",
       "description": "Comments"
     },
     {
-      "title": "Anthropic IPO: AI Lab Raises Its Valuation Target (CNBC, Capoot and Picker)",
-      "link": "https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html",
-      "pubDate": "Wed, 18 Nov 2026 18:34:45 GMT",
+      "title": "Update on the Hardware Implant Incident Investigation",
+      "link": "https://support.ledger.com/article/Update-on-the-Hardware-Implant-Incident-Investigation",
+      "pubDate": "Thu, 19 Nov 2026 04:19:41 GMT",
       "description": "Comments"
     },
     {
-      "title": "STRC: Don&apos;t Stretch Your Wallet For This One (SA, Marty Popoff)",
-      "link": "https://seekingalpha.com/article/4968945-strc-dont-stretch-your-wallet-for-this-one",
-      "pubDate": "Wed, 18 Nov 2026 18:13:56 GMT",
+      "title": "The Abandoned Coal Plant Elon Musk Is Turning Into a $119BN Chip Factory",
+      "link": "https://www.youtube.com/watch?v=6jE5NHVVtH8",
+      "pubDate": "Wed, 18 Nov 2026 19:40:15 GMT",
       "description": "Comments"
     },
     {
-      "title": "An interesting take on slop scandals in the literary world",
-      "link": "https://thepointmag.com/examined-life/the-part-about-the-machines/",
-      "pubDate": "Wed, 18 Nov 2026 03:15:35 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Vibecoded a travel language app on my Zipair flight to Japan (thanks Starlink)",
-      "link": "https://stacker.news/items/1616665",
-      "pubDate": "Wed, 18 Nov 2026 08:56:44 GMT",
+      "title": "Voyager 1 at one light-day: Historian revisits Golden Record&apos;s forgotten details",
+      "link": "https://arstechnica.com/space/2026/11/voyager-1-at-one-light-day-historian-revisits-golden-records-forgotten-details/",
+      "pubDate": "Wed, 18 Nov 2026 13:10:29 GMT",
       "description": "Comments"
     }
   ]
