@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T07:20:18.240Z",
+  "generatedAt": "2026-11-20T20:24:40.920Z",
   "jobs": {
     "stackerNews": [
       {
@@ -233,15 +233,27 @@
   ],
   "news": [
     {
-      "title": "Bread and circuses",
-      "link": "https://stacker.news/items/1617871",
-      "pubDate": "Fri, 20 Nov 2026 00:33:58 GMT",
+      "title": "Are You Having Fun Staying Poor, Stackers?",
+      "link": "https://stacker.news/items/1618180",
+      "pubDate": "Fri, 20 Nov 2026 17:34:46 GMT",
       "description": "Comments"
     },
     {
-      "title": "I&apos;m Morgen Rochard, Author of Bitcoin Personal Finance - AMA",
-      "link": "https://stacker.news/items/1617542",
-      "pubDate": "Thu, 19 Nov 2026 16:07:29 GMT",
+      "title": "How to use your first s9 / Why I bought a trunk-load of broken, out of date, s9s",
+      "link": "https://stacker.news/items/1618150",
+      "pubDate": "Fri, 20 Nov 2026 16:31:40 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "How turn Stacker News into Silk Road 3.0",
+      "link": "https://stacker.news/items/1618258",
+      "pubDate": "Fri, 20 Nov 2026 19:30:34 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Riemann proved?",
+      "link": "https://alpo.ge/remark.pdf",
+      "pubDate": "Fri, 20 Nov 2026 16:04:04 GMT",
       "description": "Comments"
     },
     {
@@ -251,45 +263,33 @@
       "description": "Comments"
     },
     {
-      "title": "[GIVEAWAY] The faucet is back. https://getfountainofyouth.net",
-      "link": "https://stacker.news/items/1617873",
-      "pubDate": "Fri, 20 Nov 2026 00:43:28 GMT",
+      "title": "Update on Paolo III",
+      "link": "https://stacker.news/items/1618248",
+      "pubDate": "Fri, 20 Nov 2026 19:04:10 GMT",
       "description": "Comments"
     },
     {
-      "title": "Tether Fun Unbelievable Details - Part VI",
-      "link": "https://stacker.news/items/1617443",
-      "pubDate": "Thu, 19 Nov 2026 13:42:43 GMT",
+      "title": "PC Necromancing",
+      "link": "https://stacker.news/items/1618184",
+      "pubDate": "Fri, 20 Nov 2026 17:45:01 GMT",
       "description": "Comments"
     },
     {
-      "title": "Unravel Rule · Prove you own an address",
-      "link": "https://unravelrule.xyz/",
-      "pubDate": "Fri, 20 Nov 2026 01:19:58 GMT",
+      "title": "The Resolution Hypothesis",
+      "link": "https://arxiv.org/abs/2611.23068",
+      "pubDate": "Fri, 20 Nov 2026 16:50:14 GMT",
       "description": "Comments"
     },
     {
-      "title": "&quot;It starts with multiple generations of master apprentice&quot; - Bitcoin Eagle",
-      "link": "https://stacker.news/items/1575672",
-      "pubDate": "Fri, 18 Sep 2026 02:33:12 GMT",
+      "title": "How out of date is the Bitcoin network? - @schmidty",
+      "link": "https://x.com/bitschmidty/status/2123828842993213912",
+      "pubDate": "Fri, 20 Nov 2026 17:51:13 GMT",
       "description": "Comments"
     },
     {
-      "title": "📣AMA Announcement: Jungly and P2Poolv2 - TUESDAY, NOV 24",
-      "link": "https://stacker.news/items/1617738",
-      "pubDate": "Thu, 19 Nov 2026 19:45:42 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Stacker News on Munger&apos;s &apos;The Answer Is Transaction Costs&apos;",
-      "link": "https://fountain.fm/episode/HRlIQ92HFGGs6ABtgROq",
-      "pubDate": "Thu, 19 Nov 2026 16:45:58 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Construction Prices Flat in October While Steel and Copper Keep Climbing",
-      "link": "https://www.enr.com/articles/64271-construction-prices-remain-flat-in-october-steel-and-copper-costs-surge",
-      "pubDate": "Fri, 20 Nov 2026 00:25:32 GMT",
+      "title": "Decentralized mining pool payouts, stale tips - Bitcoin Optech Newsletter #432",
+      "link": "https://bitcoinops.org/en/newsletters/2026/11/20/",
+      "pubDate": "Fri, 20 Nov 2026 12:32:47 GMT",
       "description": "Comments"
     }
   ]
