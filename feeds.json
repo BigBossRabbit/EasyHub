@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T07:13:28.943Z",
+  "generatedAt": "2026-11-21T19:19:16.403Z",
   "jobs": {
     "stackerNews": [
       {
@@ -106,6 +106,18 @@
     }
   },
   "bounties": [
+    {
+      "id": 1884994844,
+      "title": "Investigate running some tests on ios simulator / android emulator",
+      "url": "https://github.com/fedimint/fedimint/issues/3121",
+      "kind": "first issue",
+      "repo": "fedimint/fedimint",
+      "labels": [
+        "good first issue"
+      ],
+      "amount": null,
+      "createdAt": "2023-09-07T02:09:09Z"
+    },
     {
       "id": 1870844341,
       "title": "Reduce bundle size",
@@ -217,79 +229,67 @@
       ],
       "amount": null,
       "createdAt": "2026-09-24T13:00:21Z"
-    },
-    {
-      "id": 5065262531,
-      "title": "common: json_to_s64 and json_to_double still accept hex, octal and signs",
-      "url": "https://github.com/ElementsProject/lightning/issues/9377",
-      "kind": "first issue",
-      "repo": "ElementsProject/lightning",
-      "labels": [
-        "good first issue"
-      ],
-      "amount": null,
-      "createdAt": "2026-08-04T21:58:42Z"
     }
   ],
   "news": [
     {
-      "title": "Are You Having Fun Staying Poor, Stackers?",
-      "link": "https://stacker.news/items/1618180",
-      "pubDate": "Fri, 20 Nov 2026 17:34:46 GMT",
+      "title": "JoinMarket stats dashboard",
+      "link": "https://m0wer.github.io/joinmarket-stats/",
+      "pubDate": "Thu, 29 Oct 2026 14:30:07 GMT",
       "description": "Comments"
     },
     {
-      "title": "How to use your first s9 / Why I bought a trunk-load of broken, out of date, s9s",
-      "link": "https://stacker.news/items/1618150",
-      "pubDate": "Fri, 20 Nov 2026 16:31:40 GMT",
+      "title": "BOOK on BOOKS: &quot;Our Dollar, Your Problem&quot; by Kenneth Rogoff",
+      "link": "https://stacker.news/items/1618752",
+      "pubDate": "Sat, 21 Nov 2026 18:17:53 GMT",
       "description": "Comments"
     },
     {
-      "title": "Riemann proved?",
-      "link": "https://alpo.ge/remark.pdf",
-      "pubDate": "Fri, 20 Nov 2026 16:04:04 GMT",
+      "title": "A Lodging for Wayfaring Men Book Club: Chapter 4",
+      "link": "https://stacker.news/items/1618653",
+      "pubDate": "Sat, 21 Nov 2026 14:38:47 GMT",
       "description": "Comments"
     },
     {
-      "title": "economic transfers from young to old have become larger 1979 -&gt; 2024",
-      "link": "https://www.ft.com/content/6986a3b5-12ed-4aad-ac61-f86ded3e6fa3",
-      "pubDate": "Fri, 20 Nov 2026 21:06:24 GMT",
+      "title": "My Podcast with KK (&quot;The Answer is Transaction Costs&quot;)",
+      "link": "https://www.buzzsprout.com/2186249/episodes/20100695",
+      "pubDate": "Sat, 21 Nov 2026 15:25:43 GMT",
       "description": "Comments"
     },
     {
-      "title": "How turn Stacker News into Silk Road 3.0",
-      "link": "https://stacker.news/items/1618258",
-      "pubDate": "Fri, 20 Nov 2026 19:30:34 GMT",
+      "title": "Double Rewards In My Territories This Week",
+      "link": "https://stacker.news/items/1618622",
+      "pubDate": "Sat, 21 Nov 2026 13:10:51 GMT",
       "description": "Comments"
     },
     {
-      "title": "Bitcoin Crash Continues, I’m Scared for What’s Next (TBL, Nik Bhatia)",
-      "link": "https://thebitcoinlayer.substack.com/p/bitcoin-crash-continues-im-scared",
-      "pubDate": "Fri, 20 Nov 2026 21:01:01 GMT",
+      "title": "I&apos;m looking for testers so I can get Bitcoin Quest on the Google Play store.",
+      "link": "https://stacker.news/items/1618725",
+      "pubDate": "Sat, 21 Nov 2026 17:04:03 GMT",
       "description": "Comments"
     },
     {
-      "title": "Total Chess Champ: Hans Narrowly Clinches 5th &amp; Can the Stackers Find Mate-in-3?",
-      "link": "https://stacker.news/items/1618414",
-      "pubDate": "Fri, 20 Nov 2026 23:50:10 GMT",
+      "title": "PC Necromancing, Part 2",
+      "link": "https://stacker.news/items/1618741",
+      "pubDate": "Sat, 21 Nov 2026 17:49:36 GMT",
       "description": "Comments"
     },
     {
-      "title": "Total Chess Championship: Magnus Saccing Queens for Shits and Giggles",
-      "link": "https://stacker.news/items/1618357",
-      "pubDate": "Fri, 20 Nov 2026 22:30:41 GMT",
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
       "description": "Comments"
     },
     {
-      "title": "Stacker Sports Pod Episode 110 Preshow Notes",
-      "link": "https://stacker.news/items/1618351",
-      "pubDate": "Fri, 20 Nov 2026 22:25:58 GMT",
+      "title": "LIVE Sourdough updates",
+      "link": "https://stacker.news/items/1618623",
+      "pubDate": "Sat, 21 Nov 2026 13:12:23 GMT",
       "description": "Comments"
     },
     {
-      "title": "Update on Paolo III",
-      "link": "https://stacker.news/items/1618248",
-      "pubDate": "Fri, 20 Nov 2026 19:04:10 GMT",
+      "title": "Is Anthropic turning into OpenAI?",
+      "link": "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure",
+      "pubDate": "Sat, 21 Nov 2026 16:20:59 GMT",
       "description": "Comments"
     }
   ]
