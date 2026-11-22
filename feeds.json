@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T19:19:16.403Z",
+  "generatedAt": "2026-11-22T06:53:29.714Z",
   "jobs": {
     "stackerNews": [
       {
@@ -106,18 +106,6 @@
     }
   },
   "bounties": [
-    {
-      "id": 1884994844,
-      "title": "Investigate running some tests on ios simulator / android emulator",
-      "url": "https://github.com/fedimint/fedimint/issues/3121",
-      "kind": "first issue",
-      "repo": "fedimint/fedimint",
-      "labels": [
-        "good first issue"
-      ],
-      "amount": null,
-      "createdAt": "2023-09-07T02:09:09Z"
-    },
     {
       "id": 1870844341,
       "title": "Reduce bundle size",
@@ -229,9 +217,45 @@
       ],
       "amount": null,
       "createdAt": "2026-09-24T13:00:21Z"
+    },
+    {
+      "id": 5065262531,
+      "title": "common: json_to_s64 and json_to_double still accept hex, octal and signs",
+      "url": "https://github.com/ElementsProject/lightning/issues/9377",
+      "kind": "first issue",
+      "repo": "ElementsProject/lightning",
+      "labels": [
+        "good first issue"
+      ],
+      "amount": null,
+      "createdAt": "2026-08-04T21:58:42Z"
     }
   ],
   "news": [
+    {
+      "title": "Launched my own pico8 game: Hexxa8",
+      "link": "https://stacker.news/items/1618940",
+      "pubDate": "Sun, 22 Nov 2026 04:49:44 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Economics AI Musings, Jobs, and Maybe We Need to Own the Compute (Econ Forces,J)",
+      "link": "https://www.economicforces.xyz/p/is-ai-taking-all-the-jobs",
+      "pubDate": "Sat, 21 Nov 2026 20:27:56 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "A Modest Proposal, for the Benefit of the Public Welfare, to Destroy Mercury",
+      "link": "https://bitbanter.com/posts/2026-11-21/a-modest-proposal-for-the-benefit-of-the-public-welfare-to-destroy-mercury/",
+      "pubDate": "Sun, 22 Nov 2026 03:58:48 GMT",
+      "description": "Comments"
+    },
     {
       "title": "JoinMarket stats dashboard",
       "link": "https://m0wer.github.io/joinmarket-stats/",
@@ -245,9 +269,9 @@
       "description": "Comments"
     },
     {
-      "title": "A Lodging for Wayfaring Men Book Club: Chapter 4",
-      "link": "https://stacker.news/items/1618653",
-      "pubDate": "Sat, 21 Nov 2026 14:38:47 GMT",
+      "title": "PC Necromancing, Part 2",
+      "link": "https://stacker.news/items/1618741",
+      "pubDate": "Sat, 21 Nov 2026 17:49:36 GMT",
       "description": "Comments"
     },
     {
@@ -257,39 +281,15 @@
       "description": "Comments"
     },
     {
-      "title": "Double Rewards In My Territories This Week",
-      "link": "https://stacker.news/items/1618622",
-      "pubDate": "Sat, 21 Nov 2026 13:10:51 GMT",
+      "title": "SN Saturday Newsletter 11/21/26",
+      "link": "https://stacker.news/items/1618875",
+      "pubDate": "Sun, 22 Nov 2026 00:13:43 GMT",
       "description": "Comments"
     },
     {
-      "title": "I&apos;m looking for testers so I can get Bitcoin Quest on the Google Play store.",
-      "link": "https://stacker.news/items/1618725",
-      "pubDate": "Sat, 21 Nov 2026 17:04:03 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "PC Necromancing, Part 2",
-      "link": "https://stacker.news/items/1618741",
-      "pubDate": "Sat, 21 Nov 2026 17:49:36 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
-      "link": "https://stacker.news/items/1551074",
-      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "LIVE Sourdough updates",
-      "link": "https://stacker.news/items/1618623",
-      "pubDate": "Sat, 21 Nov 2026 13:12:23 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Is Anthropic turning into OpenAI?",
-      "link": "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure",
-      "pubDate": "Sat, 21 Nov 2026 16:20:59 GMT",
+      "title": "A Lodging for Wayfaring Men Book Club: Chapter 4",
+      "link": "https://stacker.news/items/1618653",
+      "pubDate": "Sat, 21 Nov 2026 14:38:47 GMT",
       "description": "Comments"
     }
   ]
