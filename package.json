@@ -10,8 +10,8 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist --dotfiles"
+    "predeploy": "npm run build && npm run postbuild",
+    "deploy": "npm run build && npm run postbuild && gh-pages -d dist --dotfiles"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",

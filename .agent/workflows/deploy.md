@@ -24,10 +24,15 @@ npm run deploy
 
 ## What This Does
 The `npm run deploy` command runs these scripts in sequence:
-- `predeploy` → `npm run build` (builds production bundle)
 - `build` → `vite build` (compiles the app)
-- `postbuild` → copies `index.html` to `404.html` (SPA routing fix)
-- `deploy` → `gh-pages -d dist` (pushes to gh-pages branch)
+- `postbuild` → copies `index.html` to `404.html` (SPA routing fix), regenerates the
+  sitemap, and copies `public/connect` into the bundle
+- `gh-pages -d dist --dotfiles` → pushes the bundle to the gh-pages branch
+
+All three are chained inside the `deploy` script because this machine sets
+`ignore-scripts=true`, so npm's automatic `predeploy`/`postbuild` hooks never fire on
+their own. Build and postbuild must finish before `gh-pages` publishes, or the SPA
+fallback (`404.html`) is missing and every deep route 404s on GitHub Pages.
 
 ## Troubleshooting
 - If deployment fails, ensure you have push access to the repository
