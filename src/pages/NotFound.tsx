@@ -1,5 +1,7 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import Seo from "@/components/Seo";
 
 const NotFound = () => {
   const location = useLocation();
@@ -9,13 +11,17 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-semibold">404</h1>
-        <p className="mb-4 text-xl text-gray-600">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 underline hover:text-blue-700">
-          Return to Home
-        </a>
+    <div className="flex min-h-screen items-center justify-center bg-background text-foreground px-6">
+      <Seo title="404 — Page Not Found — EasySats" description="That page does not exist." canonical={location.pathname} />
+      <div className="text-center max-w-md">
+        <p className="font-mono text-xs tracking-[0.3em] text-primary uppercase mb-6">404</p>
+        <h1 className="mb-3 text-4xl font-semibold">Oops! Page not found</h1>
+        <p className="mb-8 text-muted-foreground">
+          The page <span className="font-mono text-foreground">{location.pathname}</span> does not exist or has moved.
+        </p>
+        <Button asChild>
+          <Link to="/">Return home</Link>
+        </Button>
       </div>
     </div>
   );

@@ -45,6 +45,10 @@ const App = () => (
             <Route path="/timeforce" element={<Layout><TimeForce /></Layout>} />
             <Route path="/easyjobs" element={<Layout><EasyJobs /></Layout>} />
             <Route path="/about" element={<Layout><About /></Layout>} />
+            {/* NOTE: /connect never renders this route — public/connect/index.html is a
+                standalone static page copied verbatim into dist/connect/index.html, and GitHub
+                Pages serves that file before the SPA fallback. Keep the route as a dev fallback
+                only; do not edit dist/connect/index.html. */}
             <Route path="/connect" element={<Layout><ConsultationForm /></Layout>} />
             <Route path="/terms" element={<Layout><Terms /></Layout>} />
             <Route path="/privacy" element={<Layout><Privacy /></Layout>} />

@@ -233,8 +233,8 @@ const TimeForce = () => {
 
             <div className="space-y-4 text-muted-foreground relative z-10">
               <p className="text-lg">
-                Many tend to complicate the easiest parts about Bitcoin when most will come to
-                understand it the easiest by the use cases it solves.
+                Most people make Bitcoin sound complicated. It's easier to understand by the
+                problems it solves.
               </p>
 
               <div className="grid md:grid-cols-2 gap-6 mt-6">
@@ -254,7 +254,7 @@ const TimeForce = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" aria-hidden="true" />
-                      <span>No warning or arrangement opportunities</span>
+                      <span>No warning and no chance to make arrangements before charges hit</span>
                     </li>
                   </ul>
                 </div>
@@ -275,7 +275,7 @@ const TimeForce = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" aria-hidden="true" />
-                      <span>System with No Representation, yet continued payments</span>
+                      <span>The system keeps taking payments, and you have no one to appeal to.</span>
                     </li>
                   </ul>
                 </div>

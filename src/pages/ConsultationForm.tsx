@@ -1,8 +1,10 @@
 import React from "react";
+import Seo from "@/components/Seo";
 
 const ConsultationForm = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <Seo title="Bitcoin Consultation Request — EasySats" description="Request a Bitcoin consultation for yourself, your shop or your team." canonical="/connect" />
       <section className="container mx-auto px-6 py-12">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-4xl font-semibold mb-6">Bitcoin Consultation Request</h1>

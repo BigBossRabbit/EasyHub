@@ -1,4 +1,5 @@
 import React from 'react';
+import Seo from '@/components/Seo';
 import { GraduationCap, ExternalLink, Youtube, BookOpen, Terminal, Play, Menu, Clock, BarChart, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
@@ -137,6 +138,7 @@ const TPOK = () => {
 
   return (
     <div className="min-h-screen text-foreground pb-24">
+      <Seo title="TPOK — The Pursuit of Knowledge — EasySats" description="OKIN Ent's edutainment wing: learn Bitcoin and frontier tech the fun way." canonical="/tpok" />
 
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto mb-16 mt-8 px-4 md:px-8">
