@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-23T07:43:16.382Z",
+  "generatedAt": "2026-11-23T23:17:35.205Z",
   "jobs": {
     "stackerNews": [
       {
@@ -233,15 +233,21 @@
   ],
   "news": [
     {
-      "title": "The Open Study Hubs",
-      "link": "https://open.ct.ws",
-      "pubDate": "Tue, 10 Nov 2026 18:33:11 GMT",
+      "title": "Burning Electricity for Yet More Sats: 21 Energy and their new Ofen 3 Pro",
+      "link": "https://stacker.news/items/1619836",
+      "pubDate": "Mon, 23 Nov 2026 20:33:14 GMT",
       "description": "Comments"
     },
     {
-      "title": "The Effective Altruist&apos;s Burden",
-      "link": "https://stacker.news/items/1619276",
-      "pubDate": "Sun, 22 Nov 2026 21:41:22 GMT",
+      "title": "Acemoglu Wants Pro-Worker AIs (FT, Daron Acemoglu)",
+      "link": "https://www.ft.com/content/add930b5-5a4c-4226-a778-ffdd009915f0",
+      "pubDate": "Mon, 23 Nov 2026 15:36:08 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "JoinMarket CoinJoin change as LN channel opens — m0wer",
+      "link": "https://youtu.be/8y6hXW4I_-s",
+      "pubDate": "Mon, 23 Nov 2026 20:16:59 GMT",
       "description": "Comments"
     },
     {
@@ -251,45 +257,39 @@
       "description": "Comments"
     },
     {
-      "title": "Simple Lunch Stocking",
-      "link": "https://stacker.news/items/1619285",
-      "pubDate": "Sun, 22 Nov 2026 22:18:44 GMT",
+      "title": "Football games taking over science museum parking -- a sign of the times?",
+      "link": "https://stacker.news/items/1619839",
+      "pubDate": "Mon, 23 Nov 2026 20:47:07 GMT",
       "description": "Comments"
     },
     {
-      "title": "Cassis: Bitcoin payments across every layer",
-      "link": "https://cassis.cash/",
-      "pubDate": "Sun, 22 Nov 2026 20:03:41 GMT",
+      "title": "&quot;stablecoins&quot; including Tether, are scams and must be opposed.",
+      "link": "https://stacker.news/items/1619860",
+      "pubDate": "Mon, 23 Nov 2026 21:44:12 GMT",
       "description": "Comments"
     },
     {
-      "title": "Rise of scams using bitcoin kiosks prompts Michigan bills to outlaw them",
-      "link": "https://www.detroitnews.com/story/news/local/michigan/2026/11/22/michigan-bitcoin-crypto-scam-kiosks-bills-ban/92748599007/",
-      "pubDate": "Mon, 23 Nov 2026 00:41:03 GMT",
+      "title": "Launching the FREEDOM GUILD 🕊️",
+      "link": "https://stacker.news/items/1619517",
+      "pubDate": "Mon, 23 Nov 2026 11:33:18 GMT",
       "description": "Comments"
     },
     {
-      "title": "Blok Whatcha Buying Week #65: CEO Buys, Paper Profits, and Red Everywhere!",
-      "link": "https://stacker.news/items/1619380",
-      "pubDate": "Mon, 23 Nov 2026 02:32:25 GMT",
+      "title": "Celebrating Michael Ford’s (fanquake) four years at Brink",
+      "link": "https://brink.dev/blog/2026/11/23/michaels-brink-epoch/",
+      "pubDate": "Mon, 23 Nov 2026 17:46:17 GMT",
       "description": "Comments"
     },
     {
-      "title": "Anthropic’s Employees: Trust Us, We’re the Good Guys (NYT, Jasmine Sun)",
-      "link": "https://www.nytimes.com/2026/11/18/opinion/anthropic-ai-openai.html",
-      "pubDate": "Sun, 22 Nov 2026 19:43:21 GMT",
+      "title": "T - Minus 1 Hour and 20 Minutes Till I Get Told If I Have A Job Come January 3rd",
+      "link": "https://stacker.news/items/1618093",
+      "pubDate": "Fri, 20 Nov 2026 14:26:16 GMT",
       "description": "Comments"
     },
     {
-      "title": "SHOW SN: Payment-gated contact page v2 - no more nostr",
-      "link": "https://stacker.news/items/1619196",
-      "pubDate": "Sun, 22 Nov 2026 19:09:28 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Russian ship hit by suspected drone attack at Libyan naval base",
-      "link": "https://stacker.news/items/1619077",
-      "pubDate": "Sun, 22 Nov 2026 15:08:09 GMT",
+      "title": "How did they crack the Riemann Hypothesis? - Numberphile",
+      "link": "https://www.youtube.com/watch?v=PjGlt3y-Nco",
+      "pubDate": "Mon, 23 Nov 2026 18:36:03 GMT",
       "description": "Comments"
     }
   ]
