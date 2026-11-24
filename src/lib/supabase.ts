@@ -26,35 +26,23 @@ export interface TournamentSignup {
   created_at?: string;
 }
 
+// Public insert goes through a SECURITY DEFINER RPC: anon may not read the table,
+// so it cannot use INSERT ... RETURNING. The server assigns the number.
 export async function submitTournamentSignup(
   name: string,
   email: string,
   phone: string
-): Promise<TournamentSignup> {
+): Promise<Pick<TournamentSignup, 'signup_number' | 'is_waiting_list'>> {
   if (!supabase) throw new Error('Supabase not configured');
 
-  const { count } = await supabase
-    .from('tournament_signups')
-    .select('*', { count: 'exact', head: true });
-
-  const signupNumber = (count || 0) + 1;
-  const isWaitingList = signupNumber > 64;
-
-  const { data, error } = await supabase
-    .from('tournament_signups')
-    .insert({
-      name,
-      email,
-      phone,
-      signup_number: signupNumber,
-      is_waiting_list: isWaitingList,
-      payment_status: 'pending',
-    })
-    .select()
-    .single();
+  const { data, error } = await supabase.rpc('create_tournament_signup', {
+    p_name: name,
+    p_email: email,
+    p_phone: phone,
+  });
 
   if (error) throw error;
-  return data;
+  return data as Pick<TournamentSignup, 'signup_number' | 'is_waiting_list'>;
 }
 
 export async function getTournamentSignups(): Promise<TournamentSignup[]> {
@@ -72,31 +60,18 @@ export async function getTournamentStats() {
     return { totalSignups: 0, confirmedSpots: 0, waitingList: 0, paidCount: 0, spotsRemaining: 64 };
   }
 
-  const { count: totalSignups } = await supabase
-    .from('tournament_signups')
-    .select('*', { count: 'exact', head: true });
+  const { data, error } = await supabase.rpc('get_tournament_stats');
+  if (error) throw error;
 
-  const { count: confirmedSpots } = await supabase
-    .from('tournament_signups')
-    .select('*', { count: 'exact', head: true })
-    .eq('is_waiting_list', false);
-
-  const { count: waitingList } = await supabase
-    .from('tournament_signups')
-    .select('*', { count: 'exact', head: true })
-    .eq('is_waiting_list', true);
-
-  const { count: paidCount } = await supabase
-    .from('tournament_signups')
-    .select('*', { count: 'exact', head: true })
-    .eq('payment_status', 'paid');
+  const stats = (data || {}) as { total?: number; confirmed?: number; waiting?: number; paid?: number };
+  const confirmedSpots = stats.confirmed || 0;
 
   return {
-    totalSignups: totalSignups || 0,
-    confirmedSpots: confirmedSpots || 0,
-    waitingList: waitingList || 0,
-    paidCount: paidCount || 0,
-    spotsRemaining: Math.max(0, 64 - (confirmedSpots || 0)),
+    totalSignups: stats.total || 0,
+    confirmedSpots,
+    waitingList: stats.waiting || 0,
+    paidCount: stats.paid || 0,
+    spotsRemaining: Math.max(0, 64 - confirmedSpots),
   };
 }
 
@@ -120,4 +95,29 @@ export async function deleteTestSignups(): Promise<number> {
     .select();
   if (error) throw error;
   return data?.length || 0;
+}
+
+// --- Admin auth ---
+
+export async function adminSignIn(email: string, password: string): Promise<void> {
+  if (!supabase) throw new Error('Supabase not configured');
+  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  if (error) throw error;
+}
+
+export async function adminSignOut(): Promise<void> {
+  if (!supabase) return;
+  await supabase.auth.signOut();
+}
+
+export async function getAdminSession() {
+  if (!supabase) return null;
+  const { data } = await supabase.auth.getSession();
+  return data.session;
+}
+
+export function onAdminAuthChange(cb: (signedIn: boolean) => void): () => void {
+  if (!supabase) return () => {};
+  const { data } = supabase.auth.onAuthStateChange((_event, session) => cb(!!session));
+  return () => data.subscription.unsubscribe();
 }

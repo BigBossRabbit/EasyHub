@@ -1,17 +1,16 @@
 import { useState, useEffect, useCallback, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getTournamentSignups, getTournamentStats, deleteTestSignups, supabase, type TournamentSignup } from "@/lib/supabase";
+import { getTournamentSignups, getTournamentStats, deleteTestSignups, supabase, isSupabaseAvailable, adminSignIn, adminSignOut, getAdminSession, onAdminAuthChange, type TournamentSignup } from "@/lib/supabase";
 import { Users, Trophy, Clock, Trash2, RefreshCw, Database, Shield, AlertTriangle, CheckCircle2, Search, Download, Zap, Lock } from "lucide-react";
 import Seo from "@/components/Seo";
 
 /*
- * Front-end gate only: the dashboard data is public-read via Supabase, so this
- * stops casual sharing of the URL, not API access. Change the passphrase here.
- * RLS on `tournament_signups` is what actually restricts reads/writes.
+ * Real gate: Supabase Auth email/password session. RLS gives SELECT/UPDATE/DELETE
+ * on tournament_signups to `authenticated` only, so no rows load without it.
+ * Create the admin user in the Supabase dashboard (Authentication → Users) and
+ * turn off public sign-ups.
  */
-const ADMIN_PASS = "okinent-altsports";
-const ADMIN_KEY = "altsports-admin-ok";
 
 const AdminDashboard = () => {
   const [signups, setSignups] = useState<TournamentSignup[]>([]);
@@ -23,9 +22,12 @@ const AdminDashboard = () => {
   const [testResults, setTestResults] = useState<{ passed: number; failed: number; messages: string[] }>({ passed: 0, failed: 0, messages: [] });
   const [showTester, setShowTester] = useState(false);
   const [testerRunning, setTesterRunning] = useState(false);
-  const [authed, setAuthed] = useState(() => sessionStorage.getItem(ADMIN_KEY) === "1");
-  const [pass, setPass] = useState("");
-  const [passError, setPassError] = useState(false);
+  const [sessionReady, setSessionReady] = useState(false);
+  const [authed, setAuthed] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passError, setPassError] = useState("");
+  const [signingIn, setSigningIn] = useState(false);
 
   const loadData = useCallback(async () => {
     try {
@@ -44,20 +46,33 @@ const AdminDashboard = () => {
   }, []);
 
   useEffect(() => {
+    getAdminSession().then((s) => {
+      setAuthed(!!s);
+      setSessionReady(true);
+    });
+    return onAdminAuthChange((signedIn) => {
+      setAuthed(signedIn);
+      setSessionReady(true);
+    });
+  }, []);
+
+  useEffect(() => {
     if (!authed) return;
     loadData();
     const interval = setInterval(loadData, 15000);
     return () => clearInterval(interval);
   }, [authed, loadData]);
 
-  const submitPass = (e: FormEvent) => {
+  const submitPass = async (e: FormEvent) => {
     e.preventDefault();
-    if (pass === ADMIN_PASS) {
-      sessionStorage.setItem(ADMIN_KEY, "1");
-      setAuthed(true);
-      setPassError(false);
-    } else {
-      setPassError(true);
+    setSigningIn(true);
+    setPassError("");
+    try {
+      await adminSignIn(email.trim(), password);
+    } catch (err) {
+      setPassError(err instanceof Error ? err.message : "Sign-in failed.");
+    } finally {
+      setSigningIn(false);
     }
   };
 
@@ -91,9 +106,9 @@ const AdminDashboard = () => {
         .insert({
           name: `TESTER_${testTimestamp}`,
           email: "test@easysats.test",
-          phone: "+264000000000",
-          signup_number: 999999, // Special test number, won't interfere with real 63
-          is_waiting_list: false,
+          phone: "+264811234567",
+          // signup_number and is_waiting_list are assigned by the DB trigger
+
           payment_status: "pending",
         })
         .select()
@@ -142,8 +157,8 @@ const AdminDashboard = () => {
         `Data integrity: ${statsResult.confirmedSpots} confirmed + ${statsResult.waitingList} waiting = ${statsResult.totalSignups} total`
       );
 
-    } catch (e: any) {
-      addResult(false, `Unexpected error: ${e.message}`);
+    } catch (e) {
+      addResult(false, `Unexpected error: ${e instanceof Error ? e.message : String(e)}`);
     }
 
     setTesterRunning(false);
@@ -190,6 +205,10 @@ const AdminDashboard = () => {
     return matchesSearch && matchesFilter;
   });
 
+  if (!sessionReady) {
+    return <div className="min-h-screen flex items-center justify-center bg-background text-foreground font-mono text-primary">Checking session…</div>;
+  }
+
   if (!authed) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background text-foreground px-6">
@@ -198,24 +217,42 @@ const AdminDashboard = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-xl">
               <Lock className="h-5 w-5 text-primary" />
-              Admin access
+              Admin sign-in
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={submitPass} className="space-y-3">
-              <input
-                type="password"
-                value={pass}
-                onChange={(e) => { setPass(e.target.value); setPassError(false); }}
-                placeholder="Passphrase"
-                autoFocus
-                className="w-full rounded-md border border-border bg-background px-3 py-2 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-primary/60"
-              />
-              {passError && <p className="text-xs text-destructive font-mono">Wrong passphrase.</p>}
-              <Button type="submit" className="w-full">Enter</Button>
-            </form>
+            {isSupabaseAvailable() ? (
+              <form onSubmit={submitPass} className="space-y-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email"
+                  autoComplete="username"
+                  autoFocus
+                  className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60"
+                />
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Password"
+                  autoComplete="current-password"
+                  className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/60"
+                />
+                {passError && <p className="text-xs text-destructive font-mono break-words">{passError}</p>}
+                <Button type="submit" className="w-full" disabled={signingIn || !email || !password}>
+                  {signingIn ? "Signing in…" : "Sign in"}
+                </Button>
+              </form>
+            ) : (
+              <p className="text-sm text-muted-foreground">
+                Supabase is not configured in this build. Set <code className="font-mono">VITE_SUPABASE_URL</code> and{" "}
+                <code className="font-mono">VITE_SUPABASE_ANON_KEY</code>, then rebuild.
+              </p>
+            )}
             <p className="mt-4 text-xs text-muted-foreground">
-              Session only — closing the tab signs you out. <a href="/altsports" className="text-primary hover:underline">Back to AltSports</a>
+              Accounts are created in the Supabase dashboard. <a href="/altsports" className="text-primary hover:underline">Back to AltSports</a>
             </p>
           </CardContent>
         </Card>
@@ -248,12 +285,17 @@ const AdminDashboard = () => {
               Africa Bitcoin Day 2026 — Pool Tournament Dashboard
             </p>
           </div>
-          <div className="flex items-center gap-2 text-xs text-muted-500 font-mono">
-            <div className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+          <div className="flex items-center gap-3 text-xs text-muted-500 font-mono">
+            <div className="flex items-center gap-2">
+              <div className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+              </div>
+              Last sync: {lastRefresh.toLocaleTimeString()}
             </div>
-            Last sync: {lastRefresh.toLocaleTimeString()}
+            <Button variant="outline" size="sm" className="font-mono text-xs h-7" onClick={() => adminSignOut()}>
+              Sign out
+            </Button>
           </div>
         </div>
 

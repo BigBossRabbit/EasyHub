@@ -173,8 +173,8 @@ const Altsports = () => {
 
       // Refresh stats
       await loadStats();
-    } catch (err: any) {
-      setError(err.message || "Submission failed. Please try again.");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Submission failed. Please try again.");
     } finally {
       setLoading(false);
     }

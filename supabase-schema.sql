@@ -16,13 +16,9 @@ CREATE TABLE IF NOT EXISTS public.tournament_signups (
 -- Enable RLS
 ALTER TABLE public.tournament_signups ENABLE ROW LEVEL SECURITY;
 
--- Allow anyone to insert (public form)
-CREATE POLICY "Anyone can insert signups" ON public.tournament_signups
-    FOR INSERT WITH CHECK (true);
-
--- Allow anyone to read (for stats display)
-CREATE POLICY "Anyone can read signups" ON public.tournament_signups
-    FOR SELECT USING (true);
+-- Policies, numbering trigger and aggregate RPCs live in
+-- supabase/migrations/20261124000000_tighten_tournament_signups.sql
+-- Public may insert; only authenticated admins may read/update/delete.
 
 -- Create index for faster lookups
 CREATE INDEX IF NOT EXISTS idx_tournament_signups_email ON public.tournament_signups(email);
