@@ -1,5 +1,11 @@
 # AltSports tournament signups — access model
 
+**Status:** the Supabase project (`kfvgdegoxtnxhgclujut`) is paused, and the section is not in
+active use. Nothing is broken by waiting: the gate says "not configured" and the entry form
+errors visibly. When you resume, unpause the project first, then follow the setup below in
+order. The migration is already in the repo — paste it into the SQL editor.
+
+
 Front-end passphrases are gone. The gate is a real Supabase Auth session.
 
 ## Data model
