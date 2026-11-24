@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T09:57:29.890Z",
+  "generatedAt": "2026-11-24T22:29:05.272Z",
   "jobs": {
     "stackerNews": [
       {
@@ -107,6 +107,30 @@
   },
   "bounties": [
     {
+      "id": 4094406425,
+      "title": "Refactor walkthrough.md - remove mentions of apps and unify plugins terminology",
+      "url": "https://github.com/btcpayserver/btcpayserver-doc/issues/1559",
+      "kind": "first issue",
+      "repo": "btcpayserver/btcpayserver-doc",
+      "labels": [
+        "good first issue"
+      ],
+      "amount": null,
+      "createdAt": "2026-03-18T11:11:36Z"
+    },
+    {
+      "id": 4094557825,
+      "title": "Update `WhatsNext`page for core plugin terminology changes",
+      "url": "https://github.com/btcpayserver/btcpayserver-doc/issues/1563",
+      "kind": "first issue",
+      "repo": "btcpayserver/btcpayserver-doc",
+      "labels": [
+        "good first issue"
+      ],
+      "amount": null,
+      "createdAt": "2026-03-18T11:40:02Z"
+    },
+    {
       "id": 1870844341,
       "title": "Reduce bundle size",
       "url": "https://github.com/getAlby/bitcoin-connect/issues/45",
@@ -144,18 +168,6 @@
       "createdAt": "2024-11-14T05:05:22Z"
     },
     {
-      "id": 4094406425,
-      "title": "Refactor walkthrough.md - remove mentions of apps and unify plugins terminology",
-      "url": "https://github.com/btcpayserver/btcpayserver-doc/issues/1559",
-      "kind": "first issue",
-      "repo": "btcpayserver/btcpayserver-doc",
-      "labels": [
-        "good first issue"
-      ],
-      "amount": null,
-      "createdAt": "2026-03-18T11:11:36Z"
-    },
-    {
       "id": 2058803979,
       "title": "Don't show \"connected to\" on connection error",
       "url": "https://github.com/getAlby/bitcoin-connect/issues/174",
@@ -166,19 +178,6 @@
       ],
       "amount": null,
       "createdAt": "2023-12-28T20:38:11Z"
-    },
-    {
-      "id": 4411489504,
-      "title": "Add Turkish translation for BTCPay server",
-      "url": "https://github.com/btcpayserver/btcpayserver-translator/issues/67",
-      "kind": "first issue",
-      "repo": "btcpayserver/btcpayserver-translator",
-      "labels": [
-        "good first issue",
-        "recruitment"
-      ],
-      "amount": null,
-      "createdAt": "2026-05-09T06:35:43Z"
     },
     {
       "id": 5503048425,
@@ -233,9 +232,21 @@
   ],
   "news": [
     {
-      "title": "Burning Electricity for Yet More Sats: 21 Energy and their new Ofen 3 Pro",
-      "link": "https://stacker.news/items/1619836",
-      "pubDate": "Mon, 23 Nov 2026 20:33:14 GMT",
+      "title": "Trip Report: Santo Domingo",
+      "link": "https://stacker.news/items/1620455",
+      "pubDate": "Tue, 24 Nov 2026 22:21:57 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Bitcoin Square Payment - Aptos, California",
+      "link": "https://stacker.news/items/1620411",
+      "pubDate": "Tue, 24 Nov 2026 21:00:41 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
+      "link": "https://stacker.news/items/1551074",
+      "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
       "description": "Comments"
     },
     {
@@ -245,51 +256,39 @@
       "description": "Comments"
     },
     {
-      "title": "My take on the new new hotness - Praxis.",
-      "link": "https://primal.net/e/nevent1qqsx2c9w4mgw7eqgrrd3vtnk5grnknz4k9298m4vfk3yeg32xglvqzcf4rv6p",
-      "pubDate": "Tue, 24 Nov 2026 01:14:46 GMT",
+      "title": "Jungly - Bitcoin Optech Newsletter #432 Recap Podcast",
+      "link": "https://bitcoinops.org/en/podcast/2026/11/24/",
+      "pubDate": "Tue, 24 Nov 2026 20:39:54 GMT",
       "description": "Comments"
     },
     {
-      "title": "Celebrating Michael Ford’s (fanquake) four years at Brink",
-      "link": "https://brink.dev/blog/2026/11/23/michaels-brink-epoch/",
-      "pubDate": "Mon, 23 Nov 2026 17:46:17 GMT",
+      "title": "Our COLDCARD Seed-Generation Postmortem is Now Public (Coinkite)",
+      "link": "https://blog.coinkite.com/coldcard-postmortem-published/",
+      "pubDate": "Tue, 24 Nov 2026 18:02:38 GMT",
       "description": "Comments"
     },
     {
-      "title": "Praxis: Practical Witness Encryption for NP",
-      "link": "https://eprint.iacr.org/2026/2971",
-      "pubDate": "Mon, 23 Nov 2026 18:31:31 GMT",
+      "title": "Electrum Proxy Servers spun up in mid November 2026",
+      "link": "https://bnoc.xyz/t/electrum-proxy-servers-spun-up-in-mid-november-2026/215",
+      "pubDate": "Tue, 24 Nov 2026 20:23:44 GMT",
       "description": "Comments"
     },
     {
-      "title": "&quot;stablecoins&quot; including Tether, are scams and must be opposed.",
-      "link": "https://stacker.news/items/1619860",
-      "pubDate": "Mon, 23 Nov 2026 21:44:12 GMT",
+      "title": "The Gen Z Men Embracing Catholicism (NYT Magazine)",
+      "link": "https://www.nytimes.com/interactive/2026/11/23/magazine/catholic-converts-gen-z.html",
+      "pubDate": "Tue, 24 Nov 2026 19:25:19 GMT",
       "description": "Comments"
     },
     {
-      "title": "Acemoglu Wants Pro-Worker AIs (FT, Daron Acemoglu)",
-      "link": "https://www.ft.com/content/add930b5-5a4c-4226-a778-ffdd009915f0",
-      "pubDate": "Mon, 23 Nov 2026 15:36:08 GMT",
+      "title": "📣Jungly / P2PoolV2 AMA rescheduled for Friday @ 10AM Texas Time",
+      "link": "https://stacker.news/items/1620376",
+      "pubDate": "Tue, 24 Nov 2026 19:56:29 GMT",
       "description": "Comments"
     },
     {
-      "title": "JoinMarket CoinJoin change as LN channel opens — m0wer",
-      "link": "https://youtu.be/8y6hXW4I_-s",
-      "pubDate": "Mon, 23 Nov 2026 20:16:59 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Daily Discussion Thread ~Music Saloon!",
-      "link": "https://stacker.news/items/1619985",
-      "pubDate": "Tue, 24 Nov 2026 06:21:12 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Attorney: RJ Luis Jr. plans to sue SEC, Greg Sankey over LSU eligibility saga",
-      "link": "https://www.espn.com/mens-college-basketball/story/_/id/50578772/rj-luis-plans-sue-sec-greg-sankey-damages-lsu-eligibility-saga-attorney-says",
-      "pubDate": "Tue, 24 Nov 2026 03:44:48 GMT",
+      "title": "Who is Levent Alpöge, the reclusive genius behind AI’s math conquest?",
+      "link": "https://www.scientificamerican.com/article/who-is-levent-alpoege-the-reclusive-genius-behind-ais-math-conquest/",
+      "pubDate": "Tue, 24 Nov 2026 15:40:49 GMT",
       "description": "Comments"
     }
   ]
