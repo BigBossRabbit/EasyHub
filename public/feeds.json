@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T08:38:57.924Z",
+  "generatedAt": "2026-11-27T21:20:49.367Z",
   "jobs": {
     "stackerNews": [
       {
@@ -232,21 +232,33 @@
   ],
   "news": [
     {
-      "title": "Argentina bans its central bank from printing money for the government by law.",
-      "link": "https://stacker.news/items/1621605",
-      "pubDate": "Fri, 27 Nov 2026 02:40:36 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Tether Fun Unbelievable Details - Part VII",
-      "link": "https://stacker.news/items/1621289",
-      "pubDate": "Thu, 26 Nov 2026 14:30:35 GMT",
-      "description": "Comments"
-    },
-    {
       "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
       "link": "https://stacker.news/items/1551074",
       "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Bitcoin Core and CLN disclosures, BIP editors - Bitcoin Optech Newsletter #433",
+      "link": "https://bitcoinops.org/en/newsletters/2026/11/27/",
+      "pubDate": "Fri, 27 Nov 2026 13:33:29 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "AskSN: What should Blok do with his extra fiat?",
+      "link": "https://stacker.news/items/1621883",
+      "pubDate": "Fri, 27 Nov 2026 17:44:32 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Introducing Fountain Daily Growth",
+      "link": "https://fountain.fm/blog/introducing-daily-growth",
+      "pubDate": "Fri, 27 Nov 2026 14:09:28 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Argentina bans its central bank from printing money for the government by law.",
+      "link": "https://stacker.news/items/1621605",
+      "pubDate": "Fri, 27 Nov 2026 02:40:36 GMT",
       "description": "Comments"
     },
     {
@@ -256,39 +268,27 @@
       "description": "Comments"
     },
     {
-      "title": "FCC approves SpaceX plan to put AI data centers in space",
-      "link": "https://techcrunch.com/2026/11/25/fcc-approves-spacex-plan-to-put-ai-data-centers-in-space/",
-      "pubDate": "Thu, 26 Nov 2026 13:18:17 GMT",
+      "title": "NFL Black Friday Game Discussion Thread",
+      "link": "https://stacker.news/items/1621911",
+      "pubDate": "Fri, 27 Nov 2026 19:59:22 GMT",
       "description": "Comments"
     },
     {
-      "title": "USAID&apos;s Own Files Confirm Biden&apos;s Global Censorship Machine",
-      "link": "https://www.zerohedge.com/political/why-democrats-freaked-out-over-doge-usaids-own-files-confirm-bidens-global-censorship",
-      "pubDate": "Thu, 26 Nov 2026 16:34:40 GMT",
+      "title": "Weekly Random Sports Pick &apos;em",
+      "link": "https://stacker.news/items/1621872",
+      "pubDate": "Fri, 27 Nov 2026 17:07:52 GMT",
       "description": "Comments"
     },
     {
-      "title": "Bitcoin Listings | 500+ online shops that accept Bitcoin (over 200k products)",
-      "link": "https://bitcoinlistings.org/",
-      "pubDate": "Thu, 26 Nov 2026 19:58:22 GMT",
+      "title": "On-chain withdrawal limits on CoinOS",
+      "link": "https://stacker.news/items/1620858",
+      "pubDate": "Wed, 25 Nov 2026 18:22:14 GMT",
       "description": "Comments"
     },
     {
-      "title": "Thanksgiving Games NFL Discussion Thread",
-      "link": "https://stacker.news/items/1621412",
-      "pubDate": "Thu, 26 Nov 2026 18:11:09 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "What are you cooking today?",
-      "link": "https://stacker.news/items/1621396",
-      "pubDate": "Thu, 26 Nov 2026 17:53:02 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Gukesh and Sindarov Draw Again in Game 3 of World Chess Championship",
-      "link": "https://amp.marca.com/ajedrez/2026/11/26/gukesh-sindarov-siguen-sumando-tablas.html",
-      "pubDate": "Fri, 27 Nov 2026 07:23:02 GMT",
+      "title": "Update on Paolo III",
+      "link": "https://stacker.news/items/1618248",
+      "pubDate": "Fri, 20 Nov 2026 19:04:10 GMT",
       "description": "Comments"
     }
   ]
