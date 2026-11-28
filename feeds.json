@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T21:20:49.367Z",
+  "generatedAt": "2026-11-28T07:53:48.063Z",
   "jobs": {
     "stackerNews": [
       {
@@ -232,6 +232,24 @@
   ],
   "news": [
     {
+      "title": "Two weeks in Czechia without a bank account: paying with Bitcoin",
+      "link": "https://stacker.news/items/1622056",
+      "pubDate": "Sat, 28 Nov 2026 04:49:41 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Abundant Mines plans landfill-powered Bitcoin mine near Mexico City",
+      "link": "https://www.datacenterdynamics.com/en/news/abundant-mines-plans-landfill-powered-bitcoin-mine-near-mexico-city/",
+      "pubDate": "Fri, 27 Nov 2026 22:17:19 GMT",
+      "description": "Comments"
+    },
+    {
+      "title": "Linky - send bitcoin like a message — Hynek | bitcoin++ Berlin, payments edition",
+      "link": "https://youtu.be/nqK2kPimYIU",
+      "pubDate": "Thu, 19 Nov 2026 23:20:09 GMT",
+      "description": "Comments"
+    },
+    {
       "title": "OpenBitcoin.com: A new bitcoin block explorer with guides tools and games",
       "link": "https://stacker.news/items/1551074",
       "pubDate": "Wed, 19 Aug 2026 19:44:47 GMT",
@@ -250,45 +268,27 @@
       "description": "Comments"
     },
     {
-      "title": "Introducing Fountain Daily Growth",
-      "link": "https://fountain.fm/blog/introducing-daily-growth",
-      "pubDate": "Fri, 27 Nov 2026 14:09:28 GMT",
+      "title": "hypereffect",
+      "link": "https://hypereffect.dev/",
+      "pubDate": "Fri, 27 Nov 2026 23:38:51 GMT",
       "description": "Comments"
     },
     {
-      "title": "Argentina bans its central bank from printing money for the government by law.",
-      "link": "https://stacker.news/items/1621605",
-      "pubDate": "Fri, 27 Nov 2026 02:40:36 GMT",
+      "title": "OCC shut down Indiana based United Fidelity Bank",
+      "link": "https://edition.cnn.com/2026/11/27/business/united-fidelity-bank-fdic",
+      "pubDate": "Sat, 28 Nov 2026 07:04:12 GMT",
       "description": "Comments"
     },
     {
-      "title": "An Intelligent Response to &quot;Bitcoin Has Become Boring&quot;",
-      "link": "https://stacker.news/items/1621671",
-      "pubDate": "Fri, 27 Nov 2026 05:51:36 GMT",
+      "title": "A woman in Edwardian era fashion, 1905",
+      "link": "https://stacker.news/items/1622001",
+      "pubDate": "Fri, 27 Nov 2026 23:59:34 GMT",
       "description": "Comments"
     },
     {
-      "title": "NFL Black Friday Game Discussion Thread",
-      "link": "https://stacker.news/items/1621911",
-      "pubDate": "Fri, 27 Nov 2026 19:59:22 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Weekly Random Sports Pick &apos;em",
-      "link": "https://stacker.news/items/1621872",
-      "pubDate": "Fri, 27 Nov 2026 17:07:52 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "On-chain withdrawal limits on CoinOS",
-      "link": "https://stacker.news/items/1620858",
-      "pubDate": "Wed, 25 Nov 2026 18:22:14 GMT",
-      "description": "Comments"
-    },
-    {
-      "title": "Update on Paolo III",
-      "link": "https://stacker.news/items/1618248",
-      "pubDate": "Fri, 20 Nov 2026 19:04:10 GMT",
+      "title": "They climbed to 6,277 meters to play chess and seek a world record",
+      "link": "https://www.infobae.com/historias/2026/11/26/subieron-a-6277-metros-de-altura-en-ecuador-para-jugar-una-partida-de-ajedrez-y-buscar-un-record-mundial-y-quieren-defender-el-titulo/",
+      "pubDate": "Fri, 27 Nov 2026 21:47:49 GMT",
       "description": "Comments"
     }
   ]
